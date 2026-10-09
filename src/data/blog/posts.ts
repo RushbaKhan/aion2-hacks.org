@@ -840,7 +840,7 @@ export const blogPosts: BlogPostFull[] = [
       { type: 'p', text: "Run bot lobby or Turbo test before ranked MMR—never first session in ranked on patch day." },
       { type: 'h2', text: "Addons and recovery products" },
       { type: 'p', text: "Optional: [Unlock All](/products/dota-2-cheats/unlock-all/) cosmetics, [HWID Spoofer](/products/dota-2-cheats/hwid-spoofer/), [UGC](/products/dota-2-cheats/ugc/) appeals—each separate secure checkout with own portal section." },
-      { type: 'p', text: "Cheats tiers and recovery tools share dotacheats.com support but different affiliate product lines." },
+      { type: 'p', text: "Cheat tiers and recovery tools share dotacheats.com support but ship as separate product lines." },
       { type: 'h2', text: "Support and status" },
       { type: 'p', text: "Stuck on checkout or loader? Discord with order email and Windows version. Always check live status before ranked—especially patch days per [VAC checklist](/blog/vac-patch-day-checklist/)." },
       { type: 'p', text: "Welcome to private dota cheats at dotacheats.com—human support beats free paste forums that vanish after VAC waves." },

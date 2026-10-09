@@ -1,4 +1,4 @@
-export declare const AFFILIATE_CHECKOUT_URLS: {
+export declare const CHECKOUT_URLS: {
   readonly dota2: string;
   readonly skinChanger: string;
   readonly hwidSpoofer: string;

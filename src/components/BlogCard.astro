@@ -1,4 +1,5 @@
 ---
+import '../styles/blog-pages.css';
 import ResponsiveImage from './ResponsiveImage.astro';
 import Icon from './icons/Icon.astro';
 import { CARD_IMAGE_SIZES, CARD_IMAGE_WIDTHS } from '../utils/responsiveImage';
@@ -35,7 +36,7 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
 <Card
   size="sm"
   class:list={[
-    'blog-card group/card gap-0 overflow-hidden py-0 pt-0 shadow-xs hover:shadow-md has-data-[slot=card-footer]:pb-0',
+    'blog-card group/card gap-0 overflow-visible border border-border py-0 pt-0 shadow-xs ring-0 ring-transparent hover:shadow-md has-data-[slot=card-footer]:pb-0',
     isFeatured
       ? 'blog-featured mt-8 md:mt-10 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch'
       : 'flex h-full flex-col',
@@ -49,8 +50,8 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
   <a
     href={href}
     class:list={[
-      'relative block aspect-video overflow-hidden focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-card',
-      isFeatured && 'lg:aspect-auto lg:min-h-[16rem] lg:self-stretch',
+      'blog-card__media relative block aspect-video overflow-hidden focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-card',
+      isFeatured && 'blog-featured__media lg:aspect-auto lg:min-h-[16rem] lg:self-stretch',
     ]}
     tabindex="-1"
     aria-hidden="true"
@@ -62,15 +63,15 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
       height={isFeatured ? 540 : 360}
       widths={isFeatured ? undefined : CARD_IMAGE_WIDTHS}
       sizes={isFeatured ? '(min-width: 1024px) 560px, 100vw' : CARD_IMAGE_SIZES}
-      loading={eager || index < 3 ? 'eager' : 'lazy'}
-      fetchPriority={eager || index === 0 ? 'high' : undefined}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchPriority={eager ? 'high' : undefined}
       class:list={[
         'size-full object-cover transition-transform duration-500 ease-out group-hover/card:scale-[1.03]',
-        isFeatured && 'lg:absolute lg:inset-0 lg:aspect-auto',
+        isFeatured && 'lg:absolute lg:inset-0 lg:h-full lg:w-full lg:max-w-none',
       ]}
     />
 
-    <div class="pointer-events-none absolute inset-x-0 top-0 flex items-start justify-between gap-2 p-3">
+    <div class="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-2 p-3">
       <Badge
         tone="neutral"
         appearance="frosted"
@@ -96,55 +97,56 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
     </div>
 
     <span
-      class="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"
+      class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"
       aria-hidden="true"
     />
   </a>
 
-  <div class:list={[isFeatured && 'flex min-h-0 flex-col lg:border-l lg:border-border']}>
-  <CardContent
-    class:list={[
-      'flex flex-1 flex-col gap-2.5 p-4 pb-3',
-      isFeatured && 'justify-center border-t border-border p-5 sm:p-6 lg:border-t-0 lg:py-6 lg:pl-8 lg:pr-6',
-    ]}
-  >
-    <CardTitle class="text-base font-semibold normal-case leading-snug tracking-tight md:text-[1.0625rem]">
-      <a
-        href={href}
-        class="text-foreground decoration-primary/0 underline-offset-4 transition-colors hover:text-primary hover:underline"
-      >
-        {post.title}
-      </a>
-    </CardTitle>
-
-    <p
+  <div class:list={['blog-card__body', isFeatured ? 'blog-featured__body lg:border-l lg:border-border' : 'flex min-h-0 flex-1 flex-col']}>
+    <CardContent
       class:list={[
-        'text-sm leading-relaxed text-muted-foreground',
-        isFeatured ? 'line-clamp-4 md:line-clamp-5' : 'line-clamp-2',
+        'flex flex-1 flex-col gap-2.5 p-4 pb-3',
+        isFeatured && 'justify-center border-t border-border p-5 sm:p-6 lg:border-t-0 lg:py-6 lg:pl-8 lg:pr-6',
       ]}
     >
-      {post.desc}
-    </p>
-  </CardContent>
+      <CardTitle class="text-base font-semibold normal-case leading-snug tracking-tight md:text-[1.0625rem]">
+        <a
+          href={href}
+          class="text-foreground decoration-primary/0 underline-offset-4 transition-colors hover:text-primary hover:underline"
+        >
+          {post.title}
+        </a>
+      </CardTitle>
 
-  <CardFooter class="blog-card__footer mt-auto border-t px-4 py-3 lg:px-6">
-    <p class="blog-card__footer-meta text-sm text-muted-foreground">
-      {showDate ? (
-        <>
-          <Icon name="calendar" size={14} class="inline-block align-[-2px]" aria-hidden="true" />
-          <span class="ml-1.5">{post.date}</span>
-          <span class="mx-2 text-border" aria-hidden="true">
-            ·
-          </span>
-        </>
-      ) : null}
-      <Icon name="clock" size={14} class="inline-block align-[-2px]" aria-hidden="true" />
-      <span class="ml-1.5">{post.readTime}</span>
-    </p>
-    <Button as="a" href={href} variant="outline" size="sm" class="blog-card__read shrink-0">
-      {t.blog.read}
-      <Icon name="arrowRight" size={16} />
-    </Button>
-  </CardFooter>
+      <p
+        class:list={[
+          'text-sm leading-relaxed text-muted-foreground',
+          isFeatured ? 'line-clamp-4 md:line-clamp-5' : 'line-clamp-2',
+        ]}
+      >
+        {post.desc}
+      </p>
+    </CardContent>
+
+    <CardFooter class="blog-card__footer mt-auto rounded-none border-border/80 bg-transparent px-4 pb-6 pt-4 shadow-none sm:px-5 sm:pb-6">
+      <p class="blog-card__footer-meta text-sm text-muted-foreground">
+        {
+          /* Date already shows on the image when showDate is set — keep footer to one clean row */
+          !showDate ? (
+            <>
+              <Icon name="calendar" size={14} class="blog-card__footer-icon" aria-hidden="true" />
+              <span>{post.date}</span>
+              <span class="blog-card__footer-dot" aria-hidden="true">·</span>
+            </>
+          ) : null
+        }
+        <Icon name="clock" size={14} class="blog-card__footer-icon" aria-hidden="true" />
+        <span>{post.readTime}</span>
+      </p>
+      <Button as="a" href={href} variant="outline" size="sm" class="blog-card__read shrink-0">
+        {t.blog.read}
+        <Icon name="arrowRight" size={16} />
+      </Button>
+    </CardFooter>
   </div>
 </Card>

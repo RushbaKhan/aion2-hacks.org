@@ -1,4 +1,5 @@
 ---
+import '../../styles/blog-pages.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { t } from '../../i18n';
 import { getAllBlogSlugs, getBlogPost, getRelatedBlogPosts } from '../../data/blog';
@@ -8,7 +9,7 @@ import {
   breadcrumbSchema,
   parseBlogDate,
 } from '../../utils/schema';
-import { checkoutPath, resolveCheckoutHref } from '../../config/affiliate';
+import { checkoutPath, resolveCheckoutHref } from '../../config/checkout';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import ResponsiveImage from '../../components/ResponsiveImage.astro';
 import BlogSidebar from '../../components/BlogSidebar.astro';

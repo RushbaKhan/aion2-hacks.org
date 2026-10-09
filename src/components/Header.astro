@@ -1,6 +1,6 @@
 ---
 import { t } from '../i18n';
-import { checkoutPath } from '../config/affiliate';
+import { checkoutPath } from '../config/checkout';
 import { Button } from '@/components/starwind/button';
 import AnimatedThemeSwitch from './AnimatedThemeSwitch.astro';
 import {
@@ -16,7 +16,6 @@ import SlideRevealButton from './SlideRevealButton.astro';
 import type { IconName } from './icons/types';
 
 const navIcons: Record<string, IconName> = {
-  Features: 'navFeatures',
   Products: 'navProducts',
   Blog: 'navBlog',
   Forum: 'messageCircle',
@@ -32,8 +31,7 @@ const purchaseUrl = checkoutPath('dota2');
     <div
       class="pointer-events-auto relative flex h-14 w-full max-w-6xl items-center justify-between gap-3 rounded-2xl border border-border/40 bg-background/35 px-4 text-foreground shadow-md shadow-black/5 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/25 dark:border-white/10 dark:bg-background/20 dark:shadow-black/25 sm:px-5 lg:h-[3.75rem]"
     >
-    <a href="/" class="inline-flex min-w-0 items-center gap-2.5 font-[family-name:var(--font-heading)] text-lg font-bold tracking-wide" aria-label={t.ui.homeAria}>
-      <img src="/logo.svg" alt="" width="38" height="38" class="shrink-0 rounded-lg" />
+    <a href="/" class="inline-flex min-w-0 items-center font-[family-name:var(--font-heading)] text-lg font-bold tracking-wide" aria-label={t.ui.homeAria}>
       <span class="truncate" aria-hidden="true">Dota<span class="text-primary">Cheats</span></span>
     </a>
 

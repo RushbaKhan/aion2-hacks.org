@@ -1,12 +1,7 @@
 @import './theme-switch.css';
-@import './product-cheat-page.css';
-@import './workflow-section.css';
-@import './support-section.css';
-@import './blog-sidebar.css';
-@import './blog-pages.css';
-@import './forum.css';
 
-/* Site-specific globals (Tailwind + Starwind live in starwind.css) */
+/* Site-specific globals (Tailwind + Starwind live in starwind.css).
+   Page CSS is imported only where used to keep inlined HTML smaller. */
 
 /* Centered page sections — max width matches Tailwind max-w-6xl */
 .section-shell {
@@ -97,40 +92,20 @@ html.dark {
 
 html {
   scroll-padding-top: var(--floating-nav-clearance);
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
-/* Themed scrollbars — viewport + overflow regions (Firefox + WebKit) */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
-}
-
+html::-webkit-scrollbar,
 *::-webkit-scrollbar {
-  width: var(--scrollbar-size);
-  height: var(--scrollbar-size);
+  display: none;
+  width: 0;
+  height: 0;
 }
 
-*::-webkit-scrollbar-track {
-  background: var(--scrollbar-track);
-  border-radius: var(--radius-lg);
-}
-
-*::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
-  border: 2px solid var(--scrollbar-track);
-  border-radius: var(--radius-lg);
-  background-clip: padding-box;
-}
-
-*::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-thumb-hover);
-}
-
-*::-webkit-scrollbar-corner {
-  background: var(--scrollbar-track);
+* {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
 
 #main-content > :first-child:not(#hero) {

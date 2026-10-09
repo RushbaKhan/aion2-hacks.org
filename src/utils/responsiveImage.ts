@@ -6,6 +6,8 @@ export const CARD_IMAGE_SIZES = '(min-width: 1024px) 330px, (min-width: 640px) 5
 /** 512w matches hero slider display (~487px at 1x); 640/960 for larger viewports and retina. */
 export const HERO_IMAGE_WIDTHS = [512, 640, 960] as const;
 export const HERO_IMAGE_SIZES = '(min-width: 1024px) 490px, 100vw';
+/** Thumbs ~148px CSS; 320w covers 2x DPR without pulling 640/960. */
+export const THUMB_IMAGE_WIDTHS = [320, 400] as const;
 export const DEFAULT_IMAGE_WIDTHS = [640, 960] as const;
 
 export function stripRasterExt(src: string): string {

@@ -15,6 +15,10 @@ export default defineConfig({
     '/contact/': '/support/',
   },
   compressHTML: true,
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'hover',
+  },
   devToolbar: {
     enabled: false,
   },
@@ -29,6 +33,8 @@ export default defineConfig({
     build: {
       cssMinify: true,
       minify: 'esbuild',
+      target: 'es2022',
+      modulePreload: { polyfill: false },
     },
   },
   build: {

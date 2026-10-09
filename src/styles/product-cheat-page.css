@@ -8,16 +8,23 @@
   line-height: 1.25;
 }
 
+/* Landing products header stays left-aligned with the cards */
+#products .section-header,
+#products .section-header__subtitle {
+  margin-inline: 0;
+  text-align: left;
+}
+
 /* Landing products row carousel */
 .products-carousel {
   --products-carousel-gap: 1rem;
-  --products-carousel-edge: 2.5rem;
+  position: relative;
+  margin-top: 4.75rem;
 }
 
 @media (min-width: 768px) {
   .products-carousel {
     --products-carousel-gap: 1.25rem;
-    --products-carousel-edge: 3.25rem;
   }
 }
 
@@ -28,8 +35,6 @@
 .products-carousel__stage {
   position: relative;
   min-width: 0;
-  margin-inline: calc(-1 * var(--products-carousel-edge));
-  padding-inline: var(--products-carousel-edge);
 }
 
 .products-carousel__viewport {
@@ -45,7 +50,7 @@
 
 .products-carousel__stage .products-carousel__arrow {
   position: absolute;
-  top: 50%;
+  top: -3.6rem;
   z-index: 3;
   display: none;
   width: 2.75rem;
@@ -55,7 +60,7 @@
   border: 1px solid color-mix(in oklch, var(--border) 85%, var(--foreground) 15%);
   background: color-mix(in oklch, var(--background) 92%, var(--foreground) 8%);
   box-shadow: 0 4px 24px color-mix(in oklch, var(--background) 55%, transparent);
-  transform: translateY(-50%) !important;
+  transform: none !important;
   opacity: 0;
   pointer-events: none;
   transition:
@@ -65,8 +70,8 @@
 }
 
 .products-carousel__arrow--prev {
-  left: 0 !important;
-  right: auto !important;
+  left: auto !important;
+  right: 3.6rem !important;
 }
 
 .products-carousel__arrow--next {
@@ -352,23 +357,12 @@ html:not(.dark) .product-feature-check .icon-app:hover {
 }
 
 .product-gallery__thumbs {
-  scrollbar-width: thin;
-  scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-track);
+  scrollbar-width: none;
 }
 
 .product-gallery__thumbs::-webkit-scrollbar {
-  width: 6px;
-}
-
-.product-gallery__thumbs::-webkit-scrollbar-thumb {
-  background-color: var(--scrollbar-thumb);
-  border: 2px solid var(--scrollbar-track);
-  border-radius: 999px;
-  background-clip: padding-box;
-}
-
-.product-gallery__thumbs::-webkit-scrollbar-thumb:hover {
-  background-color: var(--scrollbar-thumb-hover);
+  display: none;
+  width: 0;
 }
 
 .product-gallery__thumb {

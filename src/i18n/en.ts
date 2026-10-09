@@ -1,5 +1,5 @@
 import type { Translations } from './types';
-import { PRIMARY_CHECKOUT_PATH } from '../config/affiliate';
+import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
 import { PRODUCT_BASE } from '../config/site';
 
 const productBase = PRODUCT_BASE;
@@ -14,7 +14,6 @@ export const en: Translations = {
     discord: PRIMARY_CHECKOUT_PATH,
   },
   nav: [
-    { href: '/', label: 'Features', scrollTarget: 'features' },
     { href: `${productBase}`, label: 'Products' },
     { href: '/blog/', label: 'Blog' },
     { href: '/forum/', label: 'Forum' },
@@ -23,7 +22,7 @@ export const en: Translations = {
   ],
   hero: {
     status: 'Dota 2 — patch build online',
-    eyebrow: 'Dota 2',
+    eyebrow: '#1 Undetected Provider',
     titleLine1: 'Dota 2',
     titleLine2: 'Cheats & Hacks',
     subtitle:
@@ -35,7 +34,7 @@ export const en: Translations = {
     metrics: [
       { label: 'Stream-safe', strong: 'Yes' },
       { label: 'Patch speed', strong: '<24h' },
-      { label: 'users', strong: '300+' },
+      { label: 'Users', strong: '300+' },
       { label: 'Live support', strong: '24/7' },
     ],
   },
@@ -666,7 +665,7 @@ export const en: Translations = {
         {
           heading: 'Cookies',
           paragraphs: [
-            'We use minimal cookies required for analytics and affiliate attribution. You can block cookies in your browser settings; core site content remains accessible without them.',
+            'We use minimal cookies required for analytics. You can block cookies in your browser settings; core site content remains accessible without them.',
           ],
         },
         {

@@ -136,24 +136,6 @@ const robotsContent = noindex
     {jsonLd && <JsonLd data={jsonLd} />}
     <slot name="head" />
 
-    {
-      GA_MEASUREMENT_ID && (
-        <>
-          <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`} />
-          <script
-            is:inline
-            define:vars={{ GA_MEASUREMENT_ID }}
-          >
-            window.dataLayer = window.dataLayer || [];
-            function gtag() {
-              dataLayer.push(arguments);
-            }
-            gtag('js', new Date());
-            gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
-          </script>
-        </>
-      )
-    }
   </head>
   <body class="min-h-screen bg-background text-foreground">
     <button type="button" class="skip-link" data-skip-to-main>{t.ui.skipLink}</button>
@@ -165,5 +147,36 @@ const robotsContent = noindex
     <script>
       import '../scripts/site.ts';
     </script>
+    {
+      GA_MEASUREMENT_ID && (
+        <script is:inline define:vars={{ GA_MEASUREMENT_ID }}>
+          (() => {
+            const loadGa = () => {
+              if (window.__gaLoaded) return;
+              window.__gaLoaded = true;
+              window.dataLayer = window.dataLayer || [];
+              function gtag() {
+                dataLayer.push(arguments);
+              }
+              gtag('js', new Date());
+              gtag('config', GA_MEASUREMENT_ID, { anonymize_ip: true });
+              const s = document.createElement('script');
+              s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_MEASUREMENT_ID;
+              s.async = true;
+              document.head.appendChild(s);
+            };
+            const onReady = () => {
+              if (typeof window.requestIdleCallback === 'function') {
+                window.requestIdleCallback(loadGa, { timeout: 4000 });
+              } else {
+                window.setTimeout(loadGa, 2500);
+              }
+            };
+            if (document.readyState === 'complete') onReady();
+            else window.addEventListener('load', onReady, { once: true });
+          })();
+        </script>
+      )
+    }
   </body>
 </html>

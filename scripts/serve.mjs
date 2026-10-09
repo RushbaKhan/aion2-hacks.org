@@ -1,6 +1,7 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import { resolvePathRedirect } from './redirects.mjs';
 import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
@@ -12,6 +13,7 @@ const MIME = {
   '.html': 'text/html; charset=utf-8',
   '.css': 'text/css; charset=utf-8',
   '.js': 'application/javascript; charset=utf-8',
+  '.mjs': 'application/javascript; charset=utf-8',
   '.json': 'application/json; charset=utf-8',
   '.svg': 'image/svg+xml',
   '.webp': 'image/webp',
@@ -24,6 +26,18 @@ const MIME = {
   '.woff2': 'font/woff2',
   '.webmanifest': 'application/manifest+json; charset=utf-8',
 };
+
+const COMPRESSIBLE = new Set([
+  '.html',
+  '.css',
+  '.js',
+  '.mjs',
+  '.json',
+  '.svg',
+  '.xml',
+  '.txt',
+  '.webmanifest',
+]);
 
 if (!fs.existsSync(distDir)) {
   console.error('Missing dist/ folder. Run npm run build before starting the server.');
@@ -97,17 +111,47 @@ function getCacheControl(filePath) {
   return 'public, max-age=86400';
 }
 
-function sendFile(res, filePath, statusCode = 200) {
+function pickEncoding(acceptEncoding = '') {
+  const ae = acceptEncoding.toLowerCase();
+  if (ae.includes('br')) return 'br';
+  if (ae.includes('gzip')) return 'gzip';
+  return null;
+}
+
+function sendFile(req, res, filePath, statusCode = 200) {
   const ext = path.extname(filePath).toLowerCase();
+  const headers = {
+    'Content-Type': MIME[ext] ?? 'application/octet-stream',
+    'Cache-Control': getCacheControl(filePath),
+    Vary: 'Accept-Encoding',
+  };
+
+  const encoding =
+    COMPRESSIBLE.has(ext) && !res.getHeader?.('Content-Encoding')
+      ? pickEncoding(req.headers['accept-encoding'] ?? '')
+      : null;
+
   const stream = fs.createReadStream(filePath);
   stream.on('error', () => {
     res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
     res.end('Not found');
   });
-  res.writeHead(statusCode, {
-    'Content-Type': MIME[ext] ?? 'application/octet-stream',
-    'Cache-Control': getCacheControl(filePath),
-  });
+
+  if (encoding === 'br') {
+    headers['Content-Encoding'] = 'br';
+    res.writeHead(statusCode, headers);
+    stream.pipe(zlib.createBrotliCompress()).pipe(res);
+    return;
+  }
+
+  if (encoding === 'gzip') {
+    headers['Content-Encoding'] = 'gzip';
+    res.writeHead(statusCode, headers);
+    stream.pipe(zlib.createGzip()).pipe(res);
+    return;
+  }
+
+  res.writeHead(statusCode, headers);
   stream.pipe(res);
 }
 
@@ -136,13 +180,13 @@ const server = http.createServer((req, res) => {
 
   const filePath = resolveFile(pathname);
   if (filePath && fs.existsSync(filePath) && fs.statSync(filePath).isFile()) {
-    sendFile(res, filePath);
+    sendFile(req, res, filePath);
     return;
   }
 
   const fallback = path.join(distDir, '404.html');
   if (fs.existsSync(fallback)) {
-    sendFile(res, fallback, 404);
+    sendFile(req, res, fallback, 404);
     return;
   }
 
@@ -151,5 +195,5 @@ const server = http.createServer((req, res) => {
 });
 
 server.listen(port, '0.0.0.0', () => {
-  console.log(`Serving ${distDir} on http://0.0.0.0:${port}`);
+  console.log(`Serving ${distDir} on http://0.0.0.0:${port} (gzip/br enabled)`);
 });

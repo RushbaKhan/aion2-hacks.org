@@ -1,5 +1,5 @@
 import { t } from '../i18n';
-import { checkoutForSlug, checkoutPath } from '../config/affiliate';
+import { checkoutForSlug, checkoutPath } from '../config/checkout';
 import type { IconName } from '../components/icons/types';
 
 export interface ProductSlide {

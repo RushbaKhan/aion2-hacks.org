@@ -50,9 +50,36 @@ export function initProductsCarousels(root: ParentNode = document) {
   });
 }
 
+function whenNearViewport(el: Element, cb: () => void) {
+  if (typeof IntersectionObserver === 'undefined') {
+    cb();
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    ([entry]) => {
+      if (!entry?.isIntersecting) return;
+      io.disconnect();
+      cb();
+    },
+    { rootMargin: '200px 0px' },
+  );
+  io.observe(el);
+}
+
 export function setupProductsCarousel() {
-  const run = () => window.setTimeout(() => initProductsCarousels(), 0);
-  run();
-  document.addEventListener('astro:page-load', run);
-  document.addEventListener('astro:after-swap', run);
+  const boot = () => {
+    document.querySelectorAll<HTMLElement>('[data-products-carousel]').forEach((wrap) => {
+      whenNearViewport(wrap, () => {
+        const idle = (window as Window & { requestIdleCallback?: (cb: () => void) => number })
+          .requestIdleCallback;
+        if (idle) idle(() => initProductsCarousels());
+        else window.setTimeout(() => initProductsCarousels(), 0);
+      });
+    });
+  };
+
+  boot();
+  document.addEventListener('astro:page-load', boot);
+  document.addEventListener('astro:after-swap', boot);
 }

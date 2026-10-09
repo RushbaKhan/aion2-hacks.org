@@ -1,8 +1,16 @@
-import { createCarousel } from '@starwind-ui/runtime/carousel';
-import Autoplay from 'embla-carousel-autoplay';
-import type { EmblaCarouselType } from 'embla-carousel';
+export const HERO_AUTOPLAY_MS = 4800;
+const DESKTOP_MQ = '(min-width: 1024px)';
 
-export const HERO_AUTOPLAY_MS = 4500;
+type EmblaApi = {
+  selectedScrollSnap: () => number;
+  scrollTo: (n: number) => void;
+  on: (event: string, cb: () => void) => void;
+};
+
+type AutoplayPlugin = {
+  stop: () => void;
+  play: () => void;
+};
 
 function restartProgress(progressEl: HTMLElement) {
   progressEl.style.animation = 'none';
@@ -10,7 +18,7 @@ function restartProgress(progressEl: HTMLElement) {
   progressEl.style.animation = `hero-embla-progress ${HERO_AUTOPLAY_MS}ms linear forwards`;
 }
 
-function bindHeroDots(wrapper: HTMLElement, api: EmblaCarouselType) {
+function bindHeroDots(wrapper: HTMLElement, api: EmblaApi, autoplay: AutoplayPlugin) {
   const dotsRoot = wrapper.querySelector('[data-hero-embla-dots]');
   if (!dotsRoot) return;
 
@@ -46,7 +54,10 @@ function bindHeroDots(wrapper: HTMLElement, api: EmblaCarouselType) {
 
   dots.forEach((dot) => {
     const index = Number(dot.getAttribute('data-hero-embla-dot'));
-    dot.addEventListener('click', () => api.scrollTo(index));
+    dot.addEventListener('click', () => {
+      api.scrollTo(index);
+      autoplay.stop();
+    });
   });
 
   api.on('select', setActive);
@@ -54,9 +65,20 @@ function bindHeroDots(wrapper: HTMLElement, api: EmblaCarouselType) {
   setActive();
 }
 
-function initHeroCarousels(root: ParentNode = document) {
-  root.querySelectorAll<HTMLElement>('[data-hero-embla]').forEach((carouselRoot) => {
-    if (carouselRoot.dataset.heroEmblaReady === 'true') return;
+async function initHeroCarousels(root: ParentNode = document) {
+  if (!window.matchMedia(DESKTOP_MQ).matches) return;
+
+  const nodes = [...root.querySelectorAll<HTMLElement>('[data-hero-embla]')].filter(
+    (node) => node.dataset.heroEmblaReady !== 'true',
+  );
+  if (!nodes.length) return;
+
+  const [{ createCarousel }, { default: Autoplay }] = await Promise.all([
+    import('@starwind-ui/runtime/carousel'),
+    import('embla-carousel-autoplay'),
+  ]);
+
+  nodes.forEach((carouselRoot) => {
     carouselRoot.dataset.heroEmblaReady = 'true';
 
     const wrapper = carouselRoot.closest('[data-hero-embla-wrap]');
@@ -64,20 +86,45 @@ function initHeroCarousels(root: ParentNode = document) {
 
     const autoplay = Autoplay({
       delay: HERO_AUTOPLAY_MS,
-      stopOnInteraction: false,
+      stopOnInteraction: true,
       stopOnMouseEnter: true,
     });
 
     const instance = createCarousel(carouselRoot, {
-      opts: { loop: true, align: 'start' },
+      opts: { loop: true, align: 'start', duration: 20 },
       plugins: [autoplay],
     });
 
-    bindHeroDots(wrapper as HTMLElement, instance.api);
+    bindHeroDots(wrapper as HTMLElement, instance.api as EmblaApi, autoplay);
+
+    const pauseWhenHidden = () => {
+      if (document.hidden) autoplay.stop();
+      else autoplay.play();
+    };
+    document.addEventListener('visibilitychange', pauseWhenHidden);
+
+    const io = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry) return;
+        if (entry.isIntersecting && !document.hidden) autoplay.play();
+        else autoplay.stop();
+      },
+      { threshold: 0.35 },
+    );
+    io.observe(carouselRoot);
   });
 }
 
 export function setupHeroEmbla() {
-  initHeroCarousels();
-  document.addEventListener('astro:page-load', () => initHeroCarousels());
+  const run = () => {
+    void initHeroCarousels();
+  };
+
+  run();
+
+  window.matchMedia(DESKTOP_MQ).addEventListener('change', (event) => {
+    if (event.matches) run();
+  });
+
+  document.addEventListener('astro:page-load', run);
 }
