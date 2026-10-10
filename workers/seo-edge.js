@@ -8,12 +8,19 @@ const FILE_ASSETS = new Set([
   '/robots.txt',
   '/rss.xml',
   '/og.jpg',
+  '/opengraph.jpg',
   '/favicon.ico',
   '/favicon.svg',
   '/site.webmanifest',
 ]);
 
 const XML_FILES = new Set(['/sitemap.xml', '/sitemap-index.xml', '/sitemap-0.xml', '/rss.xml']);
+const COVER_PATHS = new Set([
+  '/opengraph.jpg',
+  '/og.jpg',
+  '/images/gameplay/isle-forest-esp.png',
+]);
+const COVER_ASSET = '/opengraph.jpg';
 
 function isImmutableAsset(pathname) {
   return (
@@ -71,6 +78,24 @@ async function serveExactAsset(env, request, pathname, contentType) {
   return new Response(body, { status: asset.ok ? 200 : asset.status, headers });
 }
 
+async function serveCover(env, request) {
+  const asset = await env.ASSETS.fetch(new Request(`https://assets.local${COVER_ASSET}`, { method: 'GET' }));
+  const body = await asset.arrayBuffer();
+  const headers = new Headers({
+    'content-type': 'image/jpeg',
+    'content-length': String(body.byteLength),
+    'cache-control': 'public, max-age=86400',
+    'access-control-allow-origin': '*',
+    'x-content-type-options': 'nosniff',
+  });
+
+  if (request.method === 'HEAD' || request.method === 'OPTIONS') {
+    return new Response(null, { status: 200, headers });
+  }
+
+  return new Response(body, { status: 200, headers });
+}
+
 export default {
   async fetch(request, env) {
     try {
@@ -98,6 +123,10 @@ export default {
 
       if (url.pathname === '/robots.txt') {
         return serveExactAsset(env, request, url.pathname, 'text/plain; charset=utf-8');
+      }
+
+      if (COVER_PATHS.has(url.pathname)) {
+        return serveCover(env, request);
       }
 
       const checkout = resolveCheckoutPathRedirect(url.pathname);

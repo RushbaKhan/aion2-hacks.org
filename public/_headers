@@ -49,4 +49,10 @@
 
 /og.jpg
   Content-Type: image/jpeg
+  Access-Control-Allow-Origin: *
+  Cache-Control: public, max-age=86400
+
+/opengraph.jpg
+  Content-Type: image/jpeg
+  Access-Control-Allow-Origin: *
   Cache-Control: public, max-age=86400

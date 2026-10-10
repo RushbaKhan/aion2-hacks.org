@@ -37,6 +37,15 @@ for (const dir of imageRoots) {
   prunedFrom.push(path.relative(process.cwd(), dir).replaceAll('\\', '/'));
 }
 
+const cover = path.resolve('public/opengraph.jpg');
+if (fs.existsSync(cover)) {
+  for (const dir of imageRoots) {
+    const destDir = path.join(dir, 'gameplay');
+    if (!fs.existsSync(destDir)) continue;
+    fs.copyFileSync(cover, path.join(destDir, 'isle-forest-esp.png'));
+  }
+}
+
 const label = prunedFrom.length > 0 ? prunedFrom.join(', ') : 'dist/images';
 console.log(
   `Pruned ${removed} source PNG(s) from ${label} (${(bytes / 1024 / 1024).toFixed(1)} MB).`,
