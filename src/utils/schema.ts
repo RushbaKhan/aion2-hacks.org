@@ -1,7 +1,7 @@
 import type { FaqItem } from '../i18n/types';
 import { BRAND_NAME, SUPPORT_EMAIL } from '../config/site';
 import { SITE_ORIGIN, absoluteAssetUrl, canonicalUrl, getOrganizationSameAs } from '../config/seo';
-import { getProductPlans } from '../data/productPricing';
+import { checkoutUrlWithPlan, getProductPlans } from '../data/productPricing';
 
 export interface BreadcrumbItem {
   name: string;
@@ -34,7 +34,10 @@ export function websiteSchema() {
 }
 
 export function organizationSchema() {
-  const sameAs = getOrganizationSameAs();
+  const sameAs = [
+    ...getOrganizationSameAs(),
+    'https://store.steampowered.com/app/376210/The_Isle/',
+  ].filter((url, index, list) => list.indexOf(url) === index);
 
   return {
     '@context': 'https://schema.org',
@@ -185,7 +188,7 @@ export function productSchema(input: {
           priceCurrency: 'USD',
           billingDuration: plan.duration,
         },
-        url: `${offerUrl(input.offerUrl)}${input.offerUrl.includes('?') ? '&' : '?'}plan=${plan.id}`,
+        url: checkoutUrlWithPlan(offerUrl(input.offerUrl), plan.id),
       })),
     },
   };

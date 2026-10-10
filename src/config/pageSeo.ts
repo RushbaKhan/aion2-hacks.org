@@ -12,7 +12,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     title: 'The Isle Hacks | Features, ESP and Radar',
     description:
-      'Explore The Isle hacks for Windows PC. Discover available gameplay features, configuration options, compatibility information, and current status before choosing a plan.',
+      'Explore The Isle hacks for Windows PC. Review features, ESP, radar, and compatibility before choosing a plan.',
   },
   '/features/': {
     title: 'The Isle Features | Isle Hacks',

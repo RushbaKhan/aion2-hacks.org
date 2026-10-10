@@ -22,6 +22,6 @@ export function formatPlanPrice(usd: number): string {
 }
 
 export function checkoutUrlWithPlan(baseUrl: string, planId: ProductPlanId): string {
-  const separator = baseUrl.includes('?') ? '&' : '?';
-  return `${baseUrl}${separator}plan=${planId}`;
+  const normalized = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+  return `${normalized}${planId}/`;
 }

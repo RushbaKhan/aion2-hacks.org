@@ -10,7 +10,7 @@ export const en: Translations = {
     domain: 'islehacks.org',
     title: 'The Isle Hacks | Features, ESP and Radar',
     description:
-      'Explore The Isle hacks for Windows PC. Discover available gameplay features, configuration options, compatibility information, and current status before choosing a plan.',
+      'Explore The Isle hacks for Windows PC. Review features, ESP, radar, and compatibility before choosing a plan.',
     discord: PRIMARY_CHECKOUT_PATH,
   },
   nav: [
@@ -25,6 +25,7 @@ export const en: Translations = {
     eyebrow: 'The Isle on Windows PC',
     titleLine1: 'The Isle',
     titleLine2: 'The Isle Hacks',
+    titleLine3: 'Features, ESP and Radar',
     subtitle:
       'Isle Hacks covers The Isle features for Windows PC, including player ESP, dinosaur ESP, health information, radar options, and aim assistance. Review compatibility and plans before checkout.',
     ctaPrimary: 'View store',
@@ -135,26 +136,32 @@ export const en: Translations = {
       {
         title: 'The Isle only',
         desc: 'Copy, plans, and guides stay on The Isle Evrima instead of mixing unrelated games into one catalog.',
+        cardDesc: 'The catalog, pricing, and intel stay locked to Evrima rather than bundling other titles.',
       },
       {
         title: 'Listed features only',
         desc: 'ESP, radar, and aim assistance are described from the current product listing—no invented silent aim or triggerbot modules.',
+        cardDesc: 'We only document overlays that appear on the live listing, and we skip unverified combat extras.',
       },
       {
         title: 'Monthly and lifetime plans',
         desc: 'Two USD plans: Monthly at $35 and Lifetime at $150. Checkout shows the current access details.',
+        cardDesc: 'Pick a 30-day $35 pass or a $150 one-time license. Checkout shows the latest access notes.',
       },
       {
         title: 'Status before launch',
         desc: 'The Isle uses Easy Anti-Cheat. Compatibility can change after an Evrima patch, so check the status page first.',
+        cardDesc: 'EAC updates can shift compatibility. Confirm the status page after every game patch.',
       },
       {
         title: 'Windows PC requirements',
         desc: 'The listing is for Windows 10 and 11. The vendor also notes Cloud DMA for full functionality.',
+        cardDesc: 'Windows 10/11 is the supported platform. Full functionality may require the vendor Cloud DMA note.',
       },
       {
         title: 'Support on the record',
         desc: 'Purchase, setup, and compatibility questions go through the Support page—include your order email and Windows version.',
+        cardDesc: 'Open the Support page for order, install, or EAC questions and include your receipt email plus OS build.',
       },
     ],
     metrics: [
@@ -181,8 +188,8 @@ export const en: Translations = {
     titleHighlight: 'three clear steps',
     intro:
       'Review status, complete checkout, then follow the vendor setup notes for Windows PC and the Evrima branch before launching The Isle.',
-    ctaPrimary: 'View store',
-    ctaSecondary: 'Setup FAQ',
+    ctaPrimary: 'Compare plans',
+    ctaSecondary: 'Setup questions',
     ctaPrimaryHref: productBase,
     ctaSecondaryHref: '/faq/',
     steps: [
@@ -374,9 +381,9 @@ export const en: Translations = {
     titleBefore: 'From status check to',
     titleHighlight: 'a saved config.',
     subtitle: 'A straight path from reviewing The Isle compatibility to a profile you can reuse.',
-    ctaLabel: 'View store',
+    ctaLabel: 'See current plans',
     ctaHref: productBase,
-    ctaSecondary: 'Setup FAQ',
+    ctaSecondary: 'Read setup FAQ',
     ctaSecondaryHref: '/faq/',
     items: [
       {
@@ -502,7 +509,7 @@ export const en: Translations = {
       { href: '/blog/', label: 'Read The Isle intel', ariaLabel: 'Blog' },
       { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ' },
     ],
-    support: 'Support',
+    support: 'Get help',
     legal: 'Legal',
     privacy: 'Privacy Policy',
     terms: 'Terms & Conditions',

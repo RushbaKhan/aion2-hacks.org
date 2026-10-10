@@ -86,6 +86,7 @@ export interface WorkflowItem {
 export interface WhyCompareRow {
   title: string;
   desc: string;
+  cardDesc?: string;
 }
 
 export interface WhyMetric {
@@ -102,6 +103,7 @@ export interface Translations {
     eyebrow: string;
     titleLine1: string;
     titleLine2: string;
+    titleLine3: string;
     subtitle: string;
     ctaPrimary: string;
     ctaDiscord: string;

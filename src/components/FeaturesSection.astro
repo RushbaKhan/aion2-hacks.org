@@ -14,7 +14,7 @@ function isScriptsHero(title: string) {
 
 <section id="features" class="border-y border-border bg-muted/20 py-16 md:py-24" aria-labelledby="features-title">
   <div class="mx-auto max-w-6xl px-5">
-    <SectionHeader eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="features-title" />
+    <SectionHeader as="h2" eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="features-title" />
 
     <div
       class="features-bento mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-12 lg:grid-rows-[repeat(6,auto)] lg:items-stretch lg:gap-4"
@@ -39,9 +39,9 @@ function isScriptsHero(title: string) {
                           <Icon name={featureIcons[item.title] ?? 'crosshair'} size={20} />
                         </span>
                         <div class="min-w-0 space-y-1.5">
-                          <h3 class="font-[family-name:var(--font-heading)] text-lg font-bold leading-tight text-foreground md:text-xl">
+                          <p class="font-[family-name:var(--font-heading)] text-lg font-bold leading-tight text-foreground md:text-xl">
                             {item.title}
-                          </h3>
+                          </p>
                           <p class="text-sm font-medium leading-snug text-neutral-600 dark:text-neutral-300">
                             {item.subtitle}
                           </p>
@@ -82,9 +82,9 @@ function isScriptsHero(title: string) {
                           <Icon name={featureIcons[item.title] ?? 'crosshair'} size={18} />
                         </span>
                         <div class="min-w-0 space-y-1">
-                          <h3 class="font-[family-name:var(--font-heading)] text-base font-bold leading-tight text-foreground md:text-lg">
+                          <p class="font-[family-name:var(--font-heading)] text-base font-bold leading-tight text-foreground md:text-lg">
                             {item.title}
-                          </h3>
+                          </p>
                           <p class="text-sm font-medium leading-snug text-neutral-600 dark:text-neutral-300">
                             {item.subtitle}
                           </p>

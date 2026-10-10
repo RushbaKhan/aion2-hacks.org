@@ -7,6 +7,10 @@ export const CHECKOUT_URLS = {
 export const CHECKOUT_PATH_REDIRECTS = new Map([
   ['/go/the-isle', CHECKOUT_URLS.isle],
   ['/go/the-isle/', CHECKOUT_URLS.isle],
+  ['/go/the-isle/monthly', CHECKOUT_URLS.isle],
+  ['/go/the-isle/monthly/', CHECKOUT_URLS.isle],
+  ['/go/the-isle/lifetime', CHECKOUT_URLS.isle],
+  ['/go/the-isle/lifetime/', CHECKOUT_URLS.isle],
   ['/go/dota-2', CHECKOUT_URLS.isle],
   ['/go/dota-2/', CHECKOUT_URLS.isle],
 ]);

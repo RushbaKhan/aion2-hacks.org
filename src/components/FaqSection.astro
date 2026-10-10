@@ -15,6 +15,7 @@ interface Props {
   title?: string;
   subtitle?: string;
   titleId?: string;
+  headingAs?: 'h1' | 'h2';
   showFilters?: boolean;
   filterTopics?: FaqTopic[];
   centered?: boolean;
@@ -30,6 +31,7 @@ const {
   title = 'Straight answers before checkout.',
   subtitle = 'Compatibility, bans and access—no vague promises.',
   titleId = 'faq-heading',
+  headingAs = 'h2',
   showFilters = false,
   filterTopics,
   centered = false,
@@ -60,6 +62,7 @@ const filters = filterTopics ?? (['all', 'plans', 'esp', 'aim', 'safety', 'setup
   <div class="mx-auto max-w-6xl px-5">
     <div class:list={[contentAlign === 'center' && 'mx-auto max-w-3xl', contentAlign === 'left' && 'product-detail__narrow max-w-3xl']}>
     <SectionHeader
+      as={headingAs}
       eyebrow={eyebrow}
       title={title}
       desc={subtitle}

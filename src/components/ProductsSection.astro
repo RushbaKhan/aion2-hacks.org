@@ -28,7 +28,7 @@ const storeFacts = ['Available', 'The Isle', 'Windows PC', 'Evrima', 'Easy Anti-
   aria-labelledby="products-title"
 >
   <div class="mx-auto max-w-6xl px-5">
-    <SectionHeader eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="products-title" />
+    <SectionHeader as="h2" eyebrow={s.eyebrow} title={s.title} desc={s.subtitle} titleId="products-title" />
 
     <ul class="mt-8 flex flex-wrap gap-2" aria-label="Store facts">
       {
@@ -62,7 +62,7 @@ const storeFacts = ['Available', 'The Isle', 'Windows PC', 'Evrima', 'Easy Anti-
             <Badge variant="outline">The Isle</Badge>
             <Badge variant="outline">Windows PC</Badge>
           </div>
-          <h2 class="mt-4 text-2xl font-bold normal-case">{product.title}</h2>
+          <p class="mt-4 text-2xl font-bold normal-case">{product.title}</p>
           <p class="mt-2 text-sm leading-relaxed text-muted-foreground">{product.desc}</p>
           <ul class="mt-5 grid gap-2.5 sm:grid-cols-2">
             {
@@ -143,7 +143,7 @@ const storeFacts = ['Available', 'The Isle', 'Windows PC', 'Evrima', 'Easy Anti-
           <div class="flex flex-wrap items-end justify-between gap-3">
             <div>
               <p class="text-xs font-semibold uppercase tracking-wider text-primary">Included modules</p>
-              <h3 class="mt-1 text-lg font-bold">What both plans list</h3>
+              <p class="mt-1 text-lg font-bold">What both plans list</p>
             </div>
             <Button as="a" href={ROUTES.features} variant="outline" size="sm">
               All features

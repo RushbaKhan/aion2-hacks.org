@@ -58,7 +58,7 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
   >
     <ResponsiveImage
       src={post.image}
-      alt=""
+      alt={`${post.title} gameplay screenshot`}
       width={isFeatured ? 960 : 640}
       height={isFeatured ? 540 : 360}
       widths={isFeatured ? undefined : CARD_IMAGE_WIDTHS}
@@ -144,7 +144,7 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
         <span>{post.readTime}</span>
       </p>
       <Button as="a" href={href} variant="outline" size="sm" class="blog-card__read shrink-0">
-        {t.blog.read}
+        {`Read ${post.slug.replace('the-isle-', '').replaceAll('-', ' ')}`}
         <Icon name="arrowRight" size={16} />
       </Button>
     </CardFooter>
