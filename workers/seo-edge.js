@@ -12,6 +12,8 @@ const FILE_ASSETS = new Set([
   '/site.webmanifest',
 ]);
 
+const XML_FILES = new Set(['/sitemap.xml', '/sitemap-index.xml', '/sitemap-0.xml', '/rss.xml']);
+
 function isImmutableAsset(pathname) {
   return (
     pathname.startsWith('/_astro/') ||
@@ -23,7 +25,7 @@ function isImmutableAsset(pathname) {
 function applyAssetHeaders(pathname, headers) {
   const contentType = headers.get('content-type') ?? '';
 
-  if (pathname === '/sitemap.xml' || pathname === '/sitemap-index.xml' || pathname === '/sitemap-0.xml' || pathname === '/rss.xml') {
+  if (XML_FILES.has(pathname)) {
     headers.set('content-type', 'application/xml; charset=utf-8');
     headers.set('x-content-type-options', 'nosniff');
     headers.set('cache-control', 'public, max-age=3600, must-revalidate');
@@ -47,6 +49,27 @@ function applyAssetHeaders(pathname, headers) {
   }
 }
 
+async function serveExactAsset(env, request, pathname, contentType) {
+  const asset = await env.ASSETS.fetch(new Request(`https://assets.local${pathname}`, { method: 'GET' }));
+  const body = await asset.text();
+  const bytes = new TextEncoder().encode(body);
+  const headers = new Headers({
+    'content-type': contentType,
+    'content-length': String(bytes.length),
+    'cache-control': 'public, max-age=3600, must-revalidate',
+  });
+
+  if (XML_FILES.has(pathname)) {
+    headers.set('x-content-type-options', 'nosniff');
+  }
+
+  if (request.method === 'HEAD') {
+    return new Response(null, { status: asset.ok ? 200 : asset.status, headers });
+  }
+
+  return new Response(body, { status: asset.ok ? 200 : asset.status, headers });
+}
+
 export default {
   async fetch(request, env) {
     try {
@@ -66,6 +89,14 @@ export default {
       if (url.pathname.endsWith('/') && FILE_ASSETS.has(url.pathname.slice(0, -1))) {
         url.pathname = url.pathname.slice(0, -1);
         return Response.redirect(url.href, 301);
+      }
+
+      if (XML_FILES.has(url.pathname)) {
+        return serveExactAsset(env, request, url.pathname, 'application/xml; charset=utf-8');
+      }
+
+      if (url.pathname === '/robots.txt') {
+        return serveExactAsset(env, request, url.pathname, 'text/plain; charset=utf-8');
       }
 
       const checkout = resolveCheckoutPathRedirect(url.pathname);
