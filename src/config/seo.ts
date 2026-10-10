@@ -4,7 +4,7 @@ import { getPageSeoEntry } from './pageSeo';
 
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE = '/images/gameplay/isle-forest-esp.png';
+export const DEFAULT_OG_IMAGE = '/og.jpg';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
@@ -36,6 +36,22 @@ export function absoluteAssetUrl(path: string): string {
   if (path.startsWith('http://') || path.startsWith('https://')) return path;
   const normalized = path.startsWith('/') ? path : `/${path}`;
   return `${SITE_ORIGIN}${normalized}`;
+}
+
+/** Discord/iMessage reject pruned source PNGs; keep a JPEG cover or a live WebP. */
+export function shareImagePath(path: string): string {
+  if (!path) return DEFAULT_OG_IMAGE;
+  if (path === DEFAULT_OG_IMAGE) return path;
+  if (path.startsWith('/images/') && /\.png$/i.test(path)) {
+    return path.replace(/\.png$/i, '-1280.webp');
+  }
+  return path;
+}
+
+export function shareImageType(path: string): string {
+  if (path.endsWith('.webp')) return 'image/webp';
+  if (path.endsWith('.png')) return 'image/png';
+  return 'image/jpeg';
 }
 
 export function resolvePageSeo(pathname: string): { title: string; description: string } {

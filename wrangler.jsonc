@@ -13,7 +13,8 @@
       "!/sitemap-index.xml",
       "!/sitemap-0.xml",
       "!/robots.txt",
-      "!/rss.xml"
+      "!/rss.xml",
+      "!/og.jpg"
     ]
   },
   "observability": {

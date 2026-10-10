@@ -7,6 +7,7 @@ const FILE_ASSETS = new Set([
   '/sitemap-0.xml',
   '/robots.txt',
   '/rss.xml',
+  '/og.jpg',
   '/favicon.ico',
   '/favicon.svg',
   '/site.webmanifest',

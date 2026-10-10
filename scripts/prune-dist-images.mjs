@@ -21,6 +21,7 @@ function walk(dir) {
       continue;
     }
     if (!/\.png$/i.test(entry.name)) continue;
+    if (/^og\.(?:jpg|jpeg|png)$/i.test(entry.name)) continue;
     // Keep brand/favicon-sized assets if any land under images; gameplay/blog sources go.
     const stat = fs.statSync(full);
     if (stat.size < 80_000) continue;
