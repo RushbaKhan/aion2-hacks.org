@@ -19,6 +19,19 @@ function resolveSitemapDir() {
   return null;
 }
 
+function dateOnly(value) {
+  const match = String(value).match(/\d{4}-\d{2}-\d{2}/);
+  return match ? match[0] : new Date().toISOString().slice(0, 10);
+}
+
+function escapeXml(value) {
+  return String(value)
+    .replaceAll('&', '&amp;')
+    .replaceAll('<', '&lt;')
+    .replaceAll('>', '&gt;')
+    .replaceAll('"', '&quot;');
+}
+
 const dist = resolveSitemapDir();
 if (!dist) {
   console.error('finalize-sitemap: sitemap-0.xml not found in dist/ or dist/client/ — run astro build first.');
@@ -37,31 +50,37 @@ if (!fs.existsSync(source)) {
 }
 
 const raw = fs.readFileSync(source, 'utf8');
-const urlCount = (raw.match(/<url>/g) ?? []).length;
+const entries = [...raw.matchAll(/<url>\s*<loc>([^<]+)<\/loc>([\s\S]*?)<\/url>/g)].map((match) => {
+  const loc = match[1].trim();
+  const body = match[2];
+  const lastmod = dateOnly(body.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1] ?? '');
+  const changefreq = body.match(/<changefreq>([^<]+)<\/changefreq>/)?.[1]?.trim() ?? 'monthly';
+  const priority = body.match(/<priority>([^<]+)<\/priority>/)?.[1]?.trim() ?? '0.6';
+  return { loc, lastmod, changefreq, priority };
+});
 
-if (urlCount === 0) {
+if (entries.length === 0) {
   console.error('finalize-sitemap: sitemap shard contains no URLs.');
   process.exit(1);
 }
 
-function formatUrlset(xml) {
-  return xml
-    .replace(/^<\?xml[^?]*\?>/, '<?xml version="1.0" encoding="UTF-8"?>\n')
-    .replace(/<urlset([^>]*)>/, '<urlset$1>\n')
-    .replace(/<\/urlset>/, '\n</urlset>\n')
-    .replace(/<url>/g, '  <url>\n')
-    .replace(/<\/url>/g, '\n  </url>\n')
-    .replace(/<loc>/g, '    <loc>')
-    .replace(/<\/loc>/g, '</loc>\n')
-    .replace(/<lastmod>/g, '    <lastmod>')
-    .replace(/<\/lastmod>/g, '</lastmod>\n')
-    .replace(/<changefreq>/g, '    <changefreq>')
-    .replace(/<\/changefreq>/g, '</changefreq>\n')
-    .replace(/<priority>/g, '    <priority>')
-    .replace(/<\/priority>/g, '</priority>\n');
-}
+const urlBlocks = entries
+  .map(
+    (entry) => `  <url>
+    <loc>${escapeXml(entry.loc)}</loc>
+    <lastmod>${entry.lastmod}</lastmod>
+    <changefreq>${escapeXml(entry.changefreq)}</changefreq>
+    <priority>${escapeXml(entry.priority)}</priority>
+  </url>`,
+  )
+  .join('\n');
 
-const formatted = formatUrlset(raw);
+const formatted = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlBlocks}
+</urlset>
+`;
+
 const relDist = path.relative(root, dist).replaceAll('\\', '/');
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 
@@ -76,4 +95,4 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 
-console.log(`Sitemap finalized: ${urlCount} URLs → ${relDist}/sitemap.xml`);
+console.log(`Sitemap finalized: ${entries.length} URLs → ${relDist}/sitemap.xml`);

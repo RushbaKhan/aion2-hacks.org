@@ -30,4 +30,19 @@
   Cache-Control: public, max-age=86400
 
 /sitemap.xml
-  Cache-Control: public, max-age=86400
+  Content-Type: application/xml; charset=utf-8
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/sitemap-index.xml
+  Content-Type: application/xml; charset=utf-8
+  X-Content-Type-Options: nosniff
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/robots.txt
+  Content-Type: text/plain; charset=utf-8
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/rss.xml
+  Content-Type: application/xml; charset=utf-8
+  Cache-Control: public, max-age=3600, must-revalidate

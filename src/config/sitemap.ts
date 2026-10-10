@@ -2,7 +2,7 @@ import type { SitemapItem } from '@astrojs/sitemap';
 import { blogPosts } from '../data/blog';
 import { parseBlogDate } from '../utils/schema';
 
-const buildDate = new Date().toISOString();
+const buildDate = new Date().toISOString().slice(0, 10);
 
 const blogLastmod = new Map(
   blogPosts.map((post) => [`/blog/${post.slug}/`, parseBlogDate(post.date)] as const),

@@ -1,6 +1,16 @@
 import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
 const CANONICAL_HOST = 'islehacks.org';
+const FILE_ASSETS = new Set([
+  '/sitemap.xml',
+  '/sitemap-index.xml',
+  '/sitemap-0.xml',
+  '/robots.txt',
+  '/rss.xml',
+  '/favicon.ico',
+  '/favicon.svg',
+  '/site.webmanifest',
+]);
 
 function isImmutableAsset(pathname) {
   return (
@@ -10,44 +20,73 @@ function isImmutableAsset(pathname) {
   );
 }
 
+function applyAssetHeaders(pathname, headers) {
+  const contentType = headers.get('content-type') ?? '';
+
+  if (pathname === '/sitemap.xml' || pathname === '/sitemap-index.xml' || pathname === '/sitemap-0.xml' || pathname === '/rss.xml') {
+    headers.set('content-type', 'application/xml; charset=utf-8');
+    headers.set('x-content-type-options', 'nosniff');
+    headers.set('cache-control', 'public, max-age=3600, must-revalidate');
+    return;
+  }
+
+  if (pathname === '/robots.txt') {
+    headers.set('content-type', 'text/plain; charset=utf-8');
+    headers.set('cache-control', 'public, max-age=3600, must-revalidate');
+    return;
+  }
+
+  if (contentType.toLowerCase().startsWith('text/html') && !/charset=/i.test(contentType)) {
+    headers.set('content-type', 'text/html; charset=utf-8');
+  }
+
+  if (isImmutableAsset(pathname)) {
+    headers.set('cache-control', 'public, max-age=31536000, immutable');
+  } else if (pathname === '/site.webmanifest') {
+    headers.set('cache-control', 'public, max-age=86400');
+  }
+}
+
 export default {
   async fetch(request, env) {
-    const url = new URL(request.url);
+    try {
+      const url = new URL(request.url);
 
-    if (url.hostname === `www.${CANONICAL_HOST}` || url.hostname.startsWith('www.')) {
-      url.hostname = CANONICAL_HOST;
-      url.protocol = 'https:';
-      return Response.redirect(url.href, 301);
+      if (url.hostname === `www.${CANONICAL_HOST}` || url.hostname.startsWith('www.')) {
+        url.hostname = CANONICAL_HOST;
+        url.protocol = 'https:';
+        return Response.redirect(url.href, 301);
+      }
+
+      if (url.protocol === 'http:') {
+        url.protocol = 'https:';
+        return Response.redirect(url.href, 301);
+      }
+
+      if (url.pathname.endsWith('/') && FILE_ASSETS.has(url.pathname.slice(0, -1))) {
+        url.pathname = url.pathname.slice(0, -1);
+        return Response.redirect(url.href, 301);
+      }
+
+      const checkout = resolveCheckoutPathRedirect(url.pathname);
+      if (checkout) {
+        return Response.redirect(checkout, 302);
+      }
+
+      const response = await env.ASSETS.fetch(request);
+      const headers = new Headers(response.headers);
+      applyAssetHeaders(url.pathname, headers);
+
+      return new Response(response.body, {
+        status: response.status,
+        statusText: response.statusText,
+        headers,
+      });
+    } catch {
+      return new Response('Not found', {
+        status: 404,
+        headers: { 'content-type': 'text/plain; charset=utf-8' },
+      });
     }
-
-    if (url.protocol === 'http:') {
-      url.protocol = 'https:';
-      return Response.redirect(url.href, 301);
-    }
-
-    const checkout = resolveCheckoutPathRedirect(url.pathname);
-    if (checkout) {
-      return Response.redirect(checkout, 302);
-    }
-
-    const response = await env.ASSETS.fetch(request);
-    const headers = new Headers(response.headers);
-    const contentType = headers.get('content-type') ?? '';
-
-    if (contentType.toLowerCase().startsWith('text/html') && !/charset=/i.test(contentType)) {
-      headers.set('content-type', 'text/html; charset=utf-8');
-    }
-
-    if (isImmutableAsset(url.pathname)) {
-      headers.set('cache-control', 'public, max-age=31536000, immutable');
-    } else if (url.pathname === '/sitemap.xml' || url.pathname === '/site.webmanifest') {
-      headers.set('cache-control', 'public, max-age=86400');
-    }
-
-    return new Response(response.body, {
-      status: response.status,
-      statusText: response.statusText,
-      headers,
-    });
   },
 };
