@@ -3,7 +3,7 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const root = process.cwd();
-const widths = [320, 400, 512, 640, 960];
+const widths = [320, 400, 512, 640, 960, 1280, 1920, 2560, 3840];
 const dirs = [
   'public/images/gameplay',
   'public/images/blog',

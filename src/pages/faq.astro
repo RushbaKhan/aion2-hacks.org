@@ -21,9 +21,9 @@ const faqs = getAllFaqs();
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: 'FAQ — Dota 2 Cheats & Products',
+      name: 'The Isle Hacks FAQ | Isle Hacks',
       description:
-        'Answers about Dota 2 cheat tiers, map hack, scripts, HWID tools, blog guides and checkout at dotacheats.com.',
+        'Answers about The Isle hacks, Windows PC support, ESP, plans, compatibility, setup, and checkout at islehacks.org.',
       url: '/faq/',
     }),
     faqPageSchema(faqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') }))),
@@ -36,8 +36,8 @@ const faqs = getAllFaqs();
       <div class="mt-6">
         <SectionHeader
           eyebrow="Help center"
-          title="FAQ for cheats, products & guides"
-          desc="Everything about Lite, Pro, Elite tiers, utilities, safety and blog topics—in one place."
+          title="FAQ for The Isle hacks"
+          desc="Plans, ESP, radar, Easy Anti-Cheat compatibility, setup, and checkout—in one place."
           titleId="faq-page-title"
         />
       </div>

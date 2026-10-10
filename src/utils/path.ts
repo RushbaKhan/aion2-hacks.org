@@ -10,7 +10,7 @@ export function withTrailingSlash(path: string): string {
   return hash ? `${normalized}#${hash}` : normalized;
 }
 
-/** Former /cheats/* URLs → current routes (301 targets match astro.config + scripts/redirects.mjs). */
+/** Former /cheats/* and Dota product URLs → current routes. */
 export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats': PRODUCT_BASE,
   '/cheats/': PRODUCT_BASE,
@@ -18,12 +18,16 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats/lite/': PRODUCT_BASE,
   '/cheats/pro': PRODUCT_BASE,
   '/cheats/pro/': PRODUCT_BASE,
-  '/cheats/elite': `${PRODUCT_BASE}elite/`,
-  '/cheats/elite/': `${PRODUCT_BASE}elite/`,
-  '/cheats/compare': '/blog/dota-2-lite-vs-pro/',
-  '/cheats/compare/': '/blog/dota-2-lite-vs-pro/',
+  '/cheats/elite': PRODUCT_BASE,
+  '/cheats/elite/': PRODUCT_BASE,
+  '/cheats/compare': '/features/',
+  '/cheats/compare/': '/features/',
   '/contact': '/support/',
   '/contact/': '/support/',
+  '/products/dota-2-cheats': PRODUCT_BASE,
+  '/products/dota-2-cheats/': PRODUCT_BASE,
+  '/products/the-isle-hacks': PRODUCT_BASE,
+  '/products/the-isle-hacks/': PRODUCT_BASE,
 };
 
 export function normalizeInternalPath(href: string): string {
@@ -43,11 +47,17 @@ export function normalizeInternalPath(href: string): string {
 
 export const ROUTES = {
   home: '/',
+  features: '/features/',
+  store: '/store/',
+  status: '/status/',
+  preview: '/preview/',
+  setup: '/setup/',
+  reviews: '/reviews/',
   blog: '/blog/',
   forum: '/forum/',
   products: PRODUCT_BASE,
-  productsElite: `${PRODUCT_BASE}elite/`,
-  productsUtilities: `${PRODUCT_BASE}utilities/`,
+  productsElite: PRODUCT_BASE,
+  productsUtilities: PRODUCT_BASE,
   faq: '/faq/',
   terms: '/terms/',
   about: '/about/',
@@ -59,11 +69,11 @@ export function blogPostPath(slug: string): string {
   return `/blog/${slug}/`;
 }
 
-/** @deprecated Use productPath — cheat tier pages live under products. */
+/** @deprecated Use productPath — product pages live under the store. */
 export function cheatPath(slug: string): string {
   return productPath(slug);
 }
 
-export function productPath(slug: string): string {
-  return `${PRODUCT_BASE}${slug}/`;
+export function productPath(_slug?: string): string {
+  return PRODUCT_BASE;
 }

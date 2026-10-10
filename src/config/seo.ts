@@ -4,11 +4,11 @@ import { getPageSeoEntry } from './pageSeo';
 
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE = '/images/gameplay/dota-2-map-hack.png';
+export const DEFAULT_OG_IMAGE = '/images/gameplay/isle-forest-esp.png';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
-/** @example @dotacheats */
+/** @example @islehacks */
 export const TWITTER_SITE = import.meta.env.PUBLIC_TWITTER_SITE as string | undefined;
 
 export const TWITTER_CREATOR = import.meta.env.PUBLIC_TWITTER_CREATOR as string | undefined;

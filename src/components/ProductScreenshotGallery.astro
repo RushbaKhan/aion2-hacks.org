@@ -1,7 +1,12 @@
 ---
 import type { ProductSlide } from '../data/products';
 import ResponsiveImage from './ResponsiveImage.astro';
-import { THUMB_IMAGE_WIDTHS } from '../utils/responsiveImage';
+import {
+  DEFAULT_IMAGE_WIDTHS,
+  defaultWebpSrc,
+  responsiveSrcSet,
+  THUMB_IMAGE_WIDTHS,
+} from '../utils/responsiveImage';
 import { Badge } from '@/components/starwind/badge';
 
 interface Props {
@@ -26,8 +31,8 @@ const first = images[0];
           <ResponsiveImage
             src={first.src}
             alt={first.alt}
-            width={960}
-            height={540}
+            width={1920}
+            height={1080}
             loading="eager"
             fetchPriority="high"
             sizes="(min-width: 1024px) 640px, 100vw"
@@ -48,7 +53,7 @@ const first = images[0];
 
   {
     hasThumbs && (
-      <div class="product-gallery__thumbs" role="tablist" aria-label="Product screenshots">
+      <div class="product-gallery__thumbs" role="tablist" aria-label="Product screenshots" data-lenis-prevent>
         {images.map((img, i) => (
           <button
             type="button"
@@ -58,7 +63,8 @@ const first = images[0];
             aria-label={`Screenshot ${i + 1}`}
             data-product-gallery-thumb
             data-index={i}
-            data-src={img.src}
+            data-src={defaultWebpSrc(img.src, DEFAULT_IMAGE_WIDTHS)}
+            data-srcset={responsiveSrcSet(img.src)}
             data-alt={img.alt}
           >
             <ResponsiveImage
@@ -91,10 +97,13 @@ const first = images[0];
       thumbs.forEach((thumb) => {
         thumb.addEventListener('click', () => {
           const alt = thumb.getAttribute('data-alt');
-          const thumbImg = thumb.querySelector('img');
-          if (thumbImg?.src) {
-            main.src = thumbImg.src;
-            if (thumbImg.srcset) main.srcset = thumbImg.srcset;
+          const fullSrc = thumb.getAttribute('data-src');
+          const fullSrcset = thumb.getAttribute('data-srcset');
+          const pictureSource = root.querySelector<HTMLSourceElement>('.product-gallery__main source');
+          if (fullSrc) main.src = fullSrc;
+          if (fullSrcset) {
+            main.srcset = fullSrcset;
+            if (pictureSource) pictureSource.srcset = fullSrcset;
           }
           if (alt) main.alt = alt;
           thumbs.forEach((t) => {

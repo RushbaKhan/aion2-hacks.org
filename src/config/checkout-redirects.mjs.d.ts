@@ -1,8 +1,5 @@
 export declare const CHECKOUT_URLS: {
-  readonly dota2: string;
-  readonly skinChanger: string;
-  readonly hwidSpoofer: string;
-  readonly ugc: string;
+  readonly isle: string;
 };
 
 export declare const CHECKOUT_PATH_REDIRECTS: ReadonlyMap<string, string>;

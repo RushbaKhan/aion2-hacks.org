@@ -26,13 +26,45 @@ export function getFeaturedBlogPosts(limit = 3) {
   return featured ? [featured, ...rest].slice(0, limit) : blogPosts.slice(0, limit);
 }
 
+function screenshotPalette(src: string): 'green' | 'plains' | 'red' {
+  if (src.includes('plains')) return 'plains';
+  if (src.includes('forest-esp')) return 'green';
+  return 'red';
+}
+
+function pickAlternatingPosts(pool: typeof blogPosts, limit: number) {
+  const picked: typeof blogPosts = [];
+
+  for (const post of pool) {
+    if (picked.length >= limit) break;
+    const previous = picked[picked.length - 1];
+    if (previous && screenshotPalette(previous.image) === screenshotPalette(post.image)) continue;
+    picked.push(post);
+  }
+
+  for (const post of pool) {
+    if (picked.length >= limit) break;
+    if (picked.some((item) => item.slug === post.slug)) continue;
+    const previous = picked[picked.length - 1];
+    if (previous && screenshotPalette(previous.image) === screenshotPalette(post.image)) continue;
+    picked.push(post);
+  }
+
+  for (const post of pool) {
+    if (picked.length >= limit) break;
+    if (!picked.some((item) => item.slug === post.slug)) picked.push(post);
+  }
+
+  return picked;
+}
+
 export function getRelatedBlogPosts(slug: string, limit = 3) {
   const current = getBlogPost(slug);
   if (!current) return [];
 
   const sameTag = blogPosts.filter((p) => p.slug !== slug && p.tag === current.tag);
   const others = blogPosts.filter((p) => p.slug !== slug && p.tag !== current.tag);
-  return [...sameTag, ...others].slice(0, limit);
+  return pickAlternatingPosts([...sameTag, ...others], limit);
 }
 
 export function getBlogPostsBySlugs(slugs: string[]) {

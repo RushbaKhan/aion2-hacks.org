@@ -1,15 +1,15 @@
 import type { IconName } from '../components/icons/types';
 
 export const featureIcons: Record<string, IconName> = {
-  Scripts: 'stepCrosshair',
-  'Map Hack / ESP': 'featureEsp',
-  'Minimap & Runes': 'featureRadar',
-  'Auto Combo': 'featureAimbot',
-  'Utility Suite': 'featureUtilitySuite',
-  'Auto Farm Bot': 'compareAutoFarm',
-  'Stream Proof': 'streamProof',
-  'Zoom Hack': 'compareZoomHack',
-  'Cloud Config & Updates': 'compareCloudBackup',
+  ESP: 'featureEsp',
+  'Player ESP': 'comparePlayerEsp',
+  'Dinosaur ESP': 'featureEsp',
+  'Health ESP': 'compareRuneTimer',
+  'Aim Assist': 'featureAimbot',
+  Radar: 'featureRadar',
+  'Resource ESP': 'lootEsp',
+  Configuration: 'compareCloudBackup',
+  Compatibility: 'whyShield',
 };
 
 export const whyUsIcons: IconName[] = ['whyShield', 'whyUsers', 'whyMonitor', 'whyHeadphones'];
@@ -17,11 +17,11 @@ export const whyUsIcons: IconName[] = ['whyShield', 'whyUsers', 'whyMonitor', 'w
 export const setupStepIcons: IconName[] = ['acqPackage', 'acqSettings', 'acqCheck'];
 
 export const toolkitIcons: Record<string, IconName> = {
-  Combat: 'toolkitCombat',
+  Aim: 'toolkitCombat',
   Vision: 'toolkitVision',
   Radar: 'toolkitRadar',
-  Weapons: 'toolkitWeapons',
-  Movement: 'toolkitMovement',
+  Creatures: 'toolkitWeapons',
+  World: 'toolkitMovement',
   Profiles: 'toolkitProfiles',
 };
 
@@ -43,24 +43,14 @@ export const blogTagIcons: Record<string, IconName> = {
 };
 
 export const heroStatusPills: { icon: IconName; label: string }[] = [
-  { icon: 'espActive', label: 'ESP Active' },
-  { icon: 'radarOnline', label: 'Radar Online' },
-  { icon: 'seasonBuild', label: 'Season Build' },
-  { icon: 'undetected', label: 'Undetected' },
-  { icon: 'softAim', label: 'Soft Aim Ready' },
-  { icon: 'noRecoil', label: 'No Recoil' },
-  { icon: 'streamProof', label: 'Stream Proof' },
-  { icon: 'lootEsp', label: 'Loot ESP' },
-  { icon: 'skeletonEsp', label: 'Skeleton ESP' },
-  { icon: 'uavRadar', label: 'UAV Radar' },
-  { icon: 'mapHack', label: 'Map Hack' },
-  { icon: 'support247', label: '24/7 Support' },
-  { icon: 'instantDelivery', label: 'Instant Delivery' },
-  { icon: 'rankedSafe', label: 'Ranked Safe' },
-  { icon: 'triggerBot', label: 'Trigger Bot' },
-  { icon: 'boneSelect', label: 'Bone Select' },
-  { icon: 'liveStatus', label: 'Live Status' },
-  { icon: 'autoUpdates', label: 'Auto Updates' },
+  { icon: 'espActive', label: 'Player ESP' },
+  { icon: 'radarOnline', label: 'Radar' },
+  { icon: 'lootEsp', label: 'Dinosaur ESP' },
+  { icon: 'softAim', label: 'Aim Assist' },
+  { icon: 'mapHack', label: 'Health ESP' },
+  { icon: 'liveStatus', label: 'Check Status' },
+  { icon: 'autoUpdates', label: 'Evrima' },
+  { icon: 'support247', label: 'Windows PC' },
 ];
 
 export const heroStatIcons: IconName[] = [
@@ -71,6 +61,7 @@ export const heroStatIcons: IconName[] = [
 ];
 
 export const cheatTierIcons: Record<string, IconName> = {
+  'Isle Hacks': 'tierPro',
   Lite: 'tierLite',
   Pro: 'tierPro',
   Elite: 'tierElite',

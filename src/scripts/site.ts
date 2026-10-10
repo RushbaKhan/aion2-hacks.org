@@ -1,3 +1,5 @@
+import { initSmoothScroll, smoothScrollTo } from './smooth-scroll';
+
 function initFonts() {
   const root = document.documentElement;
 
@@ -47,7 +49,7 @@ function initInPageScroll() {
       if (!target) return;
 
       event.preventDefault();
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      smoothScrollTo(target);
     });
   });
 }
@@ -59,8 +61,8 @@ function initSkipLink() {
       if (!main) return;
 
       main.setAttribute('tabindex', '-1');
-      main.focus({ preventScroll: false });
-      main.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      main.focus({ preventScroll: true });
+      smoothScrollTo(main);
     });
   });
 }
@@ -108,6 +110,7 @@ function bootSite() {
   initInPageScroll();
   initSkipLink();
   initThemeMetaColor();
+  initSmoothScroll();
 }
 
 if (document.readyState === 'loading') {

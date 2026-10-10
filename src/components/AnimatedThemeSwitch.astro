@@ -18,6 +18,7 @@ const { class: className, ariaLabel = 'Toggle light and dark mode', size = 'defa
 >
   <input
     type="checkbox"
+    checked
     aria-label={ariaLabel}
     data-sw-theme-control
     data-theme-on="dark"
@@ -30,7 +31,7 @@ const { class: className, ariaLabel = 'Toggle light and dark mode', size = 'defa
   import { initThemeController } from '@starwind-ui/astro/theme';
 
   const setupThemeController = () => {
-    initThemeController();
+    initThemeController(document, { defaultTheme: 'dark' });
   };
 
   setupThemeController();

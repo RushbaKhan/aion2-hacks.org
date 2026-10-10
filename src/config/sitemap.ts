@@ -59,12 +59,22 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     return item;
   }
 
+  if (path === '/store/' || path === '/features/') {
+    item.priority = 0.9;
+    item.changefreq = 'weekly';
+    return item;
+  }
+
   if (
     path === '/about/' ||
     path === '/support/' ||
     path === '/privacy/' ||
     path === '/terms/' ||
-    path === '/faq/'
+    path === '/faq/' ||
+    path === '/status/' ||
+    path === '/preview/' ||
+    path === '/setup/' ||
+    path === '/reviews/'
   ) {
     item.priority = 0.5;
     item.changefreq = 'yearly';

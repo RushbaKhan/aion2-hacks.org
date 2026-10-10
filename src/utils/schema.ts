@@ -1,6 +1,7 @@
 import type { FaqItem } from '../i18n/types';
-import { SUPPORT_EMAIL } from '../config/site';
+import { BRAND_NAME, SUPPORT_EMAIL } from '../config/site';
 import { SITE_ORIGIN, absoluteAssetUrl, canonicalUrl, getOrganizationSameAs } from '../config/seo';
+import { getProductPlans } from '../data/productPricing';
 
 export interface BreadcrumbItem {
   name: string;
@@ -24,11 +25,11 @@ export function websiteSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'WebSite',
-    name: 'DotaCheats',
+    name: BRAND_NAME,
     url: `${SITE_ORIGIN}/`,
     inLanguage: 'en-US',
     description:
-      'Dota 2 cheats with scripts, map hack, zoom hack, Skin Changer and ranked-safe tiers for PC.',
+      'Isle Hacks covers The Isle features, ESP, radar, plans, and Windows PC setup information.',
   };
 }
 
@@ -38,7 +39,7 @@ export function organizationSchema() {
   return {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'DotaCheats',
+    name: BRAND_NAME,
     url: `${SITE_ORIGIN}/`,
     logo: `${SITE_ORIGIN}/logo.svg`,
     email: SUPPORT_EMAIL,
@@ -66,7 +67,7 @@ export function collectionPageSchema(input: { name: string; description: string;
     inLanguage: 'en-US',
     isPartOf: {
       '@type': 'WebSite',
-      name: 'DotaCheats',
+      name: BRAND_NAME,
       url: `${SITE_ORIGIN}/`,
     },
   };
@@ -82,7 +83,7 @@ export function webPageSchema(input: { name: string; description: string; url: s
     inLanguage: 'en-US',
     isPartOf: {
       '@type': 'WebSite',
-      name: 'DotaCheats',
+      name: BRAND_NAME,
       url: `${SITE_ORIGIN}/`,
     },
   };
@@ -131,7 +132,7 @@ export function discussionForumPostingSchema(input: {
     url: canonicalUrl(input.url),
     author: { '@type': 'Person', name: input.author },
     commentCount: input.comments,
-    isPartOf: { '@type': 'CollectionPage', name: 'DotaCheats Community Forum', url: canonicalUrl('/forum/') },
+    isPartOf: { '@type': 'CollectionPage', name: `${BRAND_NAME} Community Forum`, url: canonicalUrl('/forum/') },
   };
 }
 
@@ -148,6 +149,8 @@ export function productSchema(input: {
   image?: string;
   sku?: string;
 }) {
+  const plans = getProductPlans(input.sku ?? 'the-isle-hacks');
+
   return {
     '@context': 'https://schema.org',
     '@type': 'Product',
@@ -156,18 +159,34 @@ export function productSchema(input: {
     sku: input.sku ?? input.url.replace(/\//g, '-'),
     brand: {
       '@type': 'Brand',
-      name: 'DotaCheats',
+      name: BRAND_NAME,
     },
     ...(input.image ? { image: absoluteAssetUrl(input.image) } : {}),
     offers: {
-      '@type': 'Offer',
+      '@type': 'AggregateOffer',
       url: offerUrl(input.offerUrl),
       priceCurrency: 'USD',
+      lowPrice: Math.min(...plans.map((plan) => plan.priceUsd)),
+      highPrice: Math.max(...plans.map((plan) => plan.priceUsd)),
+      offerCount: plans.length,
       availability: 'https://schema.org/InStock',
       seller: {
         '@type': 'Organization',
-        name: 'DotaCheats',
+        name: BRAND_NAME,
       },
+      offers: plans.map((plan) => ({
+        '@type': 'Offer',
+        name: plan.label,
+        price: plan.priceUsd,
+        priceCurrency: 'USD',
+        priceSpecification: {
+          '@type': 'UnitPriceSpecification',
+          price: plan.priceUsd,
+          priceCurrency: 'USD',
+          billingDuration: plan.duration,
+        },
+        url: `${offerUrl(input.offerUrl)}${input.offerUrl.includes('?') ? '&' : '?'}plan=${plan.id}`,
+      })),
     },
   };
 }
@@ -209,11 +228,11 @@ export function articleSchema(input: {
     inLanguage: 'en-US',
     author: {
       '@type': 'Organization',
-      name: 'DotaCheats',
+      name: BRAND_NAME,
     },
     publisher: {
       '@type': 'Organization',
-      name: 'DotaCheats',
+      name: BRAND_NAME,
       logo: {
         '@type': 'ImageObject',
         url: `${SITE_ORIGIN}/logo.svg`,

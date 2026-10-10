@@ -78,7 +78,7 @@ const initialPressed = pressed ?? defaultPressed ?? false;
   import { initThemeController } from "@starwind-ui/astro/theme";
 
   const setupThemeController = () => {
-    initThemeController();
+    initThemeController(document, { defaultTheme: "dark" });
   };
 
   setupThemeController();

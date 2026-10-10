@@ -1,23 +1,19 @@
-export type ProductPlanId = 'monthly' | 'lifetime' | 'onetime';
+export type ProductPlanId = 'monthly' | 'lifetime';
 
 export interface ProductPlan {
   id: ProductPlanId;
   label: string;
   priceUsd: number;
   priceNote: string;
+  duration: string;
 }
 
 const standardPlans: ProductPlan[] = [
-  { id: 'monthly', label: 'Monthly', priceUsd: 35, priceNote: 'USD / month' },
-  { id: 'lifetime', label: 'Lifetime', priceUsd: 150, priceNote: 'USD · one-time' },
+  { id: 'monthly', label: 'Monthly', priceUsd: 35, priceNote: 'USD / month', duration: 'P30D' },
+  { id: 'lifetime', label: 'Lifetime', priceUsd: 150, priceNote: 'USD · one-time', duration: 'P99Y' },
 ];
 
-const ugcPlans: ProductPlan[] = [
-  { id: 'onetime', label: 'One-time access', priceUsd: 50, priceNote: 'USD · one-time' },
-];
-
-export function getProductPlans(productSlug: string): ProductPlan[] {
-  if (productSlug === 'ugc') return ugcPlans;
+export function getProductPlans(_productSlug: string): ProductPlan[] {
   return standardPlans;
 }
 

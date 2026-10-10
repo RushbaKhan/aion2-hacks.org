@@ -10,59 +10,74 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    // gscNote: Keep primary keyword "dota 2 cheats" near front; trim if title truncates in SERP.
-    title: 'Dota 2 Cheats & Hacks | Scripts, Map Hack & ESP',
+    title: 'The Isle Hacks | Features, ESP and Radar',
     description:
-      'Dota 2 cheats for PC ranked: scripts, map hack, zoom hack, and skin changer tiers updated every patch at dotacheats.com.',
+      'Explore The Isle hacks for Windows PC. Discover available gameplay features, configuration options, compatibility information, and current status before choosing a plan.',
   },
-  '/products/dota-2-cheats/': {
-    title: 'Dota 2 Elite Cheats & Utility Products',
+  '/features/': {
+    title: 'The Isle Features | Isle Hacks',
     description:
-      'Elite dota 2 cheats plus HWID spoofer, UGC tools, and Skin Changer utilities for Steam ranked on dotacheats.com.',
+      'Explore The Isle features for Isle Hacks, including available aim assistance, ESP, player information, dinosaur tracking, and radar options. Check feature availability and compatibility before purchasing.',
   },
-  '/products/dota-2-cheats/elite/': {
-    title: 'Dota 2 Elite Cheats | Bots & Full Map Hack',
+  '/store/': {
+    title: 'The Isle Store | Isle Hacks',
     description:
-      'Elite tier: auto farm bot, kill steal, skin changer, full map hack suite, and priority patch delivery.',
+      'Explore Isle Hacks plans for The Isle on Windows PC. Compare monthly and lifetime options, review available features, and visit checkout for current pricing and access details.',
   },
-  '/products/dota-2-cheats/utilities/': {
-    title: 'Dota 2 Utilities | HWID, UGC & Skin Changer',
+  '/status/': {
+    title: 'The Isle Status | Isle Hacks',
     description:
-      'Choose HWID Spoofer, UGC, or Skin Changer—when each utility fits and links to full product pages.',
+      'Check The Isle compatibility and product status, including updates, game patches, and anti-cheat compatibility information before using Isle Hacks.',
   },
-  '/blog/': {
-    title: 'Dota 2 Cheats Guides & Patch Notes',
+  '/preview/': {
+    title: 'The Isle Hacks Preview | Isle Hacks',
     description:
-      'Setup guides, Lite vs Pro comparisons, VAC patch checklists, and ranked config tips for dota cheats.',
+      'Preview available Isle Hacks features for The Isle. Explore the interface, player information, ESP visuals, and radar options before choosing a plan.',
   },
-  '/forum/': {
-    title: 'Dota 2 Community Forum | DotaCheats',
-    description: 'Join Dota players to discuss heroes, builds, patch changes, guides, and community moments.',
-  },
-  '/faq/': {
-    title: 'FAQ | Dota 2 Cheats, Products & Setup',
+  '/setup/': {
+    title: 'The Isle Hacks Setup | Isle Hacks',
     description:
-      'Answers on cheat tiers, map hack, scripts, HWID tools, checkout, and blog guides at dotacheats.com.',
-  },
-  '/terms/': {
-    title: 'Terms & Conditions | DotaCheats',
-    description:
-      'Purchase terms, license use, and refund policy for DotaCheats products sold through dotacheats.com.',
-  },
-  '/privacy/': {
-    title: 'Privacy Policy | DotaCheats',
-    description:
-      'How dotacheats.com uses analytics, cookies, and contact data when you browse or request support.',
-  },
-  '/about/': {
-    title: 'About DotaCheats',
-    description:
-      'What DotaCheats publishes: Dota 2 cheat tiers, utilities, guides, and status notes at dotacheats.com.',
+      'Learn about Isle Hacks installation requirements, configuration options, supported game versions, and troubleshooting steps for Windows PC.',
   },
   '/support/': {
-    title: 'Support | DotaCheats',
+    title: 'The Isle Hacks Support | Isle Hacks',
     description:
-      'Get help with loader setup, HWID, and checkout for Dota 2 cheat tiers and utilities.',
+      'Get support for Isle Hacks, including purchase assistance, access and delivery questions, configuration guidance, compatibility, and troubleshooting.',
+  },
+  '/faq/': {
+    title: 'The Isle Hacks FAQ | Isle Hacks',
+    description:
+      'Find answers to common questions about The Isle hacks, supported Windows PC versions, available features, plans, compatibility, setup, and support.',
+  },
+  '/reviews/': {
+    title: 'The Isle Hacks Reviews | Buyer Feedback',
+    description:
+      'Explore customer feedback about Isle Hacks, including usability, available features, compatibility, setup, and support before choosing a plan.',
+  },
+  '/blog/': {
+    title: 'The Isle Intel | Isle Hacks',
+    description:
+      'Explore The Isle guides and updates covering gameplay mechanics, game patches, compatibility, player tracking, ESP terminology, radar features, and Windows PC setup.',
+  },
+  '/forum/': {
+    title: 'The Isle Community Forum | Isle Hacks',
+    description:
+      'Discuss The Isle Evrima gameplay, ESP terminology, radar use, patch changes, and Windows PC setup with the Isle Hacks community.',
+  },
+  '/terms/': {
+    title: 'Terms & Conditions | Isle Hacks',
+    description:
+      'Purchase terms, license use, and refund policy for Isle Hacks products sold through islehacks.org.',
+  },
+  '/privacy/': {
+    title: 'Privacy Policy | Isle Hacks',
+    description:
+      'How islehacks.org uses analytics, cookies, and contact data when you browse or request support.',
+  },
+  '/about/': {
+    title: 'About Isle Hacks',
+    description:
+      'What Isle Hacks publishes: The Isle features, plans, setup notes, and status information at islehacks.org.',
   },
 };
 

@@ -55,8 +55,14 @@ const robotsContent = noindex
       (function () {
         try {
           var stored = localStorage.getItem('colorTheme') || localStorage.getItem('starwind-theme');
-          if (stored === 'light') document.documentElement.classList.remove('dark');
-          else if (stored === 'dark') document.documentElement.classList.add('dark');
+          if (stored === 'light') {
+            document.documentElement.classList.remove('dark');
+          } else {
+            document.documentElement.classList.add('dark');
+            if (stored !== 'dark') {
+              localStorage.setItem('colorTheme', 'dark');
+            }
+          }
         } catch (e) {}
         document.documentElement.classList.add('fonts-pending');
       })();

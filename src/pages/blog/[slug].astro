@@ -50,10 +50,10 @@ function linkify(text: string): string {
       const normalized = normalizeInternalPath(href);
       return `<a href="${normalized}">${label}</a>`;
     })
-    .replace(/(https:\/\/dotacheats\.com[^\s.,;)]*)/g, (_match, url: string) => {
-      const path = url.replace(/^https:\/\/dotacheats\.com/, '');
+    .replace(/(https:\/\/islehacks\.org[^\s.,;)]*)/g, (_match, url: string) => {
+      const path = url.replace(/^https:\/\/islehacks\.org/, '');
       const normalized = normalizeInternalPath(path);
-      const href = normalized.startsWith('http') ? normalized : `https://dotacheats.com${normalized}`;
+      const href = normalized.startsWith('http') ? normalized : `https://islehacks.org${normalized}`;
       return `<a href="${href}">${url}</a>`;
     });
 }
@@ -179,12 +179,12 @@ const published = parseBlogDate(post.date);
           </Prose>
 
           <nav class="blog-article__actions" aria-label="Continue reading">
-            <Button as="a" href={checkoutPath('dota2')} variant="primary" aria-label={t.ui.checkoutAria}>
-              Buy Dota 2 Cheats
+            <Button as="a" href={checkoutPath('isle')} variant="primary" aria-label={t.ui.checkoutAria}>
+              View The Isle plans
               <Icon name="arrowRight" size={17} />
             </Button>
-            <Button as="a" href={ROUTES.products} variant="outline">
-              View products
+            <Button as="a" href={ROUTES.store} variant="outline">
+              View store
             </Button>
             <Button as="a" href={ROUTES.blog} variant="outline">
               More articles

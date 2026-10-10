@@ -1,7 +1,7 @@
 {
-  "name": "DotaCheats",
-  "short_name": "DotaCheats",
-  "description": "Dota 2 cheats with scripts, map hack, zoom hack and skin changer for PC.",
+  "name": "Isle Hacks",
+  "short_name": "Isle Hacks",
+  "description": "The Isle hacks for Windows PC with player ESP, dinosaur ESP, health information, radar, and aim assistance.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",

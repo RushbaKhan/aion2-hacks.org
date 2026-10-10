@@ -4,15 +4,19 @@ import sitemap from '@astrojs/sitemap';
 import { sitemapSerialize } from './src/config/sitemap.ts';
 
 export default defineConfig({
-  site: 'https://dotacheats.com',
+  site: 'https://islehacks.org',
   trailingSlash: 'always',
   redirects: {
-    '/cheats/': '/products/dota-2-cheats/',
-    '/cheats/lite/': '/products/dota-2-cheats/',
-    '/cheats/pro/': '/products/dota-2-cheats/',
-    '/cheats/elite/': '/products/dota-2-cheats/elite/',
-    '/cheats/compare/': '/blog/dota-2-lite-vs-pro/',
+    '/cheats/': '/store/',
+    '/cheats/lite/': '/store/',
+    '/cheats/pro/': '/store/',
+    '/cheats/elite/': '/store/',
+    '/cheats/compare/': '/features/',
     '/contact/': '/support/',
+    '/products/dota-2-cheats/': '/store/',
+    '/products/dota-2-cheats/elite/': '/store/',
+    '/products/dota-2-cheats/utilities/': '/store/',
+    '/products/the-isle-hacks/': '/store/',
   },
   compressHTML: true,
   prefetch: {
