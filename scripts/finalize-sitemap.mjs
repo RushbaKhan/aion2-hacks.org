@@ -2,11 +2,37 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const dist = path.join(root, 'dist');
-const source = path.join(dist, 'sitemap-0.xml');
+
+function resolveSitemapDir() {
+  const candidates = [path.join(root, 'dist', 'client'), path.join(root, 'dist')];
+  for (const dir of candidates) {
+    if (fs.existsSync(path.join(dir, 'sitemap-0.xml'))) return dir;
+  }
+  for (const dir of candidates) {
+    if (!fs.existsSync(dir)) continue;
+    const shard = fs.readdirSync(dir).find((name) => /^sitemap-\d+\.xml$/.test(name));
+    if (shard) return dir;
+  }
+  for (const dir of candidates) {
+    if (fs.existsSync(path.join(dir, 'sitemap-index.xml'))) return dir;
+  }
+  return null;
+}
+
+const dist = resolveSitemapDir();
+if (!dist) {
+  console.error('finalize-sitemap: sitemap-0.xml not found in dist/ or dist/client/ — run astro build first.');
+  process.exit(1);
+}
+
+const shards = fs
+  .readdirSync(dist)
+  .filter((name) => /^sitemap-\d+\.xml$/.test(name))
+  .sort();
+const source = shards.length > 0 ? path.join(dist, shards[0]) : path.join(dist, 'sitemap-0.xml');
 
 if (!fs.existsSync(source)) {
-  console.error('finalize-sitemap: dist/sitemap-0.xml not found — run astro build first.');
+  console.error(`finalize-sitemap: ${path.relative(root, source)} not found — run astro build first.`);
   process.exit(1);
 }
 
@@ -14,7 +40,7 @@ const raw = fs.readFileSync(source, 'utf8');
 const urlCount = (raw.match(/<url>/g) ?? []).length;
 
 if (urlCount === 0) {
-  console.error('finalize-sitemap: sitemap-0.xml contains no URLs.');
+  console.error('finalize-sitemap: sitemap shard contains no URLs.');
   process.exit(1);
 }
 
@@ -36,6 +62,7 @@ function formatUrlset(xml) {
 }
 
 const formatted = formatUrlset(raw);
+const relDist = path.relative(root, dist).replaceAll('\\', '/');
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
 
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -49,4 +76,4 @@ const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 fs.writeFileSync(path.join(dist, 'sitemap-index.xml'), indexXml, 'utf8');
 fs.writeFileSync(path.join(dist, 'sitemap-0.xml'), formatted, 'utf8');
 
-console.log(`Sitemap finalized: ${urlCount} URLs → dist/sitemap.xml`);
+console.log(`Sitemap finalized: ${urlCount} URLs → ${relDist}/sitemap.xml`);

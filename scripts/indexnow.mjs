@@ -2,7 +2,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const root = process.cwd();
-const dist = path.join(root, 'dist');
+const distCandidates = [path.join(root, 'dist', 'client'), path.join(root, 'dist')];
+const dist = distCandidates.find((dir) => fs.existsSync(path.join(dir, 'sitemap.xml'))) ?? path.join(root, 'dist');
 const key = process.env.INDEXNOW_KEY?.trim();
 const host = process.env.INDEXNOW_HOST?.trim() || 'islehacks.org';
 
@@ -13,7 +14,7 @@ if (!key) {
 
 const sitemapPath = path.join(dist, 'sitemap.xml');
 if (!fs.existsSync(sitemapPath)) {
-  console.warn('IndexNow: dist/sitemap.xml missing — skipping ping.');
+  console.warn('IndexNow: sitemap.xml missing in dist/ or dist/client/ — skipping ping.');
   process.exit(0);
 }
 

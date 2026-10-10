@@ -2,12 +2,18 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 /** Drop source PNGs from dist — pages serve WebP variants only. */
-const distImages = path.resolve('dist/images');
+const imageRoots = [path.resolve('dist/client/images'), path.resolve('dist/images')];
+const seen = new Set();
 let removed = 0;
 let bytes = 0;
+const prunedFrom = [];
 
 function walk(dir) {
   if (!fs.existsSync(dir)) return;
+  const resolved = fs.realpathSync(dir);
+  if (seen.has(resolved)) return;
+  seen.add(resolved);
+
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
     const full = path.join(dir, entry.name);
     if (entry.isDirectory()) {
@@ -24,7 +30,13 @@ function walk(dir) {
   }
 }
 
-walk(distImages);
+for (const dir of imageRoots) {
+  if (!fs.existsSync(dir)) continue;
+  walk(dir);
+  prunedFrom.push(path.relative(process.cwd(), dir).replaceAll('\\', '/'));
+}
+
+const label = prunedFrom.length > 0 ? prunedFrom.join(', ') : 'dist/images';
 console.log(
-  `Pruned ${removed} source PNG(s) from dist/images (${(bytes / 1024 / 1024).toFixed(1)} MB).`,
+  `Pruned ${removed} source PNG(s) from ${label} (${(bytes / 1024 / 1024).toFixed(1)} MB).`,
 );
