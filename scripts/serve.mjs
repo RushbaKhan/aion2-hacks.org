@@ -120,14 +120,27 @@ function pickEncoding(acceptEncoding = '') {
 
 function sendFile(req, res, filePath, statusCode = 200) {
   const ext = path.extname(filePath).toLowerCase();
+  const basename = path.basename(filePath);
   const headers = {
     'Content-Type': MIME[ext] ?? 'application/octet-stream',
     'Cache-Control': getCacheControl(filePath),
     Vary: 'Accept-Encoding',
   };
 
+  const isSitemap = basename === 'sitemap.xml' || basename === 'sitemap-index.xml' || basename === 'sitemap-0.xml';
+  if (isSitemap) {
+    const body = fs.readFileSync(filePath);
+    headers['Cache-Control'] = 'public, max-age=3600, must-revalidate, no-transform';
+    headers['X-Content-Type-Options'] = 'nosniff';
+    headers['Content-Length'] = String(body.byteLength);
+    delete headers.Vary;
+    res.writeHead(statusCode, headers);
+    res.end(req.method === 'HEAD' ? undefined : body);
+    return;
+  }
+
   const encoding =
-    COMPRESSIBLE.has(ext) && !res.getHeader?.('Content-Encoding')
+    !isSitemap && COMPRESSIBLE.has(ext) && !res.getHeader?.('Content-Encoding')
       ? pickEncoding(req.headers['accept-encoding'] ?? '')
       : null;
 

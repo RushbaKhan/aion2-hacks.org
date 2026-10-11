@@ -37,7 +37,12 @@ export default defineConfig({
     sitemap({
       filter: (page) => {
         const path = new URL(page).pathname;
-        return !['/404/', '/go/', '/monthly/', '/lifetime/', '/search/', '/support/', '/contact/'].includes(path);
+        if (['/404/', '/go/', '/monthly/', '/lifetime/', '/search/', '/support/', '/contact/'].includes(path)) {
+          return false;
+        }
+        if (path.startsWith('/blog/') && path !== '/blog/') return false;
+        if (path.startsWith('/forum/') && path !== '/forum/') return false;
+        return true;
       },
       serialize: sitemapSerialize,
     }),

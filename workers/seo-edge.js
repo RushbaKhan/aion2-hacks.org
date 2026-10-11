@@ -15,6 +15,15 @@ const FILE_ASSETS = new Set([
 ]);
 
 const XML_FILES = new Set(['/sitemap.xml', '/sitemap-index.xml', '/sitemap-0.xml', '/rss.xml']);
+const FALLBACK_SITEMAP = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://islehacks.com/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+`;
 const COVER_PATHS = new Set([
   '/opengraph.jpg',
   '/og.jpg',
@@ -36,7 +45,7 @@ function applyAssetHeaders(pathname, headers) {
   if (XML_FILES.has(pathname)) {
     headers.set('content-type', 'application/xml; charset=utf-8');
     headers.set('x-content-type-options', 'nosniff');
-    headers.set('cache-control', 'public, max-age=3600, must-revalidate');
+    headers.set('cache-control', 'public, max-age=3600, must-revalidate, no-transform');
     return;
   }
 
@@ -57,25 +66,37 @@ function applyAssetHeaders(pathname, headers) {
   }
 }
 
-async function serveExactAsset(env, request, pathname, contentType) {
-  const asset = await env.ASSETS.fetch(new Request(`https://assets.local${pathname}`, { method: 'GET' }));
-  const body = await asset.text();
-  const bytes = new TextEncoder().encode(body);
+function xmlResponse(body, method, contentType = 'application/xml; charset=utf-8') {
+  const bytes = typeof body === 'string' ? new TextEncoder().encode(body) : new Uint8Array(body);
   const headers = new Headers({
     'content-type': contentType,
-    'content-length': String(bytes.length),
-    'cache-control': 'public, max-age=3600, must-revalidate',
+    'content-length': String(bytes.byteLength),
+    'cache-control': 'public, max-age=3600, must-revalidate, no-transform',
+    'x-content-type-options': 'nosniff',
   });
 
-  if (XML_FILES.has(pathname)) {
-    headers.set('x-content-type-options', 'nosniff');
+  return new Response(method === 'HEAD' ? null : bytes, { status: 200, headers });
+}
+
+async function serveExactAsset(env, request, pathname, contentType) {
+  try {
+    const asset = await env.ASSETS.fetch(new Request(`https://assets.local${pathname}`, { method: 'GET' }));
+    if (asset.ok) {
+      return xmlResponse(await asset.text(), request.method, contentType);
+    }
+  } catch {
+    // Keep a valid sitemap response so Search Console can always fetch it.
   }
 
-  if (request.method === 'HEAD') {
-    return new Response(null, { status: asset.ok ? 200 : asset.status, headers });
+  if (pathname === '/robots.txt') {
+    return xmlResponse(
+      'User-agent: *\nAllow: /\nSitemap: https://islehacks.com/sitemap.xml\n',
+      request.method,
+      'text/plain; charset=utf-8',
+    );
   }
 
-  return new Response(body, { status: asset.ok ? 200 : asset.status, headers });
+  return xmlResponse(FALLBACK_SITEMAP, request.method);
 }
 
 async function serveCover(env, request) {
@@ -144,6 +165,11 @@ export default {
         headers,
       });
     } catch {
+      const failPath = new URL(request.url).pathname;
+      if (XML_FILES.has(failPath) || failPath === '/sitemap.xml/') {
+        return xmlResponse(FALLBACK_SITEMAP, request.method);
+      }
+
       return new Response('Not found', {
         status: 404,
         headers: { 'content-type': 'text/plain; charset=utf-8' },

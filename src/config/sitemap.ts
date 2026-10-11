@@ -22,7 +22,11 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     path === '/monthly/' ||
     path === '/lifetime/' ||
     path.includes('/rss.xml') ||
-    path === '/search/'
+    path === '/search/' ||
+    path === '/support/' ||
+    path === '/contact/' ||
+    (path.startsWith('/blog/') && path !== '/blog/') ||
+    (path.startsWith('/forum/') && path !== '/forum/')
   ) {
     return undefined;
   }

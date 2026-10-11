@@ -49,15 +49,31 @@ if (!fs.existsSync(source)) {
   process.exit(1);
 }
 
+function isCanonicalSitemapUrl(loc) {
+  try {
+    const path = new URL(loc).pathname;
+    if (['/404/', '/go/', '/monthly/', '/lifetime/', '/search/', '/support/', '/contact/'].includes(path)) {
+      return false;
+    }
+    if (path.startsWith('/blog/') && path !== '/blog/') return false;
+    if (path.startsWith('/forum/') && path !== '/forum/') return false;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 const raw = fs.readFileSync(source, 'utf8');
-const entries = [...raw.matchAll(/<url>\s*<loc>([^<]+)<\/loc>([\s\S]*?)<\/url>/g)].map((match) => {
-  const loc = match[1].trim();
-  const body = match[2];
-  const lastmod = dateOnly(body.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1] ?? '');
-  const changefreq = body.match(/<changefreq>([^<]+)<\/changefreq>/)?.[1]?.trim() ?? 'monthly';
-  const priority = body.match(/<priority>([^<]+)<\/priority>/)?.[1]?.trim() ?? '0.6';
-  return { loc, lastmod, changefreq, priority };
-});
+const entries = [...raw.matchAll(/<url>\s*<loc>([^<]+)<\/loc>([\s\S]*?)<\/url>/g)]
+  .map((match) => {
+    const loc = match[1].trim();
+    const body = match[2];
+    const lastmod = dateOnly(body.match(/<lastmod>([^<]+)<\/lastmod>/)?.[1] ?? '');
+    const changefreq = body.match(/<changefreq>([^<]+)<\/changefreq>/)?.[1]?.trim() ?? 'monthly';
+    const priority = body.match(/<priority>([^<]+)<\/priority>/)?.[1]?.trim() ?? '0.6';
+    return { loc, lastmod, changefreq, priority };
+  })
+  .filter((entry) => isCanonicalSitemapUrl(entry.loc));
 
 if (entries.length === 0) {
   console.error('finalize-sitemap: sitemap shard contains no URLs.');
@@ -83,6 +99,7 @@ ${urlBlocks}
 
 const relDist = path.relative(root, dist).replaceAll('\\', '/');
 fs.writeFileSync(path.join(dist, 'sitemap.xml'), formatted, 'utf8');
+fs.writeFileSync(path.join(root, 'public', 'sitemap.xml'), formatted, 'utf8');
 
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
