@@ -3,13 +3,10 @@ import '../styles/blog-pages.css';
 import ResponsiveImage from './ResponsiveImage.astro';
 import Icon from './icons/Icon.astro';
 import { CARD_IMAGE_SIZES, CARD_IMAGE_WIDTHS } from '../utils/responsiveImage';
-import { blogPostPath, blogTopicPath } from '../utils/path';
+import { blogPostPath } from '../utils/path';
 import type { BlogPost } from '../i18n/types';
-import { t } from '../i18n';
 import { getBlogPostTimestamp, getBlogReadMinutes } from '../data/blog';
-import { blogTagIcons } from '../data/sectionIcons';
-import type { IconName } from './icons/types';
-import { Badge } from '@/components/starwind/badge';
+import { screenshotAlt } from '../data/screenshots';
 import { Button } from '@/components/starwind/button';
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/starwind/card';
 
@@ -30,7 +27,6 @@ const isFeatured = layout === 'featured';
 const href = blogPostPath(post.slug);
 const timestamp = getBlogPostTimestamp(post.date);
 const readMinutes = getBlogReadMinutes(post.readTime);
-const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
 ---
 
 <Card
@@ -46,6 +42,7 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
   data-tag={post.tag}
   data-ts={timestamp}
   data-read-minutes={readMinutes}
+  data-search={`${post.title} ${post.desc} ${post.tag}`}
 >
   <a
     href={href}
@@ -58,7 +55,7 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
   >
     <ResponsiveImage
       src={post.image}
-      alt={`${post.title} gameplay screenshot`}
+      alt={screenshotAlt(post.image, `${post.title} overlay screenshot`)}
       width={isFeatured ? 960 : 640}
       height={isFeatured ? 540 : 360}
       widths={isFeatured ? undefined : CARD_IMAGE_WIDTHS}
@@ -70,33 +67,6 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
         isFeatured && 'lg:absolute lg:inset-0 lg:h-full lg:w-full lg:max-w-none',
       ]}
     />
-
-    <div class="pointer-events-none absolute inset-x-0 top-0 z-10 flex items-start justify-between gap-2 p-3">
-      <a href={blogTopicPath(post.tag)} class="pointer-events-auto">
-        <Badge
-          tone="neutral"
-          appearance="frosted"
-          size="sm"
-          class="gap-1.5 shadow-sm"
-        >
-          <Icon name={tagIcon} size={14} />
-          {post.tag}
-        </Badge>
-      </a>
-      {
-        showDate ? (
-          <Badge tone="neutral" appearance="frosted" size="sm" class="gap-1.5 shadow-sm">
-            <Icon name="calendar" size={14} />
-            {post.date}
-          </Badge>
-        ) : (
-          <Badge tone="neutral" appearance="frosted" size="sm" class="gap-1.5 shadow-sm">
-            <Icon name="clock" size={14} />
-            {post.readTime}
-          </Badge>
-        )
-      }
-    </div>
 
     <span
       class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"
@@ -132,18 +102,8 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
 
     <CardFooter class="blog-card__footer mt-auto rounded-none border-border/80 bg-transparent px-4 pb-6 pt-4 shadow-none sm:px-5 sm:pb-6">
       <p class="blog-card__footer-meta text-sm text-muted-foreground">
-        {
-          /* Date already shows on the image when showDate is set — keep footer to one clean row */
-          !showDate ? (
-            <>
-              <Icon name="calendar" size={14} class="blog-card__footer-icon" aria-hidden="true" />
-              <span>{post.date}</span>
-              <span class="blog-card__footer-dot" aria-hidden="true">·</span>
-            </>
-          ) : null
-        }
-        <Icon name="clock" size={14} class="blog-card__footer-icon" aria-hidden="true" />
-        <span>{post.readTime}</span>
+        <Icon name="calendar" size={14} class="blog-card__footer-icon" aria-hidden="true" />
+        <span>{post.date}</span>
       </p>
       <Button as="a" href={href} variant="outline" size="sm" class="blog-card__read shrink-0">
         {`Read ${post.slug.replace('the-isle-', '').replaceAll('-', ' ')}`}

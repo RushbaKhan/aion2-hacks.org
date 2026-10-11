@@ -57,7 +57,7 @@ const checkpoints = [
         <SectionHeader
           eyebrow="Buyer feedback"
           title="How to evaluate Isle Hacks"
-          desc="This page does not invent customer quotes or star ratings. Use these checkpoints—and your own checkout experience—before choosing a plan."
+          desc="This page does not invent customer quotes or star ratings. Use these checkpoints—and your own checkout experience—before choosing a monthly or lifetime plan."
           titleId="reviews-page-title"
         />
       </div>
@@ -72,8 +72,10 @@ const checkpoints = [
       </div>
 
       <p class="mt-10 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-        If you already purchased and want to report setup, compatibility, or feature questions, use the support page.
-        Published testimonials will only appear here if they can be verified—placeholder reviews are not added.
+        If you already purchased and want to report setup, compatibility, or feature questions, use the
+        <a href={ROUTES.support}>support page</a>. Published testimonials will only appear here if they can be verified—placeholder reviews are not added.
+        Compare modules on the <a href={ROUTES.features}>features</a> page and duration on
+        <a href="/the-isle-monthly-vs-lifetime/">monthly vs lifetime</a> before you pay.
       </p>
 
       <div class="mt-8 flex flex-wrap gap-3">
@@ -82,6 +84,7 @@ const checkpoints = [
           <Icon name="arrowRight" size={17} />
         </Button>
         <Button as="a" href={ROUTES.support} variant="outline">Contact support</Button>
+        <Button as="a" href={ROUTES.preview} variant="outline">Preview overlays</Button>
       </div>
     </div>
   </section>

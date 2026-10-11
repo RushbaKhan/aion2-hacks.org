@@ -329,16 +329,45 @@ html:not(.dark) .product-feature-check .icon-app:hover {
 /* Product gallery + collapsible description */
 .product-gallery {
   display: grid;
-  grid-template-columns: 1fr 9.25rem;
+  grid-template-columns: minmax(0, 1fr) 9.25rem;
+  grid-template-rows: auto;
+  align-items: stretch;
   gap: 0.75rem;
 }
 
 .product-gallery--single {
-  grid-template-columns: 1fr;
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.product-gallery--compact {
+  width: 100%;
+  max-width: 42rem;
+  margin-inline: auto;
+  grid-template-columns: minmax(0, 1fr) 6.5rem;
+}
+
+.product-gallery--compact .product-gallery__thumb {
+  flex-basis: 3.5rem;
+  height: 3.5rem;
+}
+
+.product-gallery__stage {
+  align-self: start;
+  width: 100%;
+}
+
+.product-gallery__main,
+.product-gallery__main picture {
+  display: block;
+  width: 100%;
+  line-height: 0;
 }
 
 .product-gallery__image {
   display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1024 / 571;
   transition: transform 0.35s ease;
 }
 
@@ -350,7 +379,8 @@ html:not(.dark) .product-feature-check .icon-app:hover {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  max-height: 22.5rem;
+  height: 0;
+  min-height: 100%;
   overflow-y: auto;
   padding-right: 0.125rem;
   scroll-snap-type: y proximity;
@@ -413,12 +443,15 @@ html:not(.dark) .product-feature-check .icon-app:hover {
 }
 
 @media (max-width: 1000px) {
-  .product-gallery {
-    grid-template-columns: 1fr;
+  .product-gallery,
+  .product-gallery--compact {
+    grid-template-columns: minmax(0, 1fr);
   }
 
   .product-gallery__thumbs {
     flex-direction: row;
+    height: auto;
+    min-height: 0;
     max-height: none;
     overflow-x: auto;
     overflow-y: hidden;

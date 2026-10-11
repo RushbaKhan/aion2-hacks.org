@@ -3,7 +3,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icon from './icons/Icon.astro';
 import { Button } from '@/components/starwind/button';
 import { Prose } from '@/components/starwind/prose';
-import { ROUTES } from '../utils/path';
+import { linkifyMarkdown, ROUTES } from '../utils/path';
 
 interface Props {
   title: string;
@@ -35,7 +35,7 @@ const { title, description, breadcrumbLabel, sections } = Astro.props;
         <section class="mt-8">
           <h2>{section.heading}</h2>
           {section.paragraphs.map((paragraph) => (
-            <p>{paragraph}</p>
+            <p set:html={linkifyMarkdown(paragraph)} />
           ))}
         </section>
       ))}

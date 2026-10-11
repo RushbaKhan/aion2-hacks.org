@@ -1,0 +1,22 @@
+---
+import { CHECKOUT } from '../config/checkout';
+
+const dest = CHECKOUT.isle;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta http-equiv="refresh" content={`0;url=${dest}`} />
+    <title>Continuing to checkout</title>
+    <script is:inline define:vars={{ dest }}>
+      window.location.replace(dest);
+    </script>
+  </head>
+  <body>
+    <p>Continuing to checkout… <a href={dest}>Open checkout</a></p>
+  </body>
+</html>

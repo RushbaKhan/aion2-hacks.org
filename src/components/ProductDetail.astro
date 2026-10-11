@@ -22,7 +22,7 @@ interface Props {
 
 const { product, breadcrumbs } = Astro.props;
 const productFaqs = getProductFaqs(product.slug, product.kind);
-const relatedPosts = getRelatedBlogPostsForProduct(product.relatedBlogSlugs, 6);
+const relatedPosts = getRelatedBlogPostsForProduct(product.relatedBlogSlugs, 8);
 
 const descriptionBlocks = [
   ...product.overview.paragraphs.map((text) => ({ type: 'p' as const, text })),
@@ -71,7 +71,7 @@ const showDescToggle = descriptionBlocks.length > 2;
   id="faq"
   items={productFaqs}
   titleId={`catalog-faq-${product.slug}`}
-  class="border-t border-border bg-background"
+  class="border-t border-border bg-transparent"
 />
 </div>
 

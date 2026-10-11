@@ -6,6 +6,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import SectionHeader from '../components/SectionHeader.astro';
 import ProductScreenshotGallery from '../components/ProductScreenshotGallery.astro';
 import { heroSlides, productPages } from '../data/products';
+import { screenshotByRank } from '../data/screenshots';
 import { ROUTES } from '../utils/path';
 import { Button } from '@/components/starwind/button';
 import Icon from '../components/icons/Icon.astro';
@@ -16,11 +17,14 @@ const breadcrumbs = [
   { name: 'Preview', path: '/preview/' },
 ];
 const product = productPages[0]!;
+const heroShot = screenshotByRank(0);
 ---
 
 <BaseLayout
   title={seo.title}
   description={seo.description}
+  ogImage={heroShot.src}
+  ogImageAlt={heroShot.alt}
   jsonLd={[
     webPageSchema({
       name: seo.title,
@@ -33,17 +37,18 @@ const product = productPages[0]!;
   <section class="py-8 md:py-12">
     <div class="mx-auto max-w-6xl px-5">
       <Breadcrumbs items={breadcrumbs} />
-      <div class="mt-6 max-w-3xl">
+      <div class="mt-6">
         <SectionHeader
+          centered
           eyebrow="Preview"
           title="The Isle hacks preview"
-          desc="Look through interface, player information, ESP, and radar options before choosing a monthly or lifetime plan."
+          desc="Look through the interface, player information, ESP visuals, and radar options before choosing a monthly or lifetime plan."
           titleId="preview-page-title"
         />
       </div>
 
       <div class="mt-10">
-        <ProductScreenshotGallery images={heroSlides} id="preview-gallery" />
+        <ProductScreenshotGallery compact images={heroSlides} id="preview-gallery" />
       </div>
 
       <ul class="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
@@ -52,17 +57,20 @@ const product = productPages[0]!;
         ))}
       </ul>
 
-      <p class="mt-8 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-        Preview images illustrate the listed overlay categories. Confirm the current feature list and status before purchase—
-        game updates can change what a build can display.
+      <p class="mx-auto mt-8 max-w-3xl text-center text-sm leading-relaxed text-muted-foreground">
+        Preview images illustrate the listed overlay categories. Confirm the current
+        <a href={ROUTES.features}>feature list</a> and <a href={ROUTES.status}>status</a> before purchase—
+        game updates can change what a build can display. Pair this gallery with
+        <a href="/the-isle-esp-terminology/">ESP terminology</a> if the labels are new.
       </p>
 
-      <div class="mt-8 flex flex-wrap gap-3">
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
         <Button as="a" href={ROUTES.store} variant="primary">
           View store
           <Icon name="arrowRight" size={17} />
         </Button>
         <Button as="a" href={ROUTES.features} variant="outline">Read features</Button>
+        <Button as="a" href={ROUTES.setup} variant="outline">Setup notes</Button>
       </div>
     </div>
   </section>

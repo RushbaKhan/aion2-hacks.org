@@ -9,15 +9,19 @@ import { resolvePageSeo } from '../config/seo';
 import { faqPageSchema, organizationSchema, websiteSchema } from '../utils/schema';
 import { getLandingFaqs } from '../data/faq';
 import { webpSrc } from '../utils/responsiveImage';
+import { screenshotByRank } from '../data/screenshots';
 
 const seo = resolvePageSeo('/');
 const homeFaqs = getLandingFaqs();
-const heroLcpImage = webpSrc('/images/gameplay/isle-forest-esp.png', 512);
+const heroShot = screenshotByRank(0);
+const heroLcpImage = webpSrc(heroShot.src, 960);
 ---
 
 <BaseLayout
   title={seo.title}
   description={seo.description}
+  ogImage={heroShot.src}
+  ogImageAlt={heroShot.alt}
   jsonLd={[websiteSchema(), organizationSchema(), faqPageSchema(homeFaqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') })))]}
 >
   <link

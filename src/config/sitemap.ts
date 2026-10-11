@@ -5,7 +5,7 @@ import { parseBlogDate } from '../utils/schema';
 const buildDate = new Date().toISOString().slice(0, 10);
 
 const blogLastmod = new Map(
-  blogPosts.map((post) => [`/blog/${post.slug}/`, parseBlogDate(post.date)] as const),
+  blogPosts.map((post) => [`/${post.slug}/`, parseBlogDate(post.date)] as const),
 );
 
 function pathnameFromUrl(url: string): string {
@@ -16,7 +16,14 @@ function pathnameFromUrl(url: string): string {
 export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
   const path = pathnameFromUrl(item.url);
 
-  if (path.includes('/404') || path.startsWith('/go/') || path.includes('/rss.xml')) {
+  if (
+    path.includes('/404') ||
+    path.startsWith('/go/') ||
+    path === '/monthly/' ||
+    path === '/lifetime/' ||
+    path.includes('/rss.xml') ||
+    path === '/search/'
+  ) {
     return undefined;
   }
 
@@ -34,12 +41,7 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     return item;
   }
 
-  if (
-    path === '/blog/features/' ||
-    path === '/blog/guides/' ||
-    path === '/blog/setup/' ||
-    path === '/blog/updates/'
-  ) {
+  if (path === '/intel/' || path === '/guides/' || path === '/howto/' || path === '/updates/') {
     item.priority = 0.8;
     item.changefreq = 'weekly';
     return item;
@@ -51,13 +53,7 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     return item;
   }
 
-  if (path.startsWith('/forum/')) {
-    item.priority = 0.6;
-    item.changefreq = 'weekly';
-    return item;
-  }
-
-  if (path.startsWith('/blog/')) {
+  if (blogLastmod.has(path)) {
     item.priority = 0.7;
     item.changefreq = 'monthly';
     item.lastmod = blogLastmod.get(path) ?? buildDate;

@@ -1,6 +1,6 @@
 # Isle Hacks
 
-Marketing site for [islehacks.org](https://islehacks.org) — The Isle hacks on Windows PC (Evrima).
+Marketing site for [islehacks.com](https://islehacks.com) — The Isle hacks on Windows PC (Evrima).
 
 The site lists player ESP, dinosaur ESP, health information, radar, and optional aim assistance, plus monthly ($35) and lifetime ($150) plans. Compatibility depends on Easy Anti-Cheat and can change after a game update.
 
@@ -22,4 +22,4 @@ npm run build
 npm start
 ```
 
-Support: support@islehacks.org
+Support: support@islehacks.com

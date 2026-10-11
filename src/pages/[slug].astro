@@ -1,0 +1,359 @@
+---
+import '../styles/blog-pages.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { t } from '../i18n';
+import { getAllBlogSlugs, getBlogPost, getRelatedBlogPosts } from '../data/blog';
+import {
+  FORUM_FLAIR,
+  FORUM_TEAM,
+  forumPosts,
+  getForumCategoryKey,
+  getForumCommunityHandle,
+  getForumPost,
+  getForumPostImage,
+} from '../data/forum';
+import ForumDiscussionCard from '../components/ForumDiscussionCard.astro';
+import ForumSidebar from '../components/ForumSidebar.astro';
+import '../styles/forum.css';
+import { pageTitle } from '../config/seo';
+import {
+  articleSchema,
+  breadcrumbSchema,
+  discussionForumPostingSchema,
+  parseBlogDate,
+} from '../utils/schema';
+import { checkoutPath, resolveCheckoutHref } from '../config/checkout';
+import { screenshotAlt } from '../data/screenshots';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
+import ResponsiveImage from '../components/ResponsiveImage.astro';
+import BlogSidebar from '../components/BlogSidebar.astro';
+import BlogPostTopBar from '../components/BlogPostTopBar.astro';
+import { getBlogFaqs } from '../data/faq';
+import SiteFaqSection from '../components/SiteFaqSection.astro';
+import Icon from '../components/icons/Icon.astro';
+import type { BlogBlock } from '../data/blog';
+import { Button } from '@/components/starwind/button';
+import { Prose } from '@/components/starwind/prose';
+import BlogPostCta from '../components/BlogPostCta.astro';
+import { blogPostPath, forumPostPath, normalizeInternalPath, ROUTES } from '../utils/path';
+
+export function getStaticPaths() {
+  return [...getAllBlogSlugs(), ...forumPosts.map((post) => post.slug)].map((slug) => ({
+    params: { slug },
+  }));
+}
+
+const { slug } = Astro.params;
+const post = getBlogPost(slug!);
+const forumPost = post ? undefined : getForumPost(slug!);
+
+if (!post && !forumPost) {
+  return Astro.redirect('/blog/');
+}
+
+const postPath = post ? blogPostPath(post.slug) : forumPostPath(forumPost!.slug);
+const breadcrumbs = post
+  ? [
+      { name: 'Home', path: '/' },
+      { name: 'Blog', path: '/blog/' },
+      { name: post.title, path: postPath },
+    ]
+  : [
+      { name: 'Home', path: '/' },
+      { name: 'Forum', path: '/forum/' },
+      { name: forumPost!.category, path: `/forum/?category=${getForumCategoryKey(forumPost!.category)}` },
+      { name: forumPost!.title, path: postPath },
+    ];
+
+const related = post ? getRelatedBlogPosts(post.slug, 3) : [];
+const relatedForum = forumPost
+  ? [
+      ...forumPosts.filter((item) => item.slug !== forumPost.slug && item.category === forumPost.category),
+      ...forumPosts.filter((item) => item.slug !== forumPost.slug && item.category !== forumPost.category),
+    ].slice(0, 3)
+  : [];
+
+function linkify(text: string): string {
+  return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label: string, href: string) => {
+    const normalized = normalizeInternalPath(href);
+    return `<a href="${normalized}">${label}</a>`;
+  });
+}
+
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
+const published = post ? parseBlogDate(post.date) : undefined;
+---
+
+{
+  post ? (
+    <BaseLayout
+      title={pageTitle(post.title)}
+      description={post.desc}
+      ogType="article"
+      ogImage={post.image}
+      ogImageAlt={screenshotAlt(post.image, post.title)}
+      articlePublishedTime={published}
+      articleModifiedTime={published}
+      jsonLd={[
+        articleSchema({
+          name: post.title,
+          description: post.desc,
+          url: postPath,
+          image: post.image,
+          datePublished: published!,
+        }),
+        breadcrumbSchema(breadcrumbs),
+      ]}
+    >
+      <article class="py-8 md:py-12">
+        <div class="mx-auto max-w-6xl px-5">
+          <Breadcrumbs items={breadcrumbs} />
+
+          <BlogPostTopBar post={post} class="mt-6" />
+
+          <div class="blog-article__layout mt-4 grid gap-6 lg:grid-cols-[minmax(14rem,16.5rem)_minmax(0,1fr)] lg:items-start lg:gap-8 xl:grid-cols-[17.5rem_minmax(0,1fr)]">
+            <BlogSidebar post={post} related={related} class="order-2 lg:order-1" />
+
+            <div class="order-1 min-w-0 lg:order-2">
+              <figure class="blog-article__hero">
+                <ResponsiveImage
+                  src={post.image}
+                  alt={screenshotAlt(post.image, post.title)}
+                  width={960}
+                  height={540}
+                  loading="eager"
+                  fetchPriority="high"
+                  sizes="(min-width: 768px) 720px, 100vw"
+                  class="w-full object-cover"
+                />
+              </figure>
+
+              <header class="blog-article__header">
+                <h1 class="blog-article__title">{post.title}</h1>
+                <p class="blog-article__lead">{post.desc}</p>
+                {
+                  post.author && (
+                    <p class="blog-article__byline">
+                      <Icon name="users" size={14} />
+                      {post.author}
+                    </p>
+                  )
+                }
+              </header>
+
+              <Prose class="blog-article__prose prose-headings:scroll-mt-24 max-w-none text-left">
+                {post.body.map((block: BlogBlock) => {
+                  if (block.type === 'h2') {
+                    const id = slugify(block.text);
+                    return <h2 id={id}>{block.text}</h2>;
+                  }
+                  if (block.type === 'h3') {
+                    const id = slugify(block.text);
+                    return <h3 id={id}>{block.text}</h3>;
+                  }
+                  if (block.type === 'ul') {
+                    return (
+                      <ul>
+                        {block.items.map((item) => (
+                          <li set:html={linkify(item)} />
+                        ))}
+                      </ul>
+                    );
+                  }
+                  if (block.type === 'table') {
+                    return (
+                      <div class="overflow-x-auto">
+                        <table>
+                          <thead>
+                            <tr>
+                              {block.headers.map((header) => (
+                                <th>{header}</th>
+                              ))}
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {block.rows.map((row) => (
+                              <tr>
+                                {row.map((cell) => (
+                                  <td set:html={linkify(cell)} />
+                                ))}
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      </div>
+                    );
+                  }
+                  if (block.type === 'cta') {
+                    return (
+                      <BlogPostCta
+                        title={block.title}
+                        html={linkify(block.text)}
+                        href={resolveCheckoutHref(block.href)}
+                      />
+                    );
+                  }
+                  return <p set:html={linkify(block.text)} />;
+                })}
+              </Prose>
+
+              <nav class="blog-article__actions" aria-label="Continue reading">
+                <Button as="a" href={checkoutPath('isle')} variant="primary" aria-label={t.ui.checkoutAria}>
+                  View The Isle plans
+                  <Icon name="arrowRight" size={17} />
+                </Button>
+                <Button as="a" href={ROUTES.store} variant="outline">
+                  View store
+                </Button>
+                <Button as="a" href={ROUTES.blog} variant="outline">
+                  More articles
+                  <Icon name="arrowRight" size={17} />
+                </Button>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <SiteFaqSection
+        items={getBlogFaqs(post.tag, post.slug)}
+        titleId={`blog-faq-${post.slug}`}
+        class="border-t border-border bg-muted/20"
+      />
+    </BaseLayout>
+  ) : forumPost ? (
+    <BaseLayout
+      title={pageTitle(forumPost.title)}
+      description={forumPost.excerpt}
+      ogType="article"
+      ogImage={getForumPostImage(forumPost)}
+      ogImageAlt={screenshotAlt(getForumPostImage(forumPost), forumPost.title)}
+      jsonLd={[
+        discussionForumPostingSchema({
+          name: forumPost.title,
+          text: forumPost.body.join('\n\n'),
+          url: postPath,
+          author: forumPost.author,
+          comments: forumPost.commentsCount,
+        }),
+        breadcrumbSchema(breadcrumbs),
+      ]}
+    >
+      <section class="forum-page">
+        <div class="section-shell">
+          <Breadcrumbs items={breadcrumbs} />
+          <a href={ROUTES.forum} class="inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground hover:text-primary">
+            <Icon name="chevronLeft" size={15} />
+            All discussions
+          </a>
+
+          <div class="forum-layout forum-layout--detail">
+            <div class="forum-main">
+              <article class="forum-detail-card" id="discussion" data-forum-vote data-post-slug={forumPost.slug} data-upvotes={forumPost.upvotes}>
+                <div class="forum-vote forum-vote--detail">
+                  <button type="button" data-vote-up class="forum-vote__up" aria-label={`Upvote ${forumPost.title}`}>
+                    <Icon name="chevronDown" size={16} />
+                  </button>
+                  <strong data-vote-count>{forumPost.upvotes}</strong>
+                </div>
+                <div class="forum-detail-content">
+                  <div class="forum-post-meta">
+                    <a href={`${ROUTES.forum}?category=${getForumCategoryKey(forumPost.category)}`} class="forum-community-name">
+                      <span class:list={['forum-community-avatar', `tone-${forumPost.categoryTone}`]}>{forumPost.category.slice(0, 1)}</span>
+                      {getForumCommunityHandle(forumPost.category)}
+                    </a>
+                    <span>· {FORUM_TEAM}</span>
+                    <span class="forum-flair">{FORUM_FLAIR}</span>
+                  </div>
+                  <h1>{forumPost.title}</h1>
+                  <p class="forum-post-excerpt">{forumPost.excerpt}</p>
+                  <div class="forum-detail-copy">
+                    {forumPost.body.map((paragraph) => (
+                      <p set:html={linkify(paragraph)} />
+                    ))}
+                  </div>
+                  {
+                    forumPost.sourceTitle && (
+                      <p class="forum-source forum-source--detail">
+                        From the guide:{' '}
+                        <a href={normalizeInternalPath(forumPost.sourcePath ?? ROUTES.blog)}>{forumPost.sourceTitle}</a>
+                      </p>
+                    )
+                  }
+                  <div class="forum-post-actions forum-post-actions--detail">
+                    <span>Guide Q&amp;A</span>
+                    <a href="#comments">
+                      <Icon name="messageCircle" size={13} />
+                      {forumPost.commentsCount} {forumPost.commentsCount === 1 ? 'comment' : 'comments'}
+                    </a>
+                    <a href={ROUTES.store}>View store</a>
+                    <a href={normalizeInternalPath(forumPost.sourcePath ?? ROUTES.blog)}>Read source guide</a>
+                  </div>
+                </div>
+              </article>
+
+              <div class="forum-login-prompt">
+                <span class="forum-user-dot">IH</span>
+                <span>Guide-based Q&amp;A</span>
+                <span>New replies stay closed — use the source guide or <a href={ROUTES.support}>support</a>.</span>
+              </div>
+
+              <section class="forum-comments" id="comments" aria-labelledby="comments-title">
+                <div class="forum-comments__heading">
+                  <h2 id="comments-title">
+                    Comments <span>{forumPost.comments.length}</span>
+                  </h2>
+                </div>
+                {forumPost.comments.map((comment) => (
+                  <article class="forum-comment">
+                    <div class="forum-comment__rail">
+                      <span class="forum-comment__avatar">{comment.initials}</span>
+                      <span class="forum-comment__line"></span>
+                    </div>
+                    <div class="forum-comment__body">
+                      <div class="forum-comment__meta">
+                        <b>{comment.displayName}</b>
+                        <span>{comment.role ?? 'Guide note'}</span>
+                        <span>{comment.date}</span>
+                      </div>
+                      <p>{comment.body}</p>
+                    </div>
+                  </article>
+                ))}
+              </section>
+
+              {
+                relatedForum.length > 0 && (
+                  <section class="mt-8" aria-labelledby="related-threads-title">
+                    <h2 id="related-threads-title" class="mb-3 text-lg font-bold">Related discussions</h2>
+                    <div class="forum-post-list">
+                      {relatedForum.map((item, index) => (
+                        <ForumDiscussionCard post={item} index={index} />
+                      ))}
+                    </div>
+                  </section>
+                )
+              }
+            </div>
+
+            <ForumSidebar related={relatedForum} />
+          </div>
+        </div>
+        <script>
+          import { initForumVotes } from '../scripts/forum-votes.ts';
+          if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', () => initForumVotes());
+          } else {
+            initForumVotes();
+          }
+        </script>
+      </section>
+    </BaseLayout>
+  ) : null
+}

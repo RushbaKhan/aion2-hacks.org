@@ -1,13 +1,16 @@
-/** Blog index topic filters + Starwind sort select. */
+import { textMatches } from './search-match';
+
+/** Blog index topic filters, search, and Starwind sort select. */
 export function initBlogIndexFilters(emptyMessage: string) {
   const grid = document.getElementById('blog-grid');
   const emptyEl = document.getElementById('blog-empty');
   const sortRoot = document.getElementById('blog-sort-select');
+  const searchInput = document.querySelector<HTMLInputElement>('[data-listing-search]');
   if (!grid) return;
 
   const filters = document.querySelectorAll<HTMLButtonElement>('[data-blog-filter]');
 
-  const cards = () => [...grid.querySelectorAll<HTMLElement>('[data-blog-card]')];
+  const cards = () => [...document.querySelectorAll<HTMLElement>('[data-blog-card]:not([data-forum-card])')];
 
   const activeTag = () =>
     document.querySelector<HTMLButtonElement>('[data-blog-filter][aria-pressed="true"]')?.getAttribute(
@@ -44,21 +47,27 @@ export function initBlogIndexFilters(emptyMessage: string) {
   const apply = () => {
     const tag = activeTag();
     const sort = getSort();
+    const query = searchInput?.value.trim().toLocaleLowerCase() ?? '';
     const items = cards();
 
     const sorted = [...items].sort((a, b) => compareCards(a, b, sort));
-    sorted.forEach((el) => grid.appendChild(el));
+    sorted.forEach((el) => {
+      if (el.parentElement === grid) grid.appendChild(el);
+    });
 
     let visibleCount = 0;
     items.forEach((el) => {
-      const match = tag === 'all' || el.getAttribute('data-tag') === tag;
+      const matchTag = tag === 'all' || el.getAttribute('data-tag') === tag;
+      const haystack = el.getAttribute('data-search') ?? el.textContent ?? '';
+      const matchQuery = textMatches(haystack, query);
+      const match = matchTag && matchQuery;
       el.classList.toggle('hidden', !match);
       if (match) visibleCount += 1;
     });
 
     if (emptyEl) {
       emptyEl.classList.toggle('hidden', visibleCount > 0);
-      emptyEl.textContent = emptyMessage;
+      emptyEl.textContent = query ? 'No articles match this search.' : emptyMessage;
     }
   };
 
@@ -70,6 +79,8 @@ export function initBlogIndexFilters(emptyMessage: string) {
     });
   });
 
+  searchInput?.addEventListener('input', apply);
+
   const onSortChange = (event: Event) => {
     if (!isBlogSortEvent(event)) return;
     apply();
@@ -77,7 +88,9 @@ export function initBlogIndexFilters(emptyMessage: string) {
 
   document.addEventListener('starwind:value-change', onSortChange);
 
-  // Starwind select hydrates after first paint — re-apply once ready.
+  const queryFromUrl = new URLSearchParams(window.location.search).get('q');
+  if (queryFromUrl && searchInput) searchInput.value = queryFromUrl;
+
   requestAnimationFrame(apply);
   window.setTimeout(apply, 0);
 }

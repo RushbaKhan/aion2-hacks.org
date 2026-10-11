@@ -26,10 +26,13 @@ export function getFeaturedBlogPosts(limit = 3) {
   return featured ? [featured, ...rest].slice(0, limit) : blogPosts.slice(0, limit);
 }
 
-function screenshotPalette(src: string): 'green' | 'plains' | 'red' {
-  if (src.includes('plains')) return 'plains';
-  if (src.includes('forest-esp')) return 'green';
-  return 'red';
+function screenshotPalette(src: string): string {
+  if (src.includes('beach')) return 'beach';
+  if (src.includes('forest-radar') || src.includes('player-esp')) return 'forest-lines';
+  if (src.includes('reeds') || src.includes('jungle')) return 'green-close';
+  if (src.includes('water')) return 'water';
+  if (src.includes('combat')) return 'combat';
+  return src;
 }
 
 function pickAlternatingPosts(pool: typeof blogPosts, limit: number) {

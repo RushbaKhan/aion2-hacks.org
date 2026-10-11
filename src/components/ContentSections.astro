@@ -26,13 +26,57 @@ const featuredPosts = getFeaturedBlogPosts(3);
       ))}
     </div>
 
-    <div class="mt-10 flex justify-start lg:justify-center">
+    <div class="mt-10 flex flex-wrap justify-start gap-3 lg:justify-center">
       <Button as="a" href={ROUTES.blog} variant="outline">
         {t.blog.viewAll}
         <Icon name="arrowRight" size={17} />
       </Button>
+      <Button as="a" href={ROUTES.forum} variant="outline">
+        Open forum
+      </Button>
+      <Button as="a" href={ROUTES.store} variant="outline">
+        View store
+      </Button>
     </div>
   </div>
 </section>
+
+<nav class="border-y border-border bg-muted/10 py-12 md:py-16" aria-label="Explore Isle Hacks">
+  <div class="mx-auto max-w-6xl px-5">
+    <SectionHeader
+      as="h2"
+      eyebrow="Explore"
+      title="Every Isle Hacks page stays one click away"
+      desc="Plans, overlays, setup, status, intel, and the community board all link back to each other."
+      titleId="explore-title"
+    />
+    <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      {[
+        { href: ROUTES.features, title: 'Features', desc: 'ESP, radar, and aim assistance modules.' },
+        { href: ROUTES.store, title: 'Store', desc: 'Monthly $35 and lifetime $150 plans.' },
+        { href: ROUTES.status, title: 'Status', desc: 'Easy Anti-Cheat notes after Evrima patches.' },
+        { href: ROUTES.setup, title: 'Setup', desc: 'Windows PC first-run order.' },
+        { href: ROUTES.preview, title: 'Preview', desc: 'Overlay screenshots before you buy.' },
+        { href: ROUTES.blog, title: 'Blog', desc: 'The Isle intel and terminology.' },
+        { href: ROUTES.forum, title: 'Forum', desc: 'Guide discussions and patch notes.' },
+        { href: ROUTES.faq, title: 'FAQ', desc: 'Plans, compatibility, and checkout.' },
+        { href: '/the-isle-player-esp/', title: 'Player ESP', desc: 'Box, name, distance, and direction.' },
+        { href: '/the-isle-dinosaur-esp/', title: 'Dinosaur ESP', desc: 'Species, growth, and wildlife reads.' },
+        { href: '/the-isle-radar-features/', title: 'Radar', desc: 'Local awareness beside ESP.' },
+        { href: '/the-isle-monthly-vs-lifetime/', title: 'Plans compared', desc: 'Duration and price, same modules.' },
+      ].map((item) => (
+        <li>
+          <a
+            href={item.href}
+            class="block h-full rounded-2xl border border-border bg-card/80 px-4 py-4 transition-colors hover:border-primary/40"
+          >
+            <p class="font-semibold text-foreground">{item.title}</p>
+            <p class="mt-1 text-sm text-muted-foreground">{item.desc}</p>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</nav>
 
 <SiteFaqSection id="faq" titleId="faq-title" items={homeFaqs} />

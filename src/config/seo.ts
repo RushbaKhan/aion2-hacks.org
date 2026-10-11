@@ -42,8 +42,8 @@ export function absoluteAssetUrl(path: string): string {
 export function shareImagePath(path: string): string {
   if (!path) return DEFAULT_OG_IMAGE;
   if (path === DEFAULT_OG_IMAGE) return path;
-  if (path.startsWith('/images/') && /\.png$/i.test(path)) {
-    return path.replace(/\.png$/i, '-1280.webp');
+  if (path.startsWith('/images/') && /\.(png|jpe?g)$/i.test(path)) {
+    return path.replace(/\.(png|jpe?g)$/i, '-960.webp');
   }
   return path;
 }

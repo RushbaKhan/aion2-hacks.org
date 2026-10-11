@@ -1,12 +1,18 @@
 ---
 import { t } from '../i18n';
+import { SITE_URL } from '../config/site';
 import { Separator } from '@/components/starwind/separator';
 
+const shareUrl = encodeURIComponent(`${SITE_URL}/`);
 const resourceLinks = [
-  { href: '/blog/', label: 'Blog archive', ariaLabel: 'Blog archive' },
-  { href: '/store/', label: 'Pricing and plans', ariaLabel: 'Pricing and plans' },
-  { href: '/status/', label: 'Patch-day status', ariaLabel: 'Patch-day status' },
-  { href: '/support/', label: t.footer.support },
+  { href: '/blog/', label: 'The Isle intel', ariaLabel: 'The Isle intel' },
+  { href: '/the-isle-player-esp/', label: 'Player ESP guide', ariaLabel: 'Player ESP guide' },
+  { href: '/the-isle-radar-features/', label: 'Radar features', ariaLabel: 'Radar features' },
+  { href: '/preview/', label: 'Overlay preview', ariaLabel: 'Overlay preview' },
+  { href: '/setup/', label: 'Windows PC setup', ariaLabel: 'Windows PC setup' },
+  { href: '/reviews/', label: 'Buyer checklist', ariaLabel: 'Buyer checklist' },
+  { href: '/forum/', label: 'Community forum', ariaLabel: 'Community forum' },
+  { href: '/go/', label: t.footer.support },
 ];
 
 const legalLinks = [
@@ -69,8 +75,6 @@ const legalLinks = [
             <a
               href="https://store.steampowered.com/app/376210/The_Isle/"
               class="text-sm text-muted-foreground hover:text-primary"
-              rel="noopener noreferrer"
-              target="_blank"
             >
               The Isle on Steam
             </a>
@@ -87,17 +91,13 @@ const legalLinks = [
       <nav aria-label="Share Isle Hacks" class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
         <a
           class="text-muted-foreground hover:text-primary"
-          href="https://x.com/intent/post?url=https%3A%2F%2Fislehacks.org%2F&text=The%20Isle%20Hacks"
-          rel="noopener noreferrer"
-          target="_blank"
+          href={`https://x.com/intent/post?url=${shareUrl}&text=${encodeURIComponent('The Isle Hacks')}`}
         >
           Share on X
         </a>
         <a
           class="text-muted-foreground hover:text-primary"
-          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fislehacks.org%2F"
-          rel="noopener noreferrer"
-          target="_blank"
+          href={`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`}
         >
           Share on Facebook
         </a>

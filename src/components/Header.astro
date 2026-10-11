@@ -12,6 +12,7 @@ import {
 } from '@/components/starwind/sheet';
 import Icon from './icons/Icon.astro';
 import SlideRevealButton from './SlideRevealButton.astro';
+import SiteSearch from './SiteSearch.astro';
 
 import type { IconName } from './icons/types';
 
@@ -33,25 +34,29 @@ const purchaseUrl = checkoutPath('isle');
     <div
       class="pointer-events-auto relative flex h-14 w-full max-w-6xl items-center justify-between gap-3 rounded-2xl border border-border/40 bg-background/35 px-4 text-foreground shadow-md shadow-black/5 backdrop-blur-2xl supports-[backdrop-filter]:bg-background/25 dark:border-white/10 dark:bg-background/20 dark:shadow-black/25 sm:px-5 lg:h-[3.75rem]"
     >
-    <a href="/" class="inline-flex min-w-0 items-center font-[family-name:var(--font-heading)] text-lg font-bold tracking-wide" aria-label={t.ui.homeAria}>
+    <a href="/" class="inline-flex shrink-0 items-center font-[family-name:var(--font-heading)] text-lg font-bold tracking-wide" aria-label={t.ui.homeAria}>
       <span class="truncate" aria-hidden="true">Isle<span class="text-primary">Hacks</span></span>
     </a>
 
-    <nav class="absolute left-1/2 hidden -translate-x-1/2 items-center gap-6 lg:flex" aria-label="Primary">
+    <nav class="hidden min-w-0 flex-1 items-center justify-center gap-3 xl:gap-4 2xl:gap-5 lg:flex" aria-label="Primary">
       {t.nav.map((link) => (
         <a
           href={link.href}
-          class="nav-link inline-flex items-center gap-1.5 text-sm font-medium text-muted-foreground transition-colors hover:text-primary"
+          class:list={[
+            'nav-link inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap text-sm font-medium text-muted-foreground transition-colors hover:text-primary',
+            link.label === 'Support' && ['hidden', '2xl:inline-flex'],
+          ]}
           data-nav-link
           {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
         >
-          <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} />
+          <Icon name={navIcons[link.label] ?? 'navFeatures'} size={16} class="hidden xl:inline-flex" />
           {link.label}
         </a>
       ))}
     </nav>
 
-    <div class="flex items-center gap-2">
+    <div class="flex shrink-0 items-center gap-2">
+      <SiteSearch />
       <div class="hidden items-center sm:flex">
         <SlideRevealButton href={purchaseUrl} class="hidden lg:inline-flex" ariaLabel={t.ui.checkoutAria}>
           {t.ui.browseCheats}
@@ -73,6 +78,7 @@ const purchaseUrl = checkoutPath('isle');
           <SheetHeader>
             <SheetTitle>{t.site.name}</SheetTitle>
           </SheetHeader>
+          <SiteSearch variant="sheet" class="sm:hidden" />
           <nav class="flex flex-col gap-1" aria-label="Mobile">
             {t.nav.map((link) => (
               <a

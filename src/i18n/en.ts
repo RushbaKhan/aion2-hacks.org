@@ -1,33 +1,34 @@
 import type { Translations } from './types';
 import { PRIMARY_CHECKOUT_PATH } from '../config/checkout';
-import { PRODUCT_BASE, SUPPORT_EMAIL } from '../config/site';
+import { PRODUCT_BASE } from '../config/site';
 
 const productBase = PRODUCT_BASE;
 
 export const en: Translations = {
   site: {
     name: 'Isle Hacks',
-    domain: 'islehacks.org',
+    domain: 'islehacks.com',
     title: 'The Isle Hacks | Features, ESP and Radar',
     description:
-      'Explore The Isle hacks for Windows PC. Review features, ESP, radar, and compatibility before choosing a plan.',
+      'Explore The Isle hacks for Windows PC. Discover available gameplay features, configuration options, compatibility information, and current status before choosing a plan.',
     discord: PRIMARY_CHECKOUT_PATH,
   },
   nav: [
     { href: '/features/', label: 'Features' },
     { href: productBase, label: 'Store' },
     { href: '/blog/', label: 'Blog' },
+    { href: '/forum/', label: 'Forum' },
     { href: '/faq/', label: 'FAQ' },
-    { href: '/support/', label: 'Support' },
+    { href: PRIMARY_CHECKOUT_PATH, label: 'Support' },
   ],
   hero: {
-    status: 'The Isle — review status before you play',
+    status: 'The Isle — confirm status before you hunt',
     eyebrow: 'The Isle on Windows PC',
     titleLine1: 'The Isle',
     titleLine2: 'The Isle Hacks',
     titleLine3: 'Features, ESP and Radar',
     subtitle:
-      'Isle Hacks covers The Isle features for Windows PC, including player ESP, dinosaur ESP, health information, radar options, and aim assistance. Review compatibility and plans before checkout.',
+      'Isle Hacks documents The Isle hacks for Windows PC: player ESP, dinosaur ESP, health information, radar, and optional aim assistance. Read the listing, then check compatibility before you buy.',
     ctaPrimary: 'View store',
     ctaDiscord: 'View plans',
     modesLabel: 'Supported focus',
@@ -41,13 +42,13 @@ export const en: Translations = {
   },
   features: {
     eyebrow: 'Features',
-    title: 'The Isle tools you can review before buying',
-    subtitle: 'Aim assistance, ESP, creature information, and radar options listed by the current product build.',
+    title: 'The Isle modules you can inspect before checkout',
+    subtitle: 'Aim assistance, ESP, creature information, and radar options taken from the current product listing.',
     items: [
       {
         title: 'ESP',
-        subtitle: 'See players and dinosaurs nearby.',
-        desc: 'The Isle ESP overlay groups player, dinosaur, and world information so you can review distance, names, and health before committing to a hunt.',
+        subtitle: 'Read nearby players and dinosaurs.',
+        desc: 'The Isle ESP overlay gathers player, dinosaur, and world cues so you can check names, distance, and health before you close a hunt.',
         bullets: [
           'Player ESP with box, name, and distance readouts',
           'Dinosaur and animal ESP with species information',
@@ -59,8 +60,8 @@ export const en: Translations = {
       },
       {
         title: 'Player ESP',
-        subtitle: 'Track other survivors.',
-        desc: 'Player ESP shows nearby humans with box outlines, names, distance, direction, and a visible-check option when the current build includes them.',
+        subtitle: 'Mark other survivors.',
+        desc: 'Player ESP outlines nearby humans with boxes, names, distance, direction, and a visible-check option when the current build includes those toggles.',
         bullets: ['Box and name markers', 'Distance and direction cues', 'Head dot and snapline options'],
         tags: ['The Isle player ESP', 'box ESP', 'name ESP'],
         bento: 'sm:col-span-2 lg:col-span-8 lg:col-start-1 lg:row-start-2',
@@ -68,7 +69,7 @@ export const en: Translations = {
       {
         title: 'Dinosaur ESP',
         subtitle: 'Identify nearby creatures.',
-        desc: 'Dinosaur ESP and animal ESP mark species, growth, and distance so you can tell a threat from a food source before you close in.',
+        desc: 'Dinosaur ESP and animal ESP label species, growth, and distance so you can separate a threat from a food source before you commit.',
         bullets: ['Species labels', 'Growth and stamina readouts', 'NPC and corpse markers'],
         tags: ['The Isle dinosaur ESP', 'species info', 'animal ESP'],
         bento: 'sm:col-span-2 lg:col-span-4 lg:col-start-9 lg:row-start-2',
@@ -76,7 +77,7 @@ export const en: Translations = {
       {
         title: 'Health ESP',
         subtitle: 'Read fight-critical stats.',
-        desc: 'Health ESP adds stamina and growth context so you can judge whether a player or dinosaur is worth engaging.',
+        desc: 'Health ESP adds stamina and growth context so you can decide whether a player or dinosaur is worth engaging.',
         bullets: ['Health readout', 'Stamina information', 'Growth stage when listed'],
         tags: ['The Isle health ESP', 'stamina', 'growth'],
         bento: 'sm:col-span-2 lg:col-span-6 lg:col-start-1 lg:row-start-3',
@@ -84,7 +85,7 @@ export const en: Translations = {
       {
         title: 'Aim Assist',
         subtitle: 'Optional targeting help.',
-        desc: 'Aim assistance is available as a combat option. Use it only after you confirm the current build status and understand the extra risk that combat modules add.',
+        desc: 'Aim assistance is a combat option on the listing. Leave it off until you confirm current status and accept the extra risk combat modules add.',
         bullets: ['Aim assistance toggle', 'Use conservative settings first', 'Confirm status after each patch'],
         tags: ['The Isle aimbot', 'aim assist'],
         bento: 'sm:col-span-2 lg:col-span-6 lg:col-start-7 lg:row-start-3',
@@ -92,7 +93,7 @@ export const en: Translations = {
       {
         title: 'Radar',
         subtitle: 'Local awareness overlay.',
-        desc: 'Radar sits beside ESP so you can rotate around nearby players and dinosaurs without filling the screen with boxes.',
+        desc: 'Radar sits next to ESP so you can rotate around nearby players and dinosaurs without covering the screen in boxes.',
         bullets: ['Nearby player and dinosaur cues', 'Pairs with max-distance ESP filters', 'Useful on busier Evrima servers'],
         tags: ['radar', 'The Isle hacks PC'],
         bento:
@@ -101,7 +102,7 @@ export const en: Translations = {
       {
         title: 'Resource ESP',
         subtitle: 'Food, water, and corpses.',
-        desc: 'World markers can highlight fruit, water, gore, and corpses so you spend less time guessing where to recover after a hunt.',
+        desc: 'World markers can highlight fruit, water, gore, and corpses so recovery after a hunt takes less guesswork.',
         bullets: ['Fruit and water markers', 'Corpse and gore options', 'Max distance filter'],
         tags: ['resource ESP', 'world ESP'],
         bento:
@@ -118,7 +119,7 @@ export const en: Translations = {
       {
         title: 'Compatibility',
         subtitle: 'Evrima on Windows PC.',
-        desc: 'The current listing is Evrima-only on Windows 10 and 11. The Isle uses Easy Anti-Cheat, so check status after game updates before launching.',
+        desc: 'The current listing is Evrima-only on Windows 10 and 11. The Isle uses Easy Anti-Cheat, so re-check status after game updates before launching.',
         bullets: ['Windows 10 and 11', 'Evrima branch only', 'Review anti-cheat status after patches'],
         tags: ['Evrima', 'Easy Anti-Cheat', 'Windows PC'],
         bento: 'sm:col-span-2 lg:col-span-6 lg:col-start-7 lg:row-start-6',
@@ -127,9 +128,9 @@ export const en: Translations = {
   },
   whyUs: {
     eyebrow: 'Why us',
-    title: 'A focused The Isle listing—not a multi-game catalog',
+    title: 'A single-game listing for The Isle—not a mixed catalog',
     subtitle:
-      'Isle Hacks is built around one game. Review features, plans, and status on islehacks.org before you buy.',
+      'Isle Hacks stays on one title. Read features, plans, and status on islehacks.com before you pay.',
     usLabel: 'Isle Hacks',
     otherLabel: 'Typical listing',
     rows: [
@@ -187,7 +188,7 @@ export const en: Translations = {
     titleLead: 'From checkout to a configured overlay in',
     titleHighlight: 'three clear steps',
     intro:
-      'Review status, complete checkout, then follow the vendor setup notes for Windows PC and the Evrima branch before launching The Isle.',
+      'Confirm status, finish checkout, then follow the vendor notes for Windows PC and the Evrima branch before you launch The Isle.',
     ctaPrimary: 'Compare plans',
     ctaSecondary: 'Setup questions',
     ctaPrimaryHref: productBase,
@@ -213,7 +214,7 @@ export const en: Translations = {
   compatibility: {
     eyebrow: 'Platform support',
     title: 'Built for The Isle on Windows PC.',
-    subtitle: 'Check status after every Evrima or Easy Anti-Cheat update before you launch.',
+    subtitle: 'Re-check status after every Evrima or Easy Anti-Cheat update before you launch.',
     items: [
       'Windows 10 & 11',
       'The Isle Evrima',
@@ -274,7 +275,7 @@ export const en: Translations = {
         tag: 'Guides',
         title: 'The Isle hacks for Evrima: what to review first',
         slug: 'the-isle-hacks-evrima',
-        image: '/images/gameplay/isle-forest-esp.png',
+        image: '/images/gameplay/isle-reeds-aim.jpg',
         desc: 'A practical overview of The Isle hacks on the Evrima branch, including ESP, radar, and plan choices.',
         date: 'Oct 8, 2026',
         readTime: '8 min read',
@@ -283,7 +284,7 @@ export const en: Translations = {
         tag: 'Features',
         title: 'The Isle player ESP: boxes, names, and distance',
         slug: 'the-isle-player-esp',
-        image: '/images/gameplay/isle-forest-horn.png',
+        image: '/images/gameplay/isle-player-esp.jpg',
         desc: 'How player ESP presents nearby survivors with box, name, and distance information.',
         date: 'Oct 7, 2026',
         readTime: '6 min read',
@@ -292,7 +293,7 @@ export const en: Translations = {
         tag: 'Features',
         title: 'The Isle dinosaur ESP and species information',
         slug: 'the-isle-dinosaur-esp',
-        image: '/images/gameplay/isle-plains-health.png',
+        image: '/images/gameplay/isle-water-swim.jpg',
         desc: 'Dinosaur ESP, species labels, growth, and why creature information matters on Evrima.',
         date: 'Oct 6, 2026',
         readTime: '6 min read',
@@ -301,7 +302,7 @@ export const en: Translations = {
         tag: 'Features',
         title: 'The Isle health ESP: health, stamina, and growth',
         slug: 'the-isle-health-esp',
-        image: '/images/gameplay/isle-forest-radar.png',
+        image: '/images/gameplay/isle-forest-radar.jpg',
         desc: 'What health ESP adds when you need fight-critical stats before committing to a hunt.',
         date: 'Oct 5, 2026',
         readTime: '5 min read',
@@ -310,7 +311,7 @@ export const en: Translations = {
         tag: 'Features',
         title: 'The Isle aimbot and aim assistance options',
         slug: 'the-isle-aimbot',
-        image: '/images/gameplay/isle-plains-esp.png',
+        image: '/images/gameplay/isle-beach-pack.jpg',
         desc: 'What aim assistance is listed for, and why it should stay optional after you check status.',
         date: 'Oct 4, 2026',
         readTime: '5 min read',
@@ -319,7 +320,7 @@ export const en: Translations = {
         tag: 'Setup',
         title: 'The Isle hacks PC setup on Windows',
         slug: 'the-isle-hacks-pc-setup',
-        image: '/images/gameplay/isle-forest-species.png',
+        image: '/images/gameplay/isle-beach-snaplines.jpg',
         desc: 'Windows PC requirements, Evrima-only notes, and a conservative first-run configuration.',
         date: 'Oct 3, 2026',
         readTime: '7 min read',
@@ -328,7 +329,7 @@ export const en: Translations = {
         tag: 'Features',
         title: 'The Isle radar features for local rotations',
         slug: 'the-isle-radar-features',
-        image: '/images/gameplay/isle-forest-esp.png',
+        image: '/images/gameplay/isle-combat-health.jpg',
         desc: 'How radar complements ESP when you need nearby player and dinosaur cues.',
         date: 'Oct 2, 2026',
         readTime: '5 min read',
@@ -337,7 +338,7 @@ export const en: Translations = {
         tag: 'Guides',
         title: 'The Isle ESP terminology: player, dinosaur, and world overlays',
         slug: 'the-isle-esp-terminology',
-        image: '/images/gameplay/isle-forest-horn.png',
+        image: '/images/gameplay/isle-jungle-close.jpg',
         desc: 'Plain-language definitions for player ESP, dinosaur ESP, health ESP, and resource markers.',
         date: 'Oct 1, 2026',
         readTime: '7 min read',
@@ -346,7 +347,7 @@ export const en: Translations = {
         tag: 'Updates',
         title: 'The Isle Easy Anti-Cheat compatibility notes',
         slug: 'the-isle-compatibility-eac',
-        image: '/images/gameplay/isle-plains-health.png',
+        image: '/images/gameplay/isle-water-swim.jpg',
         desc: 'What Easy Anti-Cheat means for The Isle Evrima and how to treat status after a patch.',
         date: 'Sep 30, 2026',
         readTime: '6 min read',
@@ -355,7 +356,7 @@ export const en: Translations = {
         tag: 'Guides',
         title: 'Isle Hacks monthly vs lifetime plans',
         slug: 'the-isle-monthly-vs-lifetime',
-        image: '/images/gameplay/isle-forest-radar.png',
+        image: '/images/gameplay/isle-player-esp.jpg',
         desc: 'Compare the $35 monthly plan and the $150 lifetime plan before checkout.',
         date: 'Sep 29, 2026',
         readTime: '4 min read',
@@ -390,7 +391,7 @@ export const en: Translations = {
         num: '01',
         phase: 'Before purchase',
         title: 'Check current status',
-        desc: 'Read the status page on islehacks.org after any Evrima or Easy Anti-Cheat update.',
+        desc: 'Read the status page on islehacks.com after any Evrima or Easy Anti-Cheat update.',
       },
       {
         num: '02',
@@ -424,7 +425,7 @@ export const en: Translations = {
   support: {
     eyebrow: 'Support',
     title: 'Isle Hacks support',
-    subtitle: 'Let us know how we can help.',
+    subtitle: 'Tell us what you need help with.',
     channels: [
       {
         icon: 'users',
@@ -437,8 +438,8 @@ export const en: Translations = {
         icon: 'headphones',
         title: 'Email support',
         desc: 'Purchase, setup, and compatibility questions.',
-        linkLabel: SUPPORT_EMAIL,
-        href: `mailto:${SUPPORT_EMAIL}`,
+        linkLabel: 'Open checkout',
+        href: PRIMARY_CHECKOUT_PATH,
       },
       {
         icon: 'navFaq',
@@ -452,12 +453,12 @@ export const en: Translations = {
         title: 'Status and setup',
         desc: 'Review compatibility notes and the setup page.',
         linkLabel: 'Open contact page',
-        href: '/support/',
+        href: PRIMARY_CHECKOUT_PATH,
       },
     ],
     ticketTitle: 'Include in your ticket',
     ticketItems: [
-      { title: 'Order email', desc: 'The address used at checkout on islehacks.org or through the checkout partner.' },
+      { title: 'Order email', desc: 'The address used at checkout on islehacks.com or through the checkout partner.' },
       { title: 'Platform', desc: 'Windows 10 or 11, plus whether you are on the Evrima branch.' },
       { title: 'Error detail', desc: 'Screenshot or exact message from the loader, Steam, or Easy Anti-Cheat.' },
     ],
@@ -470,7 +471,7 @@ export const en: Translations = {
       {
         num: '01',
         q: 'Where do I check if The Isle hacks are currently compatible?',
-        a: 'Use the status page on islehacks.org before purchase or launch, especially after an Evrima or Easy Anti-Cheat update.',
+        a: 'Use the status page on islehacks.com before purchase or launch, especially after an Evrima or Easy Anti-Cheat update.',
       },
       {
         num: '02',
@@ -500,13 +501,17 @@ export const en: Translations = {
     ],
   },
   footer: {
-    tagline: 'The Isle hacks — ESP, radar, and plans for Windows PC. islehacks.org',
+    tagline: 'The Isle hacks — ESP, radar, and plans for Windows PC. islehacks.com',
     explore: 'Explore',
     exploreLinks: [
       { href: '/features/', label: 'Feature overview', ariaLabel: 'Features' },
       { href: '/store/', label: 'The Isle store', ariaLabel: 'Store' },
       { href: '/status/', label: 'Compatibility status', ariaLabel: 'Status' },
+      { href: '/preview/', label: 'Overlay preview', ariaLabel: 'Preview' },
+      { href: '/setup/', label: 'Windows PC setup', ariaLabel: 'Setup' },
+      { href: '/the-isle-monthly-vs-lifetime/', label: 'Monthly vs lifetime', ariaLabel: 'Plans compared' },
       { href: '/blog/', label: 'Read The Isle intel', ariaLabel: 'Blog' },
+      { href: '/forum/', label: 'Community forum', ariaLabel: 'Forum' },
       { href: '/faq/', label: 'Pre-purchase FAQ', ariaLabel: 'FAQ' },
     ],
     support: 'Get help',
@@ -519,26 +524,26 @@ export const en: Translations = {
     about: {
       title: 'About Isle Hacks',
       description:
-        'Isle Hacks publishes The Isle feature notes, plans, setup guidance, and status information at islehacks.org.',
+        'Isle Hacks publishes The Isle feature notes, plans, setup guidance, and status information at islehacks.com.',
       sections: [
         {
           heading: 'Who we are',
           paragraphs: [
-            'Isle Hacks is a Windows PC resource for players reviewing The Isle hacks, including ESP, radar, and aim assistance options. We publish feature descriptions, plan details, and compatibility notes so you can evaluate the product before checkout.',
+            'Isle Hacks is a Windows PC resource for players reviewing [The Isle hacks](/store/), including [ESP](/features/), [radar](/the-isle-radar-features/), and [aim assistance](/the-isle-aimbot/) options. We publish feature descriptions, plan details, and [compatibility notes](/status/) so you can evaluate the product before checkout.',
             'The Isle and related names are used for identification only.',
           ],
         },
         {
           heading: 'What we publish',
           paragraphs: [
-            'The site covers available features from the current product listing, monthly and lifetime plans, setup requirements, and Easy Anti-Cheat compatibility notes for the Evrima branch.',
-            'Feature availability can change after game or anti-cheat updates. Check the status page before every session.',
+            'The site covers available features from the current product listing, [monthly and lifetime plans](/the-isle-monthly-vs-lifetime/), [setup requirements](/setup/), and Easy Anti-Cheat notes for the Evrima branch. Longer explainers live in [The Isle intel](/blog/).',
+            'Feature availability can change after game or anti-cheat updates. Check the [status page](/status/) before every session.',
           ],
         },
         {
           heading: 'Support',
           paragraphs: [
-            'Questions about compatibility, setup errors, or checkout are handled through the Support page and email. Include your order email, Windows version, and The Isle branch when opening a ticket.',
+            'Questions about compatibility, setup errors, or checkout are handled through [checkout](/go/). Include your order email, Windows version, and The Isle branch. The [FAQ](/faq/) covers common plan and ESP questions first.',
           ],
         },
       ],
@@ -546,18 +551,18 @@ export const en: Translations = {
     privacy: {
       title: 'Privacy Policy',
       description:
-        'How Isle Hacks handles analytics, cookies, and contact data when you use islehacks.org.',
+        'How Isle Hacks handles analytics, cookies, and contact data when you use islehacks.com.',
       sections: [
         {
           heading: 'Information we collect',
           paragraphs: [
-            'We may collect standard web analytics such as page views, device type, browser, and approximate region through Google Analytics when enabled. Checkout and license delivery happen on external checkout pages—we do not store payment card data on islehacks.org.',
+            'We may collect standard web analytics such as page views, device type, browser, and approximate region through Google Analytics when enabled. Checkout and license delivery happen on external checkout pages—we do not store payment card data on islehacks.com.',
           ],
         },
         {
           heading: 'How we use data',
           paragraphs: [
-            'Analytics help us understand which guides and product pages are useful so we can improve content and fix broken links. Support tickets may retain the email address and message content you provide until the issue is resolved.',
+            'Analytics help us understand which [guides](/blog/) and [store](/store/) pages are useful so we can improve content and fix broken links. Support tickets may retain the email address and message content you provide until the issue is resolved.',
           ],
         },
         {
@@ -569,7 +574,7 @@ export const en: Translations = {
         {
           heading: 'Support',
           paragraphs: [
-            'For privacy questions, use the options on the Support page. Purchase and refund rules are in our Terms & Conditions.',
+            'For privacy questions, use [checkout](/go/). Purchase and refund rules are in our [Terms & Conditions](/terms/).',
           ],
         },
       ],
@@ -577,26 +582,26 @@ export const en: Translations = {
     terms: {
       title: 'Terms & Conditions',
       description:
-        'Purchase, license, refund, and use terms for Isle Hacks products and islehacks.org.',
+        'Purchase, license, refund, and use terms for Isle Hacks products and islehacks.com.',
       sections: [
         {
           heading: 'Agreement',
           paragraphs: [
-            'Last updated: October 2026. By using islehacks.org or completing checkout for any product listed here, you agree to these Terms & Conditions and our Privacy Policy.',
+            'Last updated: October 2026. By using islehacks.com or completing checkout for any product listed here, you agree to these Terms & Conditions and our [Privacy Policy](/privacy/).',
           ],
         },
         {
           heading: 'What you purchase',
           paragraphs: [
-            'We sell access to The Isle software listed on the store page. Plans are Monthly ($35, P30D) and Lifetime ($150, P99Y), billed in USD.',
-            'Feature lists describe what is included at the time of publication. Modules can change when The Isle or Easy Anti-Cheat updates.',
+            'We sell access to The Isle software listed on the [store page](/store/). Plans are Monthly ($35, P30D) and Lifetime ($150, P99Y), billed in USD. See [monthly vs lifetime](/the-isle-monthly-vs-lifetime/) for a side-by-side.',
+            'Feature lists describe what is included at the time of publication. Modules can change when The Isle or Easy Anti-Cheat updates. The [features page](/features/) is the public summary.',
           ],
         },
         {
           heading: 'Checkout and delivery',
           paragraphs: [
-            'Payment and license delivery run on external checkout pages. islehacks.org does not process or store payment card numbers.',
-            'After purchase, follow the setup instructions provided in the checkout flow before launching The Isle.',
+            'Payment and license delivery run on external checkout pages. islehacks.com does not process or store payment card numbers.',
+            'After purchase, follow the setup instructions provided in the checkout flow and the [setup page](/setup/) before launching The Isle.',
           ],
         },
         {
@@ -609,15 +614,15 @@ export const en: Translations = {
           heading: 'Refunds and purchases',
           paragraphs: [
             'All sales are final once checkout completes. We do not refund change-of-mind purchases, account penalties, or issues caused by ignoring setup notes or launching while status indicates the build is unavailable.',
-            'If the product does not work as described on a supported setup—The Isle Evrima on Windows 10/11, current access from checkout, and status not showing an outage when you started—contact us through the Support page. Include your order email, Windows version, game branch, and screenshots or exact error text.',
+            'If the product does not work as described on a supported setup—The Isle Evrima on Windows 10/11, current access from checkout, and [status](/status/) not showing an outage when you started—continue through [checkout](/go/). Include your order email, Windows version, game branch, and screenshots or exact error text.',
             'We may, at our discretion, offer a fix, replacement access, or partial/full refund when we confirm a fault on our side. We are not obligated to approve every request.',
           ],
         },
         {
           heading: 'Availability and risk',
           paragraphs: [
-            'Third-party tools for The Isle can conflict with game updates and Easy Anti-Cheat. You use this software at your own risk, including possible account action.',
-            'Check the status page before every session. Do not launch while a build is marked unavailable after a patch.',
+            'Third-party tools for The Isle can conflict with game updates and Easy Anti-Cheat. You use this software at your own risk, including possible account action. Read the [Easy Anti-Cheat notes](/the-isle-compatibility-eac/) for context.',
+            'Check the [status page](/status/) before every session. Do not launch while a build is marked unavailable after a patch.',
           ],
         },
         {
@@ -629,7 +634,7 @@ export const en: Translations = {
         {
           heading: 'Support',
           paragraphs: [
-            'For terms, billing, or setup questions, use the buttons on the Support page. See also our Privacy Policy for how we handle site data.',
+            'For terms, billing, or setup questions, use [checkout](/go/). See also our [Privacy Policy](/privacy/) for how we handle site data, or the [FAQ](/faq/) for common purchase questions.',
           ],
         },
       ],
@@ -637,7 +642,7 @@ export const en: Translations = {
     support: {
       title: 'Isle Hacks Support',
       description:
-        'Get support for Isle Hacks purchase, setup, and compatibility questions at islehacks.org.',
+        'Get support for Isle Hacks purchase, setup, and compatibility questions at islehacks.com.',
     },
   },
   ui: {

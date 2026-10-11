@@ -1,4 +1,6 @@
 import { initSmoothScroll, smoothScrollTo } from './smooth-scroll';
+import { initSiteSearch } from './site-search';
+import { textMatches } from './search-match';
 
 function initFonts() {
   const root = document.documentElement;
@@ -48,6 +50,18 @@ function initInPageScroll() {
       const target = document.getElementById(id);
       if (!target) return;
 
+      const href = el.getAttribute('href');
+      if (href) {
+        try {
+          const url = new URL(href, window.location.href);
+          const here = window.location.pathname.replace(/\/$/, '') || '/';
+          const there = url.pathname.replace(/\/$/, '') || '/';
+          if (there !== here) return;
+        } catch {
+          return;
+        }
+      }
+
       event.preventDefault();
       smoothScrollTo(target);
     });
@@ -68,34 +82,54 @@ function initSkipLink() {
 }
 
 function initFaqFilters() {
-  document.querySelectorAll('[data-faq-filters]').forEach((container) => {
-    const section = container.closest('[data-faq-section]');
-    const list = section?.querySelector('[data-faq-list]');
+  document.querySelectorAll('[data-faq-section]').forEach((section) => {
+    const list = section.querySelector('[data-faq-list]');
     if (!list) return;
 
     const items = list.querySelectorAll<HTMLElement>('[data-faq-topic]');
-    const chips = container.querySelectorAll<HTMLButtonElement>('[data-faq-filter]');
+    const chips = section.querySelectorAll<HTMLButtonElement>('[data-faq-filter]');
+    const searchInput = section.querySelector<HTMLInputElement>('[data-faq-search]');
+
+    const apply = () => {
+      const topic =
+        section.querySelector<HTMLButtonElement>('[data-faq-filter].is-active')?.getAttribute('data-faq-filter') ??
+        'all';
+      const query = searchInput?.value.trim().toLocaleLowerCase() ?? '';
+
+      items.forEach((item) => {
+        const itemTopic = item.getAttribute('data-faq-topic');
+        const haystack = item.getAttribute('data-faq-search-text') ?? item.textContent ?? '';
+        const show = (topic === 'all' || itemTopic === topic) && textMatches(haystack, query);
+        item.toggleAttribute('data-hidden', !show);
+        item.classList.toggle('hidden', !show);
+      });
+    };
 
     chips.forEach((chip) => {
       chip.addEventListener('click', () => {
-        const topic = chip.getAttribute('data-faq-filter');
         chips.forEach((c) => c.classList.toggle('is-active', c === chip));
-        items.forEach((item) => {
-          const itemTopic = item.getAttribute('data-faq-topic');
-          const show = topic === 'all' || itemTopic === topic;
-          item.toggleAttribute('data-hidden', !show);
-        });
+        apply();
       });
     });
+
+    searchInput?.addEventListener('input', apply);
+
+    const queryFromUrl = new URLSearchParams(window.location.search).get('q');
+    if (queryFromUrl && searchInput) {
+      searchInput.value = queryFromUrl;
+    }
+
+    apply();
   });
 }
 
 function initThemeMetaColor() {
   const metaTheme = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-  if (!metaTheme) return;
 
   const update = () => {
-    metaTheme.content = document.documentElement.classList.contains('dark') ? '#7F3DEE' : '#f5f7fa';
+    const isDark = document.documentElement.classList.contains('dark');
+    document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
+    if (metaTheme) metaTheme.content = isDark ? '#7F3DEE' : '#f5f7fa';
   };
 
   update();
@@ -106,6 +140,7 @@ function initThemeMetaColor() {
 function bootSite() {
   initFonts();
   initFaqFilters();
+  initSiteSearch();
   initNavHighlight();
   initInPageScroll();
   initSkipLink();

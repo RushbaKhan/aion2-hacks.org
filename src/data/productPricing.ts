@@ -1,3 +1,5 @@
+import { checkoutPath } from '../config/checkout';
+
 export type ProductPlanId = 'monthly' | 'lifetime';
 
 export interface ProductPlan {
@@ -21,7 +23,6 @@ export function formatPlanPrice(usd: number): string {
   return `$${usd}`;
 }
 
-export function checkoutUrlWithPlan(baseUrl: string, planId: ProductPlanId): string {
-  const normalized = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-  return `${normalized}${planId}/`;
+export function checkoutUrlWithPlan(_baseUrl: string, _planId?: ProductPlanId): string {
+  return checkoutPath('isle');
 }

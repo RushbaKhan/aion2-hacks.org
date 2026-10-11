@@ -1,0 +1,131 @@
+---
+import '../styles/blog-pages.css';
+import ResponsiveImage from './ResponsiveImage.astro';
+import Icon from './icons/Icon.astro';
+import { CARD_IMAGE_SIZES, CARD_IMAGE_WIDTHS } from '../utils/responsiveImage';
+import { forumPostPath, ROUTES } from '../utils/path';
+import {
+  getForumCategoryKey,
+  getForumPostImage,
+  getForumPostTimestamp,
+  type ForumPost,
+} from '../data/forum';
+import { forumCategoryIcons } from '../data/sectionIcons';
+import { screenshotAlt } from '../data/screenshots';
+import type { IconName } from './icons/types';
+import { Badge } from '@/components/starwind/badge';
+import { Button } from '@/components/starwind/button';
+import { Card, CardContent, CardFooter, CardTitle } from '@/components/starwind/card';
+
+interface Props {
+  post: ForumPost;
+  index?: number;
+  eager?: boolean;
+  layout?: 'default' | 'featured';
+  class?: string;
+}
+
+const { post, index = 0, eager = false, layout = 'default', class: className } = Astro.props;
+const isFeatured = layout === 'featured';
+const href = forumPostPath(post.slug);
+const image = getForumPostImage(post);
+const timestamp = getForumPostTimestamp(post);
+const tagIcon: IconName = forumCategoryIcons[post.category] ?? 'messageCircle';
+const searchText = [post.title, post.excerpt, post.category, post.flair, post.body.join(' ')].join(' ');
+---
+
+<Card
+  size="sm"
+  class:list={[
+    'blog-card group/card gap-0 overflow-visible border border-border py-0 pt-0 shadow-xs ring-0 ring-transparent hover:shadow-md has-data-[slot=card-footer]:pb-0',
+    isFeatured
+      ? 'blog-featured mt-8 md:mt-10 lg:grid lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch'
+      : 'flex h-full flex-col',
+    className,
+  ]}
+  data-forum-card
+  data-blog-card
+  data-category={getForumCategoryKey(post.category)}
+  data-tag={post.category}
+  data-ts={timestamp}
+  data-comments={post.commentsCount}
+  data-upvotes={post.upvotes}
+  data-order={index}
+  data-search={searchText}
+>
+  <a
+    href={href}
+    class:list={[
+      'blog-card__media relative block aspect-video overflow-hidden focus-visible:outline-none focus-visible:ring-3 focus-visible:ring-primary/40 focus-visible:ring-offset-2 focus-visible:ring-offset-card',
+      isFeatured && 'blog-featured__media lg:aspect-auto lg:min-h-[16rem] lg:self-stretch',
+    ]}
+    tabindex="-1"
+    aria-hidden="true"
+  >
+    <ResponsiveImage
+      src={image}
+      alt={screenshotAlt(image, `${post.title} overlay screenshot`)}
+      width={isFeatured ? 960 : 640}
+      height={isFeatured ? 540 : 360}
+      widths={isFeatured ? undefined : CARD_IMAGE_WIDTHS}
+      sizes={isFeatured ? '(min-width: 1024px) 560px, 100vw' : CARD_IMAGE_SIZES}
+      loading={eager ? 'eager' : 'lazy'}
+      fetchPriority={eager ? 'high' : undefined}
+      class:list={[
+        'size-full object-cover transition-transform duration-500 ease-out group-hover/card:scale-[1.03]',
+        isFeatured && 'lg:absolute lg:inset-0 lg:h-full lg:w-full lg:max-w-none',
+      ]}
+    />
+
+    <span
+      class="pointer-events-none absolute inset-0 z-[1] bg-gradient-to-t from-black/25 via-transparent to-transparent opacity-0 transition-opacity duration-300 group-hover/card:opacity-100"
+      aria-hidden="true"
+    />
+  </a>
+
+  <div class:list={['blog-card__body', isFeatured ? 'blog-featured__body lg:border-l lg:border-border' : 'flex min-h-0 flex-1 flex-col']}>
+    <CardContent
+      class:list={[
+        'flex flex-1 flex-col gap-2.5 p-4 pb-3',
+        isFeatured && 'justify-center border-t border-border p-5 sm:p-6 lg:border-t-0 lg:py-6 lg:pl-8 lg:pr-6',
+      ]}
+    >
+      <CardTitle class="text-base font-semibold normal-case leading-snug tracking-tight md:text-[1.0625rem]">
+        <a
+          href={href}
+          class="text-foreground decoration-primary/0 underline-offset-4 transition-colors hover:text-primary hover:underline"
+        >
+          {post.title}
+        </a>
+      </CardTitle>
+
+      <p
+        class:list={[
+          'text-sm leading-relaxed text-muted-foreground',
+          isFeatured ? 'line-clamp-4 md:line-clamp-5' : 'line-clamp-2',
+        ]}
+      >
+        {post.excerpt}
+      </p>
+    </CardContent>
+
+    <CardFooter class="blog-card__footer mt-auto rounded-none border-border/80 bg-transparent px-4 pb-6 pt-4 shadow-none sm:px-5 sm:pb-6">
+      <p class="blog-card__footer-meta text-sm text-muted-foreground">
+        <Icon name="calendar" size={14} class="blog-card__footer-icon" aria-hidden="true" />
+        <span>{post.age}</span>
+        {
+          post.flair ? (
+            <>
+              <span class="blog-card__footer-dot" aria-hidden="true">·</span>
+              <span>{post.flair}</span>
+            </>
+          ) : null
+        }
+      </p>
+      <Button as="a" href={href} variant="outline" size="sm" class="blog-card__read shrink-0">
+        Read discussion
+        <Icon name="arrowRight" size={16} />
+      </Button>
+    </CardFooter>
+  </div>
+</Card>

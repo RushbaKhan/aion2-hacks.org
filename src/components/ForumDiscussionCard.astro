@@ -1,0 +1,72 @@
+---
+import Icon from './icons/Icon.astro';
+import { forumPostPath, ROUTES } from '../utils/path';
+import {
+  FORUM_FLAIR,
+  FORUM_TEAM,
+  getForumCategoryKey,
+  getForumCommunityHandle,
+  getForumPostTimestamp,
+  type ForumPost,
+} from '../data/forum';
+
+interface Props {
+  post: ForumPost;
+  index?: number;
+}
+
+const { post, index = 0 } = Astro.props;
+const href = forumPostPath(post.slug);
+const categoryKey = getForumCategoryKey(post.category);
+const searchText = [post.title, post.excerpt, post.category, post.tag, post.body.join(' '), post.sourceTitle ?? ''].join(' ');
+---
+
+<article
+  class="forum-post-card"
+  data-forum-card
+  data-post-slug={post.slug}
+  data-category={categoryKey}
+  data-pinned={post.pinned ? 'true' : 'false'}
+  data-ts={getForumPostTimestamp(post)}
+  data-comments={post.commentsCount}
+  data-upvotes={post.upvotes}
+  data-order={index}
+  data-search={searchText}
+>
+  <div class="forum-vote" data-forum-vote>
+    <button type="button" data-vote-up class="forum-vote__up" aria-label={`Upvote ${post.title}`}>
+      <Icon name="chevronDown" size={16} />
+    </button>
+    <strong data-vote-count>{post.upvotes}</strong>
+  </div>
+  <div class="forum-post-card__body">
+    <div class="forum-post-meta">
+      <a href={`${ROUTES.forum}?category=${categoryKey}`} class="forum-community-name">
+        <span class:list={['forum-community-avatar', `tone-${post.categoryTone}`]}>{post.category.slice(0, 1)}</span>
+        {getForumCommunityHandle(post.category)}
+      </a>
+      <span>· {FORUM_TEAM}</span>
+      <span class="forum-flair">{FORUM_FLAIR}</span>
+    </div>
+    <a class="forum-post-title" href={href}>{post.title}</a>
+    <p class="forum-post-excerpt">{post.excerpt}</p>
+    {
+      post.sourceTitle && post.sourcePath && (
+        <p class="forum-source">
+          From the guide: <a href={post.sourcePath}>{post.sourceTitle}</a>
+        </p>
+      )
+    }
+    <div class="forum-post-actions">
+      <span>Guide Q&amp;A</span>
+      <a href={`${href}#comments`}>
+        <Icon name="messageCircle" size={13} />
+        {post.commentsCount} {post.commentsCount === 1 ? 'comment' : 'comments'}
+      </a>
+      <a href={href}>
+        Read discussion
+        <Icon name="arrowRight" size={13} />
+      </a>
+    </div>
+  </div>
+</article>

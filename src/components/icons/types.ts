@@ -6,6 +6,8 @@ export type IconName =
   | 'chevronRight'
   | 'chevronDown'
   | 'menu'
+  | 'pin'
+  | 'lock'
   | 'check'
   | 'x'
   | 'circleCheck'

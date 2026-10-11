@@ -9,7 +9,7 @@ import { ROUTES } from '../utils/path';
 
 <BaseLayout
   title={`Page not found | ${t.site.name}`}
-  description="The page you requested could not be found on islehacks.org."
+  description="The page you requested could not be found on islehacks.com."
   noindex={true}
 >
   <section class="py-16 md:py-24">
@@ -17,7 +17,7 @@ import { ROUTES } from '../utils/path';
       <p class="text-sm font-semibold uppercase tracking-wider text-primary">404</p>
       <h1 class="mt-3 text-3xl font-bold uppercase md:text-4xl">Page not found</h1>
       <p class="mt-4 text-muted-foreground">
-        That URL does not exist or may have moved. Head back to the homepage or browse The Isle store and features.
+        That URL does not exist or may have moved. Head back to the homepage or browse The Isle store, features, and intel.
       </p>
       <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:justify-center">
         <Button as="a" href={ROUTES.home} variant="primary">
@@ -26,6 +26,7 @@ import { ROUTES } from '../utils/path';
         </Button>
         <Button as="a" href={ROUTES.store} variant="outline">View store</Button>
         <Button as="a" href={ROUTES.features} variant="outline">View features</Button>
+        <Button as="a" href={ROUTES.blog} variant="outline">Read intel</Button>
       </div>
     </div>
   </section>

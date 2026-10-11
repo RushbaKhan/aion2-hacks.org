@@ -2,6 +2,19 @@ import type { FaqItem } from '../i18n/types';
 import { BRAND_NAME, SUPPORT_EMAIL } from '../config/site';
 import { SITE_ORIGIN, absoluteAssetUrl, canonicalUrl, getOrganizationSameAs } from '../config/seo';
 import { checkoutUrlWithPlan, getProductPlans } from '../data/productPricing';
+import { screenshotAlt } from '../data/screenshots';
+
+function imageObject(src: string) {
+  const alt = screenshotAlt(src);
+  return {
+    '@type': 'ImageObject',
+    url: absoluteAssetUrl(src),
+    contentUrl: absoluteAssetUrl(src),
+    caption: alt,
+    name: alt,
+    description: alt,
+  };
+}
 
 export interface BreadcrumbItem {
   name: string;
@@ -52,7 +65,7 @@ export function organizationSchema() {
         '@type': 'ContactPoint',
         contactType: 'customer support',
         email: SUPPORT_EMAIL,
-        url: canonicalUrl('/support/'),
+        url: canonicalUrl('/go/'),
         availableLanguage: ['English'],
         areaServed: 'Worldwide',
       },
@@ -164,7 +177,7 @@ export function productSchema(input: {
       '@type': 'Brand',
       name: BRAND_NAME,
     },
-    ...(input.image ? { image: absoluteAssetUrl(input.image) } : {}),
+    ...(input.image ? { image: imageObject(input.image) } : {}),
     offers: {
       '@type': 'AggregateOffer',
       url: offerUrl(input.offerUrl),
@@ -225,7 +238,7 @@ export function articleSchema(input: {
     headline: input.name,
     description: input.description,
     url: canonicalUrl(input.url),
-    image: absoluteAssetUrl(input.image),
+    image: imageObject(input.image),
     datePublished: input.datePublished,
     dateModified: input.dateModified ?? input.datePublished,
     inLanguage: 'en-US',

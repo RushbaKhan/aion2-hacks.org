@@ -1,0 +1,55 @@
+---
+import '../styles/site-search.css';
+import Icon from './icons/Icon.astro';
+import { getSearchIndex } from '../data/searchIndex';
+import { ROUTES } from '../utils/path';
+
+interface Props {
+  variant?: 'header' | 'sheet';
+  class?: string;
+}
+
+const { variant = 'header', class: className } = Astro.props;
+const index = getSearchIndex();
+---
+
+<div class:list={['site-search', `site-search--${variant}`, className]} data-site-search>
+  <button
+    type="button"
+    class="site-search__toggle"
+    data-site-search-toggle
+    aria-expanded="false"
+    aria-controls={variant === 'header' ? 'site-search-panel' : 'site-search-panel-sheet'}
+    aria-label="Search Isle Hacks"
+  >
+    <Icon name="search" size={16} />
+    <span class:list={[variant === 'header' ? 'hidden xl:ml-1.5 xl:inline' : undefined]}>Search</span>
+  </button>
+
+  <div
+    id={variant === 'header' ? 'site-search-panel' : 'site-search-panel-sheet'}
+    class="site-search__panel"
+    data-site-search-panel
+    hidden
+  >
+    <form class="site-search__form" action={ROUTES.search} method="get" role="search">
+      <label class="site-search__field">
+        <Icon name="search" size={16} />
+        <input
+          type="search"
+          name="q"
+          placeholder="Search articles, forum, FAQ…"
+          aria-label="Search Isle Hacks"
+          autocomplete="off"
+          data-site-search-input
+        />
+      </label>
+      <button type="submit" class="sr-only">Search</button>
+    </form>
+    <p class="site-search__hint">Articles, discussions, FAQ, and pages</p>
+    <ul class="site-search__results" data-site-search-results role="listbox" aria-label="Search results"></ul>
+    <p class="site-search__empty" data-site-search-empty hidden>No matches. Try ESP, radar, plans, or EAC.</p>
+  </div>
+
+  <script type="application/json" data-site-search-index set:html={JSON.stringify(index)} />
+</div>

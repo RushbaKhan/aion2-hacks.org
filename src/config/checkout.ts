@@ -9,7 +9,7 @@ export type CheckoutProduct = keyof typeof CHECKOUT;
 
 /** URL slug for /go/[slug]/ checkout redirect pages. */
 export const CHECKOUT_SLUGS: Record<CheckoutProduct, string> = {
-  isle: 'the-isle',
+  isle: 'go',
 };
 
 export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
@@ -17,8 +17,8 @@ export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
 ) as Record<string, CheckoutProduct>;
 
 /** Internal checkout path shown to users (hides external URL on hover). */
-export function checkoutPath(product: CheckoutProduct = 'isle'): string {
-  return `/go/${CHECKOUT_SLUGS[product]}/`;
+export function checkoutPath(_product: CheckoutProduct = 'isle'): string {
+  return '/go/';
 }
 
 /** Default product checkout redirect. */

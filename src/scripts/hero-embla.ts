@@ -1,9 +1,10 @@
 export const HERO_AUTOPLAY_MS = 4800;
-const DESKTOP_MQ = '(min-width: 1024px)';
 
 type EmblaApi = {
   selectedScrollSnap: () => number;
   scrollTo: (n: number) => void;
+  scrollPrev: () => void;
+  scrollNext: () => void;
   on: (event: string, cb: () => void) => void;
 };
 
@@ -65,8 +66,22 @@ function bindHeroDots(wrapper: HTMLElement, api: EmblaApi, autoplay: AutoplayPlu
   setActive();
 }
 
+function bindHeroArrows(wrapper: HTMLElement, api: EmblaApi, autoplay: AutoplayPlugin) {
+  const prev = wrapper.querySelector<HTMLButtonElement>('[data-hero-embla-prev]');
+  const next = wrapper.querySelector<HTMLButtonElement>('[data-hero-embla-next]');
+
+  prev?.addEventListener('click', () => {
+    api.scrollPrev();
+    autoplay.stop();
+  });
+
+  next?.addEventListener('click', () => {
+    api.scrollNext();
+    autoplay.stop();
+  });
+}
+
 async function initHeroCarousels(root: ParentNode = document) {
-  if (!window.matchMedia(DESKTOP_MQ).matches) return;
 
   const nodes = [...root.querySelectorAll<HTMLElement>('[data-hero-embla]')].filter(
     (node) => node.dataset.heroEmblaReady !== 'true',
@@ -96,6 +111,7 @@ async function initHeroCarousels(root: ParentNode = document) {
     });
 
     bindHeroDots(wrapper as HTMLElement, instance.api as EmblaApi, autoplay);
+    bindHeroArrows(wrapper as HTMLElement, instance.api as EmblaApi, autoplay);
 
     const pauseWhenHidden = () => {
       if (document.hidden) autoplay.stop();
@@ -121,10 +137,5 @@ export function setupHeroEmbla() {
   };
 
   run();
-
-  window.matchMedia(DESKTOP_MQ).addEventListener('change', (event) => {
-    if (event.matches) run();
-  });
-
   document.addEventListener('astro:page-load', run);
 }

@@ -21,5 +21,5 @@ const { eyebrow, title, desc, titleId, centered = false, wide = false, as: Headi
 >
   <p class="section-header__eyebrow">{eyebrow}</p>
   <HeadingTag id={titleId} class="section-header__title">{title}</HeadingTag>
-  {desc ? <p class="section-header__subtitle">{desc}</p> : null}
+  {desc ? <p class:list={['section-header__subtitle', centered && 'mx-auto']}>{desc}</p> : null}
 </header>

@@ -34,6 +34,20 @@ const status = link('status page', ROUTES.status);
 const setup = link('setup page', ROUTES.setup);
 const faqPage = link('full FAQ', ROUTES.faq);
 const blog = link('The Isle intel', ROUTES.blog);
+const forum = link('community forum', ROUTES.forum);
+const preview = link('preview gallery', ROUTES.preview);
+const reviews = link('reviews checklist', ROUTES.reviews);
+const support = link('checkout', ROUTES.checkout);
+const playerEsp = link('player ESP guide', '/the-isle-player-esp/');
+const dinoEsp = link('dinosaur ESP guide', '/the-isle-dinosaur-esp/');
+const healthEsp = link('health ESP article', '/the-isle-health-esp/');
+const radarGuide = link('radar features', '/the-isle-radar-features/');
+const aimGuide = link('aim assistance notes', '/the-isle-aimbot/');
+const setupGuide = link('Windows PC setup guide', '/the-isle-hacks-pc-setup/');
+const eacGuide = link('Easy Anti-Cheat notes', '/the-isle-compatibility-eac/');
+const plansGuide = link('monthly vs lifetime', '/the-isle-monthly-vs-lifetime/');
+const evrimaGuide = link('Evrima overview', '/the-isle-hacks-evrima/');
+const termsGuide = link('ESP terminology', '/the-isle-esp-terminology/');
 
 export const siteFaqs: SiteFaqItem[] = [
   {
@@ -41,49 +55,49 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'setup',
     icon: 'faqStatus',
     q: 'Where do I check if The Isle hacks are currently compatible?',
-    a: a('Use the status page on islehacks.org before purchase or launch, especially after an Evrima or Easy Anti-Cheat update.'),
+    a: `Open the ${status} on islehacks.com before purchase or launch, especially after an Evrima or Easy Anti-Cheat update. The ${eacGuide} explain why patch days matter.`,
   },
   {
     id: 'after-buy',
     topic: 'setup',
     icon: 'faqAfterBuy',
     q: 'What happens after I buy?',
-    a: a('Checkout provides access and setup instructions. Follow those notes for Windows PC and the Evrima branch before launching The Isle.'),
+    a: `Checkout provides access and setup instructions. Follow those notes plus the ${setup} for Windows PC and the Evrima branch before launching The Isle. The ${setupGuide} covers a conservative first profile.`,
   },
   {
     id: 'ban-risk',
     topic: 'safety',
     icon: 'faqBanRisk',
     q: 'Can I get banned using third-party The Isle software?',
-    a: a('Yes. Any third-party modification can conflict with Easy Anti-Cheat and may lead to account action. You use this software at your own risk.'),
+    a: `Yes. Any third-party modification can conflict with Easy Anti-Cheat and may lead to account action. You use this software at your own risk. Read the ${eacGuide} and ${status} before you launch.`,
   },
   {
     id: 'platforms',
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
-    a: a('The Isle on Windows 10/11 PC. The current listing is Evrima-only. macOS and Linux are not listed.'),
+    a: `The Isle on Windows 10/11 PC. The current listing is Evrima-only. macOS and Linux are not listed. Confirm the branch in the ${evrimaGuide} and ${setup}.`,
   },
   {
     id: 'plans',
     topic: 'plans',
     icon: 'faqComparePlans',
     q: 'What plans are available?',
-    a: `${store} lists Monthly access at $35 (P30D) and Lifetime access at $150 (P99Y), both in USD.`,
+    a: `${store} lists Monthly access at $35 (P30D) and Lifetime access at $150 (P99Y), both in USD. ${plansGuide} compares duration without changing the feature list.`,
   },
   {
     id: 'products-page',
     topic: 'plans',
     icon: 'faqProductsPage',
     q: 'Where can I review features and pricing?',
-    a: `${store} lists monthly and lifetime plans, available features, and the checkout path. The ${features} collects the same modules in more detail.`,
+    a: `${store} lists monthly and lifetime plans, available features, and the checkout path. The ${features} collects the same modules in more detail, the ${preview} shows overlay screenshots, and the ${forum} keeps guide discussions.`,
   },
   {
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
     q: 'What is The Isle ESP?',
-    a: `ESP is an information overlay. ${features} covers player ESP, dinosaur ESP, health ESP, and resource markers. It does not automatically aim or move your dinosaur.`,
+    a: `ESP is an information overlay. ${features} covers player ESP, dinosaur ESP, health ESP, and resource markers. It does not automatically aim or move your dinosaur. ${termsGuide} defines each overlay in plain language.`,
     scopes: ['the-isle-hacks'],
   },
   {
@@ -91,98 +105,98 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'esp',
     icon: 'faqEspVsScripts',
     q: 'What does player ESP show?',
-    a: a('Player ESP can show nearby survivors with box outlines, names, distance, direction, a head dot, snaplines, and a visible-check option when those toggles are included in the current build.'),
+    a: `Player ESP can show nearby survivors with box outlines, names, distance, direction, a head dot, snaplines, and a visible-check option when those toggles are included in the current build. See the ${playerEsp} and ${preview}.`,
   },
   {
     id: 'dinosaur-esp',
     topic: 'esp',
     icon: 'faqWhichTierEsp',
     q: 'What does dinosaur ESP show?',
-    a: a('Dinosaur ESP and animal ESP can mark species, growth, stamina, distance, NPCs, and corpses so you can tell a threat from a food source.'),
+    a: `Dinosaur ESP and animal ESP can mark species, growth, stamina, distance, NPCs, and corpses so you can tell a threat from a food source. The ${dinoEsp} explains how it pairs with player ESP.`,
   },
   {
     id: 'health-esp',
     topic: 'esp',
     icon: 'faqZoomHack',
     q: 'What is health ESP?',
-    a: a('Health ESP adds health, stamina, and growth readouts when the current build includes those fields. Use it to judge whether a fight is worth taking.'),
+    a: `Health ESP adds health, stamina, and growth readouts when the current build includes those fields. Use it to judge whether a fight is worth taking. Details are in the ${healthEsp}.`,
   },
   {
     id: 'radar',
     topic: 'esp',
     icon: 'faqStreamProof',
     q: 'Does Isle Hacks include radar?',
-    a: a('Yes. Radar is listed as a local awareness overlay for nearby players and dinosaurs. It is not described as a separate 2D or 3D product.'),
+    a: `Yes. Radar is listed as a local awareness overlay for nearby players and dinosaurs. It is not described as a separate 2D or 3D product. ${radarGuide} covers when to pair it with ESP.`,
   },
   {
     id: 'aim-assist',
     topic: 'aim',
     icon: 'faqWhichTierScripts',
     q: 'Is aimbot or aim assistance included?',
-    a: a('Aim assistance is listed. Silent aim and triggerbot are not listed, so this site does not claim them. Confirm status before enabling combat modules.'),
+    a: `Aim assistance is listed. Silent aim and triggerbot are not listed, so this site does not claim them. Confirm the ${status} before enabling combat modules, and read the ${aimGuide}.`,
   },
   {
     id: 'undetected',
     topic: 'safety',
     icon: 'faqUndetected',
     q: 'Are The Isle hacks guaranteed undetected?',
-    a: a('No. This site does not promise permanent undetected status. The Isle uses Easy Anti-Cheat, and compatibility can change after a patch. Check the status page and stop if a build is marked unavailable.'),
+    a: `No. This site does not promise permanent undetected status. The Isle uses Easy Anti-Cheat, and compatibility can change after a patch. Check the ${status} and stop if a build is marked unavailable.`,
   },
   {
     id: 'eac',
     topic: 'safety',
     icon: 'faqVacUpdate',
     q: 'What anti-cheat does The Isle use?',
-    a: a('The Isle Evrima launches through Easy Anti-Cheat (EAC). After an Evrima patch, treat compatibility as unknown until you re-check the status page.'),
+    a: `The Isle Evrima launches through Easy Anti-Cheat (EAC). After an Evrima patch, treat compatibility as unknown until you re-check the ${status}. Official game support material describes EAC as the launch path.`,
   },
   {
     id: 'dma',
     topic: 'setup',
     icon: 'faqExternalLoader',
     q: 'Is Cloud DMA required?',
-    a: a('The current vendor listing says Cloud DMA is required for full functionality, and notes HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes at checkout before you buy.'),
+    a: `The current vendor listing says Cloud DMA is required for full functionality, and notes HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes at checkout and on the ${setup} before you buy.`,
   },
   {
     id: 'evrima-only',
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Does this work on Legacy The Isle?',
-    a: a('The current listing is Evrima-only. Do not assume a key or build for Evrima will work on a Legacy installation.'),
+    a: `The current listing is Evrima-only. Do not assume a key or build for Evrima will work on a Legacy installation. The ${evrimaGuide} repeats that branch check.`,
   },
   {
     id: 'monthly-vs-lifetime',
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'How do I choose monthly vs lifetime?',
-    a: `Choose monthly if you want to evaluate The Isle hacks for 30 days. Choose lifetime if you already know you want longer access. Feature lists are the same; only duration and price change. See ${store}.`,
+    a: `Choose monthly if you want to evaluate The Isle hacks for 30 days. Choose lifetime if you already know you want longer access. Feature lists are the same; only duration and price change. See ${store} and ${plansGuide}. The ${reviews} lists evaluation checkpoints without invented quotes.`,
   },
   {
     id: 'blog-vs-product',
     topic: 'blog',
     icon: 'faqBlogVsCheats',
     q: 'Are blog articles the same as the product listing?',
-    a: `No. ${blog} explains terminology and setup. The ${store} feature list is the source for what you are buying.`,
+    a: `No. ${blog} explains terminology and setup. The ${store} feature list is the source for what you are buying. Use ${features} if you want the same modules without checkout copy.`,
   },
   {
     id: 'blog-setup',
     topic: 'blog',
     icon: 'faqBlogSetup',
     q: 'Where do setup guides point for purchase?',
-    a: `Guides link to the ${store}, ${setup}, and ${status} pages. Checkout runs through the listed partner—do not download files from random messages.`,
+    a: `Guides link to the ${store}, ${setup}, and ${status} pages. Checkout runs through the listed partner—do not download files from random messages. Ask on the ${support} if an instruction is unclear.`,
   },
   {
     id: 'support-help',
     topic: 'setup',
     icon: 'faqDiscordHelp',
     q: 'How do I get install help?',
-    a: a('Open a support request with your order email, Windows version, The Isle branch, and the exact error text from the loader or Easy Anti-Cheat.'),
+    a: `Open a request on the ${support} with your order email, Windows version, The Isle branch, and the exact error text from the loader or Easy Anti-Cheat.`,
   },
   {
     id: 'invented-features',
     topic: 'aim',
     icon: 'faqAutoFarm',
     q: 'Do you include silent aim, triggerbot, or skeleton ESP?',
-    a: a('Those modules are not on the current product listing, so Isle Hacks does not advertise them.'),
+    a: `Those modules are not on the current product listing, so Isle Hacks does not advertise them. Compare the ${features} and ${store} lists instead of third-party screenshots.`,
   },
   {
     id: 'faq-more',
@@ -254,14 +268,14 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideStart',
       q: 'Does this guide replace the store listing?',
-      a: `No. Use ${store} for current plans and the listed feature set. Guides explain terminology and workflow.`,
+      a: `No. Use ${store} for current plans and the listed feature set. Guides explain terminology and workflow. ${features} is the public module summary.`,
     },
     {
       id: 'blog-guide-status',
       topic: 'blog',
       icon: 'faqBlogGuideStatus',
       q: 'Is this guide still valid after a patch?',
-      a: a('Check the article date and the status page. Evrima updates can change what a build can do.'),
+      a: `Check the article date and the ${status}. Evrima updates can change what a build can do. The ${eacGuide} cover that patch-day habit.`,
     },
   ],
   Setup: [
@@ -286,7 +300,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideTier',
       q: 'Which features are actually listed?',
-      a: a('Player ESP, dinosaur ESP, health information, resource markers, radar, and aim assistance. See the features page for the full listed set.'),
+      a: `Player ESP, dinosaur ESP, health information, resource markers, radar, and aim assistance. See the ${features} for the full listed set, or the ${preview} for screenshots.`,
     },
   ],
   Updates: [
@@ -306,14 +320,14 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault1',
     q: 'Are blog guides official product documentation?',
-    a: `Articles explain workflows and link to ${store}. Feature lists on the store page are authoritative for checkout.`,
+    a: `Articles explain workflows and link to ${store}. Feature lists on the store page are authoritative for checkout. ${features} and the ${faqPage} stay in sync with that list.`,
   },
   {
     id: 'blog-default-2',
     topic: 'blog',
     icon: 'faqBlogDefault2',
     q: 'Need help applying this guide?',
-    a: a('Contact support with your order email and the article slug. Include your Windows version and The Isle branch.'),
+    a: a(`Continue through ${support} with your order email and the article slug. Include your Windows version and The Isle branch.`),
   },
   {
     id: 'blog-default-3',

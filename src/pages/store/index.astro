@@ -2,6 +2,7 @@
 import '../../styles/product-cheat-page.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { productHub, productPages } from '../../data/products';
+import { screenshotByRank } from '../../data/screenshots';
 import { resolvePageSeo } from '../../config/seo';
 import { breadcrumbSchema, productSchema } from '../../utils/schema';
 import ProductDetail from '../../components/ProductDetail.astro';
@@ -12,11 +13,14 @@ const breadcrumbs = [
   { name: 'Home', path: '/' },
   { name: 'Store', path: productHub.path },
 ];
+const heroShot = screenshotByRank(0);
 ---
 
 <BaseLayout
   title={seo.title}
   description={seo.description}
+  ogImage={heroShot.src}
+  ogImageAlt={heroShot.alt}
   jsonLd={[
     productSchema({
       name: product.title,

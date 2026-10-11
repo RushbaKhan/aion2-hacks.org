@@ -2,9 +2,10 @@
 export const PATH_REDIRECTS = new Map([
   ['/blog', '/blog/'],
   ['/about', '/about/'],
-  ['/contact', '/support/'],
-  ['/contact/', '/support/'],
-  ['/support', '/support/'],
+  ['/contact', '/go/'],
+  ['/contact/', '/go/'],
+  ['/support', '/go/'],
+  ['/support/', '/go/'],
   ['/privacy', '/privacy/'],
   ['/terms', '/terms/'],
   ['/faq', '/faq/'],

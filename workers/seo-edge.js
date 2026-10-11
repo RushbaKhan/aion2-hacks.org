@@ -1,6 +1,6 @@
 import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
-const CANONICAL_HOST = 'islehacks.org';
+const CANONICAL_HOST = 'islehacks.com';
 const FILE_ASSETS = new Set([
   '/sitemap.xml',
   '/sitemap-index.xml',
@@ -18,7 +18,7 @@ const XML_FILES = new Set(['/sitemap.xml', '/sitemap-index.xml', '/sitemap-0.xml
 const COVER_PATHS = new Set([
   '/opengraph.jpg',
   '/og.jpg',
-  '/images/gameplay/isle-forest-esp.png',
+  '/images/gameplay/isle-reeds-aim.jpg',
 ]);
 const COVER_ASSET = '/opengraph.jpg';
 
@@ -26,7 +26,7 @@ function isImmutableAsset(pathname) {
   return (
     pathname.startsWith('/_astro/') ||
     pathname.startsWith('/images/') ||
-    /\.(?:webp|png|svg|js|css|ico|woff2?)$/i.test(pathname)
+    /\.(?:webp|png|jpe?g|svg|js|css|ico|woff2?)$/i.test(pathname)
   );
 }
 

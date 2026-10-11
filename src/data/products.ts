@@ -1,6 +1,7 @@
 import { t } from '../i18n';
 import { checkoutForSlug, checkoutPath } from '../config/checkout';
 import type { IconName } from '../components/icons/types';
+import { SCREENSHOT_RANK, type ScreenshotShot } from './screenshots';
 
 export interface ProductSlide {
   src: string;
@@ -61,9 +62,13 @@ export const productRelatedBlogSlugs: Record<string, string[]> = {
     'the-isle-hacks-evrima',
     'the-isle-player-esp',
     'the-isle-dinosaur-esp',
+    'the-isle-health-esp',
+    'the-isle-radar-features',
+    'the-isle-aimbot',
     'the-isle-hacks-pc-setup',
     'the-isle-compatibility-eac',
-    'the-isle-health-esp',
+    'the-isle-esp-terminology',
+    'the-isle-monthly-vs-lifetime',
   ],
 };
 
@@ -71,22 +76,22 @@ const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
     title: 'Review current status',
-    desc: 'Check the status page on islehacks.org before purchase—especially after an Evrima or Easy Anti-Cheat update.',
+    desc: 'Open the status page on islehacks.com before you buy—especially after an Evrima or Easy Anti-Cheat update.',
   },
   {
     num: '02',
     title: 'Choose monthly or lifetime',
-    desc: 'Select the $35 monthly plan or the $150 lifetime plan, then review the listed features before checkout.',
+    desc: 'Pick the $35 monthly plan or the $150 lifetime plan, then compare the listed modules before checkout.',
   },
   {
     num: '03',
     title: 'Complete checkout',
-    desc: 'Follow the checkout flow for access details. Keep the order email you used so support can find your purchase.',
+    desc: 'Finish the checkout flow for access details. Keep the order email you used so support can find your purchase.',
   },
   {
     num: '04',
     title: 'Follow Windows PC setup',
-    desc: 'Use the vendor setup notes for the Evrima branch. Enable a conservative ESP and radar profile before joining a live server.',
+    desc: 'Use the vendor setup notes for the Evrima branch. Turn on a conservative ESP and radar profile before joining a live server.',
   },
 ];
 
@@ -98,7 +103,7 @@ function acquisitionFor(productName: string): ProductAcquisition {
 }
 
 const sharedGoodToKnow =
-  'The Isle Evrima uses Easy Anti-Cheat. Confirm current compatibility on the status page before you purchase or launch. Overlay options can change after a game or anti-cheat update.';
+  'The Isle Evrima launches through Easy Anti-Cheat. Confirm current compatibility on the status page before you purchase or launch. Overlay options can change after a game or anti-cheat update.';
 
 const sharedLimitations =
   'Third-party software in The Isle can violate the game terms of use and may lead to account action. You use this software at your own risk. Compatibility and availability can change after game, Easy Anti-Cheat, or Windows updates without notice.';
@@ -111,48 +116,14 @@ const isleSystemRequirements: SystemRequirement[] = [
   { icon: 'reqCpu', text: 'A system that meets The Isle published hardware requirements. The vendor lists Cloud DMA as required for full functionality.' },
 ];
 
-type GalleryKey = keyof typeof galleryRaw;
+type GalleryKey = ScreenshotShot['key'];
 
-const gameplay = '/images/gameplay';
-
-const galleryRaw = {
-  gpEsp: {
-    src: `${gameplay}/isle-forest-esp.png`,
-    alt: 'Isle Hacks overlay in a forest showing dinosaur ESP boxes, names, and distance',
-    caption: 'Player and dinosaur ESP',
-    captionDesc: 'Box, name, and distance readouts on nearby creatures.',
-  },
-  gpHorn: {
-    src: `${gameplay}/isle-forest-horn.png`,
-    alt: 'Isle Hacks radar overlay on a forest hunt with nearby dinosaur markers',
-    caption: 'Radar awareness',
-    captionDesc: 'Radar and nearby-entity cues for rotations on Evrima servers.',
-  },
-  gpHealth: {
-    src: `${gameplay}/isle-plains-health.png`,
-    alt: 'Isle Hacks overlay on open plains with health and stamina readouts',
-    caption: 'Health information',
-    captionDesc: 'Health, stamina, and growth readouts when the current build includes them.',
-  },
-  gpRadar: {
-    src: `${gameplay}/isle-forest-radar.png`,
-    alt: 'Isle Hacks ESP markers on a forest trail with nearby dinosaurs',
-    caption: 'Nearby creature markers',
-    captionDesc: 'Distance and species cues while tracking dinosaurs through cover.',
-  },
-  gpCreatures: {
-    src: `${gameplay}/isle-plains-esp.png`,
-    alt: 'Isle Hacks health and growth overlay on open plains',
-    caption: 'Health and growth',
-    captionDesc: 'Health, stamina, and growth information before committing to a fight.',
-  },
-  gpWorld: {
-    src: `${gameplay}/isle-forest-species.png`,
-    alt: 'Isle Hacks species and distance overlay on a forest trail',
-    caption: 'Species and distance',
-    captionDesc: 'Species labels and distance markers for nearby dinosaurs.',
-  },
-};
+const galleryRaw = Object.fromEntries(
+  SCREENSHOT_RANK.map((shot) => [
+    shot.key,
+    { src: shot.src, alt: shot.alt, caption: shot.caption, captionDesc: shot.captionDesc },
+  ]),
+) as Record<GalleryKey, Pick<ScreenshotShot, 'src' | 'alt' | 'caption' | 'captionDesc'>>;
 
 function slide(...keys: GalleryKey[]): ProductSlide[] {
   return keys.map((k) => {
@@ -166,12 +137,14 @@ function slide(...keys: GalleryKey[]): ProductSlide[] {
   });
 }
 
+const rankedSlides = slide(...SCREENSHOT_RANK.map((shot) => shot.key));
+
 const productContent: Record<
   string,
   Pick<ProductPage, 'overview' | 'images' | 'fullFeatures' | 'goodToKnow' | 'limitations' | 'systemRequirements'>
 > = {
   'the-isle-hacks': {
-    images: slide('gpEsp', 'gpHorn', 'gpHealth', 'gpRadar', 'gpCreatures', 'gpWorld'),
+    images: rankedSlides,
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
     systemRequirements: isleSystemRequirements,
@@ -197,14 +170,15 @@ const productContent: Record<
       'Custom ESP colors',
       'Custom menu and panic keys',
       'Crosshair and fullbright options',
+      'HUD extras (FPS, resolution, time)',
       'Saveable configs',
       'English and Russian menus',
     ],
     overview: {
       title: 'Built around The Isle information workflow',
       paragraphs: [
-        'Isle Hacks lists The Isle features for Windows PC: player ESP, dinosaur ESP, health information, resource markers, radar, and optional aim assistance. Enable the overlays you can actually read, then save a config before joining a live Evrima server.',
-        'The current vendor listing is Evrima-only. The Isle uses Easy Anti-Cheat, so treat compatibility as something to re-check after every game update rather than a permanent status.',
+        'Isle Hacks lists [The Isle hacks](/store/) for Windows PC: [player ESP](/the-isle-player-esp/), [dinosaur ESP](/the-isle-dinosaur-esp/), [health information](/the-isle-health-esp/), resource markers, [radar](/the-isle-radar-features/), and optional [aim assistance](/the-isle-aimbot/). Enable the overlays you can actually read, then save a config before joining a live Evrima server.',
+        'The current vendor listing is Evrima-only. The Isle uses Easy Anti-Cheat, so treat compatibility as something to re-check on the [status page](/status/) after every game update rather than a permanent label. [Setup notes](/setup/) cover the Windows PC order.',
       ],
     },
   },
@@ -237,24 +211,24 @@ function buildTierPages(): ProductPage[] {
       about: [
         {
           type: 'p',
-          text: 'The Isle rewards awareness. Knowing which player or dinosaur is nearby, how healthy a threat is, and how far a target stands matters before you commit to a fight. Isle Hacks groups those information modules so you can review them on one store page.',
+          text: 'The Isle rewards awareness. Knowing which player or dinosaur is nearby, how healthy a threat is, and how far a target stands matters before you commit to a fight. Isle Hacks groups those information modules on one [store](/store/) page, with a longer breakdown on [features](/features/) and [preview](/preview/).',
         },
         { type: 'h2', text: 'What is listed' },
         {
           type: 'p',
-          text: 'The current product listing includes player ESP, dinosaur ESP, health and growth information, resource markers, radar, and aim assistance. Silent aim, triggerbot, and skeleton ESP are not listed, so this site does not claim them.',
+          text: 'The current product listing includes [player ESP](/the-isle-player-esp/), [dinosaur ESP](/the-isle-dinosaur-esp/), [health and growth information](/the-isle-health-esp/), resource markers, [radar](/the-isle-radar-features/), and [aim assistance](/the-isle-aimbot/). Silent aim, triggerbot, and skeleton ESP are not listed, so this site does not claim them. See the [FAQ](/faq/) if you are unsure what is included.',
         },
       ],
       body: [
         { type: 'h2', text: 'Plans' },
         {
           type: 'p',
-          text: 'Monthly access is $35 for 30 days. Lifetime access is $150. Both plans are priced in USD and use the same listed feature set. Compare them on this store page before checkout.',
+          text: 'Monthly access is $35 for 30 days (P30D). Lifetime access is $150 (P99Y). Both plans are priced in USD and use the same listed feature set. Compare them here, then read [monthly vs lifetime](/the-isle-monthly-vs-lifetime/) if you still need a short trial vs long access.',
         },
         { type: 'h2', text: 'Requirements' },
         {
           type: 'p',
-          text: 'Windows 10 or 11, the Evrima branch, and a machine that can run The Isle. The vendor also lists Cloud DMA as required for full functionality, plus HVCI, core isolation, TPM, and Secure Boot left on.',
+          text: 'Windows 10 or 11, the Evrima branch, and a machine that can run The Isle. The vendor also lists Cloud DMA as required for full functionality, plus HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes on the [setup](/setup/) and [status](/status/) pages before you pay.',
         },
       ],
       relatedBlogSlugs: productRelatedBlogSlugs[slug] ?? [],
@@ -282,13 +256,13 @@ export function getAllCheatSlugs() {
   return cheatPages.map((p) => p.slug);
 }
 
-export const heroSlides = slide('gpEsp', 'gpHorn', 'gpHealth', 'gpRadar', 'gpCreatures', 'gpWorld');
+export const heroSlides = rankedSlides;
 
 export const productHub = {
   path: '/store/',
   title: t.products.title,
   subtitle: t.products.subtitle,
   description:
-    'Isle Hacks plans for The Isle on Windows PC. Compare monthly and lifetime options and review available features before checkout.',
+    'Isle Hacks plans for The Isle on Windows PC. Compare monthly and lifetime options, review available features, and visit checkout for current pricing.',
   buyUrl: checkoutPath('isle'),
 };

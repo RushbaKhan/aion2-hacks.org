@@ -42,6 +42,13 @@ export const blogTagIcons: Record<string, IconName> = {
   Troubleshooting: 'alert',
 };
 
+export const forumCategoryIcons: Record<string, IconName> = {
+  General: 'messageCircle',
+  Features: 'layers',
+  Status: 'refresh',
+  Plans: 'navProducts',
+};
+
 export const heroStatusPills: { icon: IconName; label: string }[] = [
   { icon: 'espActive', label: 'Player ESP' },
   { icon: 'radarOnline', label: 'Radar' },

@@ -7,5 +7,7 @@ Allow: /
 User-agent: *
 Allow: /
 Disallow: /go/
+Disallow: /monthly/
+Disallow: /lifetime/
 
-Sitemap: https://islehacks.org/sitemap.xml
+Sitemap: https://islehacks.com/sitemap.xml

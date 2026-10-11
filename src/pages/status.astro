@@ -36,7 +36,7 @@ const breadcrumbs = [
         <SectionHeader
           eyebrow="Compatibility"
           title="The Isle status"
-          desc="Check compatibility notes, game patches, and anti-cheat information before using Isle Hacks."
+          desc="Check compatibility notes, game patches, and anti-cheat information before using Isle Hacks on Windows PC."
           titleId="status-page-title"
         />
       </div>
@@ -48,6 +48,7 @@ const breadcrumbs = [
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             This page does not publish a live undetected claim. The Isle Evrima launches through Easy Anti-Cheat.
             After a game or anti-cheat update, treat compatibility as unknown until you re-check checkout notes and stop if a build is marked unavailable.
+            Longer context lives in the <a href="/the-isle-compatibility-eac/">Easy Anti-Cheat notes</a>.
           </p>
         </article>
         <article class="rounded-2xl border border-border bg-card p-6">
@@ -56,6 +57,7 @@ const breadcrumbs = [
           <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
             Official The Isle support material and Steam discussions describe Evrima launching through Easy Anti-Cheat.
             That is the game’s current anti-cheat implementation to verify before you publish or play—not a bypass promise.
+            See also the <a href="/faq/">FAQ</a> safety answers.
           </p>
         </article>
       </div>
@@ -75,11 +77,13 @@ const breadcrumbs = [
       <div class="mt-10 max-w-3xl space-y-4 text-sm leading-relaxed text-muted-foreground">
         <p>
           The current vendor listing is Evrima-only on Windows 10 and 11. It also notes Cloud DMA for full functionality,
-          with HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes at checkout if you need the full feature set.
+          with HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes at checkout and on the
+          <a href={ROUTES.setup}>setup page</a> if you need the full feature set.
         </p>
         <p>
-          Feature availability can change after an Evrima patch. Use the store and features pages for the listed modules,
-          then come back here after updates before you launch.
+          Feature availability can change after an Evrima patch. Use the <a href={ROUTES.store}>store</a> and
+          <a href={ROUTES.features}>features</a> pages for the listed modules, then come back here after updates before you launch.
+          The <a href="/the-isle-hacks-evrima/">Evrima overview</a> is the starting map for new buyers.
         </p>
       </div>
 
@@ -89,6 +93,7 @@ const breadcrumbs = [
           <Icon name="arrowRight" size={17} />
         </Button>
         <Button as="a" href={ROUTES.setup} variant="outline">Setup notes</Button>
+        <Button as="a" href={ROUTES.faq} variant="outline">Read FAQ</Button>
       </div>
     </div>
   </section>

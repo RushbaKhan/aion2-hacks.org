@@ -1,5 +1,6 @@
 ---
 import { t } from '../i18n';
+import { checkoutPath } from '../config/checkout';
 import { ROUTES } from '../utils/path';
 import { heroSlides } from '../data/products';
 import { compatibilityIcons, heroStatIcons, heroStatusPills } from '../data/sectionIcons';
@@ -24,7 +25,7 @@ const heroMarqueePills = [
   class="relative overflow-hidden border-b border-border"
   aria-labelledby="hero-title"
 >
-  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--primary)_0%,transparent_55%)] opacity-20" aria-hidden="true" />
+  <div class="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_top,var(--primary)_0%,transparent_58%)] opacity-40" aria-hidden="true" />
 
   <div class="relative mx-auto flex max-w-6xl flex-col justify-center px-5">
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
@@ -41,12 +42,17 @@ const heroMarqueePills = [
         <p class="max-w-xl text-sm leading-relaxed text-neutral-500 dark:text-neutral-400 md:text-base">
           {h.subtitle}
         </p>
+        <p class="max-w-xl text-sm leading-relaxed text-muted-foreground">
+          Start with the <a href={ROUTES.features} class="font-medium text-primary hover:underline">features list</a>,
+          compare <a href={ROUTES.store} class="font-medium text-primary hover:underline">monthly and lifetime plans</a>,
+          then check <a href={ROUTES.status} class="font-medium text-primary hover:underline">Easy Anti-Cheat status</a>
+          and <a href={ROUTES.setup} class="font-medium text-primary hover:underline">Windows PC setup</a> before checkout.
+        </p>
 
         <div class="flex flex-wrap justify-start gap-3 sm:gap-4">
           <Button
             as="a"
-            href={ROUTES.products}
-            data-scroll-target="products"
+            href={ROUTES.store}
             variant="primary"
             size="lg"
             class="rounded-xl"
@@ -56,7 +62,7 @@ const heroMarqueePills = [
           </Button>
           <Button
             as="a"
-            href={t.site.discord}
+            href={checkoutPath('isle')}
             variant="secondary"
             size="lg"
             class="rounded-xl"
@@ -68,7 +74,7 @@ const heroMarqueePills = [
       </div>
 
       <div class="mx-auto flex w-full max-w-xl flex-col items-center gap-5 lg:mx-0 lg:max-w-none lg:items-end">
-        <ImageSlider images={heroSlides} id="hero-slider" variant="hero" desktopOnly />
+        <ImageSlider images={heroSlides} id="hero-slider" variant="hero" />
         <div class="grid w-full grid-cols-2 gap-2.5 sm:gap-3 md:grid-cols-4 lg:grid-cols-2">
           {h.metrics.map((m, i) => (
             <div class="flex min-w-0 items-center gap-3 rounded-xl border border-border/80 bg-card/70 px-3 py-3 shadow-sm shadow-black/10 transition-colors hover:border-primary/40">

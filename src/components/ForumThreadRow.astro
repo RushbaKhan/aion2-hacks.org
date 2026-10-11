@@ -1,0 +1,58 @@
+---
+import Icon from './icons/Icon.astro';
+import { forumPostPath } from '../utils/path';
+import { getForumCategoryKey, getForumPostTimestamp, type ForumPost } from '../data/forum';
+
+interface Props {
+  post: ForumPost;
+  index?: number;
+}
+
+const { post, index = 0 } = Astro.props;
+const href = forumPostPath(post.slug);
+const searchText = [post.title, post.excerpt, post.category, post.tag, post.body.join(' ')].join(' ');
+---
+
+<a
+  href={href}
+  class="forum-thread"
+  data-forum-card
+  data-category={getForumCategoryKey(post.category)}
+  data-pinned={post.pinned ? 'true' : 'false'}
+  data-ts={getForumPostTimestamp(post)}
+  data-comments={post.commentsCount}
+  data-upvotes={post.upvotes}
+  data-views={post.views}
+  data-order={index}
+  data-search={searchText}
+>
+  <div class="min-w-0">
+    <div class="forum-thread__badges">
+      {
+        post.pinned ? (
+          <span class="forum-thread__badge forum-thread__badge--pin">
+            <Icon name="pin" size={11} />
+            Pinned
+          </span>
+        ) : (
+          <span class="forum-thread__badge">
+            <Icon name="lock" size={11} />
+            Closed
+          </span>
+        )
+      }
+      <span class="forum-thread__badge">{post.tag}</span>
+    </div>
+    <h3 class="forum-thread__title">{post.title}</h3>
+    <p class="forum-thread__excerpt">{post.excerpt}</p>
+  </div>
+  <div class="forum-thread__meta">
+    <span>{post.commentsCount} {post.commentsCount === 1 ? 'reply' : 'replies'}</span>
+    <span>{post.views.toLocaleString('en-US')} views</span>
+    <span>{post.date}</span>
+    <span class="forum-thread__open">
+      Open thread
+      <Icon name="arrowRight" size={14} />
+    </span>
+  </div>
+</a>

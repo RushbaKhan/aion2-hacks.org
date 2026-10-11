@@ -52,7 +52,7 @@ const robotsContent = noindex
 ---
 
 <!doctype html>
-<html lang="en" class="dark fonts-pending">
+<html lang="en" class="dark fonts-pending" style="color-scheme: dark">
   <head>
     <meta charset="UTF-8" />
     <script is:inline>
@@ -61,13 +61,18 @@ const robotsContent = noindex
           var stored = localStorage.getItem('colorTheme') || localStorage.getItem('starwind-theme');
           if (stored === 'light') {
             document.documentElement.classList.remove('dark');
+            document.documentElement.style.colorScheme = 'light';
           } else {
             document.documentElement.classList.add('dark');
+            document.documentElement.style.colorScheme = 'dark';
             if (stored !== 'dark') {
               localStorage.setItem('colorTheme', 'dark');
+              localStorage.setItem('starwind-theme', 'dark');
             }
           }
-        } catch (e) {}
+        } catch (e) {
+          document.documentElement.classList.add('dark');
+        }
         document.documentElement.classList.add('fonts-pending');
       })();
     </script>
@@ -149,7 +154,8 @@ const robotsContent = noindex
     <slot name="head" />
 
   </head>
-  <body class="min-h-screen bg-background text-foreground">
+  <body class="min-h-screen text-foreground">
+    <div class="site-atmosphere" aria-hidden="true"></div>
     <button type="button" class="skip-link" data-skip-to-main>{t.ui.skipLink}</button>
     <Header />
     <main id="main-content">

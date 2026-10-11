@@ -21,7 +21,8 @@ const isSinglePlan = plans.length === 1;
 ---
 
 <aside
-  class="product-checkout text-left lg:sticky lg:top-24"
+  id="plans"
+  class="product-checkout scroll-mt-28 text-left lg:sticky lg:top-24"
   aria-labelledby={`checkout-${product.slug}`}
   data-product-checkout
   data-buy-url={product.buyUrl}
@@ -116,8 +117,7 @@ const isSinglePlan = plans.length === 1;
 
         totalEl.textContent = `$${plan.priceUsd}`;
         noteEl.textContent = plan.priceNote;
-        const normalized = buyUrl.endsWith('/') ? buyUrl : `${buyUrl}/`;
-        buyBtn.href = `${normalized}${plan.id}/`;
+        buyBtn.href = buyUrl.endsWith('/') ? buyUrl : `${buyUrl}/`;
       };
 
       group.addEventListener('click', () => window.setTimeout(sync, 0));

@@ -1,0 +1,107 @@
+---
+import Icon from './icons/Icon.astro';
+import { forumPostPath, ROUTES } from '../utils/path';
+import { checkoutPath } from '../config/checkout';
+import {
+  forumCategories,
+  forumPosts,
+  getForumCategoryKey,
+  getForumCommunityHandle,
+  type ForumPost,
+} from '../data/forum';
+import { forumCategoryIcons } from '../data/sectionIcons';
+
+interface Props {
+  related?: ForumPost[];
+}
+
+const { related = [] } = Astro.props;
+---
+
+<aside class="forum-sidebar" aria-label="Forum communities">
+  <section class="forum-side-card forum-about">
+    <div class="forum-side-card__banner"></div>
+    <div class="forum-about__content">
+      <div class="forum-about__title">
+        <span class="forum-community-avatar forum-community-avatar--brand tone-purple">IH</span>
+        <h2>Isle Hacks Community</h2>
+      </div>
+      <p>A home for The Isle players reviewing ESP, radar, Easy Anti-Cheat notes, and plans before checkout.</p>
+      <div class="forum-stats">
+        <span><b>{forumPosts.length}</b> guide discussions</span>
+        <span><i></i> <b>{forumCategories.length}</b> topics</span>
+      </div>
+      <a class="forum-join" href={ROUTES.blog}>Explore all guides</a>
+    </div>
+  </section>
+
+  {
+    related.length > 0 && (
+      <section class="forum-side-card forum-related-card">
+        <h2 class="forum-side-heading">Related discussions</h2>
+        <ul class="forum-related-list">
+          {related.map((item) => (
+            <li>
+              <a href={forumPostPath(item.slug)}>
+                <span class="forum-related-list__category">{getForumCommunityHandle(item.category)}</span>
+                <b>{item.title}</b>
+                <small class="forum-related-list__meta">
+                  {item.commentsCount} comments
+                  <Icon name="arrowRight" size={12} />
+                </small>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a class="forum-related-card__all" href={ROUTES.forum}>
+          Browse all discussions
+          <Icon name="arrowRight" size={13} />
+        </a>
+      </section>
+    )
+  }
+
+  <section class="forum-side-card">
+    <h2 class="forum-side-heading">Communities</h2>
+    <ul class="forum-community-list">
+      {forumCategories.map((category) => (
+        <li>
+          <a href={`${ROUTES.forum}?category=${getForumCategoryKey(category.name)}`}>
+            <span class:list={['forum-community-avatar', `tone-${category.tone}`]}>
+              <Icon name={forumCategoryIcons[category.name] ?? 'messageCircle'} size={13} />
+            </span>
+            <span>
+              <b>{category.name}</b>
+              <small>Browse related Q&amp;A</small>
+            </span>
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a class="forum-text-link" href={ROUTES.forum}>Browse all communities</a>
+  </section>
+
+  <section class="forum-side-card forum-rules">
+    <h2 class="forum-side-heading">Community guidelines</h2>
+    <ol>
+      <li>Keep questions tied to listed ESP, radar, and plan features</li>
+      <li>Check the <a href={ROUTES.status}>status page</a> after Evrima or Easy Anti-Cheat updates</li>
+      <li>Do not treat compatibility as a permanent label</li>
+    </ol>
+    <a href={ROUTES.about}>Read the full guidelines</a>
+  </section>
+
+  <p class="forum-sidebar-foot">
+    <a href={ROUTES.about}>About</a> ·
+    <a href={ROUTES.about}>Guidelines</a> ·
+    <a href={ROUTES.privacy}>Privacy</a> ·
+    <a href={ROUTES.terms}>Terms</a>
+    <br />
+    © {new Date().getFullYear()} Isle Hacks Community
+  </p>
+
+  <p class="forum-static-note">
+    Guide Q&amp;A only. Compare modules on the <a href={ROUTES.store}>store</a> and
+    <a href={checkoutPath('isle')}>checkout</a> path before you buy.
+  </p>
+</aside>
