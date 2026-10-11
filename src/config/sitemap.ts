@@ -34,6 +34,17 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     return item;
   }
 
+  if (
+    path === '/blog/features/' ||
+    path === '/blog/guides/' ||
+    path === '/blog/setup/' ||
+    path === '/blog/updates/'
+  ) {
+    item.priority = 0.8;
+    item.changefreq = 'weekly';
+    return item;
+  }
+
   if (path === '/forum/') {
     item.priority = 0.8;
     item.changefreq = 'daily';

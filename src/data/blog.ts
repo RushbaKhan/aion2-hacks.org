@@ -86,6 +86,20 @@ export function getBlogTags() {
   return [...new Set(blogPosts.map((p) => p.tag))].sort((a, b) => a.localeCompare(b));
 }
 
+export function getBlogPostsByTag(tag: string) {
+  return blogPosts.filter((post) => post.tag === tag);
+}
+
+export function getBlogListing(tag: string | 'all' = 'all') {
+  if (tag === 'all') {
+    const featured = getFeaturedBlogPost();
+    return { featured, grid: getNonFeaturedBlogPosts() };
+  }
+
+  const posts = getBlogPostsByTag(tag);
+  return { featured: posts[0], grid: posts.slice(1) };
+}
+
 export function getBlogPostTimestamp(date: string) {
   return new Date(date).getTime();
 }

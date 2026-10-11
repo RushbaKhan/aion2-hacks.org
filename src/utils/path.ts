@@ -69,6 +69,15 @@ export function blogPostPath(slug: string): string {
   return `/blog/${slug}/`;
 }
 
+export function blogTopicSlug(tag: string): string {
+  return tag.trim().toLowerCase().replaceAll(/\s+/g, '-');
+}
+
+export function blogTopicPath(tag: string): string {
+  if (!tag || tag === 'all') return ROUTES.blog;
+  return `/blog/${blogTopicSlug(tag)}/`;
+}
+
 /** @deprecated Use productPath — product pages live under the store. */
 export function cheatPath(slug: string): string {
   return productPath(slug);

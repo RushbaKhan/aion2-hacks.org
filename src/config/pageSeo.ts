@@ -59,6 +59,26 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
     description:
       'Explore The Isle guides and updates covering gameplay mechanics, game patches, compatibility, player tracking, ESP terminology, radar features, and Windows PC setup.',
   },
+  '/blog/features/': {
+    title: 'The Isle Feature Articles | Isle Hacks',
+    description:
+      'Read Isle Hacks articles about The Isle ESP, radar, aim assistance, and other listed features for Windows PC.',
+  },
+  '/blog/guides/': {
+    title: 'The Isle Guides | Isle Hacks',
+    description:
+      'Practical The Isle guides covering Evrima gameplay, ESP terminology, radar use, and how to review Isle Hacks before you buy.',
+  },
+  '/blog/setup/': {
+    title: 'The Isle Setup Articles | Isle Hacks',
+    description:
+      'Windows PC setup notes for Isle Hacks, including Evrima requirements, configuration order, and compatibility checks.',
+  },
+  '/blog/updates/': {
+    title: 'The Isle Updates | Isle Hacks',
+    description:
+      'Isle Hacks updates on The Isle Evrima patches, Easy Anti-Cheat changes, and current compatibility notes.',
+  },
   '/forum/': {
     title: 'The Isle Community Forum | Isle Hacks',
     description:

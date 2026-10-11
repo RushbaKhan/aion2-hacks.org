@@ -1,6 +1,6 @@
 ---
 import Icon from './icons/Icon.astro';
-import { ROUTES } from '../utils/path';
+import { ROUTES, blogTopicPath } from '../utils/path';
 import { blogTagIcons } from '../data/sectionIcons';
 import type { BlogPost } from '../i18n/types';
 import type { IconName } from './icons/types';
@@ -21,10 +21,12 @@ const tagIcon: IconName = blogTagIcons[post.tag] ?? 'tag';
     All articles
   </a>
   <div class="blog-article__toolbar-meta">
-    <Badge variant="secondary" size="sm" class="blog-article__toolbar-badge max-w-[9rem] gap-1 rounded-full" title={post.tag}>
-      <Icon name={tagIcon} size={12} class="shrink-0" />
-      <span class="truncate">{post.tag}</span>
-    </Badge>
+    <a href={blogTopicPath(post.tag)} class="min-w-0">
+      <Badge variant="secondary" size="sm" class="blog-article__toolbar-badge max-w-[9rem] gap-1 rounded-full" title={post.tag}>
+        <Icon name={tagIcon} size={12} class="shrink-0" />
+        <span class="truncate">{post.tag}</span>
+      </Badge>
+    </a>
     <Badge variant="outline" size="sm" class="blog-article__toolbar-badge max-w-[7rem] gap-1 rounded-full" title={post.readTime}>
       <Icon name="clock" size={12} class="shrink-0" />
       <span class="truncate">{post.readTime}</span>
