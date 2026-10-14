@@ -58,25 +58,14 @@ export interface ProductPage {
 }
 
 export const productRelatedBlogSlugs: Record<string, string[]> = {
-  'the-isle-hacks': [
-    'the-isle-hacks-evrima',
-    'the-isle-player-esp',
-    'the-isle-dinosaur-esp',
-    'the-isle-health-esp',
-    'the-isle-radar-features',
-    'the-isle-aimbot',
-    'the-isle-hacks-pc-setup',
-    'the-isle-compatibility-eac',
-    'the-isle-esp-terminology',
-    'the-isle-monthly-vs-lifetime',
-  ],
+  'aion-2': ['cheats', 'esp', 'aim', 'flight', 'radar', 'nodes', 'world', 'pc', 'compat', 'plans'],
 };
 
 const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
     title: 'Review current status',
-    desc: 'Open the status page on islehacks.com before you buy—especially after an Evrima or Easy Anti-Cheat update.',
+    desc: 'Open the status page on aion2cheats.org before you buy—especially after an AION 2 client update.',
   },
   {
     num: '02',
@@ -91,7 +80,7 @@ const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '04',
     title: 'Follow Windows PC setup',
-    desc: 'Use the vendor setup notes for the Evrima branch. Turn on a conservative ESP and radar profile before joining a live server.',
+    desc: 'Use the vendor setup notes for Steam or PURPLE. Turn on a conservative ESP and radar profile before joining a live server.',
   },
 ];
 
@@ -103,17 +92,20 @@ function acquisitionFor(productName: string): ProductAcquisition {
 }
 
 const sharedGoodToKnow =
-  'The Isle Evrima launches through Easy Anti-Cheat. Confirm current compatibility on the status page before you purchase or launch. Overlay options can change after a game or anti-cheat update.';
+  'AION 2 global PC launches through Steam or NC’s PURPLE client. Confirm current compatibility on the status page before you purchase or launch. Overlay options can change after a game update.';
 
 const sharedLimitations =
-  'Third-party software in The Isle can violate the game terms of use and may lead to account action. You use this software at your own risk. Compatibility and availability can change after game, Easy Anti-Cheat, or Windows updates without notice.';
+  'Third-party software in AION 2 can violate the game terms of use and may lead to account action. You use this software at your own risk. Compatibility and availability can change after game or Windows updates without notice.';
 
-const isleSystemRequirements: SystemRequirement[] = [
+const aionSystemRequirements: SystemRequirement[] = [
   { icon: 'reqWindows', text: 'Windows 10 or Windows 11 (64-bit).' },
-  { icon: 'reqSteam', text: 'The Isle Evrima branch via Steam with current patches applied.' },
+  { icon: 'reqSteam', text: 'AION 2 global client via Steam or PURPLE with current patches applied.' },
   { icon: 'reqSettings', text: 'Administrator access for loader installation and updates.' },
   { icon: 'reqWifi', text: 'Stable internet connection for checkout access and updates.' },
-  { icon: 'reqCpu', text: 'A system that meets The Isle published hardware requirements. The vendor lists Cloud DMA as required for full functionality.' },
+  {
+    icon: 'reqCpu',
+    text: 'A system that meets AION 2 published hardware requirements. The vendor lists Cloud DMA and an AWS option for isolated delivery.',
+  },
 ];
 
 type GalleryKey = ScreenshotShot['key'];
@@ -143,42 +135,49 @@ const productContent: Record<
   string,
   Pick<ProductPage, 'overview' | 'images' | 'fullFeatures' | 'goodToKnow' | 'limitations' | 'systemRequirements'>
 > = {
-  'the-isle-hacks': {
+  'aion-2': {
     images: rankedSlides,
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: isleSystemRequirements,
+    systemRequirements: aionSystemRequirements,
     fullFeatures: [
-      'Aim assistance',
-      'Player ESP',
-      'Box ESP',
-      'Name ESP',
-      'Distance ESP',
-      'Health ESP',
-      'Dinosaur ESP / animal ESP',
-      'Species, growth, and stamina info',
-      'NPC ESP',
-      'Corpse markers',
-      'Player direction',
-      'Head dot',
+      'Soft aim assist',
+      'Aim key, FOV, and smoothness',
+      'Bone selection (head / chest / closest)',
       'Visible check',
-      'Snaplines',
-      'Resource ESP (fruit and water)',
-      'Gore markers',
-      'Radar',
-      'Max distance filter',
-      'Custom ESP colors',
+      'Ignore friendly faction',
+      'Ignore same party / alliance',
+      'Player ESP',
+      'Box styles (full / corner)',
+      'Skeleton and head circle',
+      'Health bar, nameplate, class, and level',
+      'Faction (Elyos / Asmodian / Balaur)',
+      'Distance and view direction',
+      'Flying / grounded state',
+      'Out of screen arrows',
+      'Aerial target ESP',
+      'Flight path markers and altitude readout',
+      'Glide / wing state',
+      'Sky contested zone highlights',
+      'NPC / mob ESP',
+      'Elite, world boss, and dungeon boss markers',
+      'Quest objective markers',
+      'Gathering node ESP',
+      'Ore / herb / material filters',
+      'Chest / loot object ESP',
+      'Portal / instance entrance markers',
+      '2D radar with faction color coding',
+      'Stream-proof overlay',
+      'Combat mode (hide world ESP)',
+      'Custom crosshair and ESP colors',
       'Custom menu and panic keys',
-      'Crosshair and fullbright options',
-      'HUD extras (FPS, resolution, time)',
       'Saveable configs',
-      'English and Russian menus',
     ],
     overview: {
-      title: 'Built around The Isle information workflow',
+      title: 'Built around AION 2 information workflow',
       paragraphs: [
-        'Isle Hacks lists [The Isle hacks](/store/) for Windows PC: [player ESP](/the-isle-player-esp/), [dinosaur ESP](/the-isle-dinosaur-esp/), [health information](/the-isle-health-esp/), resource markers, [radar](/the-isle-radar-features/), and optional [aim assistance](/the-isle-aimbot/). Enable the overlays you can actually read, then save a config before joining a live Evrima server.',
-        'The current vendor listing is Evrima-only. The Isle uses Easy Anti-Cheat, so treat compatibility as something to re-check on the [status page](/status/) after every game update rather than a permanent label. [Setup notes](/setup/) cover the Windows PC order.',
+        'AION 2 Cheats lists [AION 2 cheats](/store/) for Windows PC: [player ESP](/esp/), [flight markers](/flight/), [gathering nodes](/nodes/), [world and boss information](/world/), [radar](/radar/), and optional [soft aim](/aim/). Enable the overlays you can actually read, then save a config before joining a live server.',
+        'The current vendor listing is the global PC client on Steam or PURPLE. Treat compatibility as something to re-check on the [status page](/status/) after every game update rather than a permanent label. [Setup notes](/setup/) cover the Windows PC order.',
       ],
     },
   },
@@ -186,7 +185,7 @@ const productContent: Record<
 
 function buildTierPages(): ProductPage[] {
   return t.cheats.items.map((cheat) => {
-    const slug = 'the-isle-hacks';
+    const slug = 'aion-2';
     const content = productContent[slug];
     return {
       slug,
@@ -211,24 +210,24 @@ function buildTierPages(): ProductPage[] {
       about: [
         {
           type: 'p',
-          text: 'The Isle rewards awareness. Knowing which player or dinosaur is nearby, how healthy a threat is, and how far a target stands matters before you commit to a fight. Isle Hacks groups those information modules on one [store](/store/) page, with a longer breakdown on [features](/features/) and [preview](/preview/).',
+          text: 'AION 2 rewards awareness in three dimensions. Knowing which faction is nearby, whether a target is flying, and how far a world boss stands matters before you commit. AION 2 Cheats groups those information modules on one [store](/store/) page, with a longer breakdown on [features](/features/) and [preview](/preview/).',
         },
         { type: 'h2', text: 'What is listed' },
         {
           type: 'p',
-          text: 'The current product listing includes [player ESP](/the-isle-player-esp/), [dinosaur ESP](/the-isle-dinosaur-esp/), [health and growth information](/the-isle-health-esp/), resource markers, [radar](/the-isle-radar-features/), and [aim assistance](/the-isle-aimbot/). Silent aim, triggerbot, and skeleton ESP are not listed, so this site does not claim them. See the [FAQ](/faq/) if you are unsure what is included.',
+          text: 'The current product listing includes [player ESP](/esp/), [flight and aerial markers](/flight/), [gathering node ESP](/nodes/), [world and boss information](/world/), [2D radar](/radar/), and [soft aim](/aim/). Full farming bots and quest automation are not listed, so this site does not claim them. See the [FAQ](/faq/) if you are unsure what is included.',
         },
       ],
       body: [
         { type: 'h2', text: 'Plans' },
         {
           type: 'p',
-          text: 'Monthly access is $35 for 30 days (P30D). Lifetime access is $150 (P99Y). Both plans are priced in USD and use the same listed feature set. Compare them here, then read [monthly vs lifetime](/the-isle-monthly-vs-lifetime/) if you still need a short trial vs long access.',
+          text: 'Monthly access is $35 for 30 days (P30D). Lifetime access is $150 (P99Y). Both plans are priced in USD and use the same listed feature set. Compare them here, then read [monthly vs lifetime](/plans/) if you still need a short trial vs long access.',
         },
         { type: 'h2', text: 'Requirements' },
         {
           type: 'p',
-          text: 'Windows 10 or 11, the Evrima branch, and a machine that can run The Isle. The vendor also lists Cloud DMA as required for full functionality, plus HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes on the [setup](/setup/) and [status](/status/) pages before you pay.',
+          text: 'Windows 10 or 11, the global Steam or PURPLE client, and a machine that can run AION 2. The vendor also lists Cloud DMA and an AWS option, plus HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes on the [setup](/setup/) and [status](/status/) pages before you pay.',
         },
       ],
       relatedBlogSlugs: productRelatedBlogSlugs[slug] ?? [],
@@ -263,6 +262,6 @@ export const productHub = {
   title: t.products.title,
   subtitle: t.products.subtitle,
   description:
-    'Isle Hacks plans for The Isle on Windows PC. Compare monthly and lifetime options, review available features, and visit checkout for current pricing.',
-  buyUrl: checkoutPath('isle'),
+    'AION 2 Cheats plans for AION 2 on Windows PC. Compare monthly and lifetime options, review available features, and visit checkout for current pricing.',
+  buyUrl: checkoutPath('aion'),
 };

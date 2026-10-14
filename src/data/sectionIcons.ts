@@ -3,11 +3,12 @@ import type { IconName } from '../components/icons/types';
 export const featureIcons: Record<string, IconName> = {
   ESP: 'featureEsp',
   'Player ESP': 'comparePlayerEsp',
-  'Dinosaur ESP': 'featureEsp',
-  'Health ESP': 'compareRuneTimer',
-  'Aim Assist': 'featureAimbot',
+  'Soft Aim': 'featureAimbot',
+  'Flight Markers': 'featureRadar',
+  'World Info': 'compareRuneTimer',
+  'Gathering Nodes': 'lootEsp',
+  'Overlay Options': 'featureEsp',
   Radar: 'featureRadar',
-  'Resource ESP': 'lootEsp',
   Configuration: 'compareCloudBackup',
   Compatibility: 'whyShield',
 };
@@ -20,7 +21,7 @@ export const toolkitIcons: Record<string, IconName> = {
   Aim: 'toolkitCombat',
   Vision: 'toolkitVision',
   Radar: 'toolkitRadar',
-  Creatures: 'toolkitWeapons',
+  Flight: 'toolkitWeapons',
   World: 'toolkitMovement',
   Profiles: 'toolkitProfiles',
 };
@@ -52,11 +53,11 @@ export const forumCategoryIcons: Record<string, IconName> = {
 export const heroStatusPills: { icon: IconName; label: string }[] = [
   { icon: 'espActive', label: 'Player ESP' },
   { icon: 'radarOnline', label: 'Radar' },
-  { icon: 'lootEsp', label: 'Dinosaur ESP' },
-  { icon: 'softAim', label: 'Aim Assist' },
-  { icon: 'mapHack', label: 'Health ESP' },
+  { icon: 'lootEsp', label: 'Flight Markers' },
+  { icon: 'softAim', label: 'Soft Aim' },
+  { icon: 'mapHack', label: 'Node ESP' },
   { icon: 'liveStatus', label: 'Check Status' },
-  { icon: 'autoUpdates', label: 'Evrima' },
+  { icon: 'autoUpdates', label: 'Steam / PURPLE' },
   { icon: 'support247', label: 'Windows PC' },
 ];
 
@@ -68,7 +69,7 @@ export const heroStatIcons: IconName[] = [
 ];
 
 export const cheatTierIcons: Record<string, IconName> = {
-  'Isle Hacks': 'tierPro',
+  'AION 2 Cheats': 'tierPro',
   Lite: 'tierLite',
   Pro: 'tierPro',
   Elite: 'tierElite',

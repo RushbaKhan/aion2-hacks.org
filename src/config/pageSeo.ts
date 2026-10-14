@@ -10,99 +10,99 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'The Isle Hacks | Features, ESP and Radar',
+    title: 'AION 2 Cheats | Features, Guides and Updates',
     description:
-      'Explore The Isle hacks for Windows PC. Discover available gameplay features, configuration options, compatibility information, and current status before choosing a plan.',
+      'Explore AION 2 cheats, gameplay tools, compatibility information, and product updates. Review available features and access details before choosing a plan.',
   },
   '/features/': {
-    title: 'The Isle Features | Isle Hacks',
+    title: 'AION 2 Features | AION 2 Cheats',
     description:
-      'Explore The Isle features for Isle Hacks, including available aim assistance, ESP, player information, dinosaur tracking, and radar options. Check feature availability and compatibility before purchasing.',
+      'Explore the AION 2 features supported by AION 2 Cheats. Review available gameplay tools, configuration options, compatibility, and product details.',
   },
   '/store/': {
-    title: 'The Isle Store | Isle Hacks',
+    title: 'AION 2 Cheats Store | AION 2 Cheats',
     description:
-      'Explore Isle Hacks plans for The Isle on Windows PC. Compare monthly and lifetime options, review available features, and visit checkout for current pricing and access details.',
+      'Explore AION 2 Cheats plans, compare subscription options, and review current pricing, supported platforms, available features, and access details.',
   },
   '/status/': {
-    title: 'The Isle Status | Isle Hacks',
+    title: 'AION 2 Status | AION 2 Cheats',
     description:
-      'Check The Isle compatibility and product status, including updates, game patches, and anti-cheat compatibility information before using Isle Hacks.',
+      'Check AION 2 Cheats product status, supported game versions, compatibility updates, and verified anti-cheat information before purchasing.',
   },
   '/preview/': {
-    title: 'The Isle Hacks Preview | Isle Hacks',
+    title: 'AION 2 Cheats Preview | AION 2 Cheats',
     description:
-      'Preview available Isle Hacks features for The Isle. Explore the interface, player information, ESP visuals, and radar options before choosing a plan.',
+      'Explore the AION 2 Cheats interface and preview verified product features, configuration options, and supported gameplay tools.',
   },
   '/setup/': {
-    title: 'The Isle Hacks Setup | Isle Hacks',
+    title: 'AION 2 Cheats Setup | AION 2 Cheats',
     description:
-      'Learn about Isle Hacks installation requirements, configuration options, supported game versions, and troubleshooting steps for Windows PC.',
+      'Review AION 2 Cheats setup requirements, supported platforms, compatibility information, configuration options, and troubleshooting guidance.',
   },
   '/support/': {
-    title: 'The Isle Hacks Support | Isle Hacks',
+    title: 'AION 2 Cheats Support | AION 2 Cheats',
     description:
-      'Get support for Isle Hacks, including purchase assistance, access and delivery questions, configuration guidance, compatibility, and troubleshooting.',
+      'Find support for AION 2 Cheats, including purchase assistance, access questions, setup guidance, compatibility information, and troubleshooting.',
   },
   '/faq/': {
-    title: 'The Isle Hacks FAQ | Isle Hacks',
+    title: 'AION 2 Cheats FAQ | AION 2 Cheats',
     description:
-      'Find answers to common questions about The Isle hacks, supported Windows PC versions, available features, plans, compatibility, setup, and support.',
+      'Find answers to common AION 2 Cheats questions about pricing, supported platforms, product features, compatibility, setup, and customer support.',
   },
   '/reviews/': {
-    title: 'The Isle Hacks Reviews | Buyer Feedback',
+    title: 'AION 2 Cheats Reviews | Customer Feedback',
     description:
-      'Explore customer feedback about Isle Hacks, including usability, available features, compatibility, setup, and support before choosing a plan.',
+      'Explore genuine customer feedback about AION 2 Cheats, including usability, supported features, compatibility, and customer support.',
   },
   '/blog/': {
-    title: 'The Isle Intel | Isle Hacks',
+    title: 'AION 2 Guides and Updates | AION 2 Cheats',
     description:
-      'Explore The Isle guides and updates covering gameplay mechanics, game patches, compatibility, player tracking, ESP terminology, radar features, and Windows PC setup.',
+      'Explore AION 2 guides, gameplay tips, class information, game updates, compatibility news, and product-related information.',
   },
   '/intel/': {
-    title: 'The Isle Feature Articles | Isle Hacks',
+    title: 'AION 2 Feature Articles | AION 2 Cheats',
     description:
-      'Read Isle Hacks articles about The Isle ESP, radar, aim assistance, and other listed features for Windows PC.',
+      'Read AION 2 Cheats articles about player ESP, soft aim, flight markers, gathering nodes, radar, and other listed overlay options.',
   },
   '/guides/': {
-    title: 'The Isle Guides | Isle Hacks',
+    title: 'AION 2 Guides | AION 2 Cheats',
     description:
-      'Practical The Isle guides covering Evrima gameplay, ESP terminology, radar use, and how to review Isle Hacks before you buy.',
+      'Practical AION 2 guides covering classes, release details, regional servers, and how to review AION 2 Cheats before you buy.',
   },
   '/howto/': {
-    title: 'The Isle Setup Articles | Isle Hacks',
+    title: 'AION 2 Setup Articles | AION 2 Cheats',
     description:
-      'Windows PC setup notes for Isle Hacks, including Evrima requirements, configuration order, and compatibility checks.',
+      'Windows PC setup notes for AION 2 Cheats, including Steam and PURPLE requirements, configuration order, and compatibility checks.',
   },
   '/updates/': {
-    title: 'The Isle Updates | Isle Hacks',
+    title: 'AION 2 Updates | AION 2 Cheats',
     description:
-      'Isle Hacks updates on The Isle Evrima patches, Easy Anti-Cheat changes, and current compatibility notes.',
+      'AION 2 Cheats updates on global PC patches, published anti-bot notes, and current compatibility reminders.',
   },
   '/forum/': {
-    title: 'The Isle Hacks Forum 2026 | ESP Q&A',
+    title: 'AION 2 Cheats Forum | Overlay Q&A',
     description:
-      'Practical answers on The Isle ESP, radar, Easy Anti-Cheat patches, Windows PC setup, and Isle Hacks plans. Each discussion links back to a source guide.',
+      'Practical answers on AION 2 ESP, soft aim, flight markers, Windows PC setup, and AION 2 Cheats plans. Each discussion links back to a source guide.',
   },
   '/search/': {
-    title: 'Search Isle Hacks',
+    title: 'Search AION 2 Cheats',
     description:
-      'Search Isle Hacks articles, forum discussions, FAQ answers, and pages for The Isle on Windows PC.',
+      'Search AION 2 Cheats articles, forum discussions, FAQ answers, and pages for AION 2 on Windows PC.',
   },
   '/terms/': {
-    title: 'Terms & Conditions | Isle Hacks',
+    title: 'Terms & Conditions | AION 2 Cheats',
     description:
-      'Purchase terms, license use, and refund policy for Isle Hacks products sold through islehacks.com.',
+      'Purchase terms, license use, and refund policy for AION 2 Cheats products sold through aion2cheats.org.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | Isle Hacks',
+    title: 'Privacy Policy | AION 2 Cheats',
     description:
-      'How islehacks.com uses analytics, cookies, and contact data when you browse or request support.',
+      'How aion2cheats.org uses analytics, cookies, and contact data when you browse or request support.',
   },
   '/about/': {
-    title: 'About Isle Hacks',
+    title: 'About AION 2 Cheats',
     description:
-      'What Isle Hacks publishes: The Isle features, plans, setup notes, and status information at islehacks.com.',
+      'What AION 2 Cheats publishes: AION 2 features, plans, setup notes, and status information at aion2cheats.org.',
   },
 };
 

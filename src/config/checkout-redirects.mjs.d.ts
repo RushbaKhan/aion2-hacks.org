@@ -1,5 +1,5 @@
 export declare const CHECKOUT_URLS: {
-  readonly isle: string;
+  readonly aion: string;
 };
 
 export declare const CHECKOUT_PATH_REDIRECTS: ReadonlyMap<string, string>;

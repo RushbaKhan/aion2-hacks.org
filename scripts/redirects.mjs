@@ -15,8 +15,6 @@ export const PATH_REDIRECTS = new Map([
   ['/preview', '/preview/'],
   ['/setup', '/setup/'],
   ['/reviews', '/reviews/'],
-  ['/cheats', '/store/'],
-  ['/cheats/', '/store/'],
   ['/cheats/lite', '/store/'],
   ['/cheats/lite/', '/store/'],
   ['/cheats/pro', '/store/'],

@@ -3,12 +3,12 @@ const RASTER_EXT = /\.(png|jpe?g|webp)$/i;
 /** 400w covers ~330px card slots at 1x; 640w covers 2x retina. */
 export const CARD_IMAGE_WIDTHS = [400, 640] as const;
 export const CARD_IMAGE_SIZES = '(min-width: 1024px) 330px, (min-width: 640px) 50vw, 100vw';
-/** 512w matches hero slider display (~487px at 1x); larger widths cover retina and 4K masters. */
-export const HERO_IMAGE_WIDTHS = [512, 640, 960] as const;
+/** 640w covers hero at 1x; 960/1280 cover retina without upscaling the 1024 masters. */
+export const HERO_IMAGE_WIDTHS = [640, 960, 1280] as const;
 export const HERO_IMAGE_SIZES = '(min-width: 1024px) 490px, 100vw';
 /** Thumbs ~148px CSS; 320w covers 2x DPR without pulling 640/960. */
 export const THUMB_IMAGE_WIDTHS = [320, 400] as const;
-export const DEFAULT_IMAGE_WIDTHS = [640, 960] as const;
+export const DEFAULT_IMAGE_WIDTHS = [400, 640, 960, 1280] as const;
 
 export function stripRasterExt(src: string): string {
   return src.replace(RASTER_EXT, '');

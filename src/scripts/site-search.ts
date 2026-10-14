@@ -1,14 +1,15 @@
 import type { SearchEntry } from '../data/searchIndex';
 import { textMatches } from './search-match';
 
-function parseIndex(root: HTMLElement): SearchEntry[] {
-  const raw = root.querySelector<HTMLScriptElement>('[data-site-search-index]')?.textContent;
-  if (!raw) return [];
-  try {
-    return JSON.parse(raw) as SearchEntry[];
-  } catch {
-    return [];
+let indexPromise: Promise<SearchEntry[]> | null = null;
+
+function loadIndex(): Promise<SearchEntry[]> {
+  if (!indexPromise) {
+    indexPromise = fetch('/search-index.json')
+      .then((res) => (res.ok ? res.json() : []))
+      .catch(() => []);
   }
+  return indexPromise;
 }
 
 function matches(entry: SearchEntry, query: string) {
@@ -40,15 +41,18 @@ export function initSiteSearch() {
     const empty = root.querySelector<HTMLElement>('[data-site-search-empty]');
     if (!toggle || !panel || !input || !results) return;
 
-    const index = parseIndex(root);
+    let index: SearchEntry[] = [];
 
     const setOpen = (open: boolean) => {
       panel.hidden = !open;
       toggle.setAttribute('aria-expanded', String(open));
       root.classList.toggle('is-open', open);
       if (open) {
-        input.focus();
-        apply();
+        input.focus({ preventScroll: true });
+        void loadIndex().then((entries) => {
+          index = entries;
+          apply();
+        });
       }
     };
 
@@ -93,6 +97,5 @@ export function initSiteSearch() {
       }
     });
 
-    apply();
   });
 }

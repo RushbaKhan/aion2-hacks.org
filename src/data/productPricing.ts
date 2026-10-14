@@ -24,5 +24,5 @@ export function formatPlanPrice(usd: number): string {
 }
 
 export function checkoutUrlWithPlan(_baseUrl: string, _planId?: ProductPlanId): string {
-  return checkoutPath('isle');
+  return checkoutPath('aion');
 }

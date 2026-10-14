@@ -132,6 +132,9 @@ async function initHeroCarousels(root: ParentNode = document) {
 }
 
 export function setupHeroEmbla() {
+  if (typeof window === 'undefined') return;
+  if (window.matchMedia('(max-width: 1023px)').matches) return;
+
   const run = () => {
     void initHeroCarousels();
   };

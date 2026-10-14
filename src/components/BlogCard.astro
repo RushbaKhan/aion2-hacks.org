@@ -84,7 +84,7 @@ const readMinutes = getBlogReadMinutes(post.readTime);
       <CardTitle class="text-base font-semibold normal-case leading-snug tracking-tight md:text-[1.0625rem]">
         <a
           href={href}
-          class="text-foreground decoration-primary/0 underline-offset-4 transition-colors hover:text-primary hover:underline"
+          class="listing-title-link text-foreground decoration-primary/0 underline-offset-4 transition-colors hover:text-primary hover:underline"
         >
           {post.title}
         </a>
@@ -106,7 +106,7 @@ const readMinutes = getBlogReadMinutes(post.readTime);
         <span>{post.date}</span>
       </p>
       <Button as="a" href={href} variant="outline" size="sm" class="blog-card__read shrink-0">
-        {`Read ${post.slug.replace('the-isle-', '').replaceAll('-', ' ')}`}
+        {`Read ${post.slug.replaceAll('-', ' ')}`}
         <Icon name="arrowRight" size={16} />
       </Button>
     </CardFooter>

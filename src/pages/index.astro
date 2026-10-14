@@ -14,7 +14,7 @@ import { screenshotByRank } from '../data/screenshots';
 const seo = resolvePageSeo('/');
 const homeFaqs = getLandingFaqs();
 const heroShot = screenshotByRank(0);
-const heroLcpImage = webpSrc(heroShot.src, 960);
+const heroLcpImage = webpSrc(heroShot.src, 400);
 ---
 
 <BaseLayout
@@ -29,6 +29,15 @@ const heroLcpImage = webpSrc(heroShot.src, 960);
     rel="preload"
     as="image"
     href={heroLcpImage}
+    type="image/webp"
+    media="(max-width: 1023px)"
+    fetchpriority="high"
+  />
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href={webpSrc(heroShot.src, 640)}
     type="image/webp"
     media="(min-width: 1024px)"
     fetchpriority="high"

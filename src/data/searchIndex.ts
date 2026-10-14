@@ -11,17 +11,18 @@ export interface SearchEntry {
 }
 
 const pages: SearchEntry[] = [
-  { title: 'Home', desc: 'The Isle hacks overview, ESP, radar, and plans.', href: ROUTES.home, type: 'Page' },
-  { title: 'Features', desc: 'Player ESP, dinosaur ESP, health ESP, radar, and aim assistance.', href: ROUTES.features, type: 'Page' },
-  { title: 'Store', desc: 'Monthly $35 and lifetime $150 plans for The Isle on Windows PC.', href: ROUTES.store, type: 'Page' },
-  { title: 'Status', desc: 'Easy Anti-Cheat compatibility notes after Evrima patches.', href: ROUTES.status, type: 'Page' },
-  { title: 'Preview', desc: 'Overlay screenshots for ESP, radar, and health information.', href: ROUTES.preview, type: 'Page' },
-  { title: 'Setup', desc: 'Windows PC setup order for The Isle Evrima.', href: ROUTES.setup, type: 'Page' },
-  { title: 'Blog', desc: 'The Isle intel: ESP terminology, radar, and patch notes.', href: ROUTES.blog, type: 'Page' },
-  { title: 'Forum', desc: 'The Isle community forum: ESP, radar, Easy Anti-Cheat, setup, and plan Q&A.', href: ROUTES.forum, type: 'Page' },
+  { title: 'Home', desc: 'AION 2 cheats overview, ESP, flight markers, radar, and plans.', href: ROUTES.home, type: 'Page' },
+  { title: 'Features', desc: 'Player ESP, soft aim, flight markers, gathering nodes, radar, and world information.', href: ROUTES.features, type: 'Page' },
+  { title: 'Store', desc: 'Monthly $35 and lifetime $150 plans for AION 2 on Windows PC.', href: ROUTES.store, type: 'Page' },
+  { title: 'Status', desc: 'Compatibility notes after AION 2 patches.', href: ROUTES.status, type: 'Page' },
+  { title: 'Preview', desc: 'Overlay screenshots for ESP, radar, and flight information.', href: ROUTES.preview, type: 'Page' },
+  { title: 'Setup', desc: 'Windows PC setup order for AION 2 on Steam or PURPLE.', href: ROUTES.setup, type: 'Page' },
+  { title: 'Blog', desc: 'AION 2 guides: classes, release notes, ESP, and patch reminders.', href: ROUTES.blog, type: 'Page' },
+  { title: 'Forum', desc: 'AION 2 community forum: ESP, soft aim, setup, and plan Q&A.', href: ROUTES.forum, type: 'Page' },
   { title: 'FAQ', desc: 'Answers about plans, ESP, compatibility, and checkout.', href: ROUTES.faq, type: 'Page' },
   { title: 'Reviews', desc: 'Evaluation checkpoints before choosing a plan.', href: ROUTES.reviews, type: 'Page' },
   { title: 'Support', desc: 'Purchase, setup, and compatibility help.', href: ROUTES.support, type: 'Page' },
+  { title: 'About', desc: 'What AION 2 Cheats publishes at aion2cheats.org.', href: ROUTES.about, type: 'Page' },
 ];
 
 export function getSearchIndex(): SearchEntry[] {

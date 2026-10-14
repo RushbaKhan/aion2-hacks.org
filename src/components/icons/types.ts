@@ -38,6 +38,7 @@ export type IconName =
   | 'appWindow'
   | 'gamepad2'
   | 'messageCircle'
+  | 'navHome'
   | 'navFeatures'
   | 'navCheats'
   | 'navProducts'

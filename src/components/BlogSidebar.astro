@@ -2,7 +2,6 @@
 import '../styles/blog-sidebar.css';
 import Icon from './icons/Icon.astro';
 import { blogPostPath, ROUTES } from '../utils/path';
-import { checkoutPath } from '../config/checkout';
 import { t } from '../i18n';
 import type { BlogPostFull } from '../data/blog';
 import type { IconName } from './icons/types';
@@ -35,7 +34,7 @@ const toc = post.body
   }));
 
 const productLinks: { label: string; href: string; icon: IconName }[] = [
-  { label: 'The Isle store', href: ROUTES.store, icon: 'sidebarHub' },
+  { label: 'AION 2 store', href: ROUTES.store, icon: 'sidebarHub' },
   { label: 'Features', href: ROUTES.features, icon: 'sidebarElite' },
   { label: 'Status', href: ROUTES.status, icon: 'sidebarHwid' },
   { label: 'Setup', href: ROUTES.setup, icon: 'sidebarSkin' },
@@ -123,13 +122,13 @@ const productLinks: { label: string; href: string; icon: IconName }[] = [
     </ul>
     <Button
       as="a"
-      href={checkoutPath('isle')}
+      href={ROUTES.store}
       variant="primary"
       size="sm"
       class="blog-sidebar__cta mt-2.5 w-full min-w-0 justify-start"
       aria-label={t.ui.checkoutAria}
     >
-      <span class="truncate">View The Isle plans</span>
+      <span class="truncate">Buy now</span>
       <Icon name="arrowRight" size={16} class="shrink-0" />
     </Button>
   </section>

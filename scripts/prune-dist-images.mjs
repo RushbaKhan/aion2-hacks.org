@@ -42,7 +42,7 @@ if (fs.existsSync(cover)) {
   for (const dir of imageRoots) {
     const destDir = path.join(dir, 'gameplay');
     if (!fs.existsSync(destDir)) continue;
-    fs.copyFileSync(cover, path.join(destDir, 'isle-reeds-aim.jpg'));
+    fs.copyFileSync(cover, path.join(destDir, 'aion2-lab-combat.jpg'));
   }
 }
 

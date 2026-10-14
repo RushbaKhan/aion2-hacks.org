@@ -10,19 +10,19 @@ import { Button } from '@/components/starwind/button';
 const s = t.features;
 
 const featureHrefs: Record<string, string> = {
-  ESP: ROUTES.features,
-  'Player ESP': '/the-isle-player-esp/',
-  'Dinosaur ESP': '/the-isle-dinosaur-esp/',
-  'Health ESP': '/the-isle-health-esp/',
-  'Aim Assist': '/the-isle-aimbot/',
-  Radar: '/the-isle-radar-features/',
-  'Resource ESP': ROUTES.features,
+  'Player ESP': '/esp/',
+  'Soft Aim': '/aim/',
+  'Flight Markers': '/flight/',
+  'World Info': '/world/',
+  'Gathering Nodes': '/nodes/',
+  Radar: '/radar/',
+  'Overlay Options': ROUTES.preview,
   Configuration: ROUTES.setup,
   Compatibility: ROUTES.status,
 };
 
 function isScriptsHero(title: string) {
-  return title === 'ESP';
+  return title === 'Player ESP';
 }
 ---
 
@@ -88,9 +88,9 @@ function isScriptsHero(title: string) {
                       ))}
                       <a
                         href={featureHrefs[item.title] ?? ROUTES.features}
-                        class="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                        class="feature-guide-link ml-auto inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
                       >
-                        Open guide
+                        {t.ui.openGuide}
                         <Icon name="arrowRight" size={13} />
                       </a>
                     </div>
@@ -138,9 +138,9 @@ function isScriptsHero(title: string) {
                       ))}
                       <a
                         href={featureHrefs[item.title] ?? ROUTES.features}
-                        class="ml-auto inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
+                        class="feature-guide-link ml-auto inline-flex items-center gap-1 text-xs font-semibold text-primary hover:underline"
                       >
-                        Open guide
+                        {t.ui.openGuide}
                         <Icon name="arrowRight" size={13} />
                       </a>
                     </div>
@@ -155,14 +155,14 @@ function isScriptsHero(title: string) {
 
     <div class="mt-10 flex flex-wrap justify-start gap-3 lg:justify-center">
       <Button as="a" href={ROUTES.features} variant="primary">
-        View all features
+        {t.ui.viewAllFeatures}
         <Icon name="arrowRight" size={17} />
       </Button>
       <Button as="a" href={ROUTES.store} variant="outline">
-        View store
+        {t.products.viewAll}
       </Button>
       <Button as="a" href={ROUTES.preview} variant="outline">
-        Preview overlays
+        {t.ui.previewOverlays}
       </Button>
     </div>
   </div>

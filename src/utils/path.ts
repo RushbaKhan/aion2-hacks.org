@@ -19,8 +19,6 @@ const BLOG_TOPIC_PATHS: Record<string, string> = {
 
 /** Former nested or leftover URLs → current single-segment routes. */
 export const LEGACY_PATH_MAP: Record<string, string> = {
-  '/cheats': PRODUCT_BASE,
-  '/cheats/': PRODUCT_BASE,
   '/cheats/lite': PRODUCT_BASE,
   '/cheats/lite/': PRODUCT_BASE,
   '/cheats/pro': PRODUCT_BASE,
@@ -37,6 +35,8 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/products/dota-2-cheats/': PRODUCT_BASE,
   '/products/the-isle-hacks': PRODUCT_BASE,
   '/products/the-isle-hacks/': PRODUCT_BASE,
+  '/products/aion-2': PRODUCT_BASE,
+  '/products/aion-2/': PRODUCT_BASE,
   '/blog/features': '/intel/',
   '/blog/features/': '/intel/',
   '/blog/guides': '/guides/',
@@ -47,12 +47,34 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/blog/updates/': '/updates/',
   '/go/the-isle': '/go/',
   '/go/the-isle/': '/go/',
-  '/go/the-isle/monthly': '/go/',
-  '/go/the-isle/monthly/': '/go/',
-  '/go/the-isle/lifetime': '/go/',
-  '/go/the-isle/lifetime/': '/go/',
+  '/go/aion-2': '/go/',
+  '/go/aion-2/': '/go/',
+  '/go/aion-2/monthly': '/go/',
+  '/go/aion-2/monthly/': '/go/',
+  '/go/aion-2/lifetime': '/go/',
+  '/go/aion-2/lifetime/': '/go/',
   '/go/dota-2': '/go/',
   '/go/dota-2/': '/go/',
+  '/the-isle-hacks-evrima': '/cheats/',
+  '/the-isle-hacks-evrima/': '/cheats/',
+  '/the-isle-player-esp': '/esp/',
+  '/the-isle-player-esp/': '/esp/',
+  '/the-isle-dinosaur-esp': '/world/',
+  '/the-isle-dinosaur-esp/': '/world/',
+  '/the-isle-health-esp': '/esp/',
+  '/the-isle-health-esp/': '/esp/',
+  '/the-isle-aimbot': '/aim/',
+  '/the-isle-aimbot/': '/aim/',
+  '/the-isle-hacks-pc-setup': '/pc/',
+  '/the-isle-hacks-pc-setup/': '/pc/',
+  '/the-isle-radar-features': '/radar/',
+  '/the-isle-radar-features/': '/radar/',
+  '/the-isle-esp-terminology': '/esp/',
+  '/the-isle-esp-terminology/': '/esp/',
+  '/the-isle-compatibility-eac': '/compat/',
+  '/the-isle-compatibility-eac/': '/compat/',
+  '/the-isle-monthly-vs-lifetime': '/plans/',
+  '/the-isle-monthly-vs-lifetime/': '/plans/',
 };
 
 function flattenNestedPath(pathname: string): string {
@@ -138,6 +160,63 @@ export function cheatPath(slug: string): string {
 
 export function productPath(_slug?: string): string {
   return PRODUCT_BASE;
+}
+
+const BLOG_SECTION_PATHS = new Set([
+  '/blog',
+  '/intel',
+  '/guides',
+  '/howto',
+  '/updates',
+  '/cheats',
+  '/esp',
+  '/aim',
+  '/flight',
+  '/radar',
+  '/nodes',
+  '/world',
+  '/pc',
+  '/compat',
+  '/plans',
+  '/classes',
+  '/guide',
+  '/release',
+  '/na',
+]);
+
+function stripPath(pathname: string) {
+  return pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
+}
+
+/** Which navbar href should light up for the current URL. */
+export function activeNavHref(pathname: string): string {
+  const path = stripPath(pathname);
+
+  if (path === '/') return ROUTES.home;
+  if (path === '/features' || path === '/status' || path === '/preview' || path === '/setup') {
+    return ROUTES.features;
+  }
+  if (path === '/store' || path === '/products' || path.startsWith('/products/')) {
+    return ROUTES.store;
+  }
+  if (path === '/forum' || path.startsWith('/forum/') || path.startsWith('/q-')) {
+    return ROUTES.forum;
+  }
+  if (path === '/faq') return ROUTES.faq;
+  if (path === '/go' || path.startsWith('/go/') || path === '/support' || path === '/contact') {
+    return ROUTES.support;
+  }
+  if (BLOG_SECTION_PATHS.has(path) || path.startsWith('/blog/')) {
+    return ROUTES.blog;
+  }
+
+  return '';
+}
+
+export function navLinkIsActive(pathname: string, href: string) {
+  const current = activeNavHref(pathname);
+  if (!current) return false;
+  return stripPath(href) === stripPath(current);
 }
 
 /** Render `[label](/path/)` as an internal HTML link. */

@@ -170,8 +170,8 @@
 }
 
 .forum-board__search:focus-within {
-  border-color: color-mix(in oklch, var(--primary) 50%, var(--border));
-  box-shadow: 0 0 0 3px color-mix(in oklch, var(--primary) 16%, transparent);
+  border-color: color-mix(in oklch, var(--primary) 40%, var(--border));
+  box-shadow: none;
 }
 
 .forum-board__search input {
@@ -180,6 +180,9 @@
   background: transparent;
   color: var(--foreground);
   outline: none;
+  box-shadow: none;
+  -webkit-appearance: none;
+  appearance: none;
 }
 
 .forum-board__cta {

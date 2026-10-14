@@ -7,6 +7,7 @@ import SectionHeader from './SectionHeader.astro';
 import ResponsiveImage from './ResponsiveImage.astro';
 import Icon from './icons/Icon.astro';
 import { ROUTES } from '../utils/path';
+import { CARD_IMAGE_SIZES, CARD_IMAGE_WIDTHS } from '../utils/responsiveImage';
 import { Badge } from '@/components/starwind/badge';
 import { Button } from '@/components/starwind/button';
 
@@ -15,11 +16,11 @@ const product = productPages[0]!;
 const plans = getProductPlans(product.slug);
 const preview = product.images[0];
 const planNotes: Record<string, { blurb: string; highlight?: boolean; duration: string }> = {
-  monthly: { blurb: 'Try listed ESP, radar, and aim assistance for 30 days.', duration: '30 days' },
+  monthly: { blurb: 'Try listed ESP, radar, and soft aim for 30 days.', duration: '30 days' },
   lifetime: { blurb: 'Same listed modules, billed once in USD.', highlight: true, duration: 'One-time' },
 };
 const showcaseFeatures = product.fullFeatures.slice(0, 12);
-const storeFacts = ['Available', 'The Isle', 'Windows PC', 'Evrima', 'Easy Anti-Cheat', '2 plans'];
+const storeFacts = ['Available', 'AION 2', 'Windows PC', 'Steam', 'PURPLE', '2 plans'];
 ---
 
 <section
@@ -48,9 +49,10 @@ const storeFacts = ['Available', 'The Isle', 'Windows PC', 'Evrima', 'Easy Anti-
               <ResponsiveImage
                 src={preview.src}
                 alt={preview.alt}
-                width={1280}
-                height={720}
-                sizes="(min-width: 1024px) 420px, 100vw"
+                width={640}
+                height={360}
+                widths={CARD_IMAGE_WIDTHS}
+                sizes={CARD_IMAGE_SIZES}
                 class="aspect-[16/9] w-full object-cover"
               />
             </div>
@@ -59,7 +61,7 @@ const storeFacts = ['Available', 'The Isle', 'Windows PC', 'Evrima', 'Easy Anti-
         <div class="flex flex-1 flex-col p-6 lg:p-7">
           <div class="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">{product.badge}</Badge>
-            <Badge variant="outline">The Isle</Badge>
+            <Badge variant="outline">AION 2</Badge>
             <Badge variant="outline">Windows PC</Badge>
           </div>
           <p class="mt-4 text-2xl font-bold normal-case">{product.title}</p>
@@ -75,7 +77,7 @@ const storeFacts = ['Available', 'The Isle', 'Windows PC', 'Evrima', 'Easy Anti-
             }
           </ul>
           <div class="mt-6 flex flex-col gap-2 sm:flex-row">
-            <Button as="a" href={product.buyUrl} variant="primary" class="sm:flex-1">
+            <Button as="a" href={ROUTES.store} variant="primary" class="sm:flex-1">
               Buy now
               <Icon name="arrowRight" size={17} />
             </Button>
@@ -113,15 +115,15 @@ const storeFacts = ['Available', 'The Isle', 'Windows PC', 'Evrima', 'Easy Anti-
                   <ul class="mt-4 space-y-2 text-sm text-muted-foreground">
                     <li class="flex items-start gap-2">
                       <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
-                      Same listed ESP, radar, and health set
+                      Same listed ESP, radar, and flight set
                     </li>
                     <li class="flex items-start gap-2">
                       <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
-                      Optional aim assistance
+                      Optional soft aim
                     </li>
                     <li class="flex items-start gap-2">
                       <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
-                      Evrima on Windows PC
+                      Steam or PURPLE on Windows PC
                     </li>
                   </ul>
                   <Button

@@ -4,6 +4,7 @@ import type { ProductSlide } from '../data/products';
 import Icon from './icons/Icon.astro';
 import ResponsiveImage from './ResponsiveImage.astro';
 import {
+  CARD_IMAGE_WIDTHS,
   DEFAULT_IMAGE_WIDTHS,
   defaultWebpSrc,
   responsiveSrcSet,
@@ -37,11 +38,12 @@ const first = images[0];
           <ResponsiveImage
             src={first.src}
             alt={first.alt}
-            width={1024}
-            height={571}
+            width={640}
+            height={360}
+            widths={CARD_IMAGE_WIDTHS}
             loading="eager"
             fetchPriority="high"
-            sizes={compact ? '(min-width: 768px) 560px, 100vw' : '(min-width: 1024px) 640px, 100vw'}
+            sizes={compact ? '(min-width: 768px) 560px, 230px' : '(min-width: 1024px) 640px, 230px'}
             class="product-gallery__image w-full object-cover"
           />
         )

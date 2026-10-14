@@ -21,9 +21,9 @@ const faqs = getAllFaqs();
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: 'The Isle Hacks FAQ | Isle Hacks',
+      name: 'AION 2 Cheats FAQ | AION 2 Cheats',
       description:
-        'Answers about The Isle hacks, Windows PC support, ESP, plans, compatibility, setup, and checkout at islehacks.com.',
+        'Answers about AION 2 cheats, Windows PC support, ESP, plans, compatibility, setup, and checkout at aion2cheats.org.',
       url: '/faq/',
     }),
     faqPageSchema(faqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') }))),
@@ -36,8 +36,8 @@ const faqs = getAllFaqs();
       <div class="mt-6">
         <SectionHeader
           eyebrow="Help center"
-          title="FAQ for The Isle hacks"
-          desc="Plans, ESP, radar, Easy Anti-Cheat compatibility, setup, and checkout—in one place for The Isle on Windows PC."
+          title="FAQ for AION 2 cheats"
+          desc="Plans, ESP, radar, compatibility, setup, and checkout—in one place for AION 2 on Windows PC."
           titleId="faq-page-title"
         />
       </div>

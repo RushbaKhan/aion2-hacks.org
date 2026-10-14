@@ -74,17 +74,17 @@
 }
 
 :root {
-  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
-  --font-heading: "Rajdhani", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-heading: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
   --background: var(--color-white);
   --foreground: var(--color-neutral-950);
   --card: var(--color-white);
   --card-foreground: var(--color-neutral-950);
   --popover: var(--color-white);
   --popover-foreground: var(--color-neutral-950);
-  --primary: #7f3dee;
+  --primary: #5b21b6;
   --primary-foreground: #ffffff;
-  --primary-accent: #9654ff;
+  --primary-accent: #8b5cf6;
   --secondary: var(--color-neutral-200);
   --secondary-foreground: var(--color-neutral-950);
   --secondary-accent: var(--color-neutral-950);
@@ -108,7 +108,7 @@
   /* sidebar variables */
   --sidebar-background: var(--color-neutral-50);
   --sidebar-foreground: var(--color-neutral-950);
-  --sidebar-primary: #7f3dee;
+  --sidebar-primary: #5b21b6;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: var(--color-neutral-100);
   --sidebar-accent-foreground: var(--color-neutral-900);
@@ -123,9 +123,9 @@
   --card-foreground: var(--color-neutral-50);
   --popover: #161022;
   --popover-foreground: var(--color-neutral-50);
-  --primary: #7f3dee;
+  --primary: #6d28d9;
   --primary-foreground: #ffffff;
-  --primary-accent: #9654ff;
+  --primary-accent: #c4b5fd;
   --secondary: #1c1730;
   --secondary-foreground: var(--color-neutral-50);
   --secondary-accent: var(--color-neutral-50);
@@ -148,7 +148,7 @@
   /* sidebars variables */
   --sidebar-background: #14101f;
   --sidebar-foreground: var(--color-neutral-50);
-  --sidebar-primary: #7f3dee;
+  --sidebar-primary: #5b21b6;
   --sidebar-primary-foreground: #ffffff;
   --sidebar-accent: var(--color-neutral-800);
   --sidebar-accent-foreground: var(--color-neutral-100);

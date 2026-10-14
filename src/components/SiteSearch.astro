@@ -1,8 +1,8 @@
 ---
 import '../styles/site-search.css';
 import Icon from './icons/Icon.astro';
-import { getSearchIndex } from '../data/searchIndex';
 import { ROUTES } from '../utils/path';
+import { t } from '../i18n';
 
 interface Props {
   variant?: 'header' | 'sheet';
@@ -10,7 +10,6 @@ interface Props {
 }
 
 const { variant = 'header', class: className } = Astro.props;
-const index = getSearchIndex();
 ---
 
 <div class:list={['site-search', `site-search--${variant}`, className]} data-site-search>
@@ -20,10 +19,10 @@ const index = getSearchIndex();
     data-site-search-toggle
     aria-expanded="false"
     aria-controls={variant === 'header' ? 'site-search-panel' : 'site-search-panel-sheet'}
-    aria-label="Search Isle Hacks"
+    aria-label={t.ui.searchSite}
   >
     <Icon name="search" size={16} />
-    <span class:list={[variant === 'header' ? 'hidden xl:ml-1.5 xl:inline' : undefined]}>Search</span>
+    <span class:list={[variant === 'header' ? 'hidden min-[1600px]:ml-1.5 min-[1600px]:inline' : undefined]}>{t.ui.search}</span>
   </button>
 
   <div
@@ -38,18 +37,16 @@ const index = getSearchIndex();
         <input
           type="search"
           name="q"
-          placeholder="Search articles, forum, FAQ…"
-          aria-label="Search Isle Hacks"
+          placeholder={t.ui.searchPlaceholder}
+          aria-label={t.ui.searchSite}
           autocomplete="off"
           data-site-search-input
         />
       </label>
-      <button type="submit" class="sr-only">Search</button>
+      <button type="submit" class="sr-only">{t.ui.search}</button>
     </form>
-    <p class="site-search__hint">Articles, discussions, FAQ, and pages</p>
-    <ul class="site-search__results" data-site-search-results role="listbox" aria-label="Search results"></ul>
-    <p class="site-search__empty" data-site-search-empty hidden>No matches. Try ESP, radar, plans, or EAC.</p>
+    <p class="site-search__hint">{t.ui.searchHint}</p>
+    <ul class="site-search__results" data-site-search-results role="listbox" aria-label={t.ui.searchResults}></ul>
+    <p class="site-search__empty" data-site-search-empty hidden>{t.ui.searchEmpty}</p>
   </div>
-
-  <script type="application/json" data-site-search-index set:html={JSON.stringify(index)} />
 </div>

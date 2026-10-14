@@ -42,14 +42,14 @@ export function websiteSchema() {
     url: `${SITE_ORIGIN}/`,
     inLanguage: 'en-US',
     description:
-      'Isle Hacks covers The Isle features, ESP, radar, plans, and Windows PC setup information.',
+      'AION 2 Cheats covers AION 2 features, ESP, flight markers, radar, plans, and Windows PC setup information.',
   };
 }
 
 export function organizationSchema() {
   const sameAs = [
     ...getOrganizationSameAs(),
-    'https://store.steampowered.com/app/376210/The_Isle/',
+    'https://store.steampowered.com/app/3393110/AION_2/',
   ].filter((url, index, list) => list.indexOf(url) === index);
 
   return {
@@ -66,7 +66,7 @@ export function organizationSchema() {
         contactType: 'customer support',
         email: SUPPORT_EMAIL,
         url: canonicalUrl('/go/'),
-        availableLanguage: ['English'],
+        availableLanguage: ['English', 'German', 'French', 'Spanish', 'Portuguese', 'Russian'],
         areaServed: 'Worldwide',
       },
     ],
@@ -165,7 +165,7 @@ export function productSchema(input: {
   image?: string;
   sku?: string;
 }) {
-  const plans = getProductPlans(input.sku ?? 'the-isle-hacks');
+  const plans = getProductPlans(input.sku ?? 'aion-2');
 
   return {
     '@context': 'https://schema.org',

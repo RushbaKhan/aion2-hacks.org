@@ -1,0 +1,1382 @@
+[
+  {
+    "en": "[Soft aim](/aim/) is listed. Full farming bots and quest automation are not, so this site does not advertise them. If you only want awareness, leave combat toggles off until you have a readable ESP profile. Confirm that split on the [FAQ](/faq/) before checkout.",
+    "de": "[Soft Aim](/aim/) ist gelistet. Vollständige Farming-Bots und Quest-Automatisierung sind es nicht, daher wirbt diese Seite nicht damit. Wenn du nur Übersicht willst, lass Kampfoptionen aus, bis du ein lesbares ESP-Profil hast. Bestätige diese Trennung in den [FAQ](/faq/) vor dem Checkout.",
+    "n": 262
+  },
+  {
+    "en": "2D radar for local player, boss, and node awareness beside the ESP overlay.",
+    "de": "2D-Radar für lokale Spieler-, Boss- und Knoten-Übersicht neben dem ESP-Overlay.",
+    "n": 75
+  },
+  {
+    "en": "2D radar is listed as a local awareness overlay. It is not described as a separate 3D product. Use it when [player ESP](/esp/) already answers identity and you still want a compact map of nearby players, bosses, and [nodes](/nodes/).",
+    "de": "2D-Radar ist als lokales Übersichtsoverlay gelistet. Es wird nicht als separates 3D-Produkt beschrieben. Nutze es, wenn [Spieler-ESP](/esp/) bereits die Identität beantwortet und du trotzdem eine kompakte Karte naher Spieler, Bosse und [Knoten](/nodes/) willst.",
+    "n": 233
+  },
+  {
+    "en": "A lifetime plan does not freeze compatibility. Re-check status after updates either way.",
+    "de": "Ein Lifetime-Plan friert die Kompatibilität nicht ein. Prüfe den Status nach Updates in jedem Fall erneut.",
+    "n": 88
+  },
+  {
+    "en": "A max-distance filter is listed. Use it. Drawing every player on a busy Abyss or contested zone is harder to read than a short range that matches how AION 2 actually plays. Pair player ESP with [radar](/radar/) if you want a second local cue, and keep [world markers](/world/) for PvE so the two lists stay separate.",
+    "de": "Ein Max-Distanzfilter ist gelistet. Nutze ihn. Jeden Spieler in einem vollen Abyss oder umkämpften Gebiet zu zeichnen ist schwerer lesbar als eine kurze Reichweite, die zu AION 2 passt. Kombiniere Spieler-ESP mit [Radar](/radar/), wenn du einen zweiten lokalen Hinweis willst, und behalte [Weltmarkierungen](/world/) für PvE, damit beide Listen getrennt bleiben.",
+    "n": 316
+  },
+  {
+    "en": "A practical overview of AION 2 cheats on the global PC client, including ESP, flight markers, and plan choices.",
+    "de": "Ein praxisnaher Überblick zu AION 2 Cheats auf dem globalen PC-Client, inklusive ESP, Flugmarkierungen und Planwahl.",
+    "n": 111
+  },
+  {
+    "en": "A short AION 2 gameplay guide covering aerial combat, factions, and what to review before buying tools.",
+    "de": "Ein kurzer AION 2-Gameplay-Leitfaden zu Luftkampf, Fraktionen und dem, was du vor dem Kauf prüfen solltest.",
+    "n": 103
+  },
+  {
+    "en": "A straight path from reviewing AION 2 compatibility to a profile you can reuse.",
+    "de": "Ein klarer Weg von der AION 2-Kompatibilität zu einem wiederverwendbaren Profil.",
+    "n": 79
+  },
+  {
+    "en": "A system that meets AION 2 published hardware requirements. The vendor lists Cloud DMA and an AWS option for isolated delivery.",
+    "de": "Ein System, das die veröffentlichten Hardwareanforderungen von AION 2 erfüllt. Der Anbieter listet Cloud DMA und eine AWS-Option für isolierte Bereitstellung.",
+    "n": 127
+  },
+  {
+    "en": "Aerial target ESP, altitude readouts, and sky contested zone highlights for AION 2 flight PvP.",
+    "de": "Luftziel-ESP, Höhenanzeigen und Markierungen umkämpfter Himmelszonen für AION 2-Flug-PvP.",
+    "n": 94
+  },
+  {
+    "en": "After purchase, follow the setup instructions provided in the checkout flow and the [setup page](/setup/) before launching AION 2.",
+    "de": "Folge nach dem Kauf den Einrichtungsanweisungen aus dem Checkout und der [Einrichtungsseite](/setup/), bevor du AION 2 startest.",
+    "n": 130
+  },
+  {
+    "en": "AION 2 Cheats 2D radar and nearby-entity cues on Windows PC",
+    "de": "AION 2 Cheats 2D-Radar und Hinweise zu nahen Einheiten auf Windows PC",
+    "n": 59
+  },
+  {
+    "en": "AION 2 Cheats flight and aerial overlay preview with a quieter HUD",
+    "de": "AION 2 Cheats Flug- und Luftoverlay-Vorschau mit ruhigerem HUD",
+    "n": 66
+  },
+  {
+    "en": "AION 2 cheats for Windows PC with player ESP, faction filters, flight markers, gathering nodes, radar, and optional soft aim.",
+    "de": "AION 2 Cheats für Windows PC mit Spieler-ESP, Fraktionsfiltern, Flugmarkierungen, Sammelknoten, Radar und optionalem Soft Aim.",
+    "n": 125
+  },
+  {
+    "en": "AION 2 Cheats gathering node and nearby-entity markers through dense terrain",
+    "de": "AION 2 Cheats Sammelknoten- und Einheitenmarkierungen durch dichtes Terrain",
+    "n": 76
+  },
+  {
+    "en": "AION 2 Cheats health, class, and level readout during close combat",
+    "de": "AION 2 Cheats Lebens-, Klassen- und Stufenanzeige im Nahkampf",
+    "n": 66
+  },
+  {
+    "en": "AION 2 Cheats is a Windows PC resource for players reviewing [AION 2 cheats](/store/), including [player ESP](/esp/), [flight markers](/flight/), [radar](/radar/), and [soft aim](/aim/) options. We publish feature descriptions, plan details, and [compatibility notes](/status/) so you can evaluate the product before checkout.",
+    "de": "AION 2 Cheats ist eine Windows-PC-Ressource für Spieler, die [AION 2 Cheats](/store/) prüfen, inklusive [Spieler-ESP](/esp/), [Flugmarkierungen](/flight/), [Radar](/radar/) und [Soft Aim](/aim/). Wir veröffentlichen Funktionsbeschreibungen, Plandetails und [Kompatibilitätshinweise](/status/), damit du das Produkt vor dem Checkout bewerten kannst.",
+    "n": 326
+  },
+  {
+    "en": "AION 2 Cheats is listed for Windows 10 and 11 on the global PC client. Official AION 2 support is for Windows PC; Linux, Steam Deck, and consoles are outside that commitment. Follow vendor notes after checkout and the [setup page](/setup/) before you launch.",
+    "de": "AION 2 Cheats ist für Windows 10 und 11 auf dem globalen PC-Client gelistet. Offizieller AION 2-Support gilt für Windows PC; Linux, Steam Deck und Konsolen liegen außerhalb. Folge den Anbieterhinweisen nach dem Checkout und der [Einrichtungsseite](/setup/) vor dem Start.",
+    "n": 258
+  },
+  {
+    "en": "AION 2 Cheats lists [AION 2 cheats](/store/) for Windows PC: [player ESP](/esp/), [flight markers](/flight/), [gathering nodes](/nodes/), [world and boss information](/world/), [radar](/radar/), and optional [soft aim](/aim/). Enable the overlays you can actually read, then save a config before joining a live server.",
+    "de": "AION 2 Cheats listet [AION 2 Cheats](/store/) für Windows PC: [Spieler-ESP](/esp/), [Flugmarkierungen](/flight/), [Sammelknoten](/nodes/), [Welt- und Bossinformationen](/world/), [Radar](/radar/) und optionales [Soft Aim](/aim/). Aktiviere nur Overlays, die du wirklich lesen kannst, und speichere ein Profil, bevor du einem Live-Server beitrittst.",
+    "n": 318
+  },
+  {
+    "en": "AION 2 Cheats lists two USD plans on the [store](/store/): Monthly at $35 and Lifetime at $150. Feature lists are the same; duration is the difference. See [monthly vs lifetime](/plans/) if you are still deciding, or the [reviews checklist](/reviews/) if you want evaluation points without invented quotes.",
+    "de": "AION 2 Cheats listet zwei USD-Pläne im [Store](/store/): Monthly für $35 und Lifetime für $150. Die Funktionslisten sind gleich; die Laufzeit ist der Unterschied. Siehe [Monthly vs. Lifetime](/plans/), wenn du noch entscheidest, oder die [Bewertungscheckliste](/reviews/) für Prüfpunkte ohne erfundene Zitate.",
+    "n": 306
+  },
+  {
+    "en": "AION 2 Cheats lists two USD plans on the [store](/store/). Monthly access is $35 for 30 days (P30D). Lifetime access is $150 (P99Y). Both plans use the same listed feature set.",
+    "de": "AION 2 Cheats listet zwei USD-Pläne im [Store](/store/). Monthly-Zugang kostet $35 für 30 Tage (P30D). Lifetime-Zugang kostet $150 (P99Y). Beide Pläne nutzen denselben Funktionsumfang.",
+    "n": 176
+  },
+  {
+    "en": "AION 2 Cheats long-range ESP labels and direction cues across open terrain",
+    "de": "AION 2 Cheats Langstrecken-ESP-Beschriftungen und Richtungsanzeigen im offenen Gelände",
+    "n": 74
+  },
+  {
+    "en": "AION 2 Cheats plans for AION 2 on Windows PC. Compare monthly and lifetime options, review available features, and visit checkout for current pricing.",
+    "de": "AION 2 Cheats Pläne für AION 2 auf Windows PC. Vergleiche Monthly und Lifetime, prüfe verfügbare Funktionen und gehe zum Checkout für aktuelle Preise.",
+    "n": 150
+  },
+  {
+    "en": "AION 2 Cheats player ESP showing nearby Daeva markers and distance readouts",
+    "de": "AION 2 Cheats Spieler-ESP mit nahen Daeva-Markierungen und Distanzanzeigen",
+    "n": 75
+  },
+  {
+    "en": "AION 2 Cheats publishes AION 2 feature notes, plans, setup guidance, and status information at aion2cheats.org.",
+    "de": "AION 2 Cheats veröffentlicht Funktionsnotizen, Pläne, Einrichtungsleitfäden und Statusinformationen zu AION 2 auf aion2cheats.org.",
+    "n": 111
+  },
+  {
+    "en": "AION 2 Cheats soft aim and overlay preview on the global Windows PC client",
+    "de": "AION 2 Cheats Soft-Aim- und Overlay-Vorschau auf dem globalen Windows-PC-Client",
+    "n": 74
+  },
+  {
+    "en": "AION 2 Cheats world markers highlighting nearby objectives and entities",
+    "de": "AION 2 Cheats Weltmarkierungen für nahe Ziele und Einheiten",
+    "n": 71
+  },
+  {
+    "en": "AION 2 classes on the global PC build",
+    "de": "AION 2-Klassen im globalen PC-Build",
+    "n": 37
+  },
+  {
+    "en": "AION 2 classes, release notes, ESP terminology, flight markers, and Windows PC setup.",
+    "de": "AION 2-Klassen, Release-Hinweise, ESP-Begriffe, Flugmarkierungen und Windows-PC-Einrichtung.",
+    "n": 85
+  },
+  {
+    "en": "AION 2 gameplay guide: combat, flight, and factions",
+    "de": "AION 2 Gameplay-Leitfaden: Kampf, Flug und Fraktionen",
+    "n": 51
+  },
+  {
+    "en": "AION 2 global client via Steam or PURPLE with current patches applied.",
+    "de": "AION 2 globaler Client über Steam oder PURPLE mit aktuellen Patches.",
+    "n": 70
+  },
+  {
+    "en": "AION 2 global PC launches through Steam or NC’s PURPLE client. Confirm current compatibility on the status page before you purchase or launch. Overlay options can change after a game update.",
+    "de": "AION 2 startet auf dem globalen PC über Steam oder NCs PURPLE-Client. Bestätige die aktuelle Kompatibilität auf der Statusseite vor Kauf oder Start. Overlay-Optionen können sich nach einem Spielupdate ändern.",
+    "n": 190
+  },
+  {
+    "en": "AION 2 global service is listed for Windows PC through Steam and PURPLE.",
+    "de": "Der globale AION 2-Dienst ist für Windows PC über Steam und PURPLE gelistet.",
+    "n": 72
+  },
+  {
+    "en": "AION 2 is a free-to-play action MMORPG. It is an MMO: shared-world PvE, faction war, and large-scale content are part of the design. It is not documented here as a gacha-first product—check the official cash shop if you need the current monetization model.",
+    "de": "AION 2 ist ein Free-to-Play Action-MMORPG. Es ist ein MMO: geteiltes PvE, Fraktionskrieg und Großinhalte gehören zum Design. Es wird hier nicht als Gacha-first-Produkt beschrieben — prüfe den offiziellen Cash Shop für das aktuelle Monetarisierungsmodell.",
+    "n": 256
+  },
+  {
+    "en": "AION 2 is built around a world where the sky is a battlefield. Flight markers are the overlay group for that vertical fight. They sit beside [player ESP](/esp/) so you can tell a grounded target from one already in the air.",
+    "de": "AION 2 spielt in einer Welt, in der der Himmel ein Schlachtfeld ist. Flugmarkierungen sind die Overlay-Gruppe für diesen vertikalen Kampf. Sie sitzen neben [Spieler-ESP](/esp/), damit du ein Boden- von einem Luftziel unterscheiden kannst.",
+    "n": 223
+  },
+  {
+    "en": "AION 2 is NC’s Unreal Engine 5 MMORPG built around aerial combat in Atreia. Before you buy [AION 2 cheats](/store/), review the listed modules on the [features page](/features/), the Windows PC notes on [setup](/setup/), and the current [status page](/status/). This guide is a starting map—not a live compatibility guarantee.",
+    "de": "AION 2 ist NCs Unreal-Engine-5-MMORPG rund um Luftkampf in Atreia. Bevor du [AION 2 Cheats](/store/) kaufst, prüfe die Module auf der [Funktionsseite](/features/), die Windows-PC-Hinweise unter [Einrichtung](/setup/) und die aktuelle [Statusseite](/status/). Dieser Leitfaden ist eine Startkarte — keine Live-Kompatibilitätsgarantie.",
+    "n": 326
+  },
+  {
+    "en": "AION 2 North America servers and regions",
+    "de": "AION 2 Nordamerika-Server und Regionen",
+    "n": 40
+  },
+  {
+    "en": "AION 2 on Windows 10/11 PC through the global Steam or PURPLE client. macOS, Linux, and consoles are not listed.",
+    "de": "AION 2 auf Windows 10/11 PC über den globalen Steam- oder PURPLE-Client. macOS, Linux und Konsolen sind nicht gelistet.",
+    "n": 112
+  },
+  {
+    "en": "AION 2 on Windows 10/11 PC through the global Steam or PURPLE client. macOS, Linux, and consoles are not listed. Confirm the client in the Windows PC setup guide and setup page.",
+    "de": "AION 2 auf Windows 10/11 PC über den globalen Steam- oder PURPLE-Client. macOS, Linux und Konsolen sind nicht gelistet. Bestätige den Client im Windows-PC-Einrichtungsleitfaden und auf der Einrichtungsseite.",
+    "n": 177
+  },
+  {
+    "en": "AION 2 overlay screenshot from AION 2 Cheats",
+    "de": "AION 2 Overlay-Screenshot von AION 2 Cheats",
+    "n": 44
+  },
+  {
+    "en": "AION 2 release date and global access",
+    "de": "AION 2 Erscheinungsdatum und globaler Zugang",
+    "n": 37
+  },
+  {
+    "en": "AION 2 rewards awareness in three dimensions. Knowing which faction is nearby, whether a target is flying, and how far a world boss stands matters before you commit. AION 2 Cheats groups those information modules on one [store](/store/) page, with a longer breakdown on [features](/features/) and [preview](/preview/).",
+    "de": "AION 2 belohnt Übersicht in drei Dimensionen. Zu wissen, welche Fraktion in der Nähe ist, ob ein Ziel fliegt und wie weit ein Weltboss steht, zählt vor der Entscheidung. AION 2 Cheats bündelt diese Informationsmodule auf einer [Store](/store/)-Seite, mit einer längeren Aufschlüsselung unter [Funktionen](/features/) und [Vorschau](/preview/).",
+    "n": 318
+  },
+  {
+    "en": "AION 2 store lists Monthly access at $35 (P30D) and Lifetime access at $150 (P99Y), both in USD. monthly vs lifetime compares duration without changing the feature list.",
+    "de": "Der AION 2 Store listet Monthly-Zugang für $35 (P30D) und Lifetime-Zugang für $150 (P99Y), beides in USD. Monthly vs. Lifetime vergleicht die Laufzeit, ohne die Funktionsliste zu ändern.",
+    "n": 169
+  },
+  {
+    "en": "AION 2 store lists monthly and lifetime plans, available features, and the checkout path. The features page collects the same modules in more detail, the preview gallery shows overlay screenshots, and the community forum keeps guide discussions.",
+    "de": "Der AION 2 Store listet Monthly- und Lifetime-Pläne, verfügbare Funktionen und den Checkout-Pfad. Die Funktionsseite sammelt dieselben Module ausführlicher, die Vorschaugalerie zeigt Overlay-Screenshots, und das Community-Forum hält Leitfaden-Diskussionen.",
+    "n": 245
+  },
+  {
+    "en": "AION 2 updates can change compatibility. Check status before you launch after a patch.",
+    "de": "AION 2-Updates können die Kompatibilität ändern. Prüfe den Status vor dem Start nach einem Patch.",
+    "n": 86
+  },
+  {
+    "en": "AION 2’s global free-to-play PC service opened on October 5, 2026, following Founder access on September 30, 2026. Steam lists the app as released. NC also distributes the same global content through PURPLE. Korea and Taiwan progress do not transfer to the global service.",
+    "de": "Der globale Free-to-Play-PC-Dienst von AION 2 startete am 5. Oktober 2026, nach Founder-Zugang am 30. September 2026. Steam listet die App als veröffentlicht. NC verteilt dieselben globalen Inhalte auch über PURPLE. Fortschritt aus Korea und Taiwan überträgt sich nicht auf den globalen Dienst.",
+    "n": 272
+  },
+  {
+    "en": "All sales are final once checkout completes. We do not refund change-of-mind purchases, account penalties, or issues caused by ignoring setup notes or launching while status indicates the build is unavailable.",
+    "de": "Alle Verkäufe sind endgültig, sobald der Checkout abgeschlossen ist. Wir erstatten keine Meinungsänderungen, Kontosanktionen oder Probleme durch ignorierte Einrichtungsnotizen oder Starts, während der Status den Build als nicht verfügbar zeigt.",
+    "n": 209
+  },
+  {
+    "en": "Altitude and wing state matter more than enabling every aerial marker at once.",
+    "de": "Höhe und Flügelzustand zählen mehr, als jede Luftmarkierung auf einmal einzuschalten.",
+    "n": 78
+  },
+  {
+    "en": "Analytics help us understand which [guides](/blog/) and [store](/store/) pages are useful so we can improve content and fix broken links. Support tickets may retain the email address and message content you provide until the issue is resolved.",
+    "de": "Analysen zeigen uns, welche [Leitfäden](/blog/) und [Store](/store/)-Seiten nützlich sind, damit wir Inhalte verbessern und kaputte Links beheben können. Support-Tickets können die E-Mail-Adresse und den Nachrichteninhalt behalten, bis das Anliegen geklärt ist.",
+    "n": 243
+  },
+  {
+    "en": "Answers tied to what you are reading—visit the FAQ page for every topic.",
+    "de": "Antworten zum aktuellen Thema — öffne die FAQ-Seite für alle Themen.",
+    "n": 72
+  },
+  {
+    "en": "Articles explain workflows and link to AION 2 store. Feature lists on the store page are authoritative for checkout. features page and the full FAQ stay in sync with that list.",
+    "de": "Artikel erklären Abläufe und verlinken den AION 2 Store. Funktionslisten auf der Store-Seite gelten für den Checkout. Funktionsseite und die vollständigen FAQ bleiben mit dieser Liste synchron.",
+    "n": 176
+  },
+  {
+    "en": "Boss, NPC, and objective labels on nearby entities.",
+    "de": "Boss-, NPC- und Zielbeschriftungen an nahen Einheiten.",
+    "n": 51
+  },
+  {
+    "en": "Box, nameplate, faction, class, level, and distance options in one vision group.",
+    "de": "Box-, Namensschild-, Fraktions-, Klassen-, Stufen- und Distanzoptionen in einer Sichtgruppe.",
+    "n": 80
+  },
+  {
+    "en": "Build a readable ESP profile first, then decide whether you want soft aim.",
+    "de": "Baue zuerst ein lesbares ESP-Profil, dann entscheide, ob du Soft Aim willst.",
+    "n": 74
+  },
+  {
+    "en": "Built around AION 2 information workflow",
+    "de": "Aufgebaut um den AION 2-Informationsablauf",
+    "n": 40
+  },
+  {
+    "en": "Check the [status page](/status/) before every session. Do not launch while a build is marked unavailable after a patch.",
+    "de": "Prüfe die [Statusseite](/status/) vor jeder Sitzung. Starte nicht, während ein Build nach einem Patch als nicht verfügbar markiert ist.",
+    "n": 120
+  },
+  {
+    "en": "Check the article date and the status page. AION 2 updates can change what a build can do. The compatibility notes cover that patch-day habit.",
+    "de": "Prüfe das Artikeldatum und die Statusseite. AION 2-Updates können ändern, was ein Build kann. Die Kompatibilitätshinweise beschreiben diese Patch-Tag-Gewohnheit.",
+    "n": 142
+  },
+  {
+    "en": "Check the status page, Windows 10/11 version, and whether you launch through Steam or PURPLE. The vendor lists Cloud DMA notes for full functionality.",
+    "de": "Prüfe die Statusseite, die Windows-10/11-Version und ob du über Steam oder PURPLE startest. Der Anbieter listet Cloud-DMA-Hinweise für den vollen Funktionsumfang.",
+    "n": 150
+  },
+  {
+    "en": "Checkout provides access and setup instructions. Follow those notes for Windows PC and the Steam or PURPLE client before launching AION 2.",
+    "de": "Der Checkout liefert Zugang und Einrichtungsanweisungen. Folge diesen Hinweisen für Windows PC und den Steam- oder PURPLE-Client, bevor du AION 2 startest.",
+    "n": 138
+  },
+  {
+    "en": "Checkout provides access and setup instructions. Follow those notes plus the setup page for Windows PC and the Steam or PURPLE client before launching AION 2. The Windows PC setup guide covers a conservative first profile.",
+    "de": "Der Checkout liefert Zugang und Einrichtungsanweisungen. Folge diesen Hinweisen plus der Einrichtungsseite für Windows PC und den Steam- oder PURPLE-Client, bevor du AION 2 startest. Der Windows-PC-Einrichtungsleitfaden beschreibt ein konservatives Erstprofil.",
+    "n": 222
+  },
+  {
+    "en": "Choose monthly if you want a short evaluation window after you read [features](/features/) and [status](/status/). Choose lifetime if you already know you want longer access. The [reviews checklist](/reviews/) lists evaluation points without invented star ratings.",
+    "de": "Wähle Monthly, wenn du nach [Funktionen](/features/) und [Status](/status/) ein kurzes Testfenster willst. Wähle Lifetime, wenn du schon längeren Zugang willst. Die [Bewertungscheckliste](/reviews/) listet Prüfpunkte ohne erfundene Sterne.",
+    "n": 264
+  },
+  {
+    "en": "Choose monthly if you want to evaluate AION 2 cheats for 30 days. Choose lifetime if you already know you want longer access. Feature lists are the same; only duration and price change. See AION 2 store and monthly vs lifetime. The reviews checklist lists evaluation checkpoints without invented quotes.",
+    "de": "Wähle Monthly, wenn du AION 2 Cheats 30 Tage testen willst. Wähle Lifetime, wenn du schon längeren Zugang willst. Die Funktionslisten sind gleich; nur Laufzeit und Preis ändern sich. Siehe AION 2 Store und Monthly vs. Lifetime. Die Bewertungscheckliste listet Prüfpunkte ohne erfundene Zitate.",
+    "n": 303
+  },
+  {
+    "en": "Choose monthly if you want to evaluate the overlay first. Choose lifetime only if you already want longer access.",
+    "de": "Wähle Monthly, wenn du das Overlay zuerst prüfen willst. Wähle Lifetime nur, wenn du schon längeren Zugang willst.",
+    "n": 113
+  },
+  {
+    "en": "Close-range gathering and distance cues through terrain.",
+    "de": "Nahbereichs-Sammeln und Distanzhinweise durch Terrain.",
+    "n": 56
+  },
+  {
+    "en": "Colors, keys, and saves",
+    "de": "Farben, Tasten und Speicherstände",
+    "n": 23
+  },
+  {
+    "en": "Combat information",
+    "de": "Kampfdaten",
+    "n": 18
+  },
+  {
+    "en": "Combat is built around precision, timing, and positioning, including vertical fights. Factions include Elyos, Asmodian, and the empowered Balaur. The world is described as far larger than the original AION, with dungeon formats from solo to larger groups.",
+    "de": "Kampf basiert auf Präzision, Timing und Positionierung, inklusive vertikaler Gefechte. Fraktionen sind Elyos, Asmodian und die gestärkten Balaur. Die Welt gilt als deutlich größer als das originale AION, mit Dungeons von Solo bis großen Gruppen.",
+    "n": 255
+  },
+  {
+    "en": "Combat mode (hide world ESP)",
+    "de": "Kampfmodus (Welt-ESP ausblenden)",
+    "n": 28
+  },
+  {
+    "en": "Combat mode on the listing can hide world ESP when you only want player information. Use that if [radar](/radar/) plus player ESP is enough. The [AION 2 cheats overview](/cheats/) maps how these groups fit together.",
+    "de": "Der Kampfmodus im Listing kann Welt-ESP ausblenden, wenn du nur Spielerdaten willst. Nutze das, wenn [Radar](/radar/) plus Spieler-ESP reicht. Der [AION 2 Cheats Überblick](/cheats/) zeigt, wie diese Gruppen zusammenpassen.",
+    "n": 215
+  },
+  {
+    "en": "Compare monthly and lifetime AION 2 Cheats access on the store page, then continue to checkout for current pricing.",
+    "de": "Vergleiche Monthly- und Lifetime-Zugang zu AION 2 Cheats auf der Store-Seite und gehe dann zum Checkout für aktuelle Preise.",
+    "n": 115
+  },
+  {
+    "en": "Compare monthly and lifetime AION 2 Cheats plans for AION 2 on Windows PC.",
+    "de": "Vergleiche Monthly- und Lifetime-Pläne von AION 2 Cheats für AION 2 auf Windows PC.",
+    "n": 74
+  },
+  {
+    "en": "Compare the $35 monthly plan and the $150 lifetime plan before checkout.",
+    "de": "Vergleiche den Monthly-Plan für $35 und den Lifetime-Plan für $150 vor dem Checkout.",
+    "n": 72
+  },
+  {
+    "en": "Compatibility can shift after a patch. Check status first, then launch.",
+    "de": "Kompatibilität kann sich nach einem Patch ändern. Prüfe zuerst den Status, dann starte.",
+    "n": 71
+  },
+  {
+    "en": "Confirm [status](/status/) after the latest AION 2 patch",
+    "de": "[Status](/status/) nach dem neuesten AION 2-Patch bestätigen",
+    "n": 56
+  },
+  {
+    "en": "Confirm status and the global Windows client, follow vendor setup notes, then enable player ESP, flight markers, and radar.",
+    "de": "Bestätige Status und den globalen Windows-Client, folge den Anbieterhinweisen und aktiviere dann Spieler-ESP, Flugmarkierungen und Radar.",
+    "n": 123
+  },
+  {
+    "en": "Continue through checkout with your order email and the article slug. Include your Windows version and Steam or PURPLE.",
+    "de": "Geh über den Checkout weiter mit Bestell-E-Mail und Artikel-Slug. Nenne deine Windows-Version und Steam oder PURPLE.",
+    "n": 119
+  },
+  {
+    "en": "Copy, plans, and guides stay on AION 2 instead of mixing unrelated games into one catalog.",
+    "de": "Texte, Pläne und Leitfäden bleiben bei AION 2, statt fremde Spiele in einen Katalog zu mischen.",
+    "n": 90
+  },
+  {
+    "en": "Custom crosshair and ESP colors",
+    "de": "Eigenes Fadenkreuz und ESP-Farben",
+    "n": 31
+  },
+  {
+    "en": "Custom ESP colors, menu key, panic key, and saveable configs.",
+    "de": "Eigene ESP-Farben, Menütaste, Paniktaste und speicherbare Profile.",
+    "n": 61
+  },
+  {
+    "en": "Distance and view direction",
+    "de": "Distanz und Blickrichtung",
+    "n": 27
+  },
+  {
+    "en": "Do you include farming bots or quest automation?",
+    "de": "Gibt es Farming-Bots oder Quest-Automatisierung?",
+    "n": 48
+  },
+  {
+    "en": "Does this article guarantee anti-cheat compatibility?",
+    "de": "Garantiert dieser Artikel Anti-Cheat-Kompatibilität?",
+    "n": 53
+  },
+  {
+    "en": "Does this article replace the status page?",
+    "de": "Ersetzt dieser Artikel die Statusseite?",
+    "n": 42
+  },
+  {
+    "en": "Does this guide replace the store listing?",
+    "de": "Ersetzt dieser Leitfaden das Store-Listing?",
+    "n": 42
+  },
+  {
+    "en": "Dungeon boss markers",
+    "de": "Dungeon-Bossmarkierungen",
+    "n": 20
+  },
+  {
+    "en": "Elite and world boss ESP",
+    "de": "Elite- und Weltboss-ESP",
+    "n": 24
+  },
+  {
+    "en": "Elite, world boss, and dungeon boss markers",
+    "de": "Elite-, Weltboss- und Dungeon-Bossmarkierungen",
+    "n": 43
+  },
+  {
+    "en": "Enable a conservative [player ESP](/esp/) and [radar](/radar/) profile",
+    "de": "Ein konservatives [Spieler-ESP](/esp/)- und [Radar](/radar/)-Profil aktivieren",
+    "n": 70
+  },
+  {
+    "en": "Enable a conservative player ESP profile first, then add 2D radar if you still want a compact local map.",
+    "de": "Aktiviere zuerst ein konservatives Spieler-ESP-Profil, dann 2D-Radar, wenn du noch eine kompakte lokale Karte willst.",
+    "n": 104
+  },
+  {
+    "en": "Enable only the overlays you can read, set a panic key, and save a config before joining a live server.",
+    "de": "Aktiviere nur Overlays, die du lesen kannst, setze eine Paniktaste und speichere ein Profil, bevor du einem Live-Server beitrittst.",
+    "n": 103
+  },
+  {
+    "en": "Enable the ESP and radar options you can actually read, then save the config.",
+    "de": "Aktiviere die ESP- und Radaroptionen, die du wirklich lesen kannst, und speichere das Profil.",
+    "n": 77
+  },
+  {
+    "en": "ESP answers identity. Radar answers nearby position.",
+    "de": "ESP beantwortet Identität. Radar beantwortet die nahe Position.",
+    "n": 52
+  },
+  {
+    "en": "ESP is an information overlay. features page covers player ESP, flight markers, world markers, and gathering nodes. It does not automatically aim or move your character. AION 2 cheats overview maps each overlay group.",
+    "de": "ESP ist ein Informationsoverlay. Die Funktionsseite behandelt Spieler-ESP, Flugmarkierungen, Weltmarkierungen und Sammelknoten. Es zielt oder bewegt den Charakter nicht automatisch. Der AION 2 Cheats Überblick ordnet jede Overlay-Gruppe.",
+    "n": 217
+  },
+  {
+    "en": "ESP, flight markers, gathering nodes, radar, and soft aim for AION 2 on Windows PC, with monthly and lifetime plans.",
+    "de": "ESP, Flugmarkierungen, Sammelknoten, Radar und Soft Aim für AION 2 auf Windows PC, mit Monthly- und Lifetime-Plänen.",
+    "n": 116
+  },
+  {
+    "en": "ESP, flight markers, nodes, radar, and soft aim are described from the current product listing—no invented farming bots.",
+    "de": "ESP, Flugmarkierungen, Knoten, Radar und Soft Aim stammen aus dem aktuellen Produktlisting — keine erfundenen Farming-Bots.",
+    "n": 120
+  },
+  {
+    "en": "Explore AION 2 cheats, gameplay tools, compatibility information, and product updates. Review available features and access details before choosing a plan.",
+    "de": "Entdecke AION 2 Cheats, Gameplay-Werkzeuge, Kompatibilitätshinweise und Produktupdates. Prüfe verfügbare Funktionen und Zugangsdetails, bevor du einen Plan wählst.",
+    "n": 155
+  },
+  {
+    "en": "Faction / class / level",
+    "de": "Fraktion / Klasse / Stufe",
+    "n": 23
+  },
+  {
+    "en": "Faction color coding is enough for most rotations. Leave node pips off until you need them.",
+    "de": "Fraktionsfarben reichen für die meisten Rotationen. Lass Knotenpunkte aus, bis du sie brauchst.",
+    "n": 91
+  },
+  {
+    "en": "Faction, class, level, and distance options covered by the player ESP guide.",
+    "de": "Fraktions-, Klassen-, Stufen- und Distanzoptionen aus dem Spieler-ESP-Leitfaden.",
+    "n": 76
+  },
+  {
+    "en": "Feature availability can change after game updates. Check the [status page](/status/) before every session.",
+    "de": "Die Verfügbarkeit von Funktionen kann sich nach Spielupdates ändern. Prüfe die [Statusseite](/status/) vor jeder Sitzung.",
+    "n": 107
+  },
+  {
+    "en": "Feature lists are the same on both plans. Duration and price are the only listed differences.",
+    "de": "Die Funktionslisten sind auf beiden Plänen gleich. Laufzeit und Preis sind die einzigen gelisteten Unterschiede.",
+    "n": 93
+  },
+  {
+    "en": "Feature lists describe what is included at the time of publication. Modules can change when AION 2 updates. The [features page](/features/) is the public summary.",
+    "de": "Funktionslisten beschreiben den Stand zum Veröffentlichungszeitpunkt. Module können sich mit AION 2-Updates ändern. Die [Funktionsseite](/features/) ist die öffentliche Zusammenfassung.",
+    "n": 162
+  },
+  {
+    "en": "features page and AION 2 store list player ESP, flight markers, nodes, world markers, and radar from the current product listing.",
+    "de": "Funktionsseite und AION 2 Store listen Spieler-ESP, Flugmarkierungen, Knoten, Weltmarkierungen und Radar aus dem aktuellen Produktlisting.",
+    "n": 129
+  },
+  {
+    "en": "Filter by topic to find ESP explainers, compatibility notes, and plan comparisons.",
+    "de": "Filtere nach Thema, um ESP-Erklärungen, Kompatibilitätshinweise und Planvergleiche zu finden.",
+    "n": 82
+  },
+  {
+    "en": "Filter plans, ESP, soft aim, safety, setup, and blog answers.",
+    "de": "Filtere Pläne, ESP, Soft Aim, Sicherheit, Einrichtung und Blog-Antworten.",
+    "n": 61
+  },
+  {
+    "en": "Finish the checkout flow for access details. Keep the order email you used so support can find your purchase.",
+    "de": "Schließe den Checkout für Zugangsdetails ab. Behalte die Bestell-E-Mail, damit der Support deinen Kauf findet.",
+    "n": 109
+  },
+  {
+    "en": "Flight markers for aerial targets",
+    "de": "Flugmarkierungen für Luftziele",
+    "n": 33
+  },
+  {
+    "en": "Flight note",
+    "de": "Flughinweis",
+    "n": 11
+  },
+  {
+    "en": "Flight options can mark aerial targets, altitude, wing or glide state, and sky contested zones. The flight markers explains how they pair with player ESP.",
+    "de": "Flugoptionen können Luftziele, Höhe, Flügel- oder Gleitstatus und umkämpfte Himmelszonen markieren. Die Flugmarkierungen erklären, wie sie mit Spieler-ESP zusammenarbeiten.",
+    "n": 154
+  },
+  {
+    "en": "Flight path markers and altitude readout",
+    "de": "Flugwegmarkierungen und Höhenanzeige",
+    "n": 40
+  },
+  {
+    "en": "Flight path markers, altitude, wing state, and sky contested zone highlights.",
+    "de": "Flugwegmarkierungen, Höhe, Flügelstatus und Markierungen umkämpfter Himmelszonen.",
+    "n": 77
+  },
+  {
+    "en": "Flying / grounded state",
+    "de": "Flug- / Bodenzustand",
+    "n": 23
+  },
+  {
+    "en": "For privacy questions, use [checkout](/go/). Purchase and refund rules are in our [Terms & Conditions](/terms/).",
+    "de": "Für Datenschutzfragen nutze den [Checkout](/go/). Kauf- und Erstattungsregeln stehen in unseren [AGB](/terms/).",
+    "n": 112
+  },
+  {
+    "en": "For terms, billing, or setup questions, use [checkout](/go/). See also our [Privacy Policy](/privacy/) for how we handle site data, or the [FAQ](/faq/) for common purchase questions.",
+    "de": "Für AGB-, Abrechnungs- oder Einrichtungsfragen nutze den [Checkout](/go/). Siehe auch unsere [Datenschutzerklärung](/privacy/) zum Umgang mit Seitendaten oder die [FAQ](/faq/) zu häufigen Kauffragen.",
+    "n": 182
+  },
+  {
+    "en": "Game updates can shift compatibility. Confirm the status page after every patch.",
+    "de": "Spielupdates können die Kompatibilität verschieben. Bestätige die Statusseite nach jedem Patch.",
+    "n": 80
+  },
+  {
+    "en": "Game-client launch errors are different from product setup errors. Repair AION 2 files first if the game itself will not launch.",
+    "de": "Startfehler des Spielclients sind etwas anderes als Produkteinrichtungsfehler. Repariere zuerst die AION 2-Dateien, wenn das Spiel selbst nicht startet.",
+    "n": 128
+  },
+  {
+    "en": "Gathering node ESP is the world overlay for ore, herbs, materials, chests, and loot objects. It is information assistance, not a listed farming bot. Confirm filters on the [features](/features/) list before you assume every node type is on.",
+    "de": "Sammelknoten-ESP ist das Weltoverlay für Erz, Kräuter, Materialien, Truhen und Beuteobjekte. Es ist Informationshilfe, kein gelisteter Farming-Bot. Prüfe die Filter auf der [Funktionsliste](/features/), bevor du annimmst, jeder Knotentyp sei an.",
+    "n": 240
+  },
+  {
+    "en": "Gathering nodes, world bosses, dungeon markers, and portal cues with a max-distance filter.",
+    "de": "Sammelknoten, Weltbosse, Dungeonmarkierungen und Portalhinweise mit Max-Distanzfilter.",
+    "n": 91
+  },
+  {
+    "en": "Get support for AION 2 Cheats purchase, setup, and compatibility questions at aion2cheats.org.",
+    "de": "Hol dir Support zu Kauf, Einrichtung und Kompatibilität von AION 2 Cheats auf aion2cheats.org.",
+    "n": 94
+  },
+  {
+    "en": "Guides link to the AION 2 store, setup page, and status page pages. Checkout runs through the listed partner—do not download files from random messages. Ask on the checkout if an instruction is unclear.",
+    "de": "Leitfäden verlinken den AION 2 Store, die Einrichtungsseite und die Statusseite. Der Checkout läuft über den gelisteten Partner — lade keine Dateien aus zufälligen Nachrichten. Frage im Checkout, wenn eine Anweisung unklar ist.",
+    "n": 202
+  },
+  {
+    "en": "Health bar, nameplate, class, and level",
+    "de": "Lebensbalken, Namensschild, Klasse und Stufe",
+    "n": 39
+  },
+  {
+    "en": "Health, class, and level fields when the current build includes them.",
+    "de": "Lebens-, Klassen- und Stufenfelder, wenn der aktuelle Build sie enthält.",
+    "n": 69
+  },
+  {
+    "en": "How 2D radar complements ESP when you need nearby player, boss, and node cues.",
+    "de": "Wie 2D-Radar ESP ergänzt, wenn du Hinweise zu nahen Spielern, Bossen und Knoten brauchst.",
+    "n": 78
+  },
+  {
+    "en": "How AION 2 Cheats handles analytics, cookies, and contact data when you use aion2cheats.org.",
+    "de": "Wie AION 2 Cheats Analysen, Cookies und Kontaktdaten handhabt, wenn du aion2cheats.org nutzt.",
+    "n": 92
+  },
+  {
+    "en": "How player ESP presents nearby Daevas with faction, class, level, and distance information.",
+    "de": "Wie Spieler-ESP nahe Daevas mit Fraktion, Klasse, Stufe und Distanz zeigt.",
+    "n": 91
+  },
+  {
+    "en": "If setup fails, use [support](/go/) with your order email, Windows version, Steam or PURPLE, and the exact error text. The [FAQ](/faq/) covers common plan and platform questions first.",
+    "de": "Wenn die Einrichtung scheitert, nutze den [Support](/go/) mit Bestell-E-Mail, Windows-Version, Steam oder PURPLE und dem genauen Fehlertext. Die [FAQ](/faq/) klären zuerst häufige Plan- und Plattformfragen.",
+    "n": 184
+  },
+  {
+    "en": "If the product does not work as described on a supported setup—AION 2 on Windows 10/11, current access from checkout, and [status](/status/) not showing an outage when you started—continue through [checkout](/go/). Include your order email, Windows version, client type, and screenshots or exact error text.",
+    "de": "Wenn das Produkt auf einem unterstützten Setup nicht wie beschrieben funktioniert — AION 2 auf Windows 10/11, aktueller Zugang aus dem Checkout und [Status](/status/) ohne Ausfall beim Start — gehe über den [Checkout](/go/) weiter. Nenne Bestell-E-Mail, Windows-Version, Clienttyp und Screenshots oder den genauen Fehlertext.",
+    "n": 307
+  },
+  {
+    "en": "If the screen feels crowded, reduce range before changing colors.",
+    "de": "Wenn der Bildschirm voll wirkt, reduziere zuerst die Reichweite, bevor du Farben änderst.",
+    "n": 65
+  },
+  {
+    "en": "If the status page is still updating, wait. A lifetime plan does not freeze game updates.",
+    "de": "Wenn die Statusseite noch aktualisiert, warte. Ein Lifetime-Plan friert Spielupdates nicht ein.",
+    "n": 89
+  },
+  {
+    "en": "If you are buying [AION 2 cheats](/store/) from North America, still confirm Windows PC, the current global build, and [setup](/setup/) notes. Regional server presence is not a compatibility guarantee. See the [release date](/release/) article for the global opening timeline.",
+    "de": "Wenn du [AION 2 Cheats](/store/) aus Nordamerika kaufst, bestätige trotzdem Windows PC, den aktuellen globalen Build und die [Einrichtungshinweise](/setup/). Regionale Server sind keine Kompatibilitätsgarantie. Siehe den Artikel zum [Erscheinungsdatum](/release/) für den globalen Startzeitplan.",
+    "n": 276
+  },
+  {
+    "en": "If you are evaluating [AION 2 cheats](/cheats/), start with information modules that match those systems: [player ESP](/esp/) for faction fights, [flight markers](/flight/) for aerial targets, and [world markers](/world/) for PvE. Then read [setup](/setup/) and [status](/status/).",
+    "de": "Wenn du [AION 2 Cheats](/cheats/) prüfst, starte mit Informationsmodulen, die zu diesen Systemen passen: [Spieler-ESP](/esp/) für Fraktionskämpfe, [Flugmarkierungen](/flight/) für Luftziele und [Weltmarkierungen](/world/) für PvE. Lies dann [Einrichtung](/setup/) und [Status](/status/).",
+    "n": 281
+  },
+  {
+    "en": "If you are still learning the names, start with the [AION 2 cheats overview](/cheats/) and the [gameplay guide](/guide/). Then return to [setup](/setup/) before you join a populated server.",
+    "de": "Wenn du die Namen noch lernst, starte mit dem [AION 2 Cheats Überblick](/cheats/) und dem [Gameplay-Leitfaden](/guide/). Kehre dann zur [Einrichtung](/setup/) zurück, bevor du einem belebten Server beitrittst.",
+    "n": 189
+  },
+  {
+    "en": "If you use [player ESP](/esp/), class and level fields help you read those eight jobs in the field. Pair that with the [gameplay guide](/guide/) if you are still choosing a role, then return to the [store](/store/) only after you know which overlays you actually need.",
+    "de": "Wenn du [Spieler-ESP](/esp/) nutzt, helfen Klassen- und Stufenfelder, diese acht Jobs im Feld zu lesen. Kombiniere das mit dem [Gameplay-Leitfaden](/guide/), wenn du noch eine Rolle wählst, und kehre erst zum [Store](/store/) zurück, wenn du weißt, welche Overlays du wirklich brauchst.",
+    "n": 268
+  },
+  {
+    "en": "Include order email, Windows version, and the exact error text when you need setup help.",
+    "de": "Nenne Bestell-E-Mail, Windows-Version und den genauen Fehlertext, wenn du Einrichtungshilfe brauchst.",
+    "n": 88
+  },
+  {
+    "en": "It favors a short max-distance filter so the overlay stays readable on busy AION 2 servers.",
+    "de": "Es bevorzugt einen kurzen Max-Distanzfilter, damit das Overlay auf vollen AION 2-Servern lesbar bleibt.",
+    "n": 91
+  },
+  {
+    "en": "Keep FOV and smoothness conservative on the first session",
+    "de": "FOV und Glättung in der ersten Sitzung konservativ halten",
+    "n": 57
+  },
+  {
+    "en": "Keep radar range short on crowded maps. It is not listed as a separate 3D product.",
+    "de": "Halte die Radarreichweite auf vollen Karten kurz. Es ist nicht als separates 3D-Produkt gelistet.",
+    "n": 82
+  },
+  {
+    "en": "Keep range short on crowded maps. Radar works best next to a conservative ESP profile, not with every world marker enabled. See [world markers](/world/) if you need dungeon or quest context instead of a radar pip.",
+    "de": "Halte die Reichweite auf vollen Karten kurz. Radar funktioniert am besten neben einem konservativen ESP-Profil, nicht mit jeder Weltmarkierung. Siehe [Weltmarkierungen](/world/), wenn du Dungeon- oder Questkontext statt eines Radar-Punkts brauchst.",
+    "n": 213
+  },
+  {
+    "en": "Last updated: October 2026. By using aion2cheats.org or completing checkout for any product listed here, you agree to these Terms & Conditions and our [Privacy Policy](/privacy/).",
+    "de": "Zuletzt aktualisiert: Oktober 2026. Mit der Nutzung von aion2cheats.org oder dem Checkout für ein hier gelistetes Produkt stimmst du diesen AGB und unserer [Datenschutzerklärung](/privacy/) zu.",
+    "n": 179
+  },
+  {
+    "en": "Leave soft aim off if you only want [player ESP](/esp/) and [radar](/radar/)",
+    "de": "Soft Aim auslassen, wenn du nur [Spieler-ESP](/esp/) und [Radar](/radar/) willst",
+    "n": 76
+  },
+  {
+    "en": "Licenses are for your personal use only. Do not share loader files, portal logins, or license keys.",
+    "de": "Lizenzen gelten nur für deine persönliche Nutzung. Teile keine Loader-Dateien, Portal-Logins oder Lizenzschlüssel.",
+    "n": 99
+  },
+  {
+    "en": "Long-range markers on nearby players and world objects.",
+    "de": "Langstreckenmarkierungen an nahen Spielern und Welt­objekten.",
+    "n": 55
+  },
+  {
+    "en": "Modules stay in familiar categories: vision, flight, radar, aim, world, and profiles.",
+    "de": "Module bleiben in vertrauten Kategorien: Sicht, Flug, Radar, Aim, Welt und Profile.",
+    "n": 85
+  },
+  {
+    "en": "Monthly access is $35 (P30D). Lifetime access is $150 (P99Y). Both are priced in USD.",
+    "de": "Monthly-Zugang kostet $35 (P30D). Lifetime-Zugang kostet $150 (P99Y). Beide Preise sind in USD.",
+    "n": 85
+  },
+  {
+    "en": "Monthly access is $35 for 30 days (P30D). Lifetime access is $150 (P99Y). Both plans are priced in USD and use the same listed feature set. Compare them here, then read [monthly vs lifetime](/plans/) if you still need a short trial vs long access.",
+    "de": "Monthly-Zugang kostet $35 für 30 Tage (P30D). Lifetime-Zugang kostet $150 (P99Y). Beide Pläne sind in USD und nutzen denselben Funktionsumfang. Vergleiche sie hier und lies [Monthly vs. Lifetime](/plans/), wenn du noch Kurztest gegen Langzugang abwägst.",
+    "n": 247
+  },
+  {
+    "en": "Monthly is $35 for 30 days. Lifetime is $150. Both list the same ESP, radar, flight, and soft aim modules.",
+    "de": "Monthly kostet $35 für 30 Tage. Lifetime kostet $150. Beide listen dieselben ESP-, Radar-, Flug- und Soft-Aim-Module.",
+    "n": 106
+  },
+  {
+    "en": "Monthly or lifetime: which plan matches a short trial?",
+    "de": "Monthly oder Lifetime: Welcher Plan passt zu einem kurzen Test?",
+    "n": 54
+  },
+  {
+    "en": "Most buyers come in looking for AION 2 ESP: [player ESP](/esp/), [flight markers](/flight/), and [world information](/world/). Those overlays answer who is nearby, which faction they belong to, and whether a target is flying. [Radar](/radar/) sits beside them when you want local cues without filling the screen. [Gathering node ESP](/nodes/) is separate if you only need resource markers.",
+    "de": "Die meisten Käufer suchen AION 2 ESP: [Spieler-ESP](/esp/), [Flugmarkierungen](/flight/) und [Weltinformationen](/world/). Diese Overlays zeigen, wer in der Nähe ist, zu welcher Fraktion er gehört und ob ein Ziel fliegt. [Radar](/radar/) sitzt daneben, wenn du lokale Hinweise ohne vollen Bildschirm willst. [Sammelknoten-ESP](/nodes/) ist getrennt, wenn du nur Ressourcenmarkierungen brauchst.",
+    "n": 389
+  },
+  {
+    "en": "Nameplates, faction, class, and distance on nearby players.",
+    "de": "Namensschilder, Fraktion, Klasse und Distanz bei nahen Spielern.",
+    "n": 59
+  },
+  {
+    "en": "NC has published anti-bot measures around automated gathering. Treat node labels as information only.",
+    "de": "NC hat Anti-Bot-Maßnahmen rund um automatisiertes Sammeln veröffentlicht. Behandle Knotenbeschriftungen nur als Information.",
+    "n": 101
+  },
+  {
+    "en": "NC has published anti-bot measures for AION 2, including VPN blocks, reporting, and hardware-based restrictions. A named Western anti-cheat brand is not treated here as a verified public label. After a patch, re-check the status page.",
+    "de": "NC hat Anti-Bot-Maßnahmen für AION 2 veröffentlicht, inklusive VPN-Sperren, Meldungen und hardwarebasierten Einschränkungen. Eine namentliche westliche Anti-Cheat-Marke gilt hier nicht als bestätigtes öffentliches Label. Nach einem Patch prüfe die Statusseite erneut.",
+    "n": 234
+  },
+  {
+    "en": "NC has published anti-bot measures for AION 2. After a patch, treat compatibility as unknown until you re-check status.",
+    "de": "NC hat Anti-Bot-Maßnahmen für AION 2 veröffentlicht. Nach einem Patch gilt Kompatibilität als unbekannt, bis du den Status erneut prüfst.",
+    "n": 119
+  },
+  {
+    "en": "NC has published anti-bot measures for AION 2. Compatibility can change after a patch, so check the status page first.",
+    "de": "NC hat Anti-Bot-Maßnahmen für AION 2 veröffentlicht. Kompatibilität kann sich nach einem Patch ändern, prüfe daher zuerst die Statusseite.",
+    "n": 118
+  },
+  {
+    "en": "NC has published anti-bot measures that specifically mention automated gathering. Treat node ESP as a label, not a license to run unattended macros. Read the [compatibility notes](/compat/) and [status](/status/) before you launch.",
+    "de": "NC hat Anti-Bot-Maßnahmen veröffentlicht, die automatisiertes Sammeln ausdrücklich nennen. Behandle Knoten-ESP als Beschriftung, nicht als Lizenz für unbeaufsichtigte Makros. Lies die [Kompatibilitätshinweise](/compat/) und den [Status](/status/) vor dem Start.",
+    "n": 231
+  },
+  {
+    "en": "NC’s global game overview lists eight classes on the current AION 2 PC build: Gladiator, Templar, Assassin, Ranger, Chanter, Cleric, Sorcerer, and Spiritmaster. That list concerns the global service and should not be expanded from another regional client.",
+    "de": "NCs globaler Spielüberblick listet acht Klassen im aktuellen AION 2-PC-Build: Gladiator, Templar, Assassin, Ranger, Chanter, Cleric, Sorcerer und Spiritmaster. Diese Liste gilt für den globalen Dienst und sollte nicht aus einem anderen Regionalclient erweitert werden.",
+    "n": 255
+  },
+  {
+    "en": "NC’s January 2026 anti-bot update also raised the minimum level for gathering activities on that service. That is one reason this site describes [node ESP](/nodes/) as labels—not unattended automation. Read [setup](/setup/) and the [FAQ](/faq/) before you launch.",
+    "de": "NCs Anti-Bot-Update vom Januar 2026 hat auch die Mindeststufe für Sammelaktivitäten auf diesem Dienst angehoben. Deshalb beschreibt diese Seite [Knoten-ESP](/nodes/) als Beschriftungen — nicht als unbeaufsichtigte Automatisierung. Lies [Einrichtung](/setup/) und die [FAQ](/faq/) vor dem Start.",
+    "n": 263
+  },
+  {
+    "en": "NC’s launch materials list local servers in North America, South America, Europe, and Asia (Japan). Server location does not establish play from every country, and it does not replace the [status page](/status/) for product compatibility.",
+    "de": "NCs Launchmaterialien listen lokale Server in Nordamerika, Südamerika, Europa und Asien (Japan). Der Serverstandort bedeutet nicht Spielbarkeit aus jedem Land und ersetzt nicht die [Statusseite](/status/) für Produktkompatibilität.",
+    "n": 238
+  },
+  {
+    "en": "No article replaces the status page. Compatibility is a point-in-time note—stop if status shows the build is unavailable.",
+    "de": "Kein Artikel ersetzt die Statusseite. Kompatibilität ist ein Zeitpunktshinweis — stoppe, wenn der Status den Build als nicht verfügbar zeigt.",
+    "n": 121
+  },
+  {
+    "en": "No. AION 2 guides explains terminology and setup. The AION 2 store feature list is the source for what you are buying. Use features page if you want the same modules without checkout copy.",
+    "de": "Nein. AION 2 Leitfäden erklären Begriffe und Einrichtung. Die Funktionsliste im AION 2 Store ist die Quelle für das, was du kaufst. Nutze die Funktionsseite, wenn du dieselben Module ohne Checkout-Text willst.",
+    "n": 188
+  },
+  {
+    "en": "No. Soft aim is a separate combat toggle. Farming bots and skill-rotation automation are not listed.",
+    "de": "Nein. Soft Aim ist ein separater Kampfschalter. Farming-Bots und Skill-Rotations-Automatisierung sind nicht gelistet.",
+    "n": 100
+  },
+  {
+    "en": "No. Soft aim is optional. You can review ESP and radar without enabling combat modules.",
+    "de": "Nein. Soft Aim ist optional. Du kannst ESP und Radar prüfen, ohne Kampfmodule zu aktivieren.",
+    "n": 87
+  },
+  {
+    "en": "No. The listing describes gathering node ESP and material filters, not a quest or farming bot.",
+    "de": "Nein. Das Listing beschreibt Sammelknoten-ESP und Materialfilter, keinen Quest- oder Farming-Bot.",
+    "n": 94
+  },
+  {
+    "en": "No. This site does not promise permanent undetected status. Compatibility can change after a patch. Check the status page and stop if a build is marked unavailable.",
+    "de": "Nein. Diese Seite verspricht keinen dauerhaften Undetected-Status. Kompatibilität kann sich nach einem Patch ändern. Prüfe die Statusseite und stoppe, wenn ein Build als nicht verfügbar markiert ist.",
+    "n": 164
+  },
+  {
+    "en": "No. Use AION 2 store for current plans and the listed feature set. Guides explain terminology and workflow. features page is the public module summary.",
+    "de": "Nein. Nutze den AION 2 Store für aktuelle Pläne und den gelisteten Funktionsumfang. Leitfäden erklären Begriffe und Ablauf. Die Funktionsseite ist die öffentliche Modulzusammenfassung.",
+    "n": 151
+  },
+  {
+    "en": "No. Use the status page page for current compatibility notes after an AION 2 update.",
+    "de": "Nein. Nutze die Statusseite für aktuelle Kompatibilitätshinweise nach einem AION 2-Update.",
+    "n": 84
+  },
+  {
+    "en": "Node ESP labels ore, herbs, and chests. It is not listed as unattended automation.",
+    "de": "Knoten-ESP beschriftet Erz, Kräuter und Truhen. Es ist nicht als unbeaufsichtigte Automatisierung gelistet.",
+    "n": 82
+  },
+  {
+    "en": "North America server location notes for AION 2 and how regional access differs from Korea or Taiwan progress.",
+    "de": "Hinweise zum Nordamerika-Serverstandort für AION 2 und wie regionaler Zugang sich vom Fortschritt in Korea oder Taiwan unterscheidet.",
+    "n": 109
+  },
+  {
+    "en": "NPC, elite, world boss, dungeon, quest, and portal overlays for Atreia.",
+    "de": "NPC-, Elite-, Weltboss-, Dungeon-, Quest- und Portaloverlays für Atreia.",
+    "n": 71
+  },
+  {
+    "en": "On populated Abyss maps a short max-distance cap is easier to read than every player marker at once.",
+    "de": "Auf vollen Abyss-Karten ist eine kurze Max-Distanz leichter lesbar als jede Spielermarkierung auf einmal.",
+    "n": 100
+  },
+  {
+    "en": "One-time USD purchase for long-term access.",
+    "de": "Einmaliger USD-Kauf für langfristigen Zugang.",
+    "n": 43
+  },
+  {
+    "en": "Only from the checkout or vendor instructions after purchase—not from third-party links in comments or messages.",
+    "de": "Nur aus dem Checkout oder den Anbieteranweisungen nach dem Kauf — nicht aus Drittanbieter-Links in Kommentaren oder Nachrichten.",
+    "n": 112
+  },
+  {
+    "en": "Open a request on the checkout with your order email, Windows version, Steam or PURPLE, and the exact error text from the loader or AION 2 client.",
+    "de": "Öffne eine Anfrage im Checkout mit Bestell-E-Mail, Windows-Version, Steam oder PURPLE und dem genauen Fehlertext vom Loader oder AION 2-Client.",
+    "n": 146
+  },
+  {
+    "en": "Open support for order, install, or overlay questions and include your receipt email plus OS build.",
+    "de": "Öffne den Support für Bestell-, Install- oder Overlay-Fragen und nenne Beleg-E-Mail plus OS-Build.",
+    "n": 99
+  },
+  {
+    "en": "Open the status page after an AION 2 update before enabling combat modules.",
+    "de": "Öffne die Statusseite nach einem AION 2-Update, bevor du Kampfmodule aktivierst.",
+    "n": 75
+  },
+  {
+    "en": "Open the status page on aion2cheats.org before purchase or launch, especially after an AION 2 client update. The compatibility notes explain why patch days matter.",
+    "de": "Öffne die Statusseite auf aion2cheats.org vor Kauf oder Start, besonders nach einem AION 2-Client-Update. Die Kompatibilitätshinweise erklären, warum Patch-Tage zählen.",
+    "n": 163
+  },
+  {
+    "en": "Open the status page on aion2cheats.org before you buy—especially after an AION 2 client update.",
+    "de": "Öffne die Statusseite auf aion2cheats.org vor dem Kauf — besonders nach einem AION 2-Client-Update.",
+    "n": 96
+  },
+  {
+    "en": "Optional soft aim over listed ESP targets.",
+    "de": "Optionales Soft Aim auf gelistete ESP-Ziele.",
+    "n": 42
+  },
+  {
+    "en": "Ore, herb, material, and chest markers from the current AION 2 Cheats listing.",
+    "de": "Erz-, Kräuter-, Material- und Truhenmarkierungen aus dem aktuellen AION 2 Cheats Listing.",
+    "n": 78
+  },
+  {
+    "en": "Pair flight markers with a short radar range if you only need to know that something is close.",
+    "de": "Kombiniere Flugmarkierungen mit kurzer Radarreichweite, wenn du nur wissen willst, dass etwas nah ist.",
+    "n": 94
+  },
+  {
+    "en": "Payment and license delivery run on external checkout pages. aion2cheats.org does not process or store payment card numbers.",
+    "de": "Zahlung und Lizenzlieferung laufen auf externen Checkout-Seiten. aion2cheats.org verarbeitet oder speichert keine Kartendaten.",
+    "n": 124
+  },
+  {
+    "en": "Pick a 30-day $35 pass or a $150 one-time license. Checkout shows the latest access notes.",
+    "de": "Wähle einen 30-Tage-Pass für $35 oder eine einmalige Lizenz für $150. Der Checkout zeigt die aktuellen Zugangshinweise.",
+    "n": 90
+  },
+  {
+    "en": "Pick Monthly ($35) or Lifetime ($150), then follow the checkout flow for access and setup instructions.",
+    "de": "Wähle Monthly ($35) oder Lifetime ($150) und folge dem Checkout für Zugang und Einrichtungsanweisungen.",
+    "n": 103
+  },
+  {
+    "en": "Pick the $35 monthly plan or the $150 lifetime plan, then compare the listed modules before checkout.",
+    "de": "Wähle den Monthly-Plan für $35 oder den Lifetime-Plan für $150 und vergleiche die gelisteten Module vor dem Checkout.",
+    "n": 101
+  },
+  {
+    "en": "Plans, ESP, compatibility, and setup—before you buy.",
+    "de": "Pläne, ESP, Kompatibilität und Einrichtung — vor dem Kauf.",
+    "n": 52
+  },
+  {
+    "en": "Player ESP can show nearby Daevas with box outlines, nameplates, faction, class, level, distance, flying state, and off-screen arrows when those toggles are included in the current build. See the player ESP guide and preview gallery.",
+    "de": "Spieler-ESP kann nahe Daevas mit Boxumrissen, Namensschildern, Fraktion, Klasse, Stufe, Distanz, Flugzustand und Off-Screen-Pfeilen zeigen, wenn diese Schalter im aktuellen Build enthalten sind. Siehe den Spieler-ESP-Leitfaden und die Vorschaugalerie.",
+    "n": 233
+  },
+  {
+    "en": "Player ESP for nearby Daevas and faction filters",
+    "de": "Spieler-ESP für nahe Daevas und Fraktionsfilter",
+    "n": 48
+  },
+  {
+    "en": "Player ESP is the overlay people mean when they search for AION 2 cheats or AION 2 hacks. It marks other players so you spend less time guessing faction, class, or range. Compare the live toggles on the [features page](/features/) and [store](/store/) before you assume every option is on.",
+    "de": "Spieler-ESP ist das Overlay, das Leute meinen, wenn sie nach AION 2 Cheats oder AION 2 Hacks suchen. Es markiert andere Spieler, damit du weniger Zeit mit Raten zu Fraktion, Klasse oder Distanz verbringst. Vergleiche die Live-Schalter auf der [Funktionsseite](/features/) und im [Store](/store/), bevor du annimmst, jede Option sei an.",
+    "n": 289
+  },
+  {
+    "en": "Player ESP that stays readable",
+    "de": "Spieler-ESP, das lesbar bleibt",
+    "n": 30
+  },
+  {
+    "en": "Player ESP, flight markers, and radar are easier to evaluate than turning every combat option on at once.",
+    "de": "Spieler-ESP, Flugmarkierungen und Radar sind leichter zu bewerten, als jede Kampfoption auf einmal einzuschalten.",
+    "n": 105
+  },
+  {
+    "en": "Player ESP, soft aim, flight markers, gathering nodes, world markers, radar, and configuration options. See the features page for the full listed set, or the preview gallery for screenshots.",
+    "de": "Spieler-ESP, Soft Aim, Flugmarkierungen, Sammelknoten, Weltmarkierungen, Radar und Konfigurationsoptionen. Siehe die Funktionsseite für den vollen gelisteten Satz oder die Vorschaugalerie für Screenshots.",
+    "n": 190
+  },
+  {
+    "en": "Players searching “AION 2 gender locked classes” are usually comparing the sequel with the original game. Confirm current class gender rules in official NC character-creation notes for the global client. This site does not invent locks that are not documented on the live build.",
+    "de": "Spieler, die nach „AION 2 gender locked classes“ suchen, vergleichen meist die Fortsetzung mit dem Original. Bestätige aktuelle Geschlechtsregeln in offiziellen NC-Charaktererstellungshinweisen für den globalen Client. Diese Seite erfindet keine Sperren, die im Live-Build nicht dokumentiert sind.",
+    "n": 278
+  },
+  {
+    "en": "Product compatibility should be checked against the current global Windows build, not an older regional client. Use the [status page](/status/) after launch-week patches, then the [store](/store/) if you still want to compare plans. The [North America](/na/) note covers server location separately from download availability.",
+    "de": "Produktkompatibilität solltest du gegen den aktuellen globalen Windows-Build prüfen, nicht gegen einen älteren Regionalclient. Nutze die [Statusseite](/status/) nach Launch-Week-Patches, dann den [Store](/store/), wenn du Pläne vergleichen willst. Der Hinweis zu [Nordamerika](/na/) trennt Serverstandort von Downloadverfügbarkeit.",
+    "n": 325
+  },
+  {
+    "en": "Purchase, license, refund, and use terms for AION 2 Cheats products and aion2cheats.org.",
+    "de": "Kauf-, Lizenz-, Erstattungs- und Nutzungsbedingungen für AION 2 Cheats Produkte und aion2cheats.org.",
+    "n": 88
+  },
+  {
+    "en": "Purchase, setup, and compatibility questions go through the Support path—include your order email and Windows version.",
+    "de": "Fragen zu Kauf, Einrichtung und Kompatibilität laufen über den Support — nenne Bestell-E-Mail und Windows-Version.",
+    "n": 118
+  },
+  {
+    "en": "Purchase, setup, and compatibility questions.",
+    "de": "Fragen zu Kauf, Einrichtung und Kompatibilität.",
+    "n": 45
+  },
+  {
+    "en": "Questions about compatibility, setup errors, or checkout are handled through [checkout](/go/). Include your order email, Windows version, and whether you use Steam or PURPLE. The [FAQ](/faq/) covers common plan and ESP questions first.",
+    "de": "Fragen zu Kompatibilität, Einrichtungsfehlern oder Checkout laufen über den [Checkout](/go/). Nenne Bestell-E-Mail, Windows-Version und ob du Steam oder PURPLE nutzt. Die [FAQ](/faq/) klären zuerst häufige Plan- und ESP-Fragen.",
+    "n": 235
+  },
+  {
+    "en": "Radar and nearby-entity cues for rotations on live servers.",
+    "de": "Radar und Hinweise zu nahen Einheiten für Rotationen auf Live-Servern.",
+    "n": 59
+  },
+  {
+    "en": "Re-check status after every AION 2 update. Reload configs instead of assuming old sliders still apply.",
+    "de": "Prüfe den Status nach jedem AION 2-Update erneut. Lade Profile neu, statt alte Regler vorauszusetzen.",
+    "n": 102
+  },
+  {
+    "en": "Read aerial target ESP and altitude first so you can tell a grounded player from one already in the air. Sky contested highlights can stay off until you need them.",
+    "de": "Lies zuerst Luftziel-ESP und Höhe, damit du einen Boden- von einem Luftspieler unterscheidest. Markierungen umkämpfter Himmelszonen können aus bleiben, bis du sie brauchst.",
+    "n": 163
+  },
+  {
+    "en": "Read the status page on aion2cheats.org after any AION 2 client update.",
+    "de": "Lies die Statusseite auf aion2cheats.org nach jedem AION 2-Client-Update.",
+    "n": 71
+  },
+  {
+    "en": "Review compatibility notes and the setup page.",
+    "de": "Kompatibilitätshinweise und die Einrichtungsseite prüfen.",
+    "n": 46
+  },
+  {
+    "en": "Same listed features; only duration and price change.",
+    "de": "Dieselben gelisteten Funktionen; nur Laufzeit und Preis ändern sich.",
+    "n": 53
+  },
+  {
+    "en": "Screenshot or exact message from the loader or the AION 2 client.",
+    "de": "Screenshot oder genaue Meldung vom Loader oder AION 2-Client.",
+    "n": 65
+  },
+  {
+    "en": "Select the $35 monthly plan or the $150 lifetime plan, then continue to checkout.",
+    "de": "Wähle den Monthly-Plan für $35 oder den Lifetime-Plan für $150 und gehe weiter zum Checkout.",
+    "n": 81
+  },
+  {
+    "en": "Set a panic key before you join a populated server.",
+    "de": "Setze eine Paniktaste, bevor du einem belebten Server beitrittst.",
+    "n": 51
+  },
+  {
+    "en": "Soft aim is listed as optional. ESP and radar can run with it left off.",
+    "de": "Soft Aim ist als optional gelistet. ESP und Radar können ohne laufen.",
+    "n": 71
+  },
+  {
+    "en": "Soft aim is listed. Farming bots and skill-rotation automation are not listed, so this site does not claim them. Confirm the status page before enabling combat modules, and read the soft aim notes.",
+    "de": "Soft Aim ist gelistet. Farming-Bots und Skill-Rotations-Automatisierung sind es nicht, daher behauptet diese Seite sie nicht. Bestätige die Statusseite, bevor du Kampfmodule aktivierst, und lies die Soft-Aim-Hinweise.",
+    "n": 197
+  },
+  {
+    "en": "Soft aim is the combat option on the current AION 2 Cheats listing. It is not described as a full combat bot or skill-rotation assistant. Confirm the toggle on the [features page](/features/) and the [status page](/status/) before you enable it.",
+    "de": "Soft Aim ist die Kampfoption im aktuellen AION 2 Cheats Listing. Es wird nicht als vollständiger Kampfbot oder Skill-Rotations-Assistent beschrieben. Bestätige den Schalter auf der [Funktionsseite](/features/) und der [Statusseite](/status/), bevor du ihn aktivierst.",
+    "n": 245
+  },
+  {
+    "en": "Soft aim stays a separate combat toggle—leave it off if you only want information.",
+    "de": "Soft Aim bleibt ein separater Kampfschalter — lass es aus, wenn du nur Informationen willst.",
+    "n": 82
+  },
+  {
+    "en": "Stable internet connection for checkout access and updates.",
+    "de": "Stabile Internetverbindung für Checkout-Zugang und Updates.",
+    "n": 59
+  },
+  {
+    "en": "Start with box, faction, and distance. Add class labels only if you can still track the default HUD.",
+    "de": "Starte mit Box, Fraktion und Distanz. Füge Klassenbeschriftungen nur hinzu, wenn du das Standard-HUD noch verfolgen kannst.",
+    "n": 100
+  },
+  {
+    "en": "Status first, then Steam or PURPLE, a conservative ESP profile, and a saved config.",
+    "de": "Zuerst Status, dann Steam oder PURPLE, ein konservatives ESP-Profil und ein gespeichertes Profil.",
+    "n": 83
+  },
+  {
+    "en": "The [gameplay guide](/guide/) explains why aerial positioning matters in AION 2. The [preview](/preview/) page is the screenshot gallery for these layers.",
+    "de": "Der [Gameplay-Leitfaden](/guide/) erklärt, warum Luftpositionierung in AION 2 zählt. Die [Vorschau](/preview/) ist die Screenshot-Galerie für diese Ebenen.",
+    "n": 154
+  },
+  {
+    "en": "The address used at checkout on aion2cheats.org or through the checkout partner.",
+    "de": "Die Adresse, die du beim Checkout auf aion2cheats.org oder über den Checkout-Partner genutzt hast.",
+    "n": 80
+  },
+  {
+    "en": "The catalog, pricing, and guides stay locked to AION 2 rather than bundling other titles.",
+    "de": "Katalog, Preise und Leitfäden bleiben bei AION 2, statt andere Titel zu bündeln.",
+    "n": 89
+  },
+  {
+    "en": "The current listing is the global Windows PC client. Steam and PURPLE share global content when accounts are linked. Confirm the client in the Windows PC setup guide.",
+    "de": "Das aktuelle Listing ist der globale Windows-PC-Client. Steam und PURPLE teilen globale Inhalte, wenn Konten verknüpft sind. Bestätige den Client im Windows-PC-Einrichtungsleitfaden.",
+    "n": 166
+  },
+  {
+    "en": "The current listing notes HVCI, core isolation, TPM, and Secure Boot left on. It also lists Cloud DMA and an AWS option for isolated delivery. Confirm those notes at checkout rather than assuming every machine can load every module.",
+    "de": "Das aktuelle Listing nennt HVCI, Kernisolation, TPM und Secure Boot eingeschaltet. Es listet auch Cloud DMA und eine AWS-Option für isolierte Bereitstellung. Bestätige diese Hinweise im Checkout, statt anzunehmen, jede Maschine könne jedes Modul laden.",
+    "n": 232
+  },
+  {
+    "en": "The current product list includes box styles, skeleton, head circle, health bar, nameplate, class, level, faction (Elyos / Asmodian / Balaur), distance, view direction, flying or grounded state, and out-of-screen arrows. Enable only the labels you can read while fighting or flying. The [preview gallery](/preview/) shows how those layers look in screenshots.",
+    "de": "Die aktuelle Produktliste enthält Box-Stile, Skelett, Kopfkreis, Lebensbalken, Namensschild, Klasse, Stufe, Fraktion (Elyos / Asmodian / Balaur), Distanz, Blickrichtung, Flug- oder Bodenzustand und Off-Screen-Pfeile. Aktiviere nur Beschriftungen, die du im Kampf oder Flug lesen kannst. Die [Vorschaugalerie](/preview/) zeigt, wie diese Ebenen in Screenshots aussehen.",
+    "n": 359
+  },
+  {
+    "en": "The current product listing includes [player ESP](/esp/), [flight and aerial markers](/flight/), [gathering node ESP](/nodes/), [world and boss information](/world/), [2D radar](/radar/), and [soft aim](/aim/). Full farming bots and quest automation are not listed, so this site does not claim them. See the [FAQ](/faq/) if you are unsure what is included.",
+    "de": "Das aktuelle Produktlisting enthält [Spieler-ESP](/esp/), [Flug- und Luftmarkierungen](/flight/), [Sammelknoten-ESP](/nodes/), [Welt- und Bossinformationen](/world/), [2D-Radar](/radar/) und [Soft Aim](/aim/). Vollständige Farming-Bots und Quest-Automatisierung sind nicht gelistet, daher behauptet diese Seite sie nicht. Siehe die [FAQ](/faq/), wenn du unsicher bist, was enthalten ist.",
+    "n": 356
+  },
+  {
+    "en": "The current vendor listing is the global PC client on Steam or PURPLE. Treat compatibility as something to re-check on the [status page](/status/) after every game update rather than a permanent label. [Setup notes](/setup/) cover the Windows PC order.",
+    "de": "Das aktuelle Anbieterlisting ist der globale PC-Client auf Steam oder PURPLE. Behandle Kompatibilität als etwas, das du auf der [Statusseite](/status/) nach jedem Spielupdate erneut prüfst, nicht als dauerhaftes Label. [Einrichtungshinweise](/setup/) beschreiben die Windows-PC-Reihenfolge.",
+    "n": 252
+  },
+  {
+    "en": "The current vendor listing is the global Windows PC client on [Steam or PURPLE](/pc/). Do not assume the same access works on an unsupported platform. Confirm the client before you complete checkout, and use the [Windows PC setup guide](/pc/) for the first-run order.",
+    "de": "Das aktuelle Anbieterlisting ist der globale Windows-PC-Client auf [Steam oder PURPLE](/pc/). Nimm nicht an, derselbe Zugang funktioniere auf einer nicht unterstützten Plattform. Bestätige den Client vor dem Checkout und nutze den [Windows-PC-Einrichtungsleitfaden](/pc/) für die Reihenfolge beim ersten Start.",
+    "n": 267
+  },
+  {
+    "en": "The current vendor listing notes Cloud DMA and an AWS option, plus HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes at checkout and on the setup page before you buy.",
+    "de": "Das aktuelle Anbieterlisting nennt Cloud DMA und eine AWS-Option sowie HVCI, Kernisolation, TPM und Secure Boot eingeschaltet. Bestätige diese Hinweise im Checkout und auf der Einrichtungsseite vor dem Kauf.",
+    "n": 188
+  },
+  {
+    "en": "The eight launch classes on the global AION 2 client and how to confirm current gender rules.",
+    "de": "Die acht Startklassen auf dem globalen AION 2-Client und wie du aktuelle Geschlechtsregeln bestätigst.",
+    "n": 93
+  },
+  {
+    "en": "The global client is localized in English, German, French, Spanish, Portuguese, Japanese, Korean, and Russian. Steam and PURPLE users share the same global content and servers when accounts are linked. Korea or Taiwan characters stay on those services.",
+    "de": "Der globale Client ist auf Englisch, Deutsch, Französisch, Spanisch, Portugiesisch, Japanisch, Koreanisch und Russisch lokalisiert. Steam- und PURPLE-Nutzer teilen dieselben globalen Inhalte und Server, wenn Konten verknüpft sind. Charaktere aus Korea oder Taiwan bleiben auf diesen Diensten.",
+    "n": 252
+  },
+  {
+    "en": "The guide walks through box styles, skeleton, nameplate, faction, class, level, distance, and flying-state options. Exact toggles depend on the current build.",
+    "de": "Der Leitfaden geht Box-Stile, Skelett, Namensschild, Fraktion, Klasse, Stufe, Distanz und Flugzustandsoptionen durch. Genaue Schalter hängen vom aktuellen Build ab.",
+    "n": 158
+  },
+  {
+    "en": "The listing is for Windows 10 and 11 on Steam or PURPLE. The vendor also notes Cloud DMA and AWS options.",
+    "de": "Das Listing gilt für Windows 10 und 11 auf Steam oder PURPLE. Der Anbieter nennt auch Cloud DMA und AWS-Optionen.",
+    "n": 105
+  },
+  {
+    "en": "The site covers available features from the current product listing, [monthly and lifetime plans](/plans/), [setup requirements](/setup/), and published anti-bot notes for the global PC client. Longer explainers live in [AION 2 guides](/blog/).",
+    "de": "Die Seite behandelt verfügbare Funktionen aus dem aktuellen Produktlisting, [Monthly- und Lifetime-Pläne](/plans/), [Einrichtungsanforderungen](/setup/) und veröffentlichte Anti-Bot-Hinweise für den globalen PC-Client. Längere Erklärungen stehen in den [AION 2 Leitfäden](/blog/).",
+    "n": 244
+  },
+  {
+    "en": "The store page lists monthly and lifetime plans, available features, and the checkout path.",
+    "de": "Die Store-Seite listet Monthly- und Lifetime-Pläne, verfügbare Funktionen und den Checkout-Pfad.",
+    "n": 91
+  },
+  {
+    "en": "The vendor list includes enable soft aim, aim key, FOV, smoothness, bone selection (head / chest / closest), visible check, ignore friendly faction, ignore same party or alliance, draw FOV, draw target line, and max aim distance.",
+    "de": "Die Anbieterliste enthält Soft Aim aktivieren, Aim-Taste, FOV, Glättung, Knochenauswahl (Kopf / Brust / nächster), Sichtprüfung, freundliche Fraktion ignorieren, dieselbe Gruppe oder Allianz ignorieren, FOV zeichnen, Ziellinie zeichnen und max. Aim-Distanz.",
+    "n": 229
+  },
+  {
+    "en": "The vendor lists Cloud DMA and an AWS option. Confirm those notes at checkout if you need the complete set.",
+    "de": "Der Anbieter listet Cloud DMA und eine AWS-Option. Bestätige diese Hinweise im Checkout, wenn du den vollständigen Satz brauchst.",
+    "n": 107
+  },
+  {
+    "en": "Third-party software in AION 2 can violate the game terms of use and may lead to account action. You use this software at your own risk. Compatibility and availability can change after game or Windows updates without notice.",
+    "de": "Drittanbieter-Software in AION 2 kann gegen die Nutzungsbedingungen verstoßen und zu Kontomaßnahmen führen. Du nutzt diese Software auf eigenes Risiko. Kompatibilität und Verfügbarkeit können sich nach Spiel- oder Windows-Updates ohne Vorankündigung ändern.",
+    "n": 224
+  },
+  {
+    "en": "Third-party tools for AION 2 can conflict with game updates and published anti-bot measures. You use this software at your own risk, including possible account action. Read the [compatibility notes](/compat/) for context.",
+    "de": "Drittanbieter-Tools für AION 2 können mit Spielupdates und veröffentlichten Anti-Bot-Maßnahmen kollidieren. Du nutzt diese Software auf eigenes Risiko, inklusive möglicher Kontomaßnahmen. Lies die [Kompatibilitätshinweise](/compat/) für den Kontext.",
+    "n": 221
+  },
+  {
+    "en": "This article does not publish a live undetected claim. NC has publicly described strengthened anti-bot measures for AION 2, including VPN connection blocks, an enhanced in-game reporting system, and hardware-based restrictions. A named Western anti-cheat brand has not been the primary public description for the global client.",
+    "de": "Dieser Artikel veröffentlicht keinen Live-Undetected-Anspruch. NC hat öffentlich verstärkte Anti-Bot-Maßnahmen für AION 2 beschrieben, inklusive VPN-Verbindungssperren, einem erweiterten Ingame-Meldesystem und hardwarebasierten Einschränkungen. Eine namentliche westliche Anti-Cheat-Marke war nicht die primäre öffentliche Beschreibung für den globalen Client.",
+    "n": 327
+  },
+  {
+    "en": "This community does not treat “undetected” as a permanent label. Stop if a build is marked unavailable.",
+    "de": "Diese Community behandelt „undetected“ nicht als dauerhaftes Label. Stoppe, wenn ein Build als nicht verfügbar markiert ist.",
+    "n": 103
+  },
+  {
+    "en": "This site does not claim silent aim, triggerbot, or automated skill rotations. If a third-party screenshot shows those extras, compare it with the [store](/store/) list instead of assuming they ship. The [FAQ](/faq/) repeats that split.",
+    "de": "Diese Seite behauptet kein Silent Aim, keinen Triggerbot und keine automatisierten Skill-Rotationen. Wenn ein Drittanbieter-Screenshot solche Extras zeigt, vergleiche ihn mit der [Store](/store/)-Liste, statt anzunehmen, sie würden mitgeliefert. Die [FAQ](/faq/) wiederholen diese Trennung.",
+    "n": 236
+  },
+  {
+    "en": "This site includes landing FAQs and per-page sections. See the full FAQ for plans, ESP, setup, and safety answers—or read AION 2 guides for longer guides.",
+    "de": "Diese Seite enthält Landing-FAQs und Abschnitte pro Seite. Siehe die vollständigen FAQ zu Plänen, ESP, Einrichtung und Sicherheit — oder lies AION 2 Leitfäden für längere Texte.",
+    "n": 154
+  },
+  {
+    "en": "Those modules are not on the current product listing, so AION 2 Cheats does not advertise them. Compare the features page and AION 2 store lists instead of third-party screenshots.",
+    "de": "Diese Module stehen nicht auf dem aktuellen Produktlisting, daher wirbt AION 2 Cheats nicht damit. Vergleiche Funktionsseite und AION 2 Store-Listen statt Drittanbieter-Screenshots.",
+    "n": 180
+  },
+  {
+    "en": "Treat compatibility as unknown after every AION 2 patch until you re-check the [status page](/status/). Stop if a build is marked unavailable. Third-party software can still lead to account action even when a listing looks current.",
+    "de": "Behandle Kompatibilität nach jedem AION 2-Patch als unbekannt, bis du die [Statusseite](/status/) erneut prüfst. Stoppe, wenn ein Build als nicht verfügbar markiert ist. Drittanbieter-Software kann trotzdem zu Kontomaßnahmen führen, auch wenn ein Listing aktuell wirkt.",
+    "n": 231
+  },
+  {
+    "en": "Turn on one material filter at a time. A full node list is harder to read than a short range.",
+    "de": "Schalte jeweils einen Materialfilter ein. Eine volle Knotenliste ist schwerer lesbar als eine kurze Reichweite.",
+    "n": 93
+  },
+  {
+    "en": "Two USD plans: Monthly at $35 and Lifetime at $150. Checkout shows the current access details.",
+    "de": "Zwei USD-Pläne: Monthly für $35 und Lifetime für $150. Der Checkout zeigt die aktuellen Zugangsdetails.",
+    "n": 94
+  },
+  {
+    "en": "Use a short max distance first. A busy sky contested zone can hide useful labels if every flying player is drawn at once. Pair flight markers with [radar](/radar/) when you need a top-down cue, and keep [soft aim](/aim/) optional until you confirm [status](/status/).",
+    "de": "Nutze zuerst eine kurze Max-Distanz. Eine volle umkämpfte Himmelszone kann nützliche Beschriftungen verdecken, wenn jeder fliegende Spieler auf einmal gezeichnet wird. Kombiniere Flugmarkierungen mit [Radar](/radar/), wenn du einen Top-down-Hinweis brauchst, und halte [Soft Aim](/aim/) optional, bis du den [Status](/status/) bestätigt hast.",
+    "n": 267
+  },
+  {
+    "en": "Use the status page on aion2cheats.org before purchase or launch, especially after an AION 2 client update.",
+    "de": "Nutze die Statusseite auf aion2cheats.org vor Kauf oder Start, besonders nach einem AION 2-Client-Update.",
+    "n": 107
+  },
+  {
+    "en": "Use the vendor setup notes for Steam or PURPLE. Confirm Cloud DMA requirements if full functionality is listed.",
+    "de": "Nutze die Anbietereinrichtungshinweise für Steam oder PURPLE. Bestätige Cloud-DMA-Anforderungen, wenn der volle Funktionsumfang gelistet ist.",
+    "n": 111
+  },
+  {
+    "en": "Use the vendor setup notes for Steam or PURPLE. Turn on a conservative ESP and radar profile before joining a live server.",
+    "de": "Nutze die Anbietereinrichtungshinweise für Steam oder PURPLE. Aktiviere ein konservatives ESP- und Radar-Profil, bevor du einem Live-Server beitrittst.",
+    "n": 122
+  },
+  {
+    "en": "We may collect standard web analytics such as page views, device type, browser, and approximate region through Google Analytics when enabled. Checkout and license delivery happen on external checkout pages—we do not store payment card data on aion2cheats.org.",
+    "de": "Wir können Standard-Webanalysen wie Seitenaufrufe, Gerätetyp, Browser und ungefähre Region über Google Analytics erfassen, wenn es aktiviert ist. Checkout und Lizenzlieferung laufen auf externen Checkout-Seiten — wir speichern keine Kartendaten auf aion2cheats.org.",
+    "n": 259
+  },
+  {
+    "en": "We may update these terms. The “Last updated” date at the top will change when we do. Continued use of the site after changes means you accept the revised terms.",
+    "de": "Wir können diese Bedingungen aktualisieren. Das Datum „Zuletzt aktualisiert“ oben ändert sich dann. Die weitere Nutzung der Seite nach Änderungen bedeutet, dass du die überarbeiteten Bedingungen akzeptierst.",
+    "n": 161
+  },
+  {
+    "en": "We may, at our discretion, offer a fix, replacement access, or partial/full refund when we confirm a fault on our side. We are not obligated to approve every request.",
+    "de": "Wir können nach eigenem Ermessen eine Korrektur, Ersatzzugang oder eine Teil-/Vollerstattung anbieten, wenn wir einen Fehler auf unserer Seite bestätigen. Wir sind nicht verpflichtet, jede Anfrage zu genehmigen.",
+    "n": 166
+  },
+  {
+    "en": "We only document overlays that appear on the live listing, and we skip unverified automation extras.",
+    "de": "Wir dokumentieren nur Overlays, die auf dem Live-Listing erscheinen, und lassen unbestätigte Automatisierungs-Extras weg.",
+    "n": 100
+  },
+  {
+    "en": "We sell access to AION 2 software listed on the [store page](/store/). Plans are Monthly ($35, P30D) and Lifetime ($150, P99Y), billed in USD. See [monthly vs lifetime](/plans/) for a side-by-side.",
+    "de": "Wir verkaufen Zugang zur AION 2-Software, die auf der [Store-Seite](/store/) gelistet ist. Pläne sind Monthly ($35, P30D) und Lifetime ($150, P99Y), abgerechnet in USD. Siehe [Monthly vs. Lifetime](/plans/) für den Vergleich.",
+    "n": 197
+  },
+  {
+    "en": "We use minimal cookies required for analytics and your language preference. You can block cookies in your browser settings; core site content remains accessible without them.",
+    "de": "Wir nutzen minimale Cookies für Analysen und deine Sprachpräferenz. Du kannst Cookies in den Browsereinstellungen blockieren; der Kerninhalt der Seite bleibt ohne sie erreichbar.",
+    "n": 174
+  },
+  {
+    "en": "What published AION 2 anti-bot measures mean and how to treat status after a patch.",
+    "de": "Was veröffentlichte AION 2 Anti-Bot-Maßnahmen bedeuten und wie du den Status nach einem Patch behandelst.",
+    "n": 83
+  },
+  {
+    "en": "What soft aim is listed for, and why it should stay optional after you check status.",
+    "de": "Wofür Soft Aim gelistet ist und warum es nach der Statusprüfung optional bleiben sollte.",
+    "n": 84
+  },
+  {
+    "en": "When AION 2 opened globally on Steam and PURPLE, plus what that means for product compatibility.",
+    "de": "Wann AION 2 global auf Steam und PURPLE startete und was das für die Produktkompatibilität bedeutet.",
+    "n": 96
+  },
+  {
+    "en": "Where is the current ESP feature list?",
+    "de": "Wo ist die aktuelle ESP-Funktionsliste?",
+    "n": 38
+  },
+  {
+    "en": "Where is the full FAQ?",
+    "de": "Wo ist die vollständige FAQ?",
+    "n": 22
+  },
+  {
+    "en": "Whether the target is in the air",
+    "de": "Ob das Ziel in der Luft ist",
+    "n": 32
+  },
+  {
+    "en": "Whether they are in fight range",
+    "de": "Ob sie in Kampfreichweite sind",
+    "n": 31
+  },
+  {
+    "en": "Which Daeva you are looking at",
+    "de": "Welchen Daeva du ansiehst",
+    "n": 30
+  },
+  {
+    "en": "Which features are actually listed?",
+    "de": "Welche Funktionen sind wirklich gelistet?",
+    "n": 35
+  },
+  {
+    "en": "Which platforms are supported?",
+    "de": "Welche Plattformen werden unterstützt?",
+    "n": 30
+  },
+  {
+    "en": "Will settings in this article work next patch?",
+    "de": "Funktionieren Einstellungen aus diesem Artikel nach dem nächsten Patch?",
+    "n": 46
+  },
+  {
+    "en": "Windows 10 or 11, plus whether you launch through Steam or PURPLE.",
+    "de": "Windows 10 oder 11, plus ob du über Steam oder PURPLE startest.",
+    "n": 66
+  },
+  {
+    "en": "Windows 10 or 11, the global Steam or PURPLE client, and a machine that can run AION 2. The vendor also lists Cloud DMA and an AWS option, plus HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes on the [setup](/setup/) and [status](/status/) pages before you pay.",
+    "de": "Windows 10 oder 11, der globale Steam- oder PURPLE-Client und ein Rechner, der AION 2 ausführen kann. Der Anbieter listet auch Cloud DMA und eine AWS-Option sowie HVCI, Kernisolation, TPM und Secure Boot eingeschaltet. Bestätige diese Hinweise auf den Seiten [Einrichtung](/setup/) und [Status](/status/) vor der Zahlung.",
+    "n": 284
+  },
+  {
+    "en": "Windows 10 or Windows 11 (64-bit).",
+    "de": "Windows 10 oder Windows 11 (64-Bit).",
+    "n": 34
+  },
+  {
+    "en": "Windows 10/11 is the supported platform. Full functionality may require the vendor Cloud DMA note.",
+    "de": "Windows 10/11 ist die unterstützte Plattform. Der volle Funktionsumfang kann den Cloud-DMA-Hinweis des Anbieters erfordern.",
+    "n": 98
+  },
+  {
+    "en": "Windows PC requirements",
+    "de": "Windows-PC-Anforderungen",
+    "n": 23
+  },
+  {
+    "en": "Windows PC requirements, Steam and PURPLE notes, and a conservative first-run configuration.",
+    "de": "Windows-PC-Anforderungen, Hinweise zu Steam und PURPLE und eine konservative Erstkonfiguration.",
+    "n": 92
+  },
+  {
+    "en": "World / boss markers",
+    "de": "Welt- / Bossmarkierungen",
+    "n": 20
+  },
+  {
+    "en": "World boss, quest, and portal cues",
+    "de": "Weltboss-, Quest- und Portalhinweise",
+    "n": 34
+  },
+  {
+    "en": "World bosses",
+    "de": "Weltbosse",
+    "n": 12
+  },
+  {
+    "en": "World overlays can mark NPCs, elites, bosses, quests, and portals. gathering node ESP covers ore, herb, and chest labels. world markers covers PvE markers.",
+    "de": "Weltoverlays können NPCs, Eliten, Bosse, Quests und Portale markieren. Sammelknoten-ESP deckt Erz-, Kräuter- und Truhenbeschriftungen ab. Weltmarkierungen decken PvE-Markierungen ab.",
+    "n": 155
+  },
+  {
+    "en": "World overlays cover PvE information: NPCs, elite mobs, world bosses, dungeon bosses, quest objectives, and instance entrances. They pair with [player ESP](/esp/) so open-world Atreia and dungeon routes stay readable.",
+    "de": "Weltoverlays decken PvE-Informationen ab: NPCs, Elitemobs, Weltbosse, Dungeonbosse, Questziele und Instanz­eingänge. Sie passen zu [Spieler-ESP](/esp/), damit Open-World-Atreia und Dungeonrouten lesbar bleiben.",
+    "n": 217
+  },
+  {
+    "en": "Yes. 2D radar is listed as a local awareness overlay for nearby players, bosses, and nodes. radar features covers when to pair it with ESP.",
+    "de": "Ja. 2D-Radar ist als lokales Übersichtsoverlay für nahe Spieler, Bosse und Knoten gelistet. Radarfunktionen erklären, wann du es mit ESP kombinierst.",
+    "n": 139
+  },
+  {
+    "en": "Yes. Any third-party modification can conflict with published anti-bot measures and may lead to account action. You use this software at your own risk.",
+    "de": "Ja. Jede Drittanbieter-Modifikation kann mit veröffentlichten Anti-Bot-Maßnahmen kollidieren und zu Kontomaßnahmen führen. Du nutzt diese Software auf eigenes Risiko.",
+    "n": 151
+  },
+  {
+    "en": "Yes. Any third-party modification can conflict with published anti-bot measures and may lead to account action. You use this software at your own risk. Read the compatibility notes and status page before you launch.",
+    "de": "Ja. Jede Drittanbieter-Modifikation kann mit veröffentlichten Anti-Bot-Maßnahmen kollidieren und zu Kontomaßnahmen führen. Du nutzt diese Software auf eigenes Risiko. Lies die Kompatibilitätshinweise und die Statusseite vor dem Start.",
+    "n": 215
+  },
+  {
+    "en": "Yes. Enable a conservative ESP and radar profile first. Add combat options only after you confirm status.",
+    "de": "Ja. Aktiviere zuerst ein konservatives ESP- und Radar-Profil. Füge Kampfoptionen erst hinzu, nachdem du den Status bestätigt hast.",
+    "n": 105
+  }
+]

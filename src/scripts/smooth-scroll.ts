@@ -1,4 +1,4 @@
-import Lenis from 'lenis';
+import type Lenis from 'lenis';
 
 declare global {
   interface Window {
@@ -26,29 +26,32 @@ export function initSmoothScroll() {
   if (typeof window === 'undefined') return null;
   if (window.__lenis) return window.__lenis;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
+  if (window.matchMedia('(max-width: 1024px), (pointer: coarse)').matches) return null;
 
-  const lenis = new Lenis({
-    autoRaf: true,
-    autoResize: true,
-    lerp: 0.048,
-    wheelMultiplier: 0.62,
-    touchMultiplier: 1,
-    smoothWheel: true,
-    syncTouch: false,
-    allowNestedScroll: true,
-    overscroll: false,
-    stopInertiaOnNavigate: true,
-    respectReducedMotion: true,
-    prevent: shouldPrevent,
-    anchors: {
-      offset: navOffset(),
-      duration: 1.65,
-      easing: creamEase,
-    },
+  void import('lenis').then(({ default: Lenis }) => {
+    if (window.__lenis) return;
+    window.__lenis = new Lenis({
+      autoRaf: true,
+      autoResize: true,
+      lerp: 0.048,
+      wheelMultiplier: 0.62,
+      touchMultiplier: 1,
+      smoothWheel: true,
+      syncTouch: false,
+      allowNestedScroll: true,
+      overscroll: false,
+      stopInertiaOnNavigate: true,
+      respectReducedMotion: true,
+      prevent: shouldPrevent,
+      anchors: {
+        offset: navOffset(),
+        duration: 1.65,
+        easing: creamEase,
+      },
+    });
   });
 
-  window.__lenis = lenis;
-  return lenis;
+  return null;
 }
 
 export function smoothScrollTo(target: HTMLElement | number) {

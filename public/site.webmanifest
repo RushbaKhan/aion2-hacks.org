@@ -1,12 +1,12 @@
 {
-  "name": "Isle Hacks",
-  "short_name": "Isle Hacks",
-  "description": "The Isle hacks for Windows PC with player ESP, dinosaur ESP, health information, radar, and aim assistance.",
+  "name": "AION 2 Cheats",
+  "short_name": "AION 2 Cheats",
+  "description": "AION 2 cheats for Windows PC with player ESP, soft aim, flight markers, gathering nodes, radar, and configuration options.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0d10",
-  "theme_color": "#7f3dee",
+  "background_color": "#0a0614",
+  "theme_color": "#5b21b6",
   "lang": "en-US",
   "icons": [
     {

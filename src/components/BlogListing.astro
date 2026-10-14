@@ -28,7 +28,7 @@ const tags = getBlogTags();
 const { featured, grid } = getBlogListing(activeTag);
 const listingTitle = activeTag === 'all' ? t.blog.latestTitle : `${activeTag} articles`;
 const listingSubtitle =
-  activeTag === 'all' ? t.blog.latestSubtitle : `Isle Hacks articles tagged ${activeTag}.`;
+  activeTag === 'all' ? t.blog.latestSubtitle : `AION 2 Cheats articles tagged ${activeTag}.`;
 
 const breadcrumbs = [
   { name: 'Home', path: '/' },
@@ -72,9 +72,9 @@ const filters = [{ label: t.blog.filterAll, value: 'all' as const }, ...tags.map
         <p class="section-header__subtitle">{listingSubtitle}</p>
         <p class="mt-3 text-sm leading-relaxed text-muted-foreground">
           Start with the <a href={ROUTES.store}>store</a> for plans, the <a href={ROUTES.features}>features</a> list for modules,
-          and the <a href={ROUTES.status}>status</a> page after an Evrima patch. The
-          <a href="/the-isle-esp-terminology/">ESP glossary</a> and
-          <a href="/the-isle-hacks-evrima/">Evrima overview</a> are the usual first reads.
+          and the <a href={ROUTES.status}>status</a> page after an AION 2 patch. The
+          <a href="/esp/">player ESP guide</a> and
+          <a href="/cheats/">AION 2 cheats overview</a> are the usual first reads.
         </p>
       </header>
 
@@ -107,7 +107,7 @@ const filters = [{ label: t.blog.filterAll, value: 'all' as const }, ...tags.map
         <div class="flex w-full flex-col gap-3 sm:flex-row sm:items-end lg:w-auto">
           <label class="listing-search">
             <Icon name="search" size={16} />
-            <input type="search" placeholder="Search articles" aria-label="Search articles" data-listing-search />
+            <input type="search" placeholder={t.ui.searchArticles} aria-label={t.ui.searchArticles} data-listing-search />
           </label>
           <BlogSortSelect />
         </div>
@@ -131,10 +131,10 @@ const filters = [{ label: t.blog.filterAll, value: 'all' as const }, ...tags.map
       <div class="mt-12 flex flex-wrap justify-start gap-3 lg:justify-center">
         <Button as="a" href={ROUTES.home} variant="outline">
           <Icon name="chevronLeft" size={16} />
-          Back to home
+          Home
         </Button>
-        <Button as="a" href={ROUTES.store} variant="outline">View store</Button>
-        <Button as="a" href={ROUTES.faq} variant="outline">Read FAQ</Button>
+        <Button as="a" href={ROUTES.store} variant="outline">{t.products.viewAll}</Button>
+        <Button as="a" href={ROUTES.faq} variant="outline">{t.ui.readFaq}</Button>
       </div>
     </div>
   </section>

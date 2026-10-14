@@ -6,6 +6,7 @@ import { screenshotByRank } from '../../data/screenshots';
 import { resolvePageSeo } from '../../config/seo';
 import { breadcrumbSchema, productSchema } from '../../utils/schema';
 import ProductDetail from '../../components/ProductDetail.astro';
+import { webpSrc } from '../../utils/responsiveImage';
 
 const seo = resolvePageSeo('/store/');
 const product = productPages[0]!;
@@ -33,5 +34,23 @@ const heroShot = screenshotByRank(0);
     breadcrumbSchema(breadcrumbs),
   ]}
 >
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href={webpSrc(heroShot.src, 400)}
+    type="image/webp"
+    media="(max-width: 1023px)"
+    fetchpriority="high"
+  />
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href={webpSrc(heroShot.src, 640)}
+    type="image/webp"
+    media="(min-width: 1024px)"
+    fetchpriority="high"
+  />
   <ProductDetail product={product} breadcrumbs={breadcrumbs} />
 </BaseLayout>

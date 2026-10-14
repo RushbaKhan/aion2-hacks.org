@@ -52,39 +52,59 @@ const robotsContent = noindex
 ---
 
 <!doctype html>
-<html lang="en" class="dark fonts-pending" style="color-scheme: dark">
+<html lang="en" class="dark" style="color-scheme: dark" translate="no">
   <head>
     <meta charset="UTF-8" />
     <script is:inline>
       (function () {
         try {
-          var stored = localStorage.getItem('colorTheme') || localStorage.getItem('starwind-theme');
-          if (stored === 'light') {
-            document.documentElement.classList.remove('dark');
-            document.documentElement.style.colorScheme = 'light';
-          } else {
-            document.documentElement.classList.add('dark');
-            document.documentElement.style.colorScheme = 'dark';
-            if (stored !== 'dark') {
-              localStorage.setItem('colorTheme', 'dark');
-              localStorage.setItem('starwind-theme', 'dark');
-            }
-          }
+          document.documentElement.classList.add('dark');
+          document.documentElement.style.colorScheme = 'dark';
+          localStorage.setItem('colorTheme', 'dark');
+          localStorage.setItem('starwind-theme', 'dark');
         } catch (e) {
           document.documentElement.classList.add('dark');
         }
-        document.documentElement.classList.add('fonts-pending');
+        try {
+          var params = new URLSearchParams(location.search);
+          var hl = params.get('hl') || localStorage.getItem('site-locale') || 'en';
+          var rtl = hl === 'he' || hl === 'ar';
+          document.documentElement.lang = hl === 'zh' ? 'zh-Hans' : hl === 'zh-TW' ? 'zh-Hant' : hl;
+          document.documentElement.dir = rtl ? 'rtl' : 'ltr';
+          document.documentElement.dataset.locale = hl;
+        } catch (e) {}
       })();
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="google" content="notranslate" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content={t.site.name} />
     <meta name="robots" content={robotsContent} />
     <meta name="googlebot" content={robotsContent} />
-    <meta name="theme-color" content="#7F3DEE" />
+    <meta name="theme-color" content="#5B21B6" />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={canonical} />
+    {
+      [
+        ['de', 'de'],
+        ['fr', 'fr'],
+        ['es', 'es'],
+        ['pt', 'pt'],
+        ['ru', 'ru'],
+        ['ja', 'ja'],
+        ['ko', 'ko'],
+        ['zh-Hans', 'zh'],
+        ['zh-Hant', 'zh-TW'],
+        ['he', 'he'],
+        ['tr', 'tr'],
+        ['ar', 'ar'],
+        ['vi', 'vi'],
+        ['pl', 'pl'],
+      ].map(([hreflang, hl]) => (
+        <link rel="alternate" hreflang={hreflang} href={`${canonical}${canonical.includes('?') ? '&' : '?'}hl=${hl}`} />
+      ))
+    }
     <link rel="alternate" hreflang="x-default" href={canonical} />
     <link
       rel="alternate"
@@ -113,6 +133,20 @@ const robotsContent = noindex
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={t.site.name} />
     <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="de_DE" />
+    <meta property="og:locale:alternate" content="fr_FR" />
+    <meta property="og:locale:alternate" content="es_ES" />
+    <meta property="og:locale:alternate" content="pt_BR" />
+    <meta property="og:locale:alternate" content="ru_RU" />
+    <meta property="og:locale:alternate" content="ja_JP" />
+    <meta property="og:locale:alternate" content="ko_KR" />
+    <meta property="og:locale:alternate" content="zh_CN" />
+    <meta property="og:locale:alternate" content="zh_TW" />
+    <meta property="og:locale:alternate" content="he_IL" />
+    <meta property="og:locale:alternate" content="tr_TR" />
+    <meta property="og:locale:alternate" content="ar_SA" />
+    <meta property="og:locale:alternate" content="vi_VN" />
+    <meta property="og:locale:alternate" content="pl_PL" />
 
     {
       ogType === 'article' && articlePublishedTime && (
@@ -135,21 +169,6 @@ const robotsContent = noindex
     {TWITTER_SITE && <meta name="twitter:site" content={TWITTER_SITE} />}
     {TWITTER_CREATOR && <meta name="twitter:creator" content={TWITTER_CREATOR} />}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600&display=optional"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Manrope:wght@400;500;600&display=optional"
-        rel="stylesheet"
-      />
-    </noscript>
-
     {jsonLd && <JsonLd data={jsonLd} />}
     <slot name="head" />
 
@@ -164,6 +183,8 @@ const robotsContent = noindex
     <Footer />
     <script>
       import '../scripts/site.ts';
+      import { initLocale } from '../scripts/apply-locale.ts';
+      initLocale();
     </script>
     {
       GA_MEASUREMENT_ID && (

@@ -1,36 +1,19 @@
 import { initSmoothScroll, smoothScrollTo } from './smooth-scroll';
 import { initSiteSearch } from './site-search';
 import { textMatches } from './search-match';
+import { navLinkIsActive } from '../utils/path';
 
 function initFonts() {
-  const root = document.documentElement;
-
-  const markReady = () => {
-    root.classList.remove('fonts-pending');
-    root.classList.add('fonts-ready');
-  };
-
-  if (!document.fonts?.ready) {
-    markReady();
-    return;
-  }
-
-  document.fonts.ready.then(markReady).catch(markReady);
+  document.documentElement.classList.remove('fonts-pending');
+  document.documentElement.classList.add('fonts-ready');
 }
 
 function initNavHighlight() {
-  const path = window.location.pathname.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
+  const path = window.location.pathname;
 
   document.querySelectorAll<HTMLAnchorElement>('[data-nav-link]').forEach((link) => {
     const href = link.getAttribute('href') ?? '';
-    const linkPath = href.replace(/\/index\.html$/, '').replace(/\/$/, '') || '/';
-    let isActive = false;
-
-    if (linkPath === '/') {
-      isActive = path === '/';
-    } else {
-      isActive = path === linkPath || path.startsWith(`${linkPath}/`);
-    }
+    const isActive = navLinkIsActive(path, href);
 
     link.classList.toggle('is-active', isActive);
     if (isActive) {
@@ -129,7 +112,7 @@ function initThemeMetaColor() {
   const update = () => {
     const isDark = document.documentElement.classList.contains('dark');
     document.documentElement.style.colorScheme = isDark ? 'dark' : 'light';
-    if (metaTheme) metaTheme.content = isDark ? '#7F3DEE' : '#f5f7fa';
+    if (metaTheme) metaTheme.content = isDark ? '#5B21B6' : '#f5f3ff';
   };
 
   update();

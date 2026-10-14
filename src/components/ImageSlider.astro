@@ -56,8 +56,8 @@ const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
             <ResponsiveImage
               src={img.src}
               alt={img.alt}
-              width={1920}
-              height={1080}
+              width={1024}
+              height={576}
               widths={imageWidths}
               loading={i === 0 ? 'eager' : 'lazy'}
               fetchPriority={isHero && i === 0 ? 'high' : undefined}

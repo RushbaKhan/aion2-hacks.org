@@ -25,7 +25,7 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
   description={seo.description}
   jsonLd={[
     collectionPageSchema({
-      name: 'The Isle Community Forum',
+      name: 'AION 2 Community Forum',
       description: seo.description,
       url: ROUTES.forum,
     }),
@@ -33,7 +33,7 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'The Isle Community Forum discussions',
+      name: 'AION 2 Community Forum discussions',
       numberOfItems: forumPosts.length,
       itemListElement: sorted.map((post, index) => ({
         '@type': 'ListItem',
@@ -50,11 +50,11 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
 
       <div class="forum-hero">
         <div>
-          <p class="section-header__eyebrow">The Isle community forum</p>
-          <h1>The Isle <span>Community Forum</span></h1>
+          <p class="section-header__eyebrow">AION 2 community forum</p>
+          <h1>AION 2 <span>Community Forum</span></h1>
           <p class="forum-hero__copy">
-            Practical answers on <a href={ROUTES.features}>ESP</a>, <a href="/the-isle-radar-features/">radar</a>,
-            <a href={ROUTES.status}>Easy Anti-Cheat patches</a>, and <a href={ROUTES.setup}>Windows PC setup</a>.
+            Practical answers on <a href={ROUTES.features}>ESP</a>, <a href="/radar/">radar</a>,
+            <a href={ROUTES.status}>compatibility patches</a>, and <a href={ROUTES.setup}>Windows PC setup</a>.
           </p>
         </div>
         <a class="forum-create" href={ROUTES.blog}>Explore the guides</a>

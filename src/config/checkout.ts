@@ -9,7 +9,7 @@ export type CheckoutProduct = keyof typeof CHECKOUT;
 
 /** URL slug for /go/[slug]/ checkout redirect pages. */
 export const CHECKOUT_SLUGS: Record<CheckoutProduct, string> = {
-  isle: 'go',
+  aion: 'go',
 };
 
 export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
@@ -17,16 +17,16 @@ export const CHECKOUT_SLUG_TO_PRODUCT = Object.fromEntries(
 ) as Record<string, CheckoutProduct>;
 
 /** Internal checkout path shown to users (hides external URL on hover). */
-export function checkoutPath(_product: CheckoutProduct = 'isle'): string {
+export function checkoutPath(_product: CheckoutProduct = 'aion'): string {
   return '/go/';
 }
 
 /** Default product checkout redirect. */
-export const PRIMARY_CHECKOUT_PATH = checkoutPath('isle');
+export const PRIMARY_CHECKOUT_PATH = checkoutPath('aion');
 
 /** Map internal product slugs to checkout redirect paths. */
 export function checkoutForSlug(_slug: string): string {
-  return checkoutPath('isle');
+  return checkoutPath('aion');
 }
 
 /** Resolve blog CTA or legacy href values to internal checkout paths. */
@@ -42,12 +42,12 @@ export function resolveCheckoutHref(href: string): string {
   }
 
   if (
-    href.includes('%2Fproducts%2Fthe-isle-novaxware') ||
-    href.includes('/products/the-isle-novaxware') ||
+    href.includes('%2Fproducts%2Faion-2') ||
+    href.includes('/products/aion-2') ||
     href.includes('%2Fproducts%2Fthe-isle') ||
     href.includes('/products/the-isle')
   ) {
-    return checkoutPath('isle');
+    return checkoutPath('aion');
   }
 
   return href;

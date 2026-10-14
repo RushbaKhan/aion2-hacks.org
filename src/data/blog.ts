@@ -2,6 +2,7 @@ export type { BlogBlock, BlogPostFull } from './blog/types';
 export { blogPosts } from './blog/posts';
 
 import { blogPosts } from './blog/posts';
+import { screenshotPalette } from './screenshots';
 
 export function getBlogPost(slug: string) {
   return blogPosts.find((p) => p.slug === slug);
@@ -24,15 +25,6 @@ export function getFeaturedBlogPosts(limit = 3) {
   const featured = getFeaturedBlogPost();
   const rest = blogPosts.filter((p) => p.slug !== featured?.slug);
   return featured ? [featured, ...rest].slice(0, limit) : blogPosts.slice(0, limit);
-}
-
-function screenshotPalette(src: string): string {
-  if (src.includes('beach')) return 'beach';
-  if (src.includes('forest-radar') || src.includes('player-esp')) return 'forest-lines';
-  if (src.includes('reeds') || src.includes('jungle')) return 'green-close';
-  if (src.includes('water')) return 'water';
-  if (src.includes('combat')) return 'combat';
-  return src;
 }
 
 function pickAlternatingPosts(pool: typeof blogPosts, limit: number) {

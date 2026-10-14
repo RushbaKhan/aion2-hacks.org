@@ -1,7 +1,6 @@
 ---
 import Icon from './icons/Icon.astro';
 import { forumPostPath, ROUTES } from '../utils/path';
-import { checkoutPath } from '../config/checkout';
 import {
   forumCategories,
   forumPosts,
@@ -23,10 +22,10 @@ const { related = [] } = Astro.props;
     <div class="forum-side-card__banner"></div>
     <div class="forum-about__content">
       <div class="forum-about__title">
-        <span class="forum-community-avatar forum-community-avatar--brand tone-purple">IH</span>
-        <h2>Isle Hacks Community</h2>
+        <span class="forum-community-avatar forum-community-avatar--brand tone-purple">A2</span>
+        <h2>AION 2 Cheats Community</h2>
       </div>
-      <p>A home for The Isle players reviewing ESP, radar, Easy Anti-Cheat notes, and plans before checkout.</p>
+      <p>A home for AION 2 players reviewing ESP, radar, compatibility notes, and plans before checkout.</p>
       <div class="forum-stats">
         <span><b>{forumPosts.length}</b> guide discussions</span>
         <span><i></i> <b>{forumCategories.length}</b> topics</span>
@@ -85,7 +84,7 @@ const { related = [] } = Astro.props;
     <h2 class="forum-side-heading">Community guidelines</h2>
     <ol>
       <li>Keep questions tied to listed ESP, radar, and plan features</li>
-      <li>Check the <a href={ROUTES.status}>status page</a> after Evrima or Easy Anti-Cheat updates</li>
+      <li>Check the <a href={ROUTES.status}>status page</a> after AION 2 updates</li>
       <li>Do not treat compatibility as a permanent label</li>
     </ol>
     <a href={ROUTES.about}>Read the full guidelines</a>
@@ -97,11 +96,11 @@ const { related = [] } = Astro.props;
     <a href={ROUTES.privacy}>Privacy</a> ·
     <a href={ROUTES.terms}>Terms</a>
     <br />
-    © {new Date().getFullYear()} Isle Hacks Community
+    © {new Date().getFullYear()} AION 2 Cheats Community
   </p>
 
   <p class="forum-static-note">
     Guide Q&amp;A only. Compare modules on the <a href={ROUTES.store}>store</a> and
-    <a href={checkoutPath('isle')}>checkout</a> path before you buy.
+    <a href={ROUTES.checkout}>checkout</a> path before you buy.
   </p>
 </aside>

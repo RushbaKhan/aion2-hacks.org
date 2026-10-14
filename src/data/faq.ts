@@ -28,55 +28,55 @@ function link(text: string, href: string): string {
   return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
 }
 
-const store = link('The Isle store', ROUTES.store);
+const store = link('AION 2 store', ROUTES.store);
 const features = link('features page', ROUTES.features);
 const status = link('status page', ROUTES.status);
 const setup = link('setup page', ROUTES.setup);
 const faqPage = link('full FAQ', ROUTES.faq);
-const blog = link('The Isle intel', ROUTES.blog);
+const blog = link('AION 2 guides', ROUTES.blog);
 const forum = link('community forum', ROUTES.forum);
 const preview = link('preview gallery', ROUTES.preview);
 const reviews = link('reviews checklist', ROUTES.reviews);
 const support = link('checkout', ROUTES.checkout);
-const playerEsp = link('player ESP guide', '/the-isle-player-esp/');
-const dinoEsp = link('dinosaur ESP guide', '/the-isle-dinosaur-esp/');
-const healthEsp = link('health ESP article', '/the-isle-health-esp/');
-const radarGuide = link('radar features', '/the-isle-radar-features/');
-const aimGuide = link('aim assistance notes', '/the-isle-aimbot/');
-const setupGuide = link('Windows PC setup guide', '/the-isle-hacks-pc-setup/');
-const eacGuide = link('Easy Anti-Cheat notes', '/the-isle-compatibility-eac/');
-const plansGuide = link('monthly vs lifetime', '/the-isle-monthly-vs-lifetime/');
-const evrimaGuide = link('Evrima overview', '/the-isle-hacks-evrima/');
-const termsGuide = link('ESP terminology', '/the-isle-esp-terminology/');
+const playerEsp = link('player ESP guide', '/esp/');
+const flightGuide = link('flight markers', '/flight/');
+const worldGuide = link('world markers', '/world/');
+const radarGuide = link('radar features', '/radar/');
+const aimGuide = link('soft aim notes', '/aim/');
+const setupGuide = link('Windows PC setup guide', '/pc/');
+const compatGuide = link('compatibility notes', '/compat/');
+const plansGuide = link('monthly vs lifetime', '/plans/');
+const cheatsGuide = link('AION 2 cheats overview', '/cheats/');
+const nodesGuide = link('gathering node ESP', '/nodes/');
 
 export const siteFaqs: SiteFaqItem[] = [
   {
     id: 'status',
     topic: 'setup',
     icon: 'faqStatus',
-    q: 'Where do I check if The Isle hacks are currently compatible?',
-    a: `Open the ${status} on islehacks.com before purchase or launch, especially after an Evrima or Easy Anti-Cheat update. The ${eacGuide} explain why patch days matter.`,
+    q: 'Where do I check if AION 2 cheats are currently compatible?',
+    a: `Open the ${status} on aion2cheats.org before purchase or launch, especially after an AION 2 client update. The ${compatGuide} explain why patch days matter.`,
   },
   {
     id: 'after-buy',
     topic: 'setup',
     icon: 'faqAfterBuy',
     q: 'What happens after I buy?',
-    a: `Checkout provides access and setup instructions. Follow those notes plus the ${setup} for Windows PC and the Evrima branch before launching The Isle. The ${setupGuide} covers a conservative first profile.`,
+    a: `Checkout provides access and setup instructions. Follow those notes plus the ${setup} for Windows PC and the Steam or PURPLE client before launching AION 2. The ${setupGuide} covers a conservative first profile.`,
   },
   {
     id: 'ban-risk',
     topic: 'safety',
     icon: 'faqBanRisk',
-    q: 'Can I get banned using third-party The Isle software?',
-    a: `Yes. Any third-party modification can conflict with Easy Anti-Cheat and may lead to account action. You use this software at your own risk. Read the ${eacGuide} and ${status} before you launch.`,
+    q: 'Can I get banned using third-party AION 2 software?',
+    a: `Yes. Any third-party modification can conflict with published anti-bot measures and may lead to account action. You use this software at your own risk. Read the ${compatGuide} and ${status} before you launch.`,
   },
   {
     id: 'platforms',
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
-    a: `The Isle on Windows 10/11 PC. The current listing is Evrima-only. macOS and Linux are not listed. Confirm the branch in the ${evrimaGuide} and ${setup}.`,
+    a: `AION 2 on Windows 10/11 PC through the global Steam or PURPLE client. macOS, Linux, and consoles are not listed. Confirm the client in the ${setupGuide} and ${setup}.`,
   },
   {
     id: 'plans',
@@ -96,79 +96,79 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
-    q: 'What is The Isle ESP?',
-    a: `ESP is an information overlay. ${features} covers player ESP, dinosaur ESP, health ESP, and resource markers. It does not automatically aim or move your dinosaur. ${termsGuide} defines each overlay in plain language.`,
-    scopes: ['the-isle-hacks'],
+    q: 'What is AION 2 ESP?',
+    a: `ESP is an information overlay. ${features} covers player ESP, flight markers, world markers, and gathering nodes. It does not automatically aim or move your character. ${cheatsGuide} maps each overlay group.`,
+    scopes: ['aion-2'],
   },
   {
     id: 'player-esp',
     topic: 'esp',
     icon: 'faqEspVsScripts',
     q: 'What does player ESP show?',
-    a: `Player ESP can show nearby survivors with box outlines, names, distance, direction, a head dot, snaplines, and a visible-check option when those toggles are included in the current build. See the ${playerEsp} and ${preview}.`,
+    a: `Player ESP can show nearby Daevas with box outlines, nameplates, faction, class, level, distance, flying state, and off-screen arrows when those toggles are included in the current build. See the ${playerEsp} and ${preview}.`,
   },
   {
-    id: 'dinosaur-esp',
+    id: 'flight-esp',
     topic: 'esp',
     icon: 'faqWhichTierEsp',
-    q: 'What does dinosaur ESP show?',
-    a: `Dinosaur ESP and animal ESP can mark species, growth, stamina, distance, NPCs, and corpses so you can tell a threat from a food source. The ${dinoEsp} explains how it pairs with player ESP.`,
+    q: 'What do flight markers show?',
+    a: `Flight options can mark aerial targets, altitude, wing or glide state, and sky contested zones. The ${flightGuide} explains how they pair with player ESP.`,
   },
   {
-    id: 'health-esp',
+    id: 'world-esp',
     topic: 'esp',
     icon: 'faqZoomHack',
-    q: 'What is health ESP?',
-    a: `Health ESP adds health, stamina, and growth readouts when the current build includes those fields. Use it to judge whether a fight is worth taking. Details are in the ${healthEsp}.`,
+    q: 'What are world and node markers?',
+    a: `World overlays can mark NPCs, elites, bosses, quests, and portals. ${nodesGuide} covers ore, herb, and chest labels. ${worldGuide} covers PvE markers.`,
   },
   {
     id: 'radar',
     topic: 'esp',
     icon: 'faqStreamProof',
-    q: 'Does Isle Hacks include radar?',
-    a: `Yes. Radar is listed as a local awareness overlay for nearby players and dinosaurs. It is not described as a separate 2D or 3D product. ${radarGuide} covers when to pair it with ESP.`,
+    q: 'Does AION 2 Cheats include radar?',
+    a: `Yes. 2D radar is listed as a local awareness overlay for nearby players, bosses, and nodes. ${radarGuide} covers when to pair it with ESP.`,
   },
   {
     id: 'aim-assist',
     topic: 'aim',
     icon: 'faqWhichTierScripts',
-    q: 'Is aimbot or aim assistance included?',
-    a: `Aim assistance is listed. Silent aim and triggerbot are not listed, so this site does not claim them. Confirm the ${status} before enabling combat modules, and read the ${aimGuide}.`,
+    q: 'Is aimbot or soft aim included?',
+    a: `Soft aim is listed. Farming bots and skill-rotation automation are not listed, so this site does not claim them. Confirm the ${status} before enabling combat modules, and read the ${aimGuide}.`,
   },
   {
     id: 'undetected',
     topic: 'safety',
     icon: 'faqUndetected',
-    q: 'Are The Isle hacks guaranteed undetected?',
-    a: `No. This site does not promise permanent undetected status. The Isle uses Easy Anti-Cheat, and compatibility can change after a patch. Check the ${status} and stop if a build is marked unavailable.`,
+    q: 'Are AION 2 cheats guaranteed undetected?',
+    a: `No. This site does not promise permanent undetected status. Compatibility can change after a patch. Check the ${status} and stop if a build is marked unavailable.`,
   },
   {
-    id: 'eac',
+    id: 'anticheat',
     topic: 'safety',
     icon: 'faqVacUpdate',
-    q: 'What anti-cheat does The Isle use?',
-    a: `The Isle Evrima launches through Easy Anti-Cheat (EAC). After an Evrima patch, treat compatibility as unknown until you re-check the ${status}. Official game support material describes EAC as the launch path.`,
+    q: 'What anti-cheat does AION 2 use?',
+    a: `NC has published anti-bot measures for AION 2, including VPN blocks, reporting, and hardware-based restrictions. A named Western anti-cheat brand is not treated here as a verified public label. After a patch, re-check the ${status}.`,
   },
   {
     id: 'dma',
     topic: 'setup',
     icon: 'faqExternalLoader',
     q: 'Is Cloud DMA required?',
-    a: `The current vendor listing says Cloud DMA is required for full functionality, and notes HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes at checkout and on the ${setup} before you buy.`,
+    a: `The current vendor listing notes Cloud DMA and an AWS option, plus HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes at checkout and on the ${setup} before you buy.`,
   },
   {
-    id: 'evrima-only',
+    id: 'steam-purple',
     topic: 'setup',
     icon: 'faqPlatforms',
-    q: 'Does this work on Legacy The Isle?',
-    a: `The current listing is Evrima-only. Do not assume a key or build for Evrima will work on a Legacy installation. The ${evrimaGuide} repeats that branch check.`,
+    q: 'Does this work on Steam and PURPLE?',
+    a: `The current listing is the global Windows PC client. Steam and PURPLE share global content when accounts are linked. Confirm the client in the ${setupGuide}.`,
   },
   {
     id: 'monthly-vs-lifetime',
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'How do I choose monthly vs lifetime?',
-    a: `Choose monthly if you want to evaluate The Isle hacks for 30 days. Choose lifetime if you already know you want longer access. Feature lists are the same; only duration and price change. See ${store} and ${plansGuide}. The ${reviews} lists evaluation checkpoints without invented quotes.`,
+    a: `Choose monthly if you want to evaluate AION 2 cheats for 30 days. Choose lifetime if you already know you want longer access. Feature lists are the same; only duration and price change. See ${store} and ${plansGuide}. The ${reviews} lists evaluation checkpoints without invented quotes.`,
   },
   {
     id: 'blog-vs-product',
@@ -189,14 +189,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'setup',
     icon: 'faqDiscordHelp',
     q: 'How do I get install help?',
-    a: `Open a request on the ${support} with your order email, Windows version, The Isle branch, and the exact error text from the loader or Easy Anti-Cheat.`,
+    a: `Open a request on the ${support} with your order email, Windows version, Steam or PURPLE, and the exact error text from the loader or AION 2 client.`,
   },
   {
     id: 'invented-features',
     topic: 'aim',
     icon: 'faqAutoFarm',
-    q: 'Do you include silent aim, triggerbot, or skeleton ESP?',
-    a: `Those modules are not on the current product listing, so Isle Hacks does not advertise them. Compare the ${features} and ${store} lists instead of third-party screenshots.`,
+    q: 'Do you include farming bots or quest automation?',
+    a: `Those modules are not on the current product listing, so AION 2 Cheats does not advertise them. Compare the ${features} and ${store} lists instead of third-party screenshots.`,
   },
   {
     id: 'faq-more',
@@ -220,7 +220,7 @@ export function getAllFaqs(): SiteFaqItem[] {
 export const SITE_FAQ_SECTION_COPY = {
   eyebrow: 'All topics',
   title: 'Browse by category',
-  subtitle: 'Filter plans, ESP, aim assistance, safety, setup, and blog answers.',
+  subtitle: 'Filter plans, ESP, soft aim, safety, setup, and blog answers.',
 } as const;
 
 export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = [
@@ -275,7 +275,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideStatus',
       q: 'Is this guide still valid after a patch?',
-      a: `Check the article date and the ${status}. Evrima updates can change what a build can do. The ${eacGuide} cover that patch-day habit.`,
+      a: `Check the article date and the ${status}. AION 2 updates can change what a build can do. The ${compatGuide} cover that patch-day habit.`,
     },
   ],
   Setup: [
@@ -290,7 +290,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       id: 'blog-setup-lobby',
       topic: 'blog',
       icon: 'faqBlogSetupLobby',
-      q: 'Should I test settings before a live hunt?',
+      q: 'Should I test settings before a live session?',
       a: a('Yes. Enable a conservative ESP and radar profile first. Add combat options only after you confirm status.'),
     },
   ],
@@ -300,15 +300,15 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideTier',
       q: 'Which features are actually listed?',
-      a: `Player ESP, dinosaur ESP, health information, resource markers, radar, and aim assistance. See the ${features} for the full listed set, or the ${preview} for screenshots.`,
+      a: `Player ESP, soft aim, flight markers, gathering nodes, world markers, radar, and configuration options. See the ${features} for the full listed set, or the ${preview} for screenshots.`,
     },
   ],
   Updates: [
     {
-      id: 'blog-sec-eac',
+      id: 'blog-sec-compat',
       topic: 'blog',
       icon: 'faqBlogSecVac',
-      q: 'Does this article guarantee Easy Anti-Cheat compatibility?',
+      q: 'Does this article guarantee anti-cheat compatibility?',
       a: a('No article replaces the status page. Compatibility is a point-in-time note—stop if status shows the build is unavailable.'),
     },
   ],
@@ -327,14 +327,14 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault2',
     q: 'Need help applying this guide?',
-    a: a(`Continue through ${support} with your order email and the article slug. Include your Windows version and The Isle branch.`),
+    a: a(`Continue through ${support} with your order email and the article slug. Include your Windows version and Steam or PURPLE.`),
   },
   {
     id: 'blog-default-3',
     topic: 'blog',
     icon: 'faqBlogDefault3',
     q: 'Will settings in this article work next patch?',
-    a: a('Re-check status after every Evrima update. Reload configs instead of assuming old sliders still apply.'),
+    a: a('Re-check status after every AION 2 update. Reload configs instead of assuming old sliders still apply.'),
   },
 ];
 
@@ -342,31 +342,31 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
   const topicFaqs = blogTopicFaqs[tag] ?? [];
   const slugHints: SiteFaqItem[] = [];
 
-  if (slug.includes('esp') || slug.includes('radar') || slug.includes('terminology')) {
+  if (['esp', 'radar', 'flight', 'nodes', 'world', 'cheats'].includes(slug)) {
     slugHints.push({
       id: 'blog-slug-esp',
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
       q: 'Where is the current ESP feature list?',
-      a: `${features} and ${store} list player ESP, dinosaur ESP, health ESP, and radar from the current product listing.`,
+      a: `${features} and ${store} list player ESP, flight markers, nodes, world markers, and radar from the current product listing.`,
     });
   }
-  if (slug.includes('aimbot') || slug.includes('aim')) {
+  if (slug === 'aim') {
     slugHints.push({
       id: 'blog-slug-aim',
       topic: 'aim',
       icon: 'faqBlogSlugScripts',
-      q: 'Is aim assistance required?',
-      a: a('No. Aim assistance is optional. You can review ESP and radar without enabling combat modules.'),
+      q: 'Is soft aim required?',
+      a: a('No. Soft aim is optional. You can review ESP and radar without enabling combat modules.'),
     });
   }
-  if (slug.includes('eac') || slug.includes('compat') || slug.includes('setup')) {
+  if (slug === 'compat' || slug === 'pc') {
     slugHints.push({
       id: 'blog-slug-status',
       topic: 'setup',
       icon: 'faqBlogSlugHwid',
       q: 'Does this article replace the status page?',
-      a: `No. Use the ${status} page for current compatibility notes after an Evrima or Easy Anti-Cheat update.`,
+      a: `No. Use the ${status} page for current compatibility notes after an AION 2 update.`,
     });
   }
 
@@ -375,10 +375,10 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
 
 export const compareRows = [
   { feature: 'Player ESP', icon: 'comparePlayerEsp' as const, monthly: true, lifetime: true },
-  { feature: 'Dinosaur ESP', icon: 'compareWardLocator' as const, monthly: true, lifetime: true },
-  { feature: 'Health ESP', icon: 'compareRuneTimer' as const, monthly: true, lifetime: true },
+  { feature: 'Flight markers', icon: 'compareWardLocator' as const, monthly: true, lifetime: true },
+  { feature: 'Gathering nodes', icon: 'compareRuneTimer' as const, monthly: true, lifetime: true },
   { feature: 'Radar', icon: 'compareMinimapHack' as const, monthly: true, lifetime: true },
-  { feature: 'Aim assistance', icon: 'compareAutoCombo' as const, monthly: true, lifetime: true },
-  { feature: 'Resource markers', icon: 'compareAbilityRadius' as const, monthly: true, lifetime: true },
+  { feature: 'Soft aim', icon: 'compareAutoCombo' as const, monthly: true, lifetime: true },
+  { feature: 'World / boss markers', icon: 'compareAbilityRadius' as const, monthly: true, lifetime: true },
   { feature: 'Saveable configs', icon: 'compareCloudBackup' as const, monthly: true, lifetime: true },
 ];
