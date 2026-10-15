@@ -1,0 +1,47 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getProductPage } from '../data/products';
+import { EXTRA_SHOTS } from '../data/screenshots';
+import { resolvePageSeo } from '../config/seo';
+import { breadcrumbSchema, productSchema } from '../utils/schema';
+import ProductDetail from '../components/ProductDetail.astro';
+import { displayImageType, webpSrc } from '../utils/responsiveImage';
+import { ROUTES } from '../utils/path';
+
+const seo = resolvePageSeo('/hwid/');
+const product = getProductPage('hwid')!;
+const breadcrumbs = [
+  { name: 'Home', path: '/' },
+  { name: 'Store', path: ROUTES.store },
+  { name: 'HWID Spoofer', path: ROUTES.hwid },
+];
+const heroShot = EXTRA_SHOTS.hwid;
+---
+
+<BaseLayout
+  title={seo.title}
+  description={seo.description}
+  ogImage={heroShot.src}
+  ogImageAlt={heroShot.alt}
+  jsonLd={[
+    productSchema({
+      name: product.title,
+      description: product.desc,
+      url: ROUTES.hwid,
+      offerUrl: product.buyUrl,
+      image: product.images[0]?.src,
+      sku: product.slug,
+    }),
+    breadcrumbSchema(breadcrumbs),
+  ]}
+>
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href={webpSrc(heroShot.src, 400)}
+    type={displayImageType()}
+    fetchpriority="high"
+  />
+  <ProductDetail product={product} breadcrumbs={breadcrumbs} />
+</BaseLayout>

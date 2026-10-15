@@ -35,8 +35,8 @@ html:not(.dark) .workflow-section {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  text-align: left;
+  align-items: center;
+  text-align: center;
 }
 
 .workflow-section__badge {
@@ -61,7 +61,7 @@ html:not(.dark) .workflow-section {
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
   gap: 0.75rem;
   margin-top: 1.75rem;
 }
@@ -76,16 +76,6 @@ html:not(.dark) .workflow-section {
   flex-shrink: 0;
 }
 
-@media (min-width: 1024px) {
-  .workflow-section__lead {
-    align-items: center;
-    text-align: center;
-  }
-
-  .workflow-section__cta-row {
-    justify-content: center;
-  }
-}
 
 /*
  * Arc + steps share one box (920 viewBox height).

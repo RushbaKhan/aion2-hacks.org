@@ -1,12 +1,12 @@
 ---
-import '../../styles/product-cheat-page.css';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { productHub, productPages } from '../../data/products';
+import { productHub, productPages, utilityPages } from '../../data/products';
 import { screenshotByRank } from '../../data/screenshots';
 import { resolvePageSeo } from '../../config/seo';
-import { breadcrumbSchema, productSchema } from '../../utils/schema';
+import { breadcrumbSchema, itemListSchema, productSchema } from '../../utils/schema';
+import { productPath } from '../../utils/path';
 import ProductDetail from '../../components/ProductDetail.astro';
-import { webpSrc } from '../../utils/responsiveImage';
+import { displayImageType, webpSrc } from '../../utils/responsiveImage';
 
 const seo = resolvePageSeo('/store/');
 const product = productPages[0]!;
@@ -31,6 +31,10 @@ const heroShot = screenshotByRank(0);
       image: product.images[0]?.src,
       sku: product.slug,
     }),
+    itemListSchema([
+      { name: product.title, url: productHub.path },
+      ...utilityPages.map((item) => ({ name: item.title, url: productPath(item.slug) })),
+    ]),
     breadcrumbSchema(breadcrumbs),
   ]}
 >
@@ -39,17 +43,7 @@ const heroShot = screenshotByRank(0);
     rel="preload"
     as="image"
     href={webpSrc(heroShot.src, 400)}
-    type="image/webp"
-    media="(max-width: 1023px)"
-    fetchpriority="high"
-  />
-  <link
-    slot="head"
-    rel="preload"
-    as="image"
-    href={webpSrc(heroShot.src, 640)}
-    type="image/webp"
-    media="(min-width: 1024px)"
+    type={displayImageType()}
     fetchpriority="high"
   />
   <ProductDetail product={product} breadcrumbs={breadcrumbs} />

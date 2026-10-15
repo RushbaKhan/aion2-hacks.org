@@ -1,6 +1,6 @@
 import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
-const CANONICAL_HOST = 'aion2cheats.org';
+const CANONICAL_HOST = 'overwatchcheat.com';
 const FILE_ASSETS = new Set([
   '/sitemap.xml',
   '/sitemap-index.xml',
@@ -18,7 +18,7 @@ const XML_FILES = new Set(['/sitemap.xml', '/sitemap-index.xml', '/sitemap-0.xml
 const FALLBACK_SITEMAP = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://aion2cheats.org/</loc>
+    <loc>https://overwatchcheat.com/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -27,7 +27,9 @@ const FALLBACK_SITEMAP = `<?xml version="1.0" encoding="UTF-8"?>
 const COVER_PATHS = new Set([
   '/opengraph.jpg',
   '/og.jpg',
-  '/images/gameplay/aion2-lab-combat.jpg',
+  '/images/gameplay/ow2.jpg',
+  '/images/gameplay/overwatch-aim.jpg',
+  '/images/gameplay/ow-lab-combat.jpg',
 ]);
 const COVER_ASSET = '/opengraph.jpg';
 
@@ -90,7 +92,7 @@ async function serveExactAsset(env, request, pathname, contentType) {
 
   if (pathname === '/robots.txt') {
     return xmlResponse(
-      'User-agent: *\nAllow: /\nSitemap: https://aion2cheats.org/sitemap.xml\n',
+      'User-agent: *\nAllow: /\nSitemap: https://overwatchcheat.com/sitemap.xml\n',
       request.method,
       'text/plain; charset=utf-8',
     );

@@ -20,11 +20,15 @@ function walk(dir) {
       walk(full);
       continue;
     }
-    if (!/\.png$/i.test(entry.name)) continue;
+    const keepOriginal = /[\\/](?:gameplay|extras)[\\/]/i.test(full);
+    const dropWide = /-(?:512|1280|1920|2560|3840)\.webp$/i.test(entry.name);
+    const dropDota = /dota-2/i.test(entry.name);
+    const dropSourceRaster =
+      !keepOriginal && /\.(?:png|jpe?g)$/i.test(entry.name) && !/^og\./i.test(entry.name);
+    if (!dropWide && !dropDota && !dropSourceRaster) continue;
     if (/^og\.(?:jpg|jpeg|png)$/i.test(entry.name)) continue;
-    // Keep brand/favicon-sized assets if any land under images; gameplay/blog sources go.
     const stat = fs.statSync(full);
-    if (stat.size < 80_000) continue;
+    if (dropSourceRaster && !dropDota && stat.size < 30_000) continue;
     bytes += stat.size;
     fs.unlinkSync(full);
     removed += 1;
@@ -35,15 +39,6 @@ for (const dir of imageRoots) {
   if (!fs.existsSync(dir)) continue;
   walk(dir);
   prunedFrom.push(path.relative(process.cwd(), dir).replaceAll('\\', '/'));
-}
-
-const cover = path.resolve('public/opengraph.jpg');
-if (fs.existsSync(cover)) {
-  for (const dir of imageRoots) {
-    const destDir = path.join(dir, 'gameplay');
-    if (!fs.existsSync(destDir)) continue;
-    fs.copyFileSync(cover, path.join(destDir, 'aion2-lab-combat.jpg'));
-  }
 }
 
 const label = prunedFrom.length > 0 ? prunedFrom.join(', ') : 'dist/images';

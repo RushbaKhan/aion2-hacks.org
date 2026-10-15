@@ -1,18 +1,38 @@
 ---
 import { t } from '../i18n';
-import { SITE_URL } from '../config/site';
+import { DISCORD_INVITE, SITE_URL } from '../config/site';
+import { isExternalHref } from '../utils/path';
 import { Separator } from '@/components/starwind/separator';
 
 const shareUrl = encodeURIComponent(`${SITE_URL}/`);
 const resourceLinks = [
-  { href: '/blog/', label: 'AION 2 guides', ariaLabel: 'AION 2 guides' },
+  { href: '/blog/', label: 'Overwatch guides', ariaLabel: 'Overwatch guides' },
   { href: '/esp/', label: 'Player ESP guide', ariaLabel: 'Player ESP guide' },
+  { href: '/aim/', label: 'Overwatch aimbot', ariaLabel: 'Overwatch aimbot' },
   { href: '/radar/', label: 'Radar features', ariaLabel: 'Radar features' },
-  { href: '/preview/', label: 'Overlay preview', ariaLabel: 'Overlay preview' },
-  { href: '/setup/', label: 'Windows PC setup', ariaLabel: 'Windows PC setup' },
-  { href: '/reviews/', label: 'Buyer checklist', ariaLabel: 'Buyer checklist' },
-  { href: '/forum/', label: 'Community forum', ariaLabel: 'Community forum' },
-  { href: '/go/', label: t.footer.support },
+  { href: '/ac/', label: 'Overwatch anti cheat', ariaLabel: 'Overwatch anti cheat' },
+  { href: '/ow2/', label: 'When did Overwatch 2 come out', ariaLabel: 'When did Overwatch 2 come out' },
+  { href: '/cross/', label: 'Is Overwatch 2 cross platform', ariaLabel: 'Is Overwatch 2 cross platform' },
+  { href: '/dma/', label: 'Cloud DMA', ariaLabel: 'Cloud DMA' },
+  { href: '/hwid/', label: 'HWID Spoofer', ariaLabel: 'HWID Spoofer' },
+  { href: '/forum/', label: 'Overwatch reddit vs this forum', ariaLabel: 'Community forum' },
+  { href: '/blizzard/', label: 'OW and Blizzard naming', ariaLabel: 'OW, .ow, and Blizzard' },
+  { href: DISCORD_INVITE, label: t.footer.support },
+];
+
+const popularSearches = [
+  { href: '/', label: 'Overwatch' },
+  { href: '/ow2/', label: 'Overwatch 2' },
+  { href: '/blizzard/', label: 'OW' },
+  { href: '/heroes/', label: 'Overwatch characters' },
+  { href: '/patch/', label: 'Overwatch patch notes' },
+  { href: '/ranks/', label: 'Overwatch ranks' },
+  { href: '/juno/', label: 'Juno Overwatch' },
+  { href: '/dva/', label: 'D.Va Overwatch' },
+  { href: '/heroes/', label: 'Blizzard Overwatch heroes' },
+  { href: '/skins/', label: 'Overwatch 2 skins' },
+  { href: '/tier/', label: 'Overwatch 2 tier list' },
+  { href: '/ow2/', label: 'Overwatch 2 download' },
 ];
 
 const legalLinks = [
@@ -26,8 +46,8 @@ const legalLinks = [
   <div class="mx-auto max-w-6xl px-5">
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-4">
-        <a href="/" class="inline-flex items-center font-[family-name:var(--font-heading)] text-lg font-bold" aria-label={t.ui.homeAria}>
-          <span aria-hidden="true">AION 2<span class="text-primary">Cheats</span></span>
+        <a href="/" class="inline-flex items-center font-[family-name:var(--font-heading)] text-lg font-bold">
+          <span>Overwatch<span class="text-primary">Cheats</span></span>
         </a>
         <p class="text-sm text-muted-foreground">{t.footer.tagline}</p>
       </div>
@@ -40,7 +60,6 @@ const legalLinks = [
               <a
                 href={link.href}
                 class="inline-flex min-h-12 items-center text-sm text-muted-foreground hover:text-primary"
-                aria-label={link.ariaLabel}
                 {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
               >
                 {link.label}
@@ -55,7 +74,11 @@ const legalLinks = [
         <ul class="mt-3 space-y-2">
           {resourceLinks.map((link) => (
             <li>
-              <a href={link.href} class="inline-flex min-h-12 items-center text-sm text-muted-foreground hover:text-primary" aria-label={link.ariaLabel}>
+              <a
+                href={link.href}
+                class="inline-flex min-h-12 items-center text-sm text-muted-foreground hover:text-primary"
+                {...(isExternalHref(link.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+              >
                 {link.label}
               </a>
             </li>
@@ -73,10 +96,10 @@ const legalLinks = [
           ))}
           <li>
             <a
-              href="https://store.steampowered.com/app/3393110/AION_2/"
+              href="https://store.steampowered.com/app/2357570/Overwatch_2/"
               class="inline-flex min-h-12 items-center text-sm text-muted-foreground hover:text-primary"
             >
-              AION 2 on Steam
+              Overwatch 2 on Steam
             </a>
           </li>
         </ul>
@@ -84,14 +107,26 @@ const legalLinks = [
     </div>
 
     <Separator class="my-8" />
+    <nav aria-label="Popular Overwatch searches" class="mb-8">
+      <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Popular Overwatch searches</p>
+      <ul class="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+        {popularSearches.map((link) => (
+          <li>
+            <a href={link.href} class="inline-flex min-h-12 items-center text-sm text-muted-foreground hover:text-primary">
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
     <div class="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
       <p class="text-left text-sm text-muted-foreground">
         &copy; {new Date().getFullYear()} {t.site.name} · {t.site.domain}
       </p>
-      <nav aria-label="Share AION 2 Cheats" class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
+      <nav aria-label="Share Overwatch Cheat" class="flex flex-wrap gap-x-4 gap-y-2 text-sm">
         <a
           class="inline-flex min-h-12 items-center text-muted-foreground hover:text-primary"
-          href={`https://x.com/intent/post?url=${shareUrl}&text=${encodeURIComponent('AION 2 Cheats')}`}
+          href={`https://x.com/intent/post?url=${shareUrl}&text=${encodeURIComponent('Overwatch Cheat')}`}
         >
           Share on X
         </a>

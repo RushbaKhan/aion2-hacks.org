@@ -1,4 +1,4 @@
-import { PRODUCT_BASE } from '../config/site';
+import { DISCORD_INVITE, PRODUCT_BASE } from '../config/site';
 
 /** Normalize internal paths to match trailingSlash: 'always' and canonical URLs. */
 export function withTrailingSlash(path: string): string {
@@ -27,16 +27,22 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/cheats/elite/': PRODUCT_BASE,
   '/cheats/compare': '/features/',
   '/cheats/compare/': '/features/',
-  '/contact': '/go/',
-  '/contact/': '/go/',
-  '/support': '/go/',
-  '/support/': '/go/',
+  '/contact': DISCORD_INVITE,
+  '/contact/': DISCORD_INVITE,
+  '/support': DISCORD_INVITE,
+  '/support/': DISCORD_INVITE,
   '/products/dota-2-cheats': PRODUCT_BASE,
   '/products/dota-2-cheats/': PRODUCT_BASE,
   '/products/the-isle-hacks': PRODUCT_BASE,
   '/products/the-isle-hacks/': PRODUCT_BASE,
   '/products/aion-2': PRODUCT_BASE,
   '/products/aion-2/': PRODUCT_BASE,
+  '/products/overwatch': PRODUCT_BASE,
+  '/products/overwatch/': PRODUCT_BASE,
+  '/products/cloud-dma': '/dma/',
+  '/products/cloud-dma/': '/dma/',
+  '/products/hwid-spoofer': '/hwid/',
+  '/products/hwid-spoofer/': '/hwid/',
   '/blog/features': '/intel/',
   '/blog/features/': '/intel/',
   '/blog/guides': '/guides/',
@@ -55,12 +61,36 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/go/aion-2/lifetime/': '/go/',
   '/go/dota-2': '/go/',
   '/go/dota-2/': '/go/',
+  '/go/overwatch': '/go/',
+  '/go/overwatch/': '/go/',
+  '/flight': '/hero/',
+  '/flight/': '/hero/',
+  '/nodes': '/obj/',
+  '/nodes/': '/obj/',
+  '/world': '/obj/',
+  '/world/': '/obj/',
+  '/compat': '/ac/',
+  '/compat/': '/ac/',
+  '/classes': '/heroes/',
+  '/classes/': '/heroes/',
+  '/guide': '/cheats/',
+  '/guide/': '/cheats/',
+  '/release': '/ow2/',
+  '/release/': '/ow2/',
+  '/na': '/cross/',
+  '/na/': '/cross/',
+  '/q-flight': '/q-hero/',
+  '/q-flight/': '/q-hero/',
+  '/q-nodes': '/q-obj/',
+  '/q-nodes/': '/q-obj/',
+  '/q-compat': '/q-ac/',
+  '/q-compat/': '/q-ac/',
   '/the-isle-hacks-evrima': '/cheats/',
   '/the-isle-hacks-evrima/': '/cheats/',
   '/the-isle-player-esp': '/esp/',
   '/the-isle-player-esp/': '/esp/',
-  '/the-isle-dinosaur-esp': '/world/',
-  '/the-isle-dinosaur-esp/': '/world/',
+  '/the-isle-dinosaur-esp': '/obj/',
+  '/the-isle-dinosaur-esp/': '/obj/',
   '/the-isle-health-esp': '/esp/',
   '/the-isle-health-esp/': '/esp/',
   '/the-isle-aimbot': '/aim/',
@@ -71,8 +101,8 @@ export const LEGACY_PATH_MAP: Record<string, string> = {
   '/the-isle-radar-features/': '/radar/',
   '/the-isle-esp-terminology': '/esp/',
   '/the-isle-esp-terminology/': '/esp/',
-  '/the-isle-compatibility-eac': '/compat/',
-  '/the-isle-compatibility-eac/': '/compat/',
+  '/the-isle-compatibility-eac': '/ac/',
+  '/the-isle-compatibility-eac/': '/ac/',
   '/the-isle-monthly-vs-lifetime': '/plans/',
   '/the-isle-monthly-vs-lifetime/': '/plans/',
 };
@@ -114,6 +144,8 @@ export const ROUTES = {
   home: '/',
   features: '/features/',
   store: '/store/',
+  dma: '/dma/',
+  hwid: '/hwid/',
   status: '/status/',
   preview: '/preview/',
   setup: '/setup/',
@@ -126,7 +158,7 @@ export const ROUTES = {
   faq: '/faq/',
   terms: '/terms/',
   about: '/about/',
-  support: '/go/',
+  support: DISCORD_INVITE,
   privacy: '/privacy/',
   intel: '/intel/',
   guides: '/guides/',
@@ -158,7 +190,9 @@ export function cheatPath(slug: string): string {
   return productPath(slug);
 }
 
-export function productPath(_slug?: string): string {
+export function productPath(slug?: string): string {
+  if (slug === 'dma') return ROUTES.dma;
+  if (slug === 'hwid') return ROUTES.hwid;
   return PRODUCT_BASE;
 }
 
@@ -171,13 +205,31 @@ const BLOG_SECTION_PATHS = new Set([
   '/cheats',
   '/esp',
   '/aim',
-  '/flight',
   '/radar',
+  '/hero',
+  '/obj',
+  '/pc',
+  '/ac',
+  '/plans',
+  '/ow2',
+  '/heroes',
+  '/ranks',
+  '/patch',
+  '/skins',
+  '/dva',
+  '/juno',
+  '/tier',
+  '/cross',
+  '/reddit',
+  '/blizzard',
+  '/vendetta',
+  '/domina',
+  '/mizuki',
+  '/art',
+  '/flight',
   '/nodes',
   '/world',
-  '/pc',
   '/compat',
-  '/plans',
   '/classes',
   '/guide',
   '/release',
@@ -196,15 +248,15 @@ export function activeNavHref(pathname: string): string {
   if (path === '/features' || path === '/status' || path === '/preview' || path === '/setup') {
     return ROUTES.features;
   }
-  if (path === '/store' || path === '/products' || path.startsWith('/products/')) {
+  if (path === '/store' || path === '/dma' || path === '/hwid' || path === '/products' || path.startsWith('/products/')) {
     return ROUTES.store;
   }
   if (path === '/forum' || path.startsWith('/forum/') || path.startsWith('/q-')) {
     return ROUTES.forum;
   }
   if (path === '/faq') return ROUTES.faq;
-  if (path === '/go' || path.startsWith('/go/') || path === '/support' || path === '/contact') {
-    return ROUTES.support;
+  if (path === '/go' || path.startsWith('/go/')) {
+    return ROUTES.store;
   }
   if (BLOG_SECTION_PATHS.has(path) || path.startsWith('/blog/')) {
     return ROUTES.blog;
@@ -219,9 +271,17 @@ export function navLinkIsActive(pathname: string, href: string) {
   return stripPath(href) === stripPath(current);
 }
 
-/** Render `[label](/path/)` as an internal HTML link. */
+export function isExternalHref(href: string): boolean {
+  return href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:');
+}
+
+/** Render `[label](/path/)` as an HTML link. */
 export function linkifyMarkdown(text: string): string {
   return text.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (_match, label: string, href: string) => {
-    return `<a href="${normalizeInternalPath(href)}">${label}</a>`;
+    const url = normalizeInternalPath(href);
+    if (isExternalHref(url)) {
+      return `<a href="${url}" target="_blank" rel="noopener noreferrer">${label}</a>`;
+    }
+    return `<a href="${url}">${label}</a>`;
   });
 }

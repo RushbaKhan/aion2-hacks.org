@@ -23,6 +23,7 @@ interface Props {
   variant?: 'essential' | 'popular' | 'limited';
   buyLabel?: string;
   viewLabel?: string;
+  desc?: string;
   maxFeatures?: number;
   class?: string;
 }
@@ -39,6 +40,7 @@ const {
   variant,
   buyLabel = 'Buy now',
   viewLabel = 'View details',
+  desc,
   maxFeatures = 10,
   class: className,
 } = Astro.props;
@@ -92,6 +94,7 @@ const statusBadgeIcon = (text: string): IconName => {
     </div>
   </CardHeader>
   <CardContent class="flex-1">
+    {desc && <p class="mb-3 text-sm leading-relaxed text-muted-foreground">{desc}</p>}
     <ul class="space-y-2 text-sm text-muted-foreground">
       {displayFeatures.map((feature) => (
         <li class="flex items-start gap-2">

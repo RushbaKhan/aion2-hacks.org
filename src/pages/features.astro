@@ -30,14 +30,15 @@ const breadcrumbs = [
   <section class="border-b border-border bg-muted/10 py-8 md:py-12">
     <div class="mx-auto max-w-6xl px-5">
       <Breadcrumbs items={breadcrumbs} />
-      <h1 class="mt-6 text-3xl font-bold uppercase tracking-tight md:text-4xl">AION 2 Features</h1>
-      <p class="mt-4 max-w-3xl text-sm leading-relaxed text-muted-foreground">
-        This page lists AION 2 modules from the current product listing. Compare plans on the
+      <header class="mx-auto mt-6 max-w-3xl text-center">
+      <h1 class="text-3xl font-bold uppercase tracking-tight md:text-4xl">Overwatch Features</h1>
+      <p class="mt-4 text-sm leading-relaxed text-muted-foreground">
+        This page lists Overwatch modules from the current product listing. Compare plans on the
         <a href={ROUTES.store}>store</a>, look at screenshots on the <a href={ROUTES.preview}>preview</a>,
-        and read the <a href="/cheats/">AION 2 cheats overview</a> if you want a starting map.
-        Confirm <a href={ROUTES.status}>status</a> after an AION 2 client update.
+        and read the <a href="/cheats/">Overwatch cheats overview</a> if you want a starting map.
+        Confirm <a href={ROUTES.status}>status</a> after an Overwatch client update.
       </p>
-      <div class="mt-8 flex flex-wrap gap-3">
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
         <Button as="a" href={ROUTES.store} variant="primary">
           View store
           <Icon name="arrowRight" size={17} />
@@ -45,6 +46,7 @@ const breadcrumbs = [
         <Button as="a" href={ROUTES.status} variant="outline">Check status</Button>
         <Button as="a" href={ROUTES.preview} variant="outline">Preview overlays</Button>
       </div>
+      </header>
     </div>
   </section>
   <FeaturesSection />

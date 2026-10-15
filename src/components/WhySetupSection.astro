@@ -26,22 +26,19 @@ const lastRowIndex = why.rows.length - 1;
     {/* Desktop comparison — centered, reference-style columns */}
     <div
       class="mt-14 hidden justify-center lg:flex"
-      role="table"
-      aria-label="AION 2 Cheats compared with typical listings"
+      aria-label="Overwatch Cheat compared with typical listings"
     >
       <div
         class="why-compare-layout grid w-full max-w-4xl grid-cols-[minmax(0,1fr)_9.25rem_9.25rem] items-stretch gap-x-10 xl:max-w-5xl xl:gap-x-14"
       >
         <div
           class="why-compare-features flex min-w-0 flex-col pe-2"
-          role="rowgroup"
         >
-          <span class="sr-only" role="columnheader">Feature</span>
+          <span class="sr-only">Feature</span>
           {
             why.rows.map((row) => (
               <div
                 class="why-compare-feature-row flex flex-col justify-center gap-2"
-                role="row"
               >
                 <p class="font-[family-name:var(--font-heading)] text-lg font-bold leading-snug text-foreground md:text-xl">
                   {row.title}
@@ -59,7 +56,6 @@ const lastRowIndex = why.rows.length - 1;
         >
           <CardHeader
             class="why-compare-card-head space-y-0 border-0 bg-transparent text-center"
-            role="columnheader"
           >
             <CardTitle
               class="w-full text-center font-[family-name:var(--font-heading)] text-base font-bold normal-case leading-snug"
@@ -67,7 +63,7 @@ const lastRowIndex = why.rows.length - 1;
               {why.usLabel}
             </CardTitle>
           </CardHeader>
-          <div class="flex min-h-0 flex-1 flex-col" role="rowgroup">
+          <div class="flex min-h-0 flex-1 flex-col">
             {
               why.rows.map((row, i) => (
                 <div
@@ -75,8 +71,6 @@ const lastRowIndex = why.rows.length - 1;
                     "why-compare-card-row",
                     i === lastRowIndex && "why-compare-card-row--last",
                   ]}
-                  role="cell"
-                  aria-label={`${why.usLabel}: included — ${row.title}`}
                 >
                   <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-primary/15 ring-1 ring-primary/40">
                     <Icon name="circleCheck" size={20} />
@@ -92,7 +86,6 @@ const lastRowIndex = why.rows.length - 1;
         >
           <CardHeader
             class="why-compare-card-head card-title-band space-y-0 border-b text-center"
-            role="columnheader"
           >
             <CardTitle
               class="w-full text-center font-[family-name:var(--font-heading)] text-base font-bold normal-case leading-snug text-muted-foreground"
@@ -100,7 +93,7 @@ const lastRowIndex = why.rows.length - 1;
               {why.otherLabel}
             </CardTitle>
           </CardHeader>
-          <div class="flex min-h-0 flex-1 flex-col" role="rowgroup">
+          <div class="flex min-h-0 flex-1 flex-col">
             {
               why.rows.map((row, i) => (
                 <div
@@ -108,8 +101,6 @@ const lastRowIndex = why.rows.length - 1;
                     "why-compare-card-row",
                     i === lastRowIndex && "why-compare-card-row--last",
                   ]}
-                  role="cell"
-                  aria-label={`${why.otherLabel}: not included — ${row.title}`}
                 >
                   <span class="flex size-11 shrink-0 items-center justify-center rounded-full bg-muted/80 ring-1 ring-border">
                     <Icon name="x" size={18} class="text-muted-foreground" />
@@ -165,7 +156,7 @@ const lastRowIndex = why.rows.length - 1;
       {
         why.metrics.map((metric) => (
           <div class="space-y-2">
-            <p class="font-[family-name:var(--font-heading)] text-4xl font-bold tracking-tight text-primary md:text-5xl">
+            <p class="font-[family-name:var(--font-heading)] text-4xl font-bold tracking-tight text-primary-accent md:text-5xl">
               {metric.value}
             </p>
             <p class="text-base font-semibold text-foreground">

@@ -1,6 +1,4 @@
 ---
-import '../styles/blog-pages.css';
-import '../styles/site-search.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icon from '../components/icons/Icon.astro';
@@ -26,7 +24,7 @@ const types = ['all', 'article', 'discussion', 'faq', 'page'] as const;
   noindex
   jsonLd={[
     collectionPageSchema({
-      name: 'Search AION 2 Cheats',
+      name: 'Search Overwatch Cheat',
       description: seo.description,
       url: ROUTES.search,
     }),
@@ -41,9 +39,9 @@ const types = ['all', 'article', 'discussion', 'faq', 'page'] as const;
 
   <section class="border-y border-border bg-muted/20 py-12 md:py-16" aria-labelledby="search-title">
     <div class="mx-auto max-w-6xl px-5">
-      <header class="section-header max-w-2xl">
+      <header class="section-header mx-auto max-w-2xl text-center">
         <p class="section-header__eyebrow">Search</p>
-        <h1 id="search-title" class="section-header__title">Search AION 2 Cheats</h1>
+        <h1 id="search-title" class="section-header__title">Search Overwatch Cheat</h1>
         <p class="section-header__subtitle">
           Look through articles, forum discussions, FAQ answers, and site pages.
         </p>
@@ -52,7 +50,7 @@ const types = ['all', 'article', 'discussion', 'faq', 'page'] as const;
       <form class="mt-8 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between" action={ROUTES.search} method="get" role="search">
         <label class="listing-search max-w-xl">
           <Icon name="search" size={16} />
-          <input type="search" name="q" placeholder="Search articles, forum, FAQ…" aria-label="Search AION 2 Cheats" data-page-search />
+          <input type="search" name="q" placeholder="Search articles, forum, FAQ…" aria-label="Search Overwatch Cheat" data-page-search />
         </label>
         <nav class="flex gap-2 overflow-x-auto pb-1" aria-label="Result types">
           {types.map((type) => (

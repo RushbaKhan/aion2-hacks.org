@@ -5,7 +5,7 @@ import zlib from 'node:zlib';
 import { resolvePathRedirect } from './redirects.mjs';
 import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
-const CANONICAL_HOST = 'aion2cheats.org';
+const CANONICAL_HOST = 'overwatchcheat.com';
 const distDir = path.resolve('dist');
 const port = Number(process.env.PORT) || 3000;
 
@@ -125,6 +125,8 @@ function sendFile(req, res, filePath, statusCode = 200) {
     'Content-Type': MIME[ext] ?? 'application/octet-stream',
     'Cache-Control': getCacheControl(filePath),
     Vary: 'Accept-Encoding',
+    'X-Content-Type-Options': 'nosniff',
+    'Referrer-Policy': 'strict-origin-when-cross-origin',
   };
 
   const isSitemap = basename === 'sitemap.xml' || basename === 'sitemap-index.xml' || basename === 'sitemap-0.xml';
@@ -186,7 +188,8 @@ const server = http.createServer((req, res) => {
 
   const pathRedirect = resolvePathRedirect(pathname);
   if (pathRedirect) {
-    res.writeHead(301, { Location: `${pathRedirect}${query}${fragment}` });
+    const location = pathRedirect.startsWith('http') ? pathRedirect : `${pathRedirect}${query}${fragment}`;
+    res.writeHead(301, { Location: location });
     res.end();
     return;
   }

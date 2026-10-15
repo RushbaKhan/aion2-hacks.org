@@ -1,30 +1,30 @@
 /** Checkout destinations keyed by internal product id. */
 export const CHECKOUT_URLS = {
-  aion: 'https://zadeyo.com/go/USMAN?to=%2Fproducts%2Faion-2',
+  overwatch: 'https://zadeyo.com/go/USMAN?to=%2Fproducts%2Foverwatch-2',
+  dma: 'https://zadeyo.com/go/USMAN?to=%2Fproducts%2Fcloud-dma',
+  hwid: 'https://zadeyo.com/go/USMAN?to=%2Fproducts%2Fhwid-spoofer',
 };
+
+function slashPairs(path, url) {
+  const base = path.endsWith('/') ? path.slice(0, -1) : path;
+  return [
+    [base, url],
+    [`${base}/`, url],
+  ];
+}
 
 /** Checkout paths → external product URLs (used by Node serve + Astro middleware). */
 export const CHECKOUT_PATH_REDIRECTS = new Map([
-  ['/go', CHECKOUT_URLS.aion],
-  ['/go/', CHECKOUT_URLS.aion],
-  ['/monthly', CHECKOUT_URLS.aion],
-  ['/monthly/', CHECKOUT_URLS.aion],
-  ['/lifetime', CHECKOUT_URLS.aion],
-  ['/lifetime/', CHECKOUT_URLS.aion],
-  ['/go/aion-2', CHECKOUT_URLS.aion],
-  ['/go/aion-2/', CHECKOUT_URLS.aion],
-  ['/go/aion-2/monthly', CHECKOUT_URLS.aion],
-  ['/go/aion-2/monthly/', CHECKOUT_URLS.aion],
-  ['/go/aion-2/lifetime', CHECKOUT_URLS.aion],
-  ['/go/aion-2/lifetime/', CHECKOUT_URLS.aion],
-  ['/go/monthly', CHECKOUT_URLS.aion],
-  ['/go/monthly/', CHECKOUT_URLS.aion],
-  ['/go/lifetime', CHECKOUT_URLS.aion],
-  ['/go/lifetime/', CHECKOUT_URLS.aion],
-  ['/support', CHECKOUT_URLS.aion],
-  ['/support/', CHECKOUT_URLS.aion],
-  ['/contact', CHECKOUT_URLS.aion],
-  ['/contact/', CHECKOUT_URLS.aion],
+  ...slashPairs('/go', CHECKOUT_URLS.overwatch),
+  ...slashPairs('/monthly', CHECKOUT_URLS.overwatch),
+  ...slashPairs('/lifetime', CHECKOUT_URLS.overwatch),
+  ...slashPairs('/go/overwatch', CHECKOUT_URLS.overwatch),
+  ...slashPairs('/go/overwatch/monthly', CHECKOUT_URLS.overwatch),
+  ...slashPairs('/go/overwatch/lifetime', CHECKOUT_URLS.overwatch),
+  ...slashPairs('/go/monthly', CHECKOUT_URLS.overwatch),
+  ...slashPairs('/go/lifetime', CHECKOUT_URLS.overwatch),
+  ...slashPairs('/go/dma', CHECKOUT_URLS.dma),
+  ...slashPairs('/go/hwid', CHECKOUT_URLS.hwid),
 ]);
 
 export function resolveCheckoutPathRedirect(pathname) {

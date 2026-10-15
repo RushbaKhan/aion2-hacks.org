@@ -1,5 +1,4 @@
 ---
-import '../styles/blog-pages.css';
 import ResponsiveImage from './ResponsiveImage.astro';
 import Icon from './icons/Icon.astro';
 import { CARD_IMAGE_SIZES, CARD_IMAGE_WIDTHS } from '../utils/responsiveImage';
@@ -7,6 +6,7 @@ import { blogPostPath } from '../utils/path';
 import type { BlogPost } from '../i18n/types';
 import { getBlogPostTimestamp, getBlogReadMinutes } from '../data/blog';
 import { screenshotAlt } from '../data/screenshots';
+import { t } from '../i18n';
 import { Button } from '@/components/starwind/button';
 import { Card, CardContent, CardFooter, CardTitle } from '@/components/starwind/card';
 
@@ -58,8 +58,8 @@ const readMinutes = getBlogReadMinutes(post.readTime);
       alt={screenshotAlt(post.image, `${post.title} overlay screenshot`)}
       width={isFeatured ? 960 : 640}
       height={isFeatured ? 540 : 360}
-      widths={isFeatured ? undefined : CARD_IMAGE_WIDTHS}
-      sizes={isFeatured ? '(min-width: 1024px) 560px, 100vw' : CARD_IMAGE_SIZES}
+      widths={CARD_IMAGE_WIDTHS}
+      sizes={isFeatured ? '(min-width: 1024px) 400px, 92vw' : CARD_IMAGE_SIZES}
       loading={eager ? 'eager' : 'lazy'}
       fetchPriority={eager ? 'high' : undefined}
       class:list={[
@@ -106,7 +106,7 @@ const readMinutes = getBlogReadMinutes(post.readTime);
         <span>{post.date}</span>
       </p>
       <Button as="a" href={href} variant="outline" size="sm" class="blog-card__read shrink-0">
-        {`Read ${post.slug.replaceAll('-', ' ')}`}
+        {t.blog.read}
         <Icon name="arrowRight" size={16} />
       </Button>
     </CardFooter>

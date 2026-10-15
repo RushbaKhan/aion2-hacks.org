@@ -1,0 +1,106 @@
+---
+import { utilityPages } from '../data/products';
+import { formatPlanPrice, getProductPlans } from '../data/productPricing';
+import { productPath } from '../utils/path';
+import { cheatTierIcons } from '../data/sectionIcons';
+import CatalogCard from './CatalogCard.astro';
+import Icon from './icons/Icon.astro';
+import { Badge } from '@/components/starwind/badge';
+import { Button } from '@/components/starwind/button';
+
+interface Props {
+  variant?: 'cards' | 'band';
+  class?: string;
+}
+
+const { variant = 'band', class: className } = Astro.props;
+
+function priceLine(slug: string) {
+  const plans = getProductPlans(slug);
+  if (plans.length === 0) return '';
+  if (plans.length === 1) {
+    const plan = plans[0]!;
+    return `${formatPlanPrice(plan.priceUsd)} · ${plan.priceNote}`;
+  }
+  return plans.map((plan) => `${plan.label} ${formatPlanPrice(plan.priceUsd)}`).join(' · ');
+}
+---
+
+{
+  utilityPages.length > 0 && (
+    <div class:list={['store-subproducts', className]}>
+      <div class="flex flex-wrap items-end justify-center gap-3 text-center">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-wider text-primary-accent">Extras that run with the cheat</p>
+          <p class="mt-1 text-lg font-bold">Cloud DMA and HWID Spoofer</p>
+        </div>
+      </div>
+
+      {
+        variant === 'cards' ? (
+          <div class="mt-6 grid gap-6 sm:grid-cols-2">
+            {utilityPages.map((item) => (
+              <CatalogCard
+                label={item.category ?? item.name}
+                title={item.title}
+                href={productPath(item.slug)}
+                buyUrl={item.buyUrl}
+                features={[priceLine(item.slug), ...item.features]}
+                more={item.more}
+                icon={cheatTierIcons[item.name] ?? 'package'}
+                badge={item.badge}
+                desc={item.desc}
+                buyLabel="Buy now"
+                viewLabel="View details"
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="mt-6 grid gap-5 sm:grid-cols-2">
+            {utilityPages.map((item) => {
+              const plans = getProductPlans(item.slug);
+              return (
+                <article class="flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-6">
+                  <div class="flex flex-wrap items-center gap-2">
+                    <Badge variant="secondary">{item.badge}</Badge>
+                    <Badge variant="outline">{item.category ?? 'Extra'}</Badge>
+                  </div>
+                  <p class="mt-4 text-xl font-bold">{item.title}</p>
+                  <p class="mt-3 font-[family-name:var(--font-heading)] text-3xl font-bold text-primary-accent">
+                    {plans[0] ? formatPlanPrice(plans[0].priceUsd) : ''}
+                    {plans.length > 1 && (
+                      <span class="text-lg font-semibold text-muted-foreground">
+                        {' '}
+                        / {formatPlanPrice(plans[1]!.priceUsd)}
+                      </span>
+                    )}
+                  </p>
+                  <p class="mt-1 text-sm text-muted-foreground">{priceLine(item.slug)}</p>
+                  <p class="mt-3 flex-1 text-sm leading-relaxed text-muted-foreground">{item.desc}</p>
+                  <ul class="mt-4 space-y-2 text-sm text-muted-foreground">
+                    {item.features.map((feature) => (
+                      <li class="flex items-start gap-2">
+                        <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
+                        <span>{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div class="mt-6 flex flex-col gap-2 sm:flex-row">
+                    <Button as="a" href={item.buyUrl} variant="primary" class="sm:flex-1">
+                      Buy now
+                      <Icon name="arrowRight" size={17} />
+                    </Button>
+                    <Button as="a" href={productPath(item.slug)} variant="outline" class="sm:flex-1">
+                      View details
+                      <Icon name="arrowRight" size={17} />
+                    </Button>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        )
+      }
+    </div>
+  )
+}

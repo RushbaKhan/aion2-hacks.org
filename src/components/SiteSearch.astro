@@ -1,5 +1,4 @@
 ---
-import '../styles/site-search.css';
 import Icon from './icons/Icon.astro';
 import { ROUTES } from '../utils/path';
 import { t } from '../i18n';
@@ -46,7 +45,7 @@ const { variant = 'header', class: className } = Astro.props;
       <button type="submit" class="sr-only">{t.ui.search}</button>
     </form>
     <p class="site-search__hint">{t.ui.searchHint}</p>
-    <ul class="site-search__results" data-site-search-results role="listbox" aria-label={t.ui.searchResults}></ul>
+    <ul class="site-search__results" data-site-search-results aria-label={t.ui.searchResults}></ul>
     <p class="site-search__empty" data-site-search-empty hidden>{t.ui.searchEmpty}</p>
   </div>
 </div>

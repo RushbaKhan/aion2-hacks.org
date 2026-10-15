@@ -1,7 +1,12 @@
 ---
-import { CHECKOUT } from '../config/checkout';
+import { CHECKOUT, type CheckoutProduct } from '../config/checkout';
 
-const dest = CHECKOUT.aion;
+interface Props {
+  product?: CheckoutProduct;
+}
+
+const { product = 'overwatch' } = Astro.props;
+const dest = CHECKOUT[product];
 ---
 
 <!doctype html>

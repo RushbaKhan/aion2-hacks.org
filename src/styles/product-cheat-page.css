@@ -8,13 +8,6 @@
   line-height: 1.25;
 }
 
-/* Landing products header stays left-aligned with the cards */
-#products .section-header,
-#products .section-header__subtitle {
-  margin-inline: 0;
-  text-align: left;
-}
-
 /* Landing products row carousel */
 .products-carousel {
   --products-carousel-gap: 1rem;

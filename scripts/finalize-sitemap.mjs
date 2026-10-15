@@ -55,6 +55,7 @@ function isCanonicalSitemapUrl(loc) {
     if (['/404/', '/go/', '/monthly/', '/lifetime/', '/search/', '/support/', '/contact/'].includes(path)) {
       return false;
     }
+    if (path.startsWith('/go/')) return false;
     if (path.startsWith('/blog/') && path !== '/blog/') return false;
     if (path.startsWith('/forum/') && path !== '/forum/') return false;
     return true;
@@ -104,7 +105,7 @@ fs.writeFileSync(path.join(root, 'public', 'sitemap.xml'), formatted, 'utf8');
 const indexXml = `<?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <sitemap>
-    <loc>https://aion2cheats.org/sitemap.xml</loc>
+    <loc>https://overwatchcheat.com/sitemap.xml</loc>
     <lastmod>${new Date().toISOString().slice(0, 10)}</lastmod>
   </sitemap>
 </sitemapindex>

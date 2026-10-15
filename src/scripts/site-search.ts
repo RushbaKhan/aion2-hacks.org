@@ -24,6 +24,10 @@ function renderResults(list: HTMLElement, entries: SearchEntry[]) {
       link.href = entry.href;
       link.className = 'site-search__result';
       link.setAttribute('role', 'option');
+      if (entry.href.startsWith('http://') || entry.href.startsWith('https://')) {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+      }
       if (index === 0) link.setAttribute('data-active', 'true');
       link.innerHTML = `<span class="site-search__type">${entry.type}</span><span class="site-search__title">${entry.title}</span><span class="site-search__desc">${entry.desc}</span>`;
       item.append(link);

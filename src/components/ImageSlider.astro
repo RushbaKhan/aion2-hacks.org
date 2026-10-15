@@ -1,14 +1,12 @@
 ---
 import ResponsiveImage from './ResponsiveImage.astro';
 import Icon from './icons/Icon.astro';
-import { HERO_IMAGE_SIZES, HERO_IMAGE_WIDTHS } from '../utils/responsiveImage';
 import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from '@/components/starwind/carousel';
+  HERO_IMAGE_SIZES,
+  HERO_IMAGE_WIDTHS,
+  defaultWebpSrc,
+  imageSrcSet,
+} from '../utils/responsiveImage';
 
 interface Slide {
   src: string;
@@ -24,117 +22,81 @@ interface Props {
   desktopOnly?: boolean;
 }
 
-const { images, id, variant = 'default', desktopOnly = false } = Astro.props;
-const isHero = variant === 'hero';
-const imageSizes = isHero ? HERO_IMAGE_SIZES : '(min-width: 1024px) 640px, 100vw';
-const imageWidths = isHero ? HERO_IMAGE_WIDTHS : undefined;
+const { images, id, desktopOnly = false } = Astro.props;
 ---
 
 <div
   class:list={[
-    'relative w-full',
-    'rounded-xl border border-border bg-card p-2 shadow-sm',
+    'relative min-w-0 w-full max-w-full overflow-hidden rounded-xl border border-border bg-card p-2 shadow-sm',
     desktopOnly && 'hidden lg:block',
   ]}
   id={id}
-  data-hero-embla-wrap={isHero || undefined}
+  data-hero-slider-wrap
 >
-  <Carousel
-    autoInit={!isHero}
-    data-hero-embla={isHero || undefined}
-    opts={{ loop: images.length > 1, align: 'start' }}
-    class="w-full"
-  >
-    <CarouselContent>
+  <div class="w-full overflow-hidden" data-hero-slider>
+    <div class="flex" data-hero-slider-track>
       {images.map((img, i) => (
-        <CarouselItem class="basis-full">
-          <figure
-            class:list={[
-              isHero ? 'aspect-[16/10] overflow-hidden rounded-lg bg-muted/30' : 'overflow-hidden rounded-lg',
-            ]}
-          >
+        <figure
+          class="hero-slider-slide aspect-[16/10] w-full shrink-0 overflow-hidden rounded-lg bg-muted/30"
+          data-slide-src={defaultWebpSrc(img.src, HERO_IMAGE_WIDTHS)}
+          data-slide-srcset={imageSrcSet(img.src, HERO_IMAGE_WIDTHS) ?? ''}
+          data-slide-alt={img.alt}
+          data-slide-sizes={HERO_IMAGE_SIZES}
+        >
+          {i === 0 && (
             <ResponsiveImage
               src={img.src}
               alt={img.alt}
               width={1024}
-              height={576}
-              widths={imageWidths}
-              loading={i === 0 ? 'eager' : 'lazy'}
-              fetchPriority={isHero && i === 0 ? 'high' : undefined}
-              sizes={imageSizes}
+              height={574}
+              widths={HERO_IMAGE_WIDTHS}
+              loading="eager"
+              fetchPriority="high"
+              sizes={HERO_IMAGE_SIZES}
               desktopOnly={desktopOnly}
-              class={isHero ? 'h-full w-full object-cover' : undefined}
+              class="h-full w-full object-cover"
             />
-            {!isHero && (img.caption || img.captionDesc) && (
-              <figcaption class="mt-2 px-1 text-sm text-muted-foreground">
-                <strong class="text-foreground">{img.caption}</strong>
-                {img.captionDesc && ` — ${img.captionDesc}`}
-              </figcaption>
-            )}
-          </figure>
-        </CarouselItem>
+          )}
+        </figure>
       ))}
-    </CarouselContent>
-    {images.length > 1 &&
-      (isHero ? (
-        <>
-          <button
-            type="button"
-            class="slide-nav slide-nav--prev"
-            data-hero-embla-prev
-            aria-label="Previous screenshot"
-          >
-            <Icon name="chevronLeft" size={18} />
-          </button>
-          <button
-            type="button"
-            class="slide-nav slide-nav--next"
-            data-hero-embla-next
-            aria-label="Next screenshot"
-          >
-            <Icon name="chevronRight" size={18} />
-          </button>
-        </>
-      ) : (
-        <>
-          <CarouselPrevious class="slide-nav slide-nav--prev left-2" />
-          <CarouselNext class="slide-nav slide-nav--next right-2" />
-        </>
-      ))}
-  </Carousel>
-  {isHero && images.length > 1 && (
-    <div
-      class="pointer-events-none absolute inset-x-2 bottom-3 flex justify-center"
-      data-hero-embla-dots
-      role="tablist"
-      aria-label="Hero slides"
-    >
-      <div class="pointer-events-auto flex items-center gap-1.5 rounded-full border border-white/10 bg-black/45 px-2.5 py-1.5 backdrop-blur-sm">
-        {images.map((_, i) => (
-          <button
-            type="button"
-            role="tab"
-            class="hero-embla-dot relative h-2 shrink-0 overflow-hidden rounded-full bg-white/30 transition-[width] duration-300 data-[active=false]:w-2 data-[active=true]:w-9"
-            data-hero-embla-dot={i}
-            aria-label={`Slide ${i + 1}`}
-            aria-selected={i === 0 ? 'true' : 'false'}
-            data-active={i === 0 ? 'true' : 'false'}
-          >
-            <span
-              class="hero-embla-progress pointer-events-none absolute inset-y-0 left-0 w-0 rounded-full bg-primary"
-              data-hero-embla-progress
-              aria-hidden="true"
-            />
-          </button>
-        ))}
-      </div>
     </div>
+  </div>
+  {images.length > 1 && (
+    <>
+      <button type="button" class="slide-nav slide-nav--prev" data-hero-slider-prev aria-label="Previous screenshot">
+        <Icon name="chevronLeft" size={18} />
+      </button>
+      <button type="button" class="slide-nav slide-nav--next" data-hero-slider-next aria-label="Next screenshot">
+        <Icon name="chevronRight" size={18} />
+      </button>
+      <div class="pointer-events-none absolute inset-x-3 bottom-2.5 flex justify-center">
+        <div class="pointer-events-auto flex max-w-full items-center gap-px rounded-full border border-white/10 bg-black/50 px-1.5 py-0.5 backdrop-blur-sm" role="group" aria-label="Hero slides">
+          {images.map((_, i) => (
+            <button
+              type="button"
+              class="hero-embla-dot relative shrink-0 overflow-hidden rounded-full"
+              data-hero-slider-dot={i}
+              aria-label={`Slide ${i + 1}`}
+              aria-current={i === 0 ? 'true' : undefined}
+              data-active={i === 0 ? 'true' : 'false'}
+            >
+              <span class="hero-embla-dot__pip" aria-hidden="true">
+                <span
+                  class="hero-embla-progress pointer-events-none absolute inset-y-0 left-0 rounded-full bg-primary-accent"
+                  data-hero-slider-progress
+                />
+              </span>
+            </button>
+          ))}
+        </div>
+      </div>
+    </>
   )}
 </div>
 
-{isHero && (
+{images.length > 1 && (
   <script>
-    import { setupHeroEmbla } from '../scripts/hero-embla.ts';
-    setupHeroEmbla();
+    import { setupHeroSlider } from '../scripts/hero-embla.ts';
+    setupHeroSlider();
   </script>
 )}

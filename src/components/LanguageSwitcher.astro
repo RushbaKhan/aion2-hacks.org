@@ -13,7 +13,7 @@ const { class: className } = Astro.props;
   <label class="sr-only">{t.ui.language}</label>
   <select class="lang-switch__select" data-lang-select aria-label={t.ui.changeLanguage}>
     {LOCALES.map((locale) => (
-      <option value={locale.code}>{locale.label}</option>
+      <option value={locale.code} data-no-i18n>{locale.label}</option>
     ))}
   </select>
 </div>
@@ -25,7 +25,8 @@ const { class: className } = Astro.props;
 
   .lang-switch__select {
     appearance: none;
-    min-height: 2.75rem;
+    min-width: 48px;
+    min-height: 48px;
     border-radius: 0.75rem;
     border: 1px solid color-mix(in oklch, var(--border) 80%, transparent);
     background: color-mix(in oklch, var(--background) 55%, transparent);
@@ -59,26 +60,3 @@ const { class: className } = Astro.props;
     padding: 0.35rem 0.7rem 0.35rem 1.75rem;
   }
 </style>
-
-<script>
-  import { LOCALE_STORAGE_KEY, DEFAULT_LOCALE, isLocaleCode } from '../i18n/locales';
-  import { setLocale } from '../scripts/apply-locale';
-
-  document.querySelectorAll<HTMLSelectElement>('[data-lang-select]').forEach((select) => {
-    try {
-      const params = new URLSearchParams(window.location.search);
-      const fromUrl = params.get('hl') ?? '';
-      const stored = isLocaleCode(fromUrl)
-        ? fromUrl
-        : (localStorage.getItem(LOCALE_STORAGE_KEY) ?? DEFAULT_LOCALE);
-      if (isLocaleCode(stored)) select.value = stored;
-    } catch {
-      select.value = DEFAULT_LOCALE;
-    }
-
-    select.addEventListener('change', () => {
-      const next = select.value;
-      if (isLocaleCode(next)) setLocale(next);
-    });
-  });
-</script>

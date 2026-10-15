@@ -1,5 +1,7 @@
 export declare const CHECKOUT_URLS: {
-  readonly aion: string;
+  readonly overwatch: string;
+  readonly dma: string;
+  readonly hwid: string;
 };
 
 export declare const CHECKOUT_PATH_REDIRECTS: ReadonlyMap<string, string>;

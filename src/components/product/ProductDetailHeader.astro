@@ -1,6 +1,5 @@
 ---
 import type { ProductPage } from '../../data/products';
-import Icon from '../icons/Icon.astro';
 import { Badge } from '@/components/starwind/badge';
 
 interface Props {
@@ -13,11 +12,20 @@ const { product } = Astro.props;
 <header class="product-detail-header space-y-4">
   <div class="flex flex-wrap items-center gap-2">
     <Badge variant="secondary">{product.badge}</Badge>
+    {product.kind === 'utility' && <Badge variant="outline">Runs with Overwatch Cheats</Badge>}
+    {product.kind === 'tier' && <Badge>Overwatch Cheats</Badge>}
     {product.variant === 'popular' && <Badge>Popular</Badge>}
     {product.variant === 'limited' && <Badge variant="warning">Limited</Badge>}
-    <Badge variant="outline">AION 2</Badge>
+    <Badge variant="outline">Overwatch 2</Badge>
     <Badge variant="outline">Windows PC</Badge>
   </div>
   <h1 class="max-w-3xl text-3xl font-bold normal-case leading-tight md:text-4xl">{product.title}</h1>
+  {
+    product.kind === 'utility' && (
+      <p class="max-w-2xl text-sm font-medium text-muted-foreground">
+        Extra that runs with Overwatch Cheats on Windows PC. Aimbot, ESP, and radar stay on the Overwatch store.
+      </p>
+    )
+  }
   <p class="max-w-2xl text-lg leading-relaxed text-muted-foreground">{product.subtitle || product.desc}</p>
 </header>

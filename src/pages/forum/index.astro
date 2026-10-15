@@ -25,7 +25,7 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
   description={seo.description}
   jsonLd={[
     collectionPageSchema({
-      name: 'AION 2 Community Forum',
+      name: 'Overwatch Community Forum',
       description: seo.description,
       url: ROUTES.forum,
     }),
@@ -33,7 +33,7 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'AION 2 Community Forum discussions',
+      name: 'Overwatch Community Forum discussions',
       numberOfItems: forumPosts.length,
       itemListElement: sorted.map((post, index) => ({
         '@type': 'ListItem',
@@ -49,9 +49,9 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
       <Breadcrumbs items={breadcrumbs} />
 
       <div class="forum-hero">
-        <div>
-          <p class="section-header__eyebrow">AION 2 community forum</p>
-          <h1>AION 2 <span>Community Forum</span></h1>
+        <div class="forum-hero__copy-wrap">
+          <p class="section-header__eyebrow">Overwatch community forum</p>
+          <h1>Overwatch <span>Community Forum</span></h1>
           <p class="forum-hero__copy">
             Practical answers on <a href={ROUTES.features}>ESP</a>, <a href="/radar/">radar</a>,
             <a href={ROUTES.status}>compatibility patches</a>, and <a href={ROUTES.setup}>Windows PC setup</a>.
@@ -63,7 +63,7 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
       <div class="forum-layout">
         <div class="forum-main">
           <div class="forum-toolbar">
-            <div class="forum-sort" role="tablist" aria-label="Sort discussions">
+            <div class="forum-sort" role="group" aria-label="Sort discussions">
               <button type="button" class="is-active" data-forum-sort="popular">Popular</button>
               <button type="button" data-forum-sort="latest">Latest</button>
               <button type="button" data-forum-sort="discussed">Most discussed</button>

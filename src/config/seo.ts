@@ -8,7 +8,7 @@ export const DEFAULT_OG_IMAGE = '/opengraph.jpg';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
-/** @example @aion2cheats */
+/** @example @overwatchcheat */
 export const TWITTER_SITE = import.meta.env.PUBLIC_TWITTER_SITE as string | undefined;
 
 export const TWITTER_CREATOR = import.meta.env.PUBLIC_TWITTER_CREATOR as string | undefined;
@@ -43,6 +43,7 @@ export function shareImagePath(path: string): string {
   if (!path) return DEFAULT_OG_IMAGE;
   if (path === DEFAULT_OG_IMAGE) return path;
   if (path.startsWith('/images/') && /\.(png|jpe?g)$/i.test(path)) {
+    if (/\/images\/(?:gameplay|extras)\//.test(path)) return path;
     return path.replace(/\.(png|jpe?g)$/i, '-960.webp');
   }
   return path;

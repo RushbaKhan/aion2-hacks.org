@@ -1,7 +1,23 @@
-import { initSmoothScroll, smoothScrollTo } from './smooth-scroll';
 import { initSiteSearch } from './site-search';
 import { textMatches } from './search-match';
 import { navLinkIsActive } from '../utils/path';
+import { DEFAULT_LOCALE, LOCALE_STORAGE_KEY, isLocaleCode } from '../i18n/locales';
+
+function nativeScrollTo(target: HTMLElement) {
+  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function currentLocaleHint() {
+  try {
+    const fromUrl = new URLSearchParams(window.location.search).get('hl') ?? '';
+    if (isLocaleCode(fromUrl)) return fromUrl;
+    const stored = localStorage.getItem(LOCALE_STORAGE_KEY) ?? '';
+    if (isLocaleCode(stored)) return stored;
+  } catch {
+    // ignore
+  }
+  return DEFAULT_LOCALE;
+}
 
 function initFonts() {
   document.documentElement.classList.remove('fonts-pending');
@@ -46,7 +62,7 @@ function initInPageScroll() {
       }
 
       event.preventDefault();
-      smoothScrollTo(target);
+      nativeScrollTo(target);
     });
   });
 }
@@ -59,7 +75,7 @@ function initSkipLink() {
 
       main.setAttribute('tabindex', '-1');
       main.focus({ preventScroll: true });
-      smoothScrollTo(main);
+      nativeScrollTo(main);
     });
   });
 }
@@ -120,15 +136,70 @@ function initThemeMetaColor() {
   observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
 }
 
+function initMobileNav() {
+  const nav = document.getElementById('site-mobile-nav');
+  const toggle = document.querySelector<HTMLElement>('[data-mobile-nav-toggle]');
+  if (!nav || !toggle) return;
+
+  const sync = () => {
+    toggle.setAttribute('aria-expanded', nav.matches(':popover-open') ? 'true' : 'false');
+  };
+
+  nav.addEventListener('toggle', sync);
+  sync();
+}
+
+function initLocaleLayer() {
+  const locale = currentLocaleHint();
+
+  document.querySelectorAll<HTMLSelectElement>('[data-lang-select]').forEach((select, index) => {
+    if (isLocaleCode(locale)) select.value = locale;
+    if (!select.id) select.id = `site-language-select-${index}`;
+    select.addEventListener('change', () => {
+      const next = select.value;
+      if (!isLocaleCode(next)) return;
+      void import('./apply-locale').then(({ setLocale }) => setLocale(next));
+    });
+  });
+
+  if (locale !== DEFAULT_LOCALE) {
+    void import('./apply-locale').then(({ applyLocale }) => applyLocale(locale));
+  }
+}
+
+function initSmoothScrollLazy() {
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if (window.matchMedia('(max-width: 1024px), (pointer: coarse)').matches) return;
+
+  const load = () => {
+    void import('./smooth-scroll').then(({ initSmoothScroll }) => initSmoothScroll());
+  };
+
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(load, { timeout: 2500 });
+  } else {
+    window.setTimeout(load, 600);
+  }
+}
+
 function bootSite() {
   initFonts();
-  initFaqFilters();
-  initSiteSearch();
   initNavHighlight();
   initInPageScroll();
   initSkipLink();
   initThemeMetaColor();
-  initSmoothScroll();
+  initMobileNav();
+  initLocaleLayer();
+  initSiteSearch();
+  const runFaq = () => {
+    if (document.querySelector('[data-faq-section]')) initFaqFilters();
+  };
+  if (typeof window.requestIdleCallback === 'function') {
+    window.requestIdleCallback(runFaq, { timeout: 1800 });
+  } else {
+    window.setTimeout(runFaq, 400);
+  }
+  initSmoothScrollLazy();
 }
 
 if (document.readyState === 'loading') {

@@ -72,10 +72,21 @@ const robotsContent = noindex
           document.documentElement.lang = hl === 'zh' ? 'zh-Hans' : hl === 'zh-TW' ? 'zh-Hant' : hl;
           document.documentElement.dir = rtl ? 'rtl' : 'ltr';
           document.documentElement.dataset.locale = hl;
+          if (hl && hl !== 'en') {
+            var preload = document.createElement('link');
+            preload.rel = 'preload';
+            preload.as = 'fetch';
+            preload.href = '/locales/' + encodeURIComponent(hl) + '.json';
+            preload.crossOrigin = 'anonymous';
+            document.head.appendChild(preload);
+          }
         } catch (e) {}
       })();
     </script>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <style is:inline>
+      html,body{background:#0b0716;color:#fafafa}
+    </style>
     <meta name="google" content="notranslate" />
     <title>{title}</title>
     <meta name="description" content={description} />
@@ -101,6 +112,9 @@ const robotsContent = noindex
         ['ar', 'ar'],
         ['vi', 'vi'],
         ['pl', 'pl'],
+        ['it', 'it'],
+        ['th', 'th'],
+        ['id', 'id'],
       ].map(([hreflang, hl]) => (
         <link rel="alternate" hreflang={hreflang} href={`${canonical}${canonical.includes('?') ? '&' : '?'}hl=${hl}`} />
       ))
@@ -183,8 +197,6 @@ const robotsContent = noindex
     <Footer />
     <script>
       import '../scripts/site.ts';
-      import { initLocale } from '../scripts/apply-locale.ts';
-      initLocale();
     </script>
     {
       GA_MEASUREMENT_ID && (

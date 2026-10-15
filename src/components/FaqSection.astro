@@ -1,5 +1,4 @@
 ---
-import '../styles/site-search.css';
 import type { SiteFaqItem, FaqTopic } from '../data/faq';
 import SectionHeader from './SectionHeader.astro';
 import Icon from './icons/Icon.astro';
@@ -35,7 +34,7 @@ const {
   headingAs = 'h2',
   showFilters = false,
   filterTopics,
-  centered = false,
+  centered = true,
   contentAlign = 'center',
   id: sectionId,
   class: className,
@@ -94,7 +93,7 @@ const filters = filterTopics ?? (['all', 'plans', 'esp', 'aim', 'safety', 'setup
               <button
                 type="button"
                 class:list={[
-                  'faq-filter-chip rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary hover:text-foreground',
+                  'faq-filter-chip inline-flex min-h-12 min-w-12 items-center rounded-full border border-border px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary hover:text-foreground',
                   { 'is-active': i === 0 },
                 ]}
                 data-faq-filter={topic}
@@ -109,11 +108,10 @@ const filters = filterTopics ?? (['all', 'plans', 'esp', 'aim', 'safety', 'setup
 
     <Accordion type="single" collapsible class="mt-8 w-full" data-faq-list>
       {items.map((faq, i) => (
-        <div data-faq-topic={faq.topic} data-faq-search-text={`${faq.q} ${faq.a}`}>
-          <AccordionItem value={`faq-${i}`}>
+          <AccordionItem value={`faq-${i}`} data-faq-topic={faq.topic} data-faq-search-text={`${faq.q} ${faq.a}`}>
             <AccordionTrigger class="text-left">
               <span class="flex items-center gap-2">
-                <Icon name={faq.icon} size={16} class="shrink-0" />
+                <Icon name={faq.icon} size={16} class="shrink-0" aria-hidden="true" />
                 <span>{faq.q}</span>
               </span>
             </AccordionTrigger>
@@ -121,7 +119,6 @@ const filters = filterTopics ?? (['all', 'plans', 'esp', 'aim', 'safety', 'setup
               <div class="prose prose-sm dark:prose-invert max-w-none text-muted-foreground" set:html={faq.aHtml ?? faq.a} />
             </AccordionContent>
           </AccordionItem>
-        </div>
       ))}
     </Accordion>
     </div>

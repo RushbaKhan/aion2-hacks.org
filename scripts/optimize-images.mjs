@@ -3,15 +3,19 @@ import path from 'node:path';
 import sharp from 'sharp';
 
 const root = process.cwd();
-const widths = [320, 400, 512, 640, 960, 1280, 1920, 2560, 3840];
+const widths = [320, 400, 640, 960];
 const dirs = [
-  'public/images/gameplay',
   'public/images/blog',
+  'public/images/gameplay',
+  'public/images/extras',
 ];
 
 async function optimizeDir(relativeDir) {
   const dir = path.join(root, relativeDir);
   if (!fs.existsSync(dir)) return;
+
+  const isScreenshot = /[\\/](?:gameplay|extras)$/i.test(relativeDir);
+  const quality = isScreenshot ? 78 : 68;
 
   const files = fs
     .readdirSync(dir)
@@ -20,12 +24,14 @@ async function optimizeDir(relativeDir) {
   for (const file of files) {
     const input = path.join(dir, file);
     const base = file.replace(/\.(png|jpe?g)$/i, '');
+    const srcStat = fs.statSync(input);
 
     for (const width of widths) {
       const output = path.join(dir, `${base}-${width}.webp`);
+      if (fs.existsSync(output) && fs.statSync(output).mtimeMs >= srcStat.mtimeMs) continue;
       await sharp(input)
         .resize({ width, withoutEnlargement: true })
-        .webp({ quality: 82, effort: 4 })
+        .webp({ quality, effort: 6, smartSubsample: true })
         .toFile(output);
       console.log(`Wrote ${path.relative(root, output)}`);
     }

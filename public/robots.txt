@@ -11,4 +11,4 @@ Disallow: /monthly/
 Disallow: /lifetime/
 Disallow: /search/
 
-Sitemap: https://aion2cheats.org/sitemap.xml
+Sitemap: https://overwatchcheat.com/sitemap.xml

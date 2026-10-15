@@ -1,144 +1,125 @@
 export const HERO_AUTOPLAY_MS = 4800;
 
-type EmblaApi = {
-  selectedScrollSnap: () => number;
-  scrollTo: (n: number) => void;
-  scrollPrev: () => void;
-  scrollNext: () => void;
-  on: (event: string, cb: () => void) => void;
-};
-
-type AutoplayPlugin = {
-  stop: () => void;
-  play: () => void;
-};
-
 function restartProgress(progressEl: HTMLElement) {
   progressEl.style.animation = 'none';
   void progressEl.offsetWidth;
   progressEl.style.animation = `hero-embla-progress ${HERO_AUTOPLAY_MS}ms linear forwards`;
 }
 
-function bindHeroDots(wrapper: HTMLElement, api: EmblaApi, autoplay: AutoplayPlugin) {
-  const dotsRoot = wrapper.querySelector('[data-hero-embla-dots]');
-  if (!dotsRoot) return;
+function hydrateSlide(slide: HTMLElement) {
+  if (slide.querySelector('img')) return;
 
-  const dots = Array.from(dotsRoot.querySelectorAll<HTMLButtonElement>('[data-hero-embla-dot]'));
+  const src = slide.getAttribute('data-slide-src');
+  const srcset = slide.getAttribute('data-slide-srcset');
+  const alt = slide.getAttribute('data-slide-alt') ?? '';
+  const sizes = slide.getAttribute('data-slide-sizes') ?? '490px';
+  if (!src) return;
 
-  const syncProgress = () => {
-    const index = api.selectedScrollSnap();
-    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const img = document.createElement('img');
+  img.src = src;
+  if (srcset) img.srcset = srcset;
+  img.sizes = sizes;
+  img.alt = alt;
+  img.width = 1024;
+  img.height = 574;
+  img.decoding = 'async';
+  img.loading = 'lazy';
+  img.className = 'h-full w-full object-cover';
+  slide.appendChild(img);
+}
 
-    dots.forEach((dot, i) => {
-      const progress = dot.querySelector<HTMLElement>('[data-hero-embla-progress]');
-      if (!progress) return;
+function initHeroSlider(wrap: HTMLElement) {
+  if (wrap.dataset.heroSliderReady === 'true') return;
+  wrap.dataset.heroSliderReady = 'true';
 
-      progress.style.animation = 'none';
-      progress.style.width = i === index && reducedMotion ? '100%' : '0%';
+  const track = wrap.querySelector<HTMLElement>('[data-hero-slider-track]');
+  const slides = track ? [...track.children] as HTMLElement[] : [];
+  const dots = [...wrap.querySelectorAll<HTMLButtonElement>('[data-hero-slider-dot]')];
+  const prev = wrap.querySelector<HTMLButtonElement>('[data-hero-slider-prev]');
+  const next = wrap.querySelector<HTMLButtonElement>('[data-hero-slider-next]');
+  if (!track || slides.length < 2) return;
 
-      if (i === index && !reducedMotion) {
-        restartProgress(progress);
-      }
-    });
-  };
+  let index = 0;
+  let timer: number | undefined;
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  const setActive = () => {
-    const index = api.selectedScrollSnap();
+  const go = (nextIndex: number) => {
+    index = (nextIndex + slides.length) % slides.length;
+    hydrateSlide(slides[index]!);
+    hydrateSlide(slides[(index + 1) % slides.length]!);
+    track.style.transform = `translate3d(-${index * 100}%, 0, 0)`;
     dots.forEach((dot, i) => {
       const active = i === index;
       dot.dataset.active = active ? 'true' : 'false';
-      dot.setAttribute('aria-selected', active ? 'true' : 'false');
-      dot.tabIndex = active ? 0 : -1;
+      if (active) dot.setAttribute('aria-current', 'true');
+      else dot.removeAttribute('aria-current');
+      const progress = dot.querySelector<HTMLElement>('[data-hero-slider-progress]');
+      if (!progress) return;
+      progress.style.animation = 'none';
+      progress.style.transform = active && reducedMotion ? 'scaleX(1)' : 'scaleX(0)';
+      if (active && !reducedMotion) restartProgress(progress);
     });
-    syncProgress();
   };
 
-  dots.forEach((dot) => {
-    const index = Number(dot.getAttribute('data-hero-embla-dot'));
-    dot.addEventListener('click', () => {
-      api.scrollTo(index);
-      autoplay.stop();
-    });
-  });
+  const play = () => {
+    if (reducedMotion || document.hidden) return;
+    window.clearInterval(timer);
+    timer = window.setInterval(() => go(index + 1), HERO_AUTOPLAY_MS);
+  };
 
-  api.on('select', setActive);
-  api.on('reInit', setActive);
-  setActive();
-}
-
-function bindHeroArrows(wrapper: HTMLElement, api: EmblaApi, autoplay: AutoplayPlugin) {
-  const prev = wrapper.querySelector<HTMLButtonElement>('[data-hero-embla-prev]');
-  const next = wrapper.querySelector<HTMLButtonElement>('[data-hero-embla-next]');
+  const stop = () => {
+    window.clearInterval(timer);
+    timer = undefined;
+  };
 
   prev?.addEventListener('click', () => {
-    api.scrollPrev();
-    autoplay.stop();
+    stop();
+    go(index - 1);
   });
-
   next?.addEventListener('click', () => {
-    api.scrollNext();
-    autoplay.stop();
+    stop();
+    go(index + 1);
   });
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      stop();
+      go(Number(dot.getAttribute('data-hero-slider-dot')) || 0);
+    });
+  });
+
+  wrap.addEventListener('mouseenter', stop);
+  wrap.addEventListener('mouseleave', play);
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else play();
+  });
+
+  track.style.display = 'flex';
+  track.style.transition = reducedMotion ? 'none' : 'transform 0.45s ease';
+  track.style.willChange = 'transform';
+
+  go(0);
+  window.setTimeout(play, 8000);
 }
 
-async function initHeroCarousels(root: ParentNode = document) {
-
-  const nodes = [...root.querySelectorAll<HTMLElement>('[data-hero-embla]')].filter(
-    (node) => node.dataset.heroEmblaReady !== 'true',
-  );
-  if (!nodes.length) return;
-
-  const [{ createCarousel }, { default: Autoplay }] = await Promise.all([
-    import('@starwind-ui/runtime/carousel'),
-    import('embla-carousel-autoplay'),
-  ]);
-
-  nodes.forEach((carouselRoot) => {
-    carouselRoot.dataset.heroEmblaReady = 'true';
-
-    const wrapper = carouselRoot.closest('[data-hero-embla-wrap]');
-    if (!wrapper) return;
-
-    const autoplay = Autoplay({
-      delay: HERO_AUTOPLAY_MS,
-      stopOnInteraction: true,
-      stopOnMouseEnter: true,
-    });
-
-    const instance = createCarousel(carouselRoot, {
-      opts: { loop: true, align: 'start', duration: 20 },
-      plugins: [autoplay],
-    });
-
-    bindHeroDots(wrapper as HTMLElement, instance.api as EmblaApi, autoplay);
-    bindHeroArrows(wrapper as HTMLElement, instance.api as EmblaApi, autoplay);
-
-    const pauseWhenHidden = () => {
-      if (document.hidden) autoplay.stop();
-      else autoplay.play();
-    };
-    document.addEventListener('visibilitychange', pauseWhenHidden);
-
-    const io = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry) return;
-        if (entry.isIntersecting && !document.hidden) autoplay.play();
-        else autoplay.stop();
-      },
-      { threshold: 0.35 },
-    );
-    io.observe(carouselRoot);
-  });
-}
-
-export function setupHeroEmbla() {
+export function setupHeroSlider() {
   if (typeof window === 'undefined') return;
   if (window.matchMedia('(max-width: 1023px)').matches) return;
 
   const run = () => {
-    void initHeroCarousels();
+    document.querySelectorAll<HTMLElement>('[data-hero-slider-wrap]').forEach(initHeroSlider);
   };
 
-  run();
-  document.addEventListener('astro:page-load', run);
+  const schedule = () => {
+    if (typeof window.requestIdleCallback === 'function') {
+      window.requestIdleCallback(run, { timeout: 1800 });
+      return;
+    }
+    window.setTimeout(run, 400);
+  };
+
+  if (document.readyState === 'complete') schedule();
+  else window.addEventListener('load', schedule, { once: true });
 }
+
+export const setupHeroEmbla = setupHeroSlider;

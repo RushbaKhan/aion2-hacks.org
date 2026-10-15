@@ -7,6 +7,7 @@ import SectionHeader from '../components/SectionHeader.astro';
 import ProductScreenshotGallery from '../components/ProductScreenshotGallery.astro';
 import { heroSlides, productPages } from '../data/products';
 import { screenshotByRank } from '../data/screenshots';
+import { displayImageType, webpSrc } from '../utils/responsiveImage';
 import { ROUTES } from '../utils/path';
 import { Button } from '@/components/starwind/button';
 import Icon from '../components/icons/Icon.astro';
@@ -34,6 +35,14 @@ const heroShot = screenshotByRank(0);
     breadcrumbSchema(breadcrumbs),
   ]}
 >
+  <link
+    slot="head"
+    rel="preload"
+    as="image"
+    href={webpSrc(heroShot.src, 400)}
+    type={displayImageType()}
+    fetchpriority="high"
+  />
   <section class="py-8 md:py-12">
     <div class="mx-auto max-w-6xl px-5">
       <Breadcrumbs items={breadcrumbs} />
@@ -41,7 +50,7 @@ const heroShot = screenshotByRank(0);
         <SectionHeader
           centered
           eyebrow="Preview"
-          title="AION 2 Cheats preview"
+          title="Overwatch Cheat preview"
           desc="Look through the interface, player information, ESP visuals, and radar options before choosing a monthly or lifetime plan."
           titleId="preview-page-title"
         />
@@ -61,7 +70,7 @@ const heroShot = screenshotByRank(0);
         Preview images illustrate the listed overlay categories. Confirm the current
         <a href={ROUTES.features}>feature list</a> and <a href={ROUTES.status}>status</a> before purchase—
         game updates can change what a build can display. Pair this gallery with
-        the <a href="/cheats/">AION 2 cheats overview</a> if the labels are new.
+        the <a href="/cheats/">Overwatch cheats overview</a> if the labels are new.
       </p>
 
       <div class="mt-8 flex flex-wrap justify-center gap-3">

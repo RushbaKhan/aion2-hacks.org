@@ -21,17 +21,20 @@ const LANGS = [
   'ar',
   'vi',
   'pl',
+  'it',
+  'th',
+  'id',
 ];
 
 const FEATURE_TITLES = [
+  'Aimbot',
   'Player ESP',
-  'Soft Aim',
-  'Flight Markers',
-  'World Info',
-  'Gathering Nodes',
+  'Hero ESP',
+  'Ability ESP',
+  'Objective ESP',
   'Radar',
-  'Overlay Options',
-  'Configuration',
+  'Team Check',
+  'Silent Aim',
   'Compatibility',
 ];
 

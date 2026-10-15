@@ -2,19 +2,13 @@
 import { t } from '../i18n';
 import { Button } from '@/components/starwind/button';
 import LanguageSwitcher from './LanguageSwitcher.astro';
-import {
-  Sheet,
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from '@/components/starwind/sheet';
 import Icon from './icons/Icon.astro';
 import SlideRevealButton from './SlideRevealButton.astro';
 import SiteSearch from './SiteSearch.astro';
 
 import type { IconName } from './icons/types';
-import { navLinkIsActive } from '../utils/path';
+import { isExternalHref, navLinkIsActive } from '../utils/path';
+import { checkoutPath } from '../config/checkout';
 
 const currentPath = Astro.url.pathname;
 
@@ -29,15 +23,24 @@ const navIcons: Record<string, IconName> = {
   Support: 'navSupport',
 };
 
-const purchaseUrl = '/store/';
+function productPageCheckoutPath(pathname: string): string | null {
+  const path = pathname.endsWith('/') ? pathname : `${pathname}/`;
+  if (path === '/store/') return checkoutPath('overwatch');
+  if (path === '/dma/') return checkoutPath('dma');
+  if (path === '/hwid/') return checkoutPath('hwid');
+  return null;
+}
+
+const productCheckout = productPageCheckoutPath(currentPath);
+const purchaseUrl = productCheckout ?? '/store/';
 ---
 
 <header class="pointer-events-none fixed inset-x-0 top-0 z-50">
   <div class="flex w-full max-w-full justify-center px-3 pt-3 sm:px-4 sm:pt-4" data-floating-nav>
     <div class="site-nav-bar pointer-events-auto">
-      <a href="/" class="site-nav-bar__brand" aria-label={t.ui.homeAria}>
+      <a href="/" class="site-nav-bar__brand">
         <img src="/favicon.svg" width="22" height="22" alt="" />
-        <span aria-hidden="true">AION 2<span class="text-primary">Cheats</span></span>
+        <span>Overwatch<span class="text-primary" data-i18n-en="Cheats">Cheats</span></span>
       </a>
 
       <nav class="site-nav-bar__links" aria-label="Primary">
@@ -51,6 +54,7 @@ const purchaseUrl = '/store/';
             ]}
             data-nav-link
             aria-current={navLinkIsActive(currentPath, link.href) ? 'page' : undefined}
+            {...(isExternalHref(link.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
             {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
           >
             <Icon name={navIcons[link.label] ?? 'navFeatures'} size={15} />
@@ -61,46 +65,71 @@ const purchaseUrl = '/store/';
 
       <div class="site-nav-bar__actions">
         <SiteSearch class="site-nav-bar__search" />
-        <SlideRevealButton href={purchaseUrl} class="site-nav-bar__buy" ariaLabel={t.ui.checkoutAria}>
+        <SlideRevealButton href={purchaseUrl} class="site-nav-bar__buy">
           {t.ui.browseCheats}
         </SlideRevealButton>
         <LanguageSwitcher class="site-nav-bar__lang" />
 
-        <Sheet>
-          <SheetTrigger class="site-nav-bar__menu" aria-label={t.ui.menuOpen}>
-            <Icon name="menu" size={20} />
-          </SheetTrigger>
-          <SheetContent side="right" class="flex w-[min(100vw-2rem,20rem)] flex-col gap-4">
-            <SheetHeader>
-              <SheetTitle>{t.site.name}</SheetTitle>
-            </SheetHeader>
-            <SiteSearch variant="sheet" class="w-full min-w-0" />
-            <nav class="flex flex-col gap-1" aria-label="Mobile">
-              {t.nav.map((link) => (
-                <a
-                  href={link.href}
-                  class:list={[
-                    'nav-link flex min-h-12 items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary',
-                    navLinkIsActive(currentPath, link.href) && 'is-active',
-                  ]}
-                  data-nav-link
-                  aria-current={navLinkIsActive(currentPath, link.href) ? 'page' : undefined}
-                  {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
-                >
-                  <Icon name={navIcons[link.label] ?? 'navFeatures'} size={18} />
-                  {link.label}
-                </a>
-              ))}
-            </nav>
-            <Button as="a" href={purchaseUrl} variant="primary" class="min-h-12 w-full justify-center" aria-label={t.ui.checkoutAria}>
-              {t.ui.browseCheatsMobile}
-            </Button>
-            <div class="flex justify-center pt-1">
-              <LanguageSwitcher />
-            </div>
-          </SheetContent>
-        </Sheet>
+        <button
+          type="button"
+          class="site-nav-bar__menu"
+          popovertarget="site-mobile-nav"
+          aria-haspopup="dialog"
+          aria-controls="site-mobile-nav"
+          aria-expanded="false"
+          aria-label={t.ui.menuOpen}
+          data-mobile-nav-toggle
+        >
+          <Icon name="menu" size={20} />
+        </button>
       </div>
     </div>
   </div>
 </header>
+
+<div
+  id="site-mobile-nav"
+  popover="auto"
+  class="site-nav-mobile"
+  role="dialog"
+  aria-modal="true"
+  aria-label={t.ui.menuOpen}
+>
+  <div class="site-nav-mobile__header">
+    <p class="site-nav-mobile__title">{t.site.name}</p>
+    <button
+      type="button"
+      class="site-nav-mobile__close"
+      popovertarget="site-mobile-nav"
+      popovertargetaction="hide"
+      aria-label={t.ui.menuClose}
+    >
+      <Icon name="x" size={20} />
+    </button>
+  </div>
+  <SiteSearch variant="sheet" class="w-full min-w-0" />
+  <nav class="flex flex-col gap-1" aria-label="Mobile">
+    {t.nav.map((link) => (
+      <a
+        href={link.href}
+        class:list={[
+          'nav-link flex min-h-12 items-center gap-2 rounded-md px-3 py-2 text-base font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary',
+          navLinkIsActive(currentPath, link.href) && 'is-active',
+        ]}
+        data-nav-link
+        aria-current={navLinkIsActive(currentPath, link.href) ? 'page' : undefined}
+        {...(isExternalHref(link.href) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+        {...(link.scrollTarget ? { 'data-scroll-target': link.scrollTarget } : {})}
+      >
+        <Icon name={navIcons[link.label] ?? 'navFeatures'} size={18} />
+        {link.label}
+      </a>
+    ))}
+  </nav>
+  <Button as="a" href={purchaseUrl} variant="primary" class="min-h-12 w-full justify-center">
+    {t.ui.browseCheatsMobile}
+  </Button>
+  <div class="flex justify-center pt-1">
+    <LanguageSwitcher />
+  </div>
+</div>

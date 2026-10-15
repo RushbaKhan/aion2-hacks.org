@@ -5,7 +5,7 @@ const root = process.cwd();
 const distCandidates = [path.join(root, 'dist', 'client'), path.join(root, 'dist')];
 const dist = distCandidates.find((dir) => fs.existsSync(path.join(dir, 'sitemap.xml'))) ?? path.join(root, 'dist');
 const key = process.env.INDEXNOW_KEY?.trim();
-const host = process.env.INDEXNOW_HOST?.trim() || 'aion2cheats.org';
+const host = process.env.INDEXNOW_HOST?.trim() || 'overwatchcheat.com';
 
 if (!key) {
   console.log('IndexNow: skipped (INDEXNOW_KEY not set).');

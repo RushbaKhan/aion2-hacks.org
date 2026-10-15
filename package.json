@@ -1,5 +1,5 @@
 {
-  "name": "aion2-cheats-org",
+  "name": "overwatchcheat-com",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "astro dev",
     "build": "node scripts/build-locales.mjs && node scripts/optimize-images.mjs && astro build && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/indexnow.mjs",
-    "preview": "astro preview --host 0.0.0.0",
+    "preview": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
     "astro": "astro",
     "optimize:images": "node scripts/optimize-images.mjs"

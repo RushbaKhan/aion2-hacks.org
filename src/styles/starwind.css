@@ -1,5 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
 @plugin "@tailwindcss/forms";
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -130,7 +129,7 @@
   --secondary-foreground: var(--color-neutral-50);
   --secondary-accent: var(--color-neutral-50);
   --muted: #1a1528;
-  --muted-foreground: var(--color-neutral-400);
+  --muted-foreground: #d4d4d4;
   --accent: #221a36;
   --accent-foreground: var(--color-neutral-50);
   --info: var(--color-sky-300);
@@ -176,3 +175,8 @@
 }
 
 @import "./global.css";
+@import "./site-search.css";
+@import "./blog-pages.css";
+@import "./workflow-section.css";
+@import "./product-cheat-page.css";
+@import "../components/starwind/prose/styles.css";

@@ -41,7 +41,7 @@ export const forumCategories = [
   { name: 'Plans', tone: 'green', icon: 'navProducts' },
 ] as const;
 
-export const FORUM_TEAM = 'AION 2 Cheats guide team';
+export const FORUM_TEAM = 'Overwatch Cheat guide team';
 export const FORUM_FLAIR = 'Guide-based Q&A';
 
 export function getForumCommunityHandle(name: string) {
@@ -60,7 +60,7 @@ function reply(input: { author: string; displayName: string; role?: string; date
     initials: (() => {
       const caps = input.displayName.replace(/[^A-Z]/g, '');
       if (caps.length >= 2) return caps.slice(0, 2);
-      return input.displayName.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase() || 'A2';
+      return input.displayName.replace(/[^A-Za-z]/g, '').slice(0, 2).toUpperCase() || 'OW';
     })(),
     age: input.date,
     score: 1,
@@ -113,7 +113,7 @@ export function getForumSourceSlug(post: ForumPost) {
 
 export function getForumPostImage(post: ForumPost) {
   const slug = getForumSourceSlug(post);
-  return blogPosts.find((item) => item.slug === slug)?.image ?? '/images/gameplay/aion2-lab-combat.jpg';
+  return blogPosts.find((item) => item.slug === slug)?.image ?? '/images/gameplay/ow2.jpg';
 }
 
 export function getForumPostTimestamp(post: ForumPost) {
@@ -135,74 +135,74 @@ export const forumPosts: ForumPost[] = [
     date: 'Oct 11, 2026',
     tag: 'ESP',
     pinned: true,
-    excerpt: 'Faction, class, level, and distance options covered by the player ESP guide.',
+    excerpt: 'Box, skeleton, health, name, and distance options covered by the player ESP guide.',
     category: 'Features',
     categoryTone: 'purple',
-    sourceTitle: 'AION 2 player ESP guide',
+    sourceTitle: 'Overwatch player ESP guide',
     sourcePath: '/esp/',
     answer:
-      'The guide walks through box styles, skeleton, nameplate, faction, class, level, distance, and flying-state options. Exact toggles depend on the current build.',
-    detail: 'It favors a short max-distance filter so the overlay stays readable on busy AION 2 servers.',
+      'The guide walks through box ESP, skeleton ESP, health ESP, name ESP, distance ESP, team check, and enemy-only ESP. Exact toggles depend on the current build.',
+    detail: 'It favors a short max-distance filter so the overlay stays readable on busy Overwatch maps.',
     comments: [
       reply({
         author: 'range_filter',
         displayName: 'RangeFilter',
         role: 'Overlay note',
         date: 'Oct 11, 2026',
-        body: 'Start with box, faction, and distance. Add class labels only if you can still track the default HUD.',
+        body: 'Start with box, health, and distance. Add hero labels only if you can still track the default HUD.',
       }),
       reply({
         author: 'busy_server',
         displayName: 'ServerRead',
         date: 'Oct 11, 2026',
-        body: 'On populated Abyss maps a short max-distance cap is easier to read than every player marker at once.',
+        body: 'On crowded control points a short max-distance cap is easier to read than every player marker at once.',
       }),
     ],
   }),
   guideDiscussion({
     slug: 'q-aim',
-    title: 'Do I need soft aim to use AION 2 Cheats?',
+    title: 'Do I need aimbot to use Overwatch Cheat?',
     upvotes: 41,
     views: 1500,
     date: 'Oct 10, 2026',
     tag: 'AIM',
-    excerpt: 'Soft aim is listed as optional. ESP and radar can run with it left off.',
+    excerpt: 'Aimbot is listed as optional. ESP and radar can run with it left off.',
     category: 'Features',
     categoryTone: 'purple',
-    sourceTitle: 'AION 2 soft aim guide',
+    sourceTitle: 'Overwatch aimbot guide',
     sourcePath: '/aim/',
-    answer: 'No. Soft aim is a separate combat toggle. Farming bots and skill-rotation automation are not listed.',
-    detail: 'Open the status page after an AION 2 update before enabling combat modules.',
+    answer: 'No. Aimbot, silent aim, and triggerbot are separate combat toggles. Farming bots and movement macros are not listed.',
+    detail: 'Open the status page after an Overwatch update before enabling combat modules.',
     comments: [
       reply({
         author: 'esp_first',
         displayName: 'EspFirst',
         role: 'Setup note',
         date: 'Oct 10, 2026',
-        body: 'Build a readable ESP profile first, then decide whether you want soft aim.',
+        body: 'Build a readable ESP profile first, then decide whether you want aimbot.',
       }),
     ],
   }),
   guideDiscussion({
-    slug: 'q-flight',
-    title: 'How should I read flight markers?',
+    slug: 'q-hero',
+    title: 'How should I read hero ESP?',
     upvotes: 54,
     views: 1700,
     date: 'Oct 9, 2026',
-    tag: 'FLIGHT',
-    excerpt: 'Altitude and wing state matter more than enabling every aerial marker at once.',
+    tag: 'HERO',
+    excerpt: 'Hero labels matter more than enabling every ability marker at once.',
     category: 'Features',
     categoryTone: 'purple',
-    sourceTitle: 'AION 2 flight markers',
-    sourcePath: '/flight/',
+    sourceTitle: 'Overwatch hero ESP',
+    sourcePath: '/hero/',
     answer:
-      'Read aerial target ESP and altitude first so you can tell a grounded player from one already in the air. Sky contested highlights can stay off until you need them.',
-    detail: 'Pair flight markers with a short radar range if you only need to know that something is close.',
+      'Read hero ESP first so you can tell a tank from a support before the fight starts. Ability ESP can stay off until you need listed ultimate cues.',
+    detail: 'Pair hero labels with a short radar range if you only need to know that something is close.',
     comments: [
       reply({
         author: 'alt_first',
         displayName: 'AltFirst',
-        role: 'Flight note',
+        role: 'Hero note',
         date: 'Oct 9, 2026',
         body: 'If the screen feels crowded, reduce range before changing colors.',
       }),
@@ -218,39 +218,39 @@ export const forumPosts: ForumPost[] = [
     excerpt: 'ESP answers identity. Radar answers nearby position.',
     category: 'Features',
     categoryTone: 'purple',
-    sourceTitle: 'AION 2 radar features',
+    sourceTitle: 'Overwatch radar features',
     sourcePath: '/radar/',
-    answer: 'Enable a conservative player ESP profile first, then add 2D radar if you still want a compact local map.',
-    detail: 'Keep radar range short on crowded maps. It is not listed as a separate 3D product.',
+    answer: 'Enable a conservative player ESP profile first, then add 2D or 3D radar if you still want a compact local map.',
+    detail: 'Keep radar range short on crowded maps. Both 2D radar and 3D radar are listed.',
     comments: [
       reply({
         author: 'radar_short',
         displayName: 'RadarShort',
         date: 'Oct 8, 2026',
-        body: 'Faction color coding is enough for most rotations. Leave node pips off until you need them.',
+        body: 'Team color coding is enough for most rotations. Leave extra pips off until you need them.',
       }),
     ],
   }),
   guideDiscussion({
-    slug: 'q-nodes',
-    title: 'Is gathering node ESP a farming bot?',
+    slug: 'q-obj',
+    title: 'Is objective ESP a farming bot?',
     upvotes: 29,
     views: 1300,
     date: 'Oct 7, 2026',
-    tag: 'NODES',
-    excerpt: 'Node ESP labels ore, herbs, and chests. It is not listed as unattended automation.',
+    tag: 'OBJ',
+    excerpt: 'Objective ESP labels payloads and points. It is not listed as unattended automation.',
     category: 'Features',
     categoryTone: 'purple',
-    sourceTitle: 'AION 2 gathering node ESP',
-    sourcePath: '/nodes/',
-    answer: 'No. The listing describes gathering node ESP and material filters, not a quest or farming bot.',
-    detail: 'NC has published anti-bot measures around automated gathering. Treat node labels as information only.',
+    sourceTitle: 'Overwatch objective ESP',
+    sourcePath: '/obj/',
+    answer: 'No. The listing describes objective ESP for payloads, capture points, and push bots, not a quest or farming bot.',
+    detail: 'Treat objective labels as information only. Movement macros are not listed.',
     comments: [
       reply({
         author: 'filter_ore',
         displayName: 'FilterOre',
         date: 'Oct 7, 2026',
-        body: 'Turn on one material filter at a time. A full node list is harder to read than a short range.',
+        body: 'Turn on payload markers first. A full world list is harder to read than a short range.',
       }),
     ],
   }),
@@ -262,27 +262,27 @@ export const forumPosts: ForumPost[] = [
     date: 'Oct 5, 2026',
     tag: 'SETUP',
     pinned: true,
-    excerpt: 'Status first, then Steam or PURPLE, a conservative ESP profile, and a saved config.',
+    excerpt: 'Status first, then Battle.net or Steam, a conservative ESP profile, and a saved config.',
     category: 'General',
     categoryTone: 'blue',
-    sourceTitle: 'AION 2 cheats PC setup',
+    sourceTitle: 'Overwatch cheats PC setup',
     sourcePath: '/pc/',
     answer:
-      'Confirm status and the global Windows client, follow vendor setup notes, then enable player ESP, flight markers, and radar.',
-    detail: 'The vendor lists Cloud DMA and an AWS option. Confirm those notes at checkout if you need the complete set.',
+      'Confirm status and the Windows client, follow vendor setup notes, then enable player ESP, hero ESP, and radar.',
+    detail: 'Cloud DMA and HWID Spoofer are extras that run with Overwatch Cheats on Windows PC. Confirm those notes on their pages.',
     comments: [
       reply({
         author: 'panic_key',
         displayName: 'PanicKey',
         role: 'Setup note',
         date: 'Oct 5, 2026',
-        body: 'Set a panic key before you join a populated server.',
+        body: 'Set a panic key before you join a ranked match.',
       }),
     ],
   }),
   guideDiscussion({
-    slug: 'q-compat',
-    title: 'What should I do after an AION 2 patch?',
+    slug: 'q-ac',
+    title: 'What should I do after an Overwatch patch?',
     upvotes: 46,
     views: 2400,
     date: 'Oct 4, 2026',
@@ -291,10 +291,10 @@ export const forumPosts: ForumPost[] = [
     excerpt: 'Compatibility can shift after a patch. Check status first, then launch.',
     category: 'Status',
     categoryTone: 'orange',
-    sourceTitle: 'AION 2 anti-cheat notes',
-    sourcePath: '/compat/',
+    sourceTitle: 'Overwatch anti-cheat notes',
+    sourcePath: '/ac/',
     answer:
-      'NC has published anti-bot measures for AION 2. After a patch, treat compatibility as unknown until you re-check status.',
+      'Overwatch uses Blizzard Defense Matrix. After a patch, treat compatibility as unknown until you re-check status.',
     detail: 'This community does not treat “undetected” as a permanent label. Stop if a build is marked unavailable.',
     comments: [
       reply({
@@ -302,7 +302,7 @@ export const forumPosts: ForumPost[] = [
         displayName: 'StatusFirst',
         role: 'Status note',
         date: 'Oct 4, 2026',
-        body: 'Game-client launch errors are different from product setup errors. Repair AION 2 files first if the game itself will not launch.',
+        body: 'Game-client launch errors are different from product setup errors. Repair Overwatch files first if the game itself will not launch.',
       }),
       reply({
         author: 'wait_label',
@@ -322,9 +322,9 @@ export const forumPosts: ForumPost[] = [
     excerpt: 'Same listed features; only duration and price change.',
     category: 'Plans',
     categoryTone: 'green',
-    sourceTitle: 'AION 2 Cheats monthly vs lifetime',
+    sourceTitle: 'Overwatch Cheat monthly vs lifetime',
     sourcePath: '/plans/',
-    answer: 'Monthly is $35 for 30 days. Lifetime is $150. Both list the same ESP, radar, flight, and soft aim modules.',
+    answer: 'Monthly is $35 for 30 days. Lifetime is $150. Both list the same ESP, radar, and aimbot modules.',
     detail: 'Choose monthly if you want to evaluate the overlay first. Choose lifetime only if you already want longer access.',
     comments: [
       reply({

@@ -70,7 +70,7 @@ export function sitemapSerialize(item: SitemapItem): SitemapItem | undefined {
     return item;
   }
 
-  if (path === '/store/' || path === '/features/') {
+  if (path === '/store/' || path === '/features/' || path === '/dma/' || path === '/hwid/') {
     item.priority = 0.9;
     item.changefreq = 'weekly';
     return item;

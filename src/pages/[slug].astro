@@ -1,5 +1,4 @@
 ---
-import '../styles/blog-pages.css';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { t } from '../i18n';
 import { getAllBlogSlugs, getBlogPost, getRelatedBlogPosts } from '../data/blog';
@@ -24,6 +23,7 @@ import {
 } from '../utils/schema';
 import { resolveCheckoutHref } from '../config/checkout';
 import { screenshotAlt } from '../data/screenshots';
+import { displayImageType, imageSrcSet, webpSrc } from '../utils/responsiveImage';
 import Breadcrumbs from '../components/Breadcrumbs.astro';
 import ResponsiveImage from '../components/ResponsiveImage.astro';
 import BlogSidebar from '../components/BlogSidebar.astro';
@@ -111,7 +111,17 @@ const published = post ? parseBlogDate(post.date) : undefined;
         breadcrumbSchema(breadcrumbs),
       ]}
     >
-      <article class="py-8 md:py-12">
+      <link
+        slot="head"
+        rel="preload"
+        as="image"
+        href={webpSrc(post.image, 640)}
+        imagesrcset={imageSrcSet(post.image, [400, 640, 960])}
+        imagesizes="(min-width: 768px) 720px, 100vw"
+        type={displayImageType()}
+        fetchpriority="high"
+      />
+      <article class="py-8 md:py-12" data-i18n-pack="blog">
         <div class="mx-auto max-w-6xl px-5">
           <Breadcrumbs items={breadcrumbs} />
 
@@ -126,7 +136,8 @@ const published = post ? parseBlogDate(post.date) : undefined;
                   src={post.image}
                   alt={screenshotAlt(post.image, post.title)}
                   width={1024}
-                  height={576}
+                  height={574}
+                  widths={[400, 640, 960]}
                   loading="eager"
                   fetchPriority="high"
                   sizes="(min-width: 768px) 720px, 100vw"
@@ -301,7 +312,7 @@ const published = post ? parseBlogDate(post.date) : undefined;
               <div class="forum-login-prompt">
                 <span class="forum-user-dot">A2</span>
                 <span>Guide-based Q&amp;A</span>
-                <span>New replies stay closed — use the source guide or <a href={ROUTES.support}>support</a>.</span>
+                <span>New replies stay closed — use the source guide or <a href={ROUTES.support} target="_blank" rel="noopener noreferrer">Discord</a>.</span>
               </div>
 
               <section class="forum-comments" id="comments" aria-labelledby="comments-title">

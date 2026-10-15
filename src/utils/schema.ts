@@ -42,14 +42,14 @@ export function websiteSchema() {
     url: `${SITE_ORIGIN}/`,
     inLanguage: 'en-US',
     description:
-      'AION 2 Cheats covers AION 2 features, ESP, flight markers, radar, plans, and Windows PC setup information.',
+      'Overwatch Cheat covers Overwatch cheats, aimbot, player ESP, radar, plans, and Windows PC setup information.',
   };
 }
 
 export function organizationSchema() {
   const sameAs = [
     ...getOrganizationSameAs(),
-    'https://store.steampowered.com/app/3393110/AION_2/',
+    'https://store.steampowered.com/app/2357570/Overwatch_2/',
   ].filter((url, index, list) => list.indexOf(url) === index);
 
   return {
@@ -58,15 +58,33 @@ export function organizationSchema() {
     name: BRAND_NAME,
     url: `${SITE_ORIGIN}/`,
     logo: `${SITE_ORIGIN}/logo.svg`,
-    email: SUPPORT_EMAIL,
+    ...(SUPPORT_EMAIL ? { email: SUPPORT_EMAIL } : {}),
     ...(sameAs.length > 0 ? { sameAs } : {}),
     contactPoint: [
       {
         '@type': 'ContactPoint',
         contactType: 'customer support',
-        email: SUPPORT_EMAIL,
+        ...(SUPPORT_EMAIL ? { email: SUPPORT_EMAIL } : {}),
         url: canonicalUrl('/go/'),
-        availableLanguage: ['English', 'German', 'French', 'Spanish', 'Portuguese', 'Russian'],
+        availableLanguage: [
+          'English',
+          'German',
+          'French',
+          'Spanish',
+          'Portuguese',
+          'Russian',
+          'Japanese',
+          'Korean',
+          'Chinese',
+          'Hebrew',
+          'Turkish',
+          'Arabic',
+          'Vietnamese',
+          'Polish',
+          'Italian',
+          'Thai',
+          'Indonesian',
+        ],
         areaServed: 'Worldwide',
       },
     ],
@@ -165,7 +183,15 @@ export function productSchema(input: {
   image?: string;
   sku?: string;
 }) {
-  const plans = getProductPlans(input.sku ?? 'aion-2');
+  const plans = getProductPlans(input.sku ?? 'overwatch');
+  const offerBase = {
+    url: offerUrl(input.offerUrl),
+    availability: 'https://schema.org/InStock',
+    seller: {
+      '@type': 'Organization',
+      name: BRAND_NAME,
+    },
+  };
 
   return {
     '@context': 'https://schema.org',
@@ -178,32 +204,34 @@ export function productSchema(input: {
       name: BRAND_NAME,
     },
     ...(input.image ? { image: imageObject(input.image) } : {}),
-    offers: {
-      '@type': 'AggregateOffer',
-      url: offerUrl(input.offerUrl),
-      priceCurrency: 'USD',
-      lowPrice: Math.min(...plans.map((plan) => plan.priceUsd)),
-      highPrice: Math.max(...plans.map((plan) => plan.priceUsd)),
-      offerCount: plans.length,
-      availability: 'https://schema.org/InStock',
-      seller: {
-        '@type': 'Organization',
-        name: BRAND_NAME,
-      },
-      offers: plans.map((plan) => ({
-        '@type': 'Offer',
-        name: plan.label,
-        price: plan.priceUsd,
-        priceCurrency: 'USD',
-        priceSpecification: {
-          '@type': 'UnitPriceSpecification',
-          price: plan.priceUsd,
-          priceCurrency: 'USD',
-          billingDuration: plan.duration,
-        },
-        url: checkoutUrlWithPlan(offerUrl(input.offerUrl), plan.id),
-      })),
-    },
+    offers:
+      plans.length > 0
+        ? {
+            '@type': 'AggregateOffer',
+            ...offerBase,
+            priceCurrency: 'USD',
+            lowPrice: Math.min(...plans.map((plan) => plan.priceUsd)),
+            highPrice: Math.max(...plans.map((plan) => plan.priceUsd)),
+            offerCount: plans.length,
+            offers: plans.map((plan) => ({
+              '@type': 'Offer',
+              name: plan.label,
+              price: plan.priceUsd,
+              priceCurrency: 'USD',
+              priceSpecification: {
+                '@type': 'UnitPriceSpecification',
+                price: plan.priceUsd,
+                priceCurrency: 'USD',
+                billingDuration: plan.duration,
+              },
+              url: checkoutUrlWithPlan(offerUrl(input.offerUrl), plan.id),
+            })),
+          }
+        : {
+            '@type': 'Offer',
+            ...offerBase,
+            priceCurrency: 'USD',
+          },
   };
 }
 

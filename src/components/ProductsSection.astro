@@ -1,13 +1,12 @@
 ---
-import '../styles/product-cheat-page.css';
 import { t } from '../i18n';
 import { productPages } from '../data/products';
 import { checkoutUrlWithPlan, formatPlanPrice, getProductPlans } from '../data/productPricing';
 import SectionHeader from './SectionHeader.astro';
 import ResponsiveImage from './ResponsiveImage.astro';
+import StoreSubProducts from './StoreSubProducts.astro';
 import Icon from './icons/Icon.astro';
 import { ROUTES } from '../utils/path';
-import { CARD_IMAGE_SIZES, CARD_IMAGE_WIDTHS } from '../utils/responsiveImage';
 import { Badge } from '@/components/starwind/badge';
 import { Button } from '@/components/starwind/button';
 
@@ -16,11 +15,11 @@ const product = productPages[0]!;
 const plans = getProductPlans(product.slug);
 const preview = product.images[0];
 const planNotes: Record<string, { blurb: string; highlight?: boolean; duration: string }> = {
-  monthly: { blurb: 'Try listed ESP, radar, and soft aim for 30 days.', duration: '30 days' },
+  monthly: { blurb: 'Try listed ESP, radar, and aimbot for 30 days.', duration: '30 days' },
   lifetime: { blurb: 'Same listed modules, billed once in USD.', highlight: true, duration: 'One-time' },
 };
 const showcaseFeatures = product.fullFeatures.slice(0, 12);
-const storeFacts = ['Available', 'AION 2', 'Windows PC', 'Steam', 'PURPLE', '2 plans'];
+const storeFacts = ['Available', 'Overwatch 2', 'Windows PC', 'Aimbot', 'ESP', '2 plans'];
 ---
 
 <section
@@ -49,10 +48,11 @@ const storeFacts = ['Available', 'AION 2', 'Windows PC', 'Steam', 'PURPLE', '2 p
               <ResponsiveImage
                 src={preview.src}
                 alt={preview.alt}
-                width={640}
-                height={360}
-                widths={CARD_IMAGE_WIDTHS}
-                sizes={CARD_IMAGE_SIZES}
+                width={1024}
+                height={574}
+                widths={[400]}
+                sizes="(min-width: 1024px) 400px, 92vw"
+                loading="lazy"
                 class="aspect-[16/9] w-full object-cover"
               />
             </div>
@@ -61,7 +61,8 @@ const storeFacts = ['Available', 'AION 2', 'Windows PC', 'Steam', 'PURPLE', '2 p
         <div class="flex flex-1 flex-col p-6 lg:p-7">
           <div class="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">{product.badge}</Badge>
-            <Badge variant="outline">AION 2</Badge>
+            <Badge>Overwatch Cheats</Badge>
+            <Badge variant="outline">Overwatch 2</Badge>
             <Badge variant="outline">Windows PC</Badge>
           </div>
           <p class="mt-4 text-2xl font-bold normal-case">{product.title}</p>
@@ -105,7 +106,7 @@ const storeFacts = ['Available', 'AION 2', 'Windows PC', 'Steam', 'PURPLE', '2 p
                     <p class="text-xs font-semibold uppercase tracking-wider text-muted-foreground">{plan.label}</p>
                     {note?.highlight && <Badge>Best value</Badge>}
                   </div>
-                  <p class="mt-3 font-[family-name:var(--font-heading)] text-4xl font-bold text-primary">
+                  <p class="mt-3 font-[family-name:var(--font-heading)] text-4xl font-bold text-primary-accent">
                     {formatPlanPrice(plan.priceUsd)}
                   </p>
                   <p class="mt-1 text-sm text-muted-foreground">
@@ -115,15 +116,15 @@ const storeFacts = ['Available', 'AION 2', 'Windows PC', 'Steam', 'PURPLE', '2 p
                   <ul class="mt-4 space-y-2 text-sm text-muted-foreground">
                     <li class="flex items-start gap-2">
                       <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
-                      Same listed ESP, radar, and flight set
+                      Same listed ESP, radar, and aimbot set
                     </li>
                     <li class="flex items-start gap-2">
                       <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
-                      Optional soft aim
+                      Optional silent aim and triggerbot
                     </li>
                     <li class="flex items-start gap-2">
                       <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
-                      Steam or PURPLE on Windows PC
+                      Windows PC via Battle.net or Steam
                     </li>
                   </ul>
                   <Button
@@ -144,7 +145,7 @@ const storeFacts = ['Available', 'AION 2', 'Windows PC', 'Steam', 'PURPLE', '2 p
         <div class="flex-1 rounded-2xl border border-border bg-card p-5 shadow-sm sm:p-6">
           <div class="flex flex-wrap items-end justify-between gap-3">
             <div>
-              <p class="text-xs font-semibold uppercase tracking-wider text-primary">Included modules</p>
+              <p class="text-xs font-semibold uppercase tracking-wider text-primary-accent">Included modules</p>
               <p class="mt-1 text-lg font-bold">Modules both plans include</p>
             </div>
             <Button as="a" href={ROUTES.features} variant="outline" size="sm">
@@ -165,5 +166,7 @@ const storeFacts = ['Available', 'AION 2', 'Windows PC', 'Steam', 'PURPLE', '2 p
         </div>
       </div>
     </div>
+
+    <StoreSubProducts class="mt-8" />
   </div>
 </section>

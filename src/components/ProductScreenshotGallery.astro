@@ -1,13 +1,9 @@
 ---
-import '../styles/product-cheat-page.css';
 import type { ProductSlide } from '../data/products';
 import Icon from './icons/Icon.astro';
 import ResponsiveImage from './ResponsiveImage.astro';
 import {
-  CARD_IMAGE_WIDTHS,
-  DEFAULT_IMAGE_WIDTHS,
   defaultWebpSrc,
-  responsiveSrcSet,
   THUMB_IMAGE_WIDTHS,
 } from '../utils/responsiveImage';
 
@@ -38,12 +34,12 @@ const first = images[0];
           <ResponsiveImage
             src={first.src}
             alt={first.alt}
-            width={640}
-            height={360}
-            widths={CARD_IMAGE_WIDTHS}
+            width={1024}
+            height={574}
+            widths={[400]}
             loading="eager"
             fetchPriority="high"
-            sizes={compact ? '(min-width: 768px) 560px, 230px' : '(min-width: 1024px) 640px, 230px'}
+            sizes={compact ? '(min-width: 768px) 560px, 92vw' : '(min-width: 1024px) 400px, 92vw'}
             class="product-gallery__image w-full object-cover"
           />
         )
@@ -75,29 +71,26 @@ const first = images[0];
 
   {
     hasThumbs && (
-      <div class="product-gallery__thumbs" role="tablist" aria-label="Product screenshots" data-lenis-prevent>
+      <div class="product-gallery__thumbs" role="group" aria-label="Product screenshots" data-lenis-prevent>
         {images.map((img, i) => (
           <button
             type="button"
             class:list={['product-gallery__thumb', i === 0 && 'is-active']}
-            role="tab"
-            aria-selected={i === 0 ? 'true' : 'false'}
+            aria-current={i === 0 ? 'true' : undefined}
             aria-label={`Screenshot ${i + 1}`}
             data-product-gallery-thumb
             data-index={i}
-            data-src={defaultWebpSrc(img.src, DEFAULT_IMAGE_WIDTHS)}
-            data-srcset={responsiveSrcSet(img.src)}
+            data-src={defaultWebpSrc(img.src, [400])}
+            data-srcset=""
             data-alt={img.alt}
           >
-            <ResponsiveImage
-              src={img.src}
+            <img
               alt={img.alt}
-              width={320}
-              height={180}
-              widths={THUMB_IMAGE_WIDTHS}
-              loading="lazy"
-              sizes="148px"
+              width="320"
+              height="180"
+              decoding="async"
               class="size-full object-cover"
+              data-thumb-src={defaultWebpSrc(img.src, THUMB_IMAGE_WIDTHS)}
             />
           </button>
         ))}
@@ -116,6 +109,19 @@ const first = images[0];
       const thumbs = [...root.querySelectorAll<HTMLButtonElement>('[data-product-gallery-thumb]')];
       const prev = root.querySelector<HTMLButtonElement>('[data-product-gallery-prev]');
       const next = root.querySelector<HTMLButtonElement>('[data-product-gallery-next]');
+      const hydrateThumbs = () => {
+        root.querySelectorAll<HTMLImageElement>('[data-thumb-src]').forEach((img) => {
+          const src = img.getAttribute('data-thumb-src');
+          if (!src) return;
+          img.src = src;
+          img.removeAttribute('data-thumb-src');
+        });
+      };
+      if (document.readyState === 'complete') {
+        window.setTimeout(hydrateThumbs, 400);
+      } else {
+        window.addEventListener('load', () => window.setTimeout(hydrateThumbs, 400), { once: true });
+      }
       if (!main || !thumbs.length) return;
 
       let index = 0;
@@ -133,12 +139,16 @@ const first = images[0];
         if (fullSrcset) {
           main.srcset = fullSrcset;
           if (pictureSource) pictureSource.srcset = fullSrcset;
+        } else {
+          main.removeAttribute('srcset');
+          pictureSource?.removeAttribute('srcset');
         }
         if (alt) main.alt = alt;
         thumbs.forEach((t, i) => {
           const active = i === index;
           t.classList.toggle('is-active', active);
-          t.setAttribute('aria-selected', active ? 'true' : 'false');
+          if (active) t.setAttribute('aria-current', 'true');
+          else t.removeAttribute('aria-current');
         });
         thumb.scrollIntoView({ block: 'nearest', inline: 'nearest' });
       };

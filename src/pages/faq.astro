@@ -21,9 +21,8 @@ const faqs = getAllFaqs();
   description={seo.description}
   jsonLd={[
     webPageSchema({
-      name: 'AION 2 Cheats FAQ | AION 2 Cheats',
-      description:
-        'Answers about AION 2 cheats, Windows PC support, ESP, plans, compatibility, setup, and checkout at aion2cheats.org.',
+      name: seo.title,
+      description: seo.description,
       url: '/faq/',
     }),
     faqPageSchema(faqs.map((f, i) => ({ num: String(i + 1).padStart(2, '0'), q: f.q, a: f.a.replace(/<[^>]+>/g, '') }))),
@@ -36,8 +35,8 @@ const faqs = getAllFaqs();
       <div class="mt-6">
         <SectionHeader
           eyebrow="Help center"
-          title="FAQ for AION 2 cheats"
-          desc="Plans, ESP, radar, compatibility, setup, and checkout—in one place for AION 2 on Windows PC."
+          title="FAQ for Overwatch cheats"
+          desc="Plans, ESP, radar, compatibility, setup, and checkout—in one place for Overwatch on Windows PC."
           titleId="faq-page-title"
         />
       </div>

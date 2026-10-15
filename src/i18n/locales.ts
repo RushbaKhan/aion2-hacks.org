@@ -14,6 +14,9 @@ export const LOCALES = [
   { code: 'ar', label: 'العربية', htmlLang: 'ar', dir: 'rtl' },
   { code: 'vi', label: 'Tiếng Việt', htmlLang: 'vi', dir: 'ltr' },
   { code: 'pl', label: 'Polski', htmlLang: 'pl', dir: 'ltr' },
+  { code: 'it', label: 'Italiano', htmlLang: 'it', dir: 'ltr' },
+  { code: 'th', label: 'ไทย', htmlLang: 'th', dir: 'ltr' },
+  { code: 'id', label: 'Bahasa Indonesia', htmlLang: 'id', dir: 'ltr' },
 ] as const;
 
 export type LocaleCode = (typeof LOCALES)[number]['code'];

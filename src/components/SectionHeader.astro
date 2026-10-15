@@ -9,7 +9,7 @@ interface Props {
   as?: 'h1' | 'h2';
 }
 
-const { eyebrow, title, desc, titleId, centered = false, wide = false, as: HeadingTag = 'h1' } = Astro.props;
+const { eyebrow, title, desc, titleId, centered = true, wide = false, as: HeadingTag = 'h1' } = Astro.props;
 ---
 
 <header

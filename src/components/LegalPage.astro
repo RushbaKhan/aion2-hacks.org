@@ -3,7 +3,7 @@ import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Icon from './icons/Icon.astro';
 import { Button } from '@/components/starwind/button';
 import { Prose } from '@/components/starwind/prose';
-import { linkifyMarkdown, ROUTES } from '../utils/path';
+import { isExternalHref, linkifyMarkdown, ROUTES } from '../utils/path';
 
 interface Props {
   title: string;
@@ -42,7 +42,13 @@ const { title, description, breadcrumbLabel, sections } = Astro.props;
     </Prose>
 
     <div class="mt-12 flex flex-wrap justify-center gap-3 border-t border-border pt-8">
-      <Button as="a" href={ROUTES.support} variant="primary" size="sm">
+      <Button
+        as="a"
+        href={ROUTES.support}
+        variant="primary"
+        size="sm"
+        {...(isExternalHref(ROUTES.support) ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
+      >
         Contact support
         <Icon name="mail" size={16} />
       </Button>

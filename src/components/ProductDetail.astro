@@ -1,5 +1,4 @@
 ---
-import '../styles/product-cheat-page.css';
 import type { ProductPage } from '../data/products';
 import type { BreadcrumbItem } from '../utils/schema';
 import { getRelatedBlogPostsForProduct } from '../data/blog';
@@ -14,6 +13,7 @@ import ProductFeaturesSection from './product/ProductFeaturesSection.astro';
 import ProductDescriptionSection from './product/ProductDescriptionSection.astro';
 import ProductExperienceSection from './product/ProductExperienceSection.astro';
 import ProductRelatedGuidesSection from './product/ProductRelatedGuidesSection.astro';
+import StoreSubProducts from './StoreSubProducts.astro';
 
 interface Props {
   product: ProductPage;
@@ -46,6 +46,12 @@ const showDescToggle = descriptionBlocks.length > 2;
       <ProductScreenshotGallery images={product.images} id={`gallery-${product.slug}`} />
       <ProductCheckoutPanel product={product} />
     </div>
+
+    {
+      product.kind === 'tier' && (
+        <StoreSubProducts class="mt-10" />
+      )
+    }
   </div>
 </section>
 

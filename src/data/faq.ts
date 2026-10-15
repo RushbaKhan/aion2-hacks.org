@@ -25,58 +25,61 @@ function a(text: string): string {
 }
 
 function link(text: string, href: string): string {
-  return `<a href="${normalizeInternalPath(href)}">${text}</a>`;
+  const url = normalizeInternalPath(href);
+  const extra = url.startsWith('http') ? ' target="_blank" rel="noopener noreferrer"' : '';
+  return `<a href="${url}"${extra}>${text}</a>`;
 }
 
-const store = link('AION 2 store', ROUTES.store);
+const store = link('Overwatch store', ROUTES.store);
 const features = link('features page', ROUTES.features);
 const status = link('status page', ROUTES.status);
 const setup = link('setup page', ROUTES.setup);
 const faqPage = link('full FAQ', ROUTES.faq);
-const blog = link('AION 2 guides', ROUTES.blog);
+const blog = link('Overwatch guides', ROUTES.blog);
 const forum = link('community forum', ROUTES.forum);
 const preview = link('preview gallery', ROUTES.preview);
 const reviews = link('reviews checklist', ROUTES.reviews);
-const support = link('checkout', ROUTES.checkout);
+const support = link('Discord', ROUTES.support);
 const playerEsp = link('player ESP guide', '/esp/');
-const flightGuide = link('flight markers', '/flight/');
-const worldGuide = link('world markers', '/world/');
+const heroGuide = link('hero ESP', '/hero/');
+const objGuide = link('objective ESP', '/obj/');
 const radarGuide = link('radar features', '/radar/');
-const aimGuide = link('soft aim notes', '/aim/');
+const aimGuide = link('aimbot notes', '/aim/');
 const setupGuide = link('Windows PC setup guide', '/pc/');
-const compatGuide = link('compatibility notes', '/compat/');
+const compatGuide = link('compatibility notes', '/ac/');
 const plansGuide = link('monthly vs lifetime', '/plans/');
-const cheatsGuide = link('AION 2 cheats overview', '/cheats/');
-const nodesGuide = link('gathering node ESP', '/nodes/');
+const cheatsGuide = link('Overwatch cheats overview', '/cheats/');
+const dmaPage = link('Cloud DMA', ROUTES.dma);
+const hwidPage = link('HWID Spoofer', ROUTES.hwid);
 
 export const siteFaqs: SiteFaqItem[] = [
   {
     id: 'status',
     topic: 'setup',
     icon: 'faqStatus',
-    q: 'Where do I check if AION 2 cheats are currently compatible?',
-    a: `Open the ${status} on aion2cheats.org before purchase or launch, especially after an AION 2 client update. The ${compatGuide} explain why patch days matter.`,
+    q: 'Where do I check if Overwatch cheats are currently compatible?',
+    a: `Open the ${status} on overwatchcheat.com before purchase or launch, especially after an Overwatch client update. The ${compatGuide} explain why patch days matter.`,
   },
   {
     id: 'after-buy',
     topic: 'setup',
     icon: 'faqAfterBuy',
     q: 'What happens after I buy?',
-    a: `Checkout provides access and setup instructions. Follow those notes plus the ${setup} for Windows PC and the Steam or PURPLE client before launching AION 2. The ${setupGuide} covers a conservative first profile.`,
+    a: `Checkout provides access and setup instructions. Follow those notes plus the ${setup} for Windows PC before launching Overwatch. The ${setupGuide} covers a conservative first profile.`,
   },
   {
     id: 'ban-risk',
     topic: 'safety',
     icon: 'faqBanRisk',
-    q: 'Can I get banned using third-party AION 2 software?',
-    a: `Yes. Any third-party modification can conflict with published anti-bot measures and may lead to account action. You use this software at your own risk. Read the ${compatGuide} and ${status} before you launch.`,
+    q: 'Can I get banned using third-party Overwatch software?',
+    a: `Yes. Any third-party modification can conflict with Blizzard Defense Matrix and may lead to account action. You use this software at your own risk. Read the ${compatGuide} and ${status} before you launch.`,
   },
   {
     id: 'platforms',
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
-    a: `AION 2 on Windows 10/11 PC through the global Steam or PURPLE client. macOS, Linux, and consoles are not listed. Confirm the client in the ${setupGuide} and ${setup}.`,
+    a: `Overwatch on Windows 10/11 PC. macOS, Linux, and consoles are not listed. Confirm the client in the ${setupGuide} and ${setup}.`,
   },
   {
     id: 'plans',
@@ -96,79 +99,86 @@ export const siteFaqs: SiteFaqItem[] = [
     id: 'what-is-esp',
     topic: 'esp',
     icon: 'faqWhatIsEsp',
-    q: 'What is AION 2 ESP?',
-    a: `ESP is an information overlay. ${features} covers player ESP, flight markers, world markers, and gathering nodes. It does not automatically aim or move your character. ${cheatsGuide} maps each overlay group.`,
-    scopes: ['aion-2'],
+    q: 'What is Overwatch ESP?',
+    a: `ESP is an information overlay. ${features} covers player ESP, box ESP, skeleton ESP, hero ESP, and objective ESP. It does not automatically aim or move your character. ${cheatsGuide} maps each overlay group.`,
+    scopes: ['overwatch'],
   },
   {
     id: 'player-esp',
     topic: 'esp',
     icon: 'faqEspVsScripts',
     q: 'What does player ESP show?',
-    a: `Player ESP can show nearby Daevas with box outlines, nameplates, faction, class, level, distance, flying state, and off-screen arrows when those toggles are included in the current build. See the ${playerEsp} and ${preview}.`,
+    a: `Player ESP can show nearby heroes with box outlines, skeleton, health, name, distance, and enemy-only filters when those toggles are included in the current build. See the ${playerEsp} and ${preview}.`,
   },
   {
-    id: 'flight-esp',
+    id: 'hero-esp',
     topic: 'esp',
     icon: 'faqWhichTierEsp',
-    q: 'What do flight markers show?',
-    a: `Flight options can mark aerial targets, altitude, wing or glide state, and sky contested zones. The ${flightGuide} explains how they pair with player ESP.`,
+    q: 'What does hero ESP show?',
+    a: `Hero ESP can label the hero someone locked so you can read tanks, damage, and supports. The ${heroGuide} explains how it pairs with player ESP.`,
   },
   {
-    id: 'world-esp',
+    id: 'obj-esp',
     topic: 'esp',
     icon: 'faqZoomHack',
-    q: 'What are world and node markers?',
-    a: `World overlays can mark NPCs, elites, bosses, quests, and portals. ${nodesGuide} covers ore, herb, and chest labels. ${worldGuide} covers PvE markers.`,
+    q: 'What does objective ESP show?',
+    a: `Objective ESP can mark payloads, capture points, and push bots. ${objGuide} covers those markers. Ability ESP is listed separately.`,
   },
   {
     id: 'radar',
     topic: 'esp',
     icon: 'faqStreamProof',
-    q: 'Does AION 2 Cheats include radar?',
-    a: `Yes. 2D radar is listed as a local awareness overlay for nearby players, bosses, and nodes. ${radarGuide} covers when to pair it with ESP.`,
+    q: 'Does Overwatch Cheat include radar?',
+    a: `Yes. 2D radar and 3D radar are listed as local awareness overlays for nearby players. ${radarGuide} covers when to pair them with ESP.`,
   },
   {
     id: 'aim-assist',
     topic: 'aim',
     icon: 'faqWhichTierScripts',
-    q: 'Is aimbot or soft aim included?',
-    a: `Soft aim is listed. Farming bots and skill-rotation automation are not listed, so this site does not claim them. Confirm the ${status} before enabling combat modules, and read the ${aimGuide}.`,
+    q: 'Is aimbot or triggerbot included?',
+    a: `Aimbot, aim assist, silent aim, and triggerbot are listed. Farming bots and movement macros are not listed, so this site does not claim them. Confirm the ${status} before enabling combat modules, and read the ${aimGuide}.`,
   },
   {
     id: 'undetected',
     topic: 'safety',
     icon: 'faqUndetected',
-    q: 'Are AION 2 cheats guaranteed undetected?',
+    q: 'Are Overwatch cheats guaranteed undetected?',
     a: `No. This site does not promise permanent undetected status. Compatibility can change after a patch. Check the ${status} and stop if a build is marked unavailable.`,
   },
   {
     id: 'anticheat',
     topic: 'safety',
     icon: 'faqVacUpdate',
-    q: 'What anti-cheat does AION 2 use?',
-    a: `NC has published anti-bot measures for AION 2, including VPN blocks, reporting, and hardware-based restrictions. A named Western anti-cheat brand is not treated here as a verified public label. After a patch, re-check the ${status}.`,
+    q: 'What anti-cheat does Overwatch use?',
+    a: `Overwatch uses Blizzard Defense Matrix. This site treats that label as published context, not a verified bypass. After a patch, re-check the ${status}.`,
   },
   {
     id: 'dma',
     topic: 'setup',
     icon: 'faqExternalLoader',
-    q: 'Is Cloud DMA required?',
-    a: `The current vendor listing notes Cloud DMA and an AWS option, plus HVCI, core isolation, TPM, and Secure Boot left on. Confirm those notes at checkout and on the ${setup} before you buy.`,
+    q: 'How does Cloud DMA run with Overwatch Cheats?',
+    a: `Cloud DMA is a $50 one-time extra that runs with Overwatch Cheats on Windows PC. Confirm those notes on ${dmaPage} and the ${setup} before you buy.`,
   },
   {
-    id: 'steam-purple',
+    id: 'hwid',
     topic: 'setup',
     icon: 'faqPlatforms',
-    q: 'Does this work on Steam and PURPLE?',
-    a: `The current listing is the global Windows PC client. Steam and PURPLE share global content when accounts are linked. Confirm the client in the ${setupGuide}.`,
+    q: 'How does the HWID Spoofer run with Overwatch Cheats?',
+    a: `${hwidPage} is a $50 monthly or $150 lifetime extra that runs with Overwatch Cheats on the same Windows PC. Overwatch Cheats plans stay $35 monthly or $150 lifetime.`,
+  },
+  {
+    id: 'steam-battlenet',
+    topic: 'setup',
+    icon: 'faqPlatforms',
+    q: 'Does this work on Battle.net and Steam?',
+    a: `The current listing is the Windows PC client. Confirm the client you launch in the ${setupGuide}. Console clients are not listed.`,
   },
   {
     id: 'monthly-vs-lifetime',
     topic: 'plans',
     icon: 'faqRankTiers',
     q: 'How do I choose monthly vs lifetime?',
-    a: `Choose monthly if you want to evaluate AION 2 cheats for 30 days. Choose lifetime if you already know you want longer access. Feature lists are the same; only duration and price change. See ${store} and ${plansGuide}. The ${reviews} lists evaluation checkpoints without invented quotes.`,
+    a: `Choose monthly if you want to evaluate Overwatch cheats for 30 days. Choose lifetime if you already know you want longer access. Feature lists are the same; only duration and price change. See ${store} and ${plansGuide}. The ${reviews} lists evaluation checkpoints without invented quotes.`,
   },
   {
     id: 'blog-vs-product',
@@ -189,14 +199,14 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'setup',
     icon: 'faqDiscordHelp',
     q: 'How do I get install help?',
-    a: `Open a request on the ${support} with your order email, Windows version, Steam or PURPLE, and the exact error text from the loader or AION 2 client.`,
+    a: `Open a request on the ${support} with your order email, Windows version, Battle.net or Steam, and the exact error text from the loader or Overwatch client.`,
   },
   {
     id: 'invented-features',
     topic: 'aim',
     icon: 'faqAutoFarm',
-    q: 'Do you include farming bots or quest automation?',
-    a: `Those modules are not on the current product listing, so AION 2 Cheats does not advertise them. Compare the ${features} and ${store} lists instead of third-party screenshots.`,
+    q: 'Do you include farming bots or movement macros?',
+    a: `Those modules are not on the current product listing, so Overwatch Cheat does not advertise them. Compare the ${features} and ${store} lists instead of third-party screenshots.`,
   },
   {
     id: 'faq-more',
@@ -220,7 +230,7 @@ export function getAllFaqs(): SiteFaqItem[] {
 export const SITE_FAQ_SECTION_COPY = {
   eyebrow: 'All topics',
   title: 'Browse by category',
-  subtitle: 'Filter plans, ESP, soft aim, safety, setup, and blog answers.',
+  subtitle: 'Filter plans, ESP, aimbot, safety, setup, and blog answers.',
 } as const;
 
 export const SITE_FAQ_FILTER_TOPICS: FaqTopic[] = [
@@ -275,7 +285,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideStatus',
       q: 'Is this guide still valid after a patch?',
-      a: `Check the article date and the ${status}. AION 2 updates can change what a build can do. The ${compatGuide} cover that patch-day habit.`,
+      a: `Check the article date and the ${status}. Overwatch updates can change what a build can do. The ${compatGuide} cover that patch-day habit.`,
     },
   ],
   Setup: [
@@ -300,7 +310,7 @@ const blogTopicFaqs: Record<string, SiteFaqItem[]> = {
       topic: 'blog',
       icon: 'faqBlogGuideTier',
       q: 'Which features are actually listed?',
-      a: `Player ESP, soft aim, flight markers, gathering nodes, world markers, radar, and configuration options. See the ${features} for the full listed set, or the ${preview} for screenshots.`,
+      a: `Aimbot, aim assist, silent aim, triggerbot, player ESP, hero ESP, objective ESP, radar, and team check. See the ${features} for the full listed set, or the ${preview} for screenshots.`,
     },
   ],
   Updates: [
@@ -327,14 +337,14 @@ const defaultBlogFaqs: SiteFaqItem[] = [
     topic: 'blog',
     icon: 'faqBlogDefault2',
     q: 'Need help applying this guide?',
-    a: a(`Continue through ${support} with your order email and the article slug. Include your Windows version and Steam or PURPLE.`),
+    a: a(`Continue through ${support} with your order email and the article slug. Include your Windows version and Battle.net or Steam.`),
   },
   {
     id: 'blog-default-3',
     topic: 'blog',
     icon: 'faqBlogDefault3',
     q: 'Will settings in this article work next patch?',
-    a: a('Re-check status after every AION 2 update. Reload configs instead of assuming old sliders still apply.'),
+    a: a('Re-check status after every Overwatch update. Reload configs instead of assuming old sliders still apply.'),
   },
 ];
 
@@ -342,13 +352,13 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
   const topicFaqs = blogTopicFaqs[tag] ?? [];
   const slugHints: SiteFaqItem[] = [];
 
-  if (['esp', 'radar', 'flight', 'nodes', 'world', 'cheats'].includes(slug)) {
+  if (['esp', 'radar', 'hero', 'obj', 'cheats'].includes(slug)) {
     slugHints.push({
       id: 'blog-slug-esp',
       topic: 'esp',
       icon: 'faqBlogSlugEsp',
       q: 'Where is the current ESP feature list?',
-      a: `${features} and ${store} list player ESP, flight markers, nodes, world markers, and radar from the current product listing.`,
+      a: `${features} and ${store} list player ESP, hero ESP, objective ESP, and radar from the current product listing.`,
     });
   }
   if (slug === 'aim') {
@@ -356,17 +366,17 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
       id: 'blog-slug-aim',
       topic: 'aim',
       icon: 'faqBlogSlugScripts',
-      q: 'Is soft aim required?',
-      a: a('No. Soft aim is optional. You can review ESP and radar without enabling combat modules.'),
+      q: 'Is aimbot required?',
+      a: a('No. Aimbot is optional. You can review ESP and radar without enabling combat modules.'),
     });
   }
-  if (slug === 'compat' || slug === 'pc') {
+  if (slug === 'ac' || slug === 'pc') {
     slugHints.push({
       id: 'blog-slug-status',
       topic: 'setup',
       icon: 'faqBlogSlugHwid',
       q: 'Does this article replace the status page?',
-      a: `No. Use the ${status} page for current compatibility notes after an AION 2 update.`,
+      a: `No. Use the ${status} page for current compatibility notes after an Overwatch update.`,
     });
   }
 
@@ -374,11 +384,11 @@ export function getBlogFaqs(tag: string, slug: string): SiteFaqItem[] {
 }
 
 export const compareRows = [
+  { feature: 'Aimbot', icon: 'compareAutoCombo' as const, monthly: true, lifetime: true },
   { feature: 'Player ESP', icon: 'comparePlayerEsp' as const, monthly: true, lifetime: true },
-  { feature: 'Flight markers', icon: 'compareWardLocator' as const, monthly: true, lifetime: true },
-  { feature: 'Gathering nodes', icon: 'compareRuneTimer' as const, monthly: true, lifetime: true },
+  { feature: 'Hero ESP', icon: 'compareWardLocator' as const, monthly: true, lifetime: true },
+  { feature: 'Objective ESP', icon: 'compareRuneTimer' as const, monthly: true, lifetime: true },
   { feature: 'Radar', icon: 'compareMinimapHack' as const, monthly: true, lifetime: true },
-  { feature: 'Soft aim', icon: 'compareAutoCombo' as const, monthly: true, lifetime: true },
-  { feature: 'World / boss markers', icon: 'compareAbilityRadius' as const, monthly: true, lifetime: true },
-  { feature: 'Saveable configs', icon: 'compareCloudBackup' as const, monthly: true, lifetime: true },
+  { feature: 'Team check', icon: 'compareAbilityRadius' as const, monthly: true, lifetime: true },
+  { feature: 'Silent aim / triggerbot', icon: 'compareCloudBackup' as const, monthly: true, lifetime: true },
 ];

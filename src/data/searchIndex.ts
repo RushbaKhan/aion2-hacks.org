@@ -11,18 +11,20 @@ export interface SearchEntry {
 }
 
 const pages: SearchEntry[] = [
-  { title: 'Home', desc: 'AION 2 cheats overview, ESP, flight markers, radar, and plans.', href: ROUTES.home, type: 'Page' },
-  { title: 'Features', desc: 'Player ESP, soft aim, flight markers, gathering nodes, radar, and world information.', href: ROUTES.features, type: 'Page' },
-  { title: 'Store', desc: 'Monthly $35 and lifetime $150 plans for AION 2 on Windows PC.', href: ROUTES.store, type: 'Page' },
-  { title: 'Status', desc: 'Compatibility notes after AION 2 patches.', href: ROUTES.status, type: 'Page' },
-  { title: 'Preview', desc: 'Overlay screenshots for ESP, radar, and flight information.', href: ROUTES.preview, type: 'Page' },
-  { title: 'Setup', desc: 'Windows PC setup order for AION 2 on Steam or PURPLE.', href: ROUTES.setup, type: 'Page' },
-  { title: 'Blog', desc: 'AION 2 guides: classes, release notes, ESP, and patch reminders.', href: ROUTES.blog, type: 'Page' },
-  { title: 'Forum', desc: 'AION 2 community forum: ESP, soft aim, setup, and plan Q&A.', href: ROUTES.forum, type: 'Page' },
+  { title: 'Home', desc: 'Overwatch Cheats for Overwatch 2: aimbot, player ESP, radar, OW characters, and plans.', href: ROUTES.home, type: 'Page' },
+  { title: 'Features', desc: 'Aimbot, player ESP, hero ESP, objective ESP, radar, and team check for Overwatch 2.', href: ROUTES.features, type: 'Page' },
+  { title: 'Store', desc: 'Overwatch Cheats plans: monthly $35 and lifetime $150 for Overwatch 2 on Windows PC.', href: ROUTES.store, type: 'Page' },
+  { title: 'Cloud DMA', desc: 'Cloud DMA extra that runs with Overwatch Cheats. $50 one-time on Windows PC.', href: ROUTES.dma, type: 'Page' },
+  { title: 'HWID Spoofer', desc: 'HWID Spoofer extra that runs with Overwatch Cheats. $50 monthly or $150 lifetime.', href: ROUTES.hwid, type: 'Page' },
+  { title: 'Status', desc: 'Compatibility notes after Overwatch patches and Defense Matrix context.', href: ROUTES.status, type: 'Page' },
+  { title: 'Preview', desc: 'Overlay screenshots for ESP, radar, and aiming features.', href: ROUTES.preview, type: 'Page' },
+  { title: 'Setup', desc: 'Windows PC setup order for Overwatch on Battle.net or Steam.', href: ROUTES.setup, type: 'Page' },
+  { title: 'Blog', desc: 'Overwatch guides: heroes, release notes, ESP, and patch reminders.', href: ROUTES.blog, type: 'Page' },
+  { title: 'Forum', desc: 'Overwatch community forum: ESP, aimbot, setup, and plan Q&A.', href: ROUTES.forum, type: 'Page' },
   { title: 'FAQ', desc: 'Answers about plans, ESP, compatibility, and checkout.', href: ROUTES.faq, type: 'Page' },
   { title: 'Reviews', desc: 'Evaluation checkpoints before choosing a plan.', href: ROUTES.reviews, type: 'Page' },
   { title: 'Support', desc: 'Purchase, setup, and compatibility help.', href: ROUTES.support, type: 'Page' },
-  { title: 'About', desc: 'What AION 2 Cheats publishes at aion2cheats.org.', href: ROUTES.about, type: 'Page' },
+  { title: 'About', desc: 'What Overwatch Cheat publishes at overwatchcheat.com.', href: ROUTES.about, type: 'Page' },
 ];
 
 export function getSearchIndex(): SearchEntry[] {

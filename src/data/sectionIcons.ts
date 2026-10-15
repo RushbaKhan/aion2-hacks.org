@@ -2,14 +2,15 @@ import type { IconName } from '../components/icons/types';
 
 export const featureIcons: Record<string, IconName> = {
   ESP: 'featureEsp',
+  Aimbot: 'featureAimbot',
   'Player ESP': 'comparePlayerEsp',
-  'Soft Aim': 'featureAimbot',
-  'Flight Markers': 'featureRadar',
-  'World Info': 'compareRuneTimer',
-  'Gathering Nodes': 'lootEsp',
+  'Hero ESP': 'compareWardLocator',
+  'Ability ESP': 'compareAbilityRadius',
+  'Objective ESP': 'compareRuneTimer',
   'Overlay Options': 'featureEsp',
   Radar: 'featureRadar',
-  Configuration: 'compareCloudBackup',
+  'Team Check': 'compareCloudBackup',
+  'Silent Aim': 'featureAimbot',
   Compatibility: 'whyShield',
 };
 
@@ -21,9 +22,9 @@ export const toolkitIcons: Record<string, IconName> = {
   Aim: 'toolkitCombat',
   Vision: 'toolkitVision',
   Radar: 'toolkitRadar',
-  Flight: 'toolkitWeapons',
-  World: 'toolkitMovement',
-  Profiles: 'toolkitProfiles',
+  Heroes: 'toolkitWeapons',
+  Objectives: 'toolkitMovement',
+  Filters: 'toolkitProfiles',
 };
 
 export const workflowIcons: IconName[] = [
@@ -53,11 +54,11 @@ export const forumCategoryIcons: Record<string, IconName> = {
 export const heroStatusPills: { icon: IconName; label: string }[] = [
   { icon: 'espActive', label: 'Player ESP' },
   { icon: 'radarOnline', label: 'Radar' },
-  { icon: 'lootEsp', label: 'Flight Markers' },
-  { icon: 'softAim', label: 'Soft Aim' },
-  { icon: 'mapHack', label: 'Node ESP' },
+  { icon: 'lootEsp', label: 'Hero ESP' },
+  { icon: 'softAim', label: 'Aimbot' },
+  { icon: 'mapHack', label: 'Objective ESP' },
   { icon: 'liveStatus', label: 'Check Status' },
-  { icon: 'autoUpdates', label: 'Steam / PURPLE' },
+  { icon: 'autoUpdates', label: 'Defense Matrix' },
   { icon: 'support247', label: 'Windows PC' },
 ];
 
@@ -69,7 +70,9 @@ export const heroStatIcons: IconName[] = [
 ];
 
 export const cheatTierIcons: Record<string, IconName> = {
-  'AION 2 Cheats': 'tierPro',
+  'Overwatch Cheat': 'tierPro',
+  'Cloud DMA': 'dmaHardware',
+  'HWID Spoofer': 'systemUtility',
   Lite: 'tierLite',
   Pro: 'tierPro',
   Elite: 'tierElite',

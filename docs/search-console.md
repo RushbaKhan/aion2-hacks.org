@@ -1,11 +1,11 @@
-# Search Console workflow (aion2cheats.org)
+# Search Console workflow (overwatchcheat.com)
 
 Verify the domain at your DNS provider — no HTML meta tags in the repo.
 
 ## Setup (once)
 
-1. Open [Google Search Console](https://search.google.com/search-console) and add the **domain** property for `aion2cheats.org` if it is not already there.
-2. Under **Sitemaps**, submit: `https://aion2cheats.org/sitemap.xml`
+1. Open [Google Search Console](https://search.google.com/search-console) and add the **domain** property for `overwatchcheat.com` if it is not already there.
+2. Under **Sitemaps**, submit: `https://overwatchcheat.com/sitemap.xml`
 3. Repeat in [Bing Webmaster Tools](https://www.bing.com/webmasters) if you use Bing.
 
 ## Monthly tune (15 minutes)

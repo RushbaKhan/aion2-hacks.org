@@ -1,4 +1,4 @@
-import { checkoutPath } from '../config/checkout';
+import { checkoutForSlug, checkoutPath } from '../config/checkout';
 
 export type ProductPlanId = 'monthly' | 'lifetime';
 
@@ -15,7 +15,18 @@ const standardPlans: ProductPlan[] = [
   { id: 'lifetime', label: 'Lifetime', priceUsd: 150, priceNote: 'USD · one-time', duration: 'P99Y' },
 ];
 
-export function getProductPlans(_productSlug: string): ProductPlan[] {
+const dmaPlans: ProductPlan[] = [
+  { id: 'lifetime', label: 'Lifetime', priceUsd: 50, priceNote: 'USD · one-time', duration: 'P99Y' },
+];
+
+const hwidPlans: ProductPlan[] = [
+  { id: 'monthly', label: 'Monthly', priceUsd: 50, priceNote: 'USD / month', duration: 'P31D' },
+  { id: 'lifetime', label: 'Lifetime', priceUsd: 150, priceNote: 'USD · one-time', duration: 'P99Y' },
+];
+
+export function getProductPlans(productSlug: string): ProductPlan[] {
+  if (productSlug === 'dma') return dmaPlans;
+  if (productSlug === 'hwid') return hwidPlans;
   return standardPlans;
 }
 
@@ -23,6 +34,8 @@ export function formatPlanPrice(usd: number): string {
   return `$${usd}`;
 }
 
-export function checkoutUrlWithPlan(_baseUrl: string, _planId?: ProductPlanId): string {
-  return checkoutPath('aion');
+export function checkoutUrlWithPlan(baseUrl: string, _planId?: ProductPlanId): string {
+  if (baseUrl.includes('dma')) return checkoutPath('dma');
+  if (baseUrl.includes('hwid')) return checkoutPath('hwid');
+  return checkoutForSlug(baseUrl);
 }
