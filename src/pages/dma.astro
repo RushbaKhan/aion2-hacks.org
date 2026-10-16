@@ -40,7 +40,7 @@ const heroShot = EXTRA_SHOTS.dma;
     rel="preload"
     as="image"
     href={webpSrc(heroShot.src, 400)}
-    type={displayImageType()}
+    type={displayImageType(heroShot.src)}
     fetchpriority="high"
   />
   <ProductDetail product={product} breadcrumbs={breadcrumbs} />

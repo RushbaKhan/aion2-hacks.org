@@ -1,9 +1,15 @@
 const RASTER_EXT = /\.(png|jpe?g|webp)$/i;
 const ORIGINAL_ASSET = /\/images\/(gameplay|extras)\//i;
+const UNCOMPRESSED_DISPLAY = /\/images\/extras\/cloud-dma\.jpe?g$/i;
 
 /** True for gameplay/extras sources. Original JPEGs stay on disk for OG; pages serve WebP variants. */
 export function isOriginalAsset(src: string): boolean {
   return ORIGINAL_ASSET.test(src);
+}
+
+/** Cloud DMA is shown from the original JPEG with no resize or WebP pass. */
+export function keepOriginalDisplay(src: string): boolean {
+  return UNCOMPRESSED_DISPLAY.test(src);
 }
 
 /** 400w covers ~330px card slots at 1x; 640w covers 2x retina. */
@@ -23,7 +29,7 @@ export function stripRasterExt(src: string): string {
 }
 
 export function webpSrc(src: string, width: number): string {
-  if (src.endsWith('.webp')) return src;
+  if (keepOriginalDisplay(src) || src.endsWith('.webp')) return src;
   return `${stripRasterExt(src)}-${width}.webp`;
 }
 
@@ -32,7 +38,8 @@ export function imageType(src: string): 'image/jpeg' | 'image/webp' {
   return 'image/webp';
 }
 
-export function displayImageType(_src?: string): 'image/webp' {
+export function displayImageType(src?: string): 'image/jpeg' | 'image/webp' {
+  if (src && keepOriginalDisplay(src)) return 'image/jpeg';
   return 'image/webp';
 }
 
@@ -46,6 +53,6 @@ export function defaultWebpSrc(src: string, widths: readonly number[]): string {
 }
 
 export function imageSrcSet(src: string, widths: readonly number[] = DEFAULT_IMAGE_WIDTHS): string | undefined {
-  if (!RASTER_EXT.test(src) || src.endsWith('.webp')) return undefined;
+  if (!RASTER_EXT.test(src) || src.endsWith('.webp') || keepOriginalDisplay(src)) return undefined;
   return responsiveSrcSet(src, widths);
 }

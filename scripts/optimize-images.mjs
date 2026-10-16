@@ -19,7 +19,12 @@ async function optimizeDir(relativeDir) {
 
   const files = fs
     .readdirSync(dir)
-    .filter((file) => /\.(png|jpe?g)$/i.test(file) && !/-\d+\.webp$/i.test(file));
+    .filter(
+      (file) =>
+        /\.(png|jpe?g)$/i.test(file) &&
+        !/-\d+\.webp$/i.test(file) &&
+        !/^cloud-dma\.jpe?g$/i.test(file),
+    );
 
   for (const file of files) {
     const input = path.join(dir, file);
