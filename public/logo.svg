@@ -1,20 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="AION 2 Cheats">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Overwatch Cheats">
   <defs>
-    <linearGradient id="bg" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+    <linearGradient id="logo-bg" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
       <stop stop-color="#2e1065"/>
       <stop offset="1" stop-color="#0a0614"/>
     </linearGradient>
-    <linearGradient id="wing" x1="8" y1="16" x2="56" y2="48" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#c4b5fd"/>
-      <stop offset="1" stop-color="#5b21b6"/>
-    </linearGradient>
-    <linearGradient id="core" x1="24" y1="18" x2="40" y2="46" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#f5f3ff"/>
-      <stop offset="1" stop-color="#a78bfa"/>
+    <linearGradient id="logo-mark" x1="14" y1="10" x2="52" y2="54" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffc14a"/>
+      <stop offset="1" stop-color="#f99e1a"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#bg)"/>
+  <rect width="64" height="64" rx="16" fill="url(#logo-bg)"/>
   <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" stroke="#4c1d95" stroke-width="1"/>
-  <path d="M32 10c-6.2 7.4-16.8 12.2-22 14.2 4.6 1.4 10.8 6.2 14.2 12.8C26.4 29.6 29.4 22.2 32 16.8 34.6 22.2 37.6 29.6 39.8 37c3.4-6.6 9.6-11.4 14.2-12.8C48.8 22.2 38.2 17.4 32 10z" fill="url(#wing)"/>
-  <path d="M32 20.5 24.8 44h4.2l1.4-4.6h7.2L39 44h4.2L32 20.5zm.1 8.4 2.4 7.2h-4.8l2.4-7.2z" fill="url(#core)"/>
+  <circle cx="32" cy="32" r="16.8" stroke="url(#logo-mark)" stroke-width="5.6"/>
+  <g transform="translate(34 32) rotate(-40)" fill="none" stroke="url(#logo-mark)" stroke-width="4.7" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M-7.4 -11 L8.2 0 L-7.4 11"/>
+  </g>
 </svg>
