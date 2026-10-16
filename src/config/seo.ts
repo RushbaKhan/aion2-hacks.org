@@ -69,8 +69,8 @@ export function pageTitle(keyword: string, brand = t.site.name): string {
   return `${trimmed}${suffix}`;
 }
 
-export const DEFAULT_OG_IMAGE_WIDTH = 1200;
-export const DEFAULT_OG_IMAGE_HEIGHT = 630;
+export const DEFAULT_OG_IMAGE_WIDTH = 1024;
+export const DEFAULT_OG_IMAGE_HEIGHT = 574;
 
 export const RSS_FEED_PATH = '/rss.xml';
 
