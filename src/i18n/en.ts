@@ -8,9 +8,9 @@ export const en: Translations = {
   site: {
     name: 'Overwatch Cheat',
     domain: 'overwatchcheat.com',
-    title: 'Overwatch Cheats | Overwatch 2 Aimbot, ESP and Radar',
+    title: 'Overwatch 2 Cheats | Aimbot, ESP and Radar on PC',
     description:
-      'Play Overwatch and Overwatch 2 on Windows PC with Overwatch Cheats: aimbot, player ESP, and radar. Review OW characters, new season notes, and Blizzard game plans before you buy.',
+      'Play Overwatch 2 on Windows PC with aimbot, player ESP, and radar. Review heroes, season notes, and plans before you buy.',
     discord: DISCORD_INVITE,
   },
   nav: [
