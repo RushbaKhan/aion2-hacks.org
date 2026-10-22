@@ -1,7 +1,10 @@
 {
-  "name": "aion2hacks-org",
+  "name": "aion2-hacks-org",
   "main": "workers/seo-edge.js",
   "compatibility_date": "2026-10-10",
+  "build": {
+    "command": "npm run build:cf"
+  },
   "assets": {
     "directory": "./dist",
     "binding": "ASSETS",

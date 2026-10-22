@@ -8,10 +8,13 @@
   "scripts": {
     "dev": "astro dev",
     "build": "node scripts/optimize-images.mjs && astro build && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/indexnow.mjs",
+    "build:cf": "astro build && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/indexnow.mjs",
+    "deploy": "npm run build:cf && wrangler deploy",
     "preview": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
     "astro": "astro",
-    "optimize:images": "node scripts/optimize-images.mjs"
+    "optimize:images": "node scripts/optimize-images.mjs",
+    "postinstall": "node scripts/cf-postinstall.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
