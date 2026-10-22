@@ -4,9 +4,9 @@ export const featureIcons: Record<string, IconName> = {
   ESP: 'featureEsp',
   Aimbot: 'featureAimbot',
   'Player ESP': 'comparePlayerEsp',
-  'Hero ESP': 'compareWardLocator',
-  'Ability ESP': 'compareAbilityRadius',
-  'Objective ESP': 'compareRuneTimer',
+  'Target & NPC ESP': 'compareWardLocator',
+  'Item & Loot ESP': 'compareAbilityRadius',
+  'Map & Quest ESP': 'compareRuneTimer',
   'Overlay Options': 'featureEsp',
   Radar: 'featureRadar',
   'Team Check': 'compareCloudBackup',
@@ -22,8 +22,8 @@ export const toolkitIcons: Record<string, IconName> = {
   Aim: 'toolkitCombat',
   Vision: 'toolkitVision',
   Radar: 'toolkitRadar',
-  Heroes: 'toolkitWeapons',
-  Objectives: 'toolkitMovement',
+  Classes: 'toolkitWeapons',
+  Quests: 'toolkitMovement',
   Filters: 'toolkitProfiles',
 };
 
@@ -54,11 +54,11 @@ export const forumCategoryIcons: Record<string, IconName> = {
 export const heroStatusPills: { icon: IconName; label: string }[] = [
   { icon: 'espActive', label: 'Player ESP' },
   { icon: 'radarOnline', label: 'Radar' },
-  { icon: 'lootEsp', label: 'Hero ESP' },
+  { icon: 'lootEsp', label: 'Target ESP' },
   { icon: 'softAim', label: 'Aimbot' },
-  { icon: 'mapHack', label: 'Objective ESP' },
+  { icon: 'mapHack', label: 'Quest markers' },
   { icon: 'liveStatus', label: 'Check Status' },
-  { icon: 'autoUpdates', label: 'Defense Matrix' },
+  { icon: 'autoUpdates', label: 'Client updates' },
   { icon: 'support247', label: 'Windows PC' },
 ];
 
@@ -70,7 +70,7 @@ export const heroStatIcons: IconName[] = [
 ];
 
 export const cheatTierIcons: Record<string, IconName> = {
-  'Overwatch Cheat': 'tierPro',
+  'Aion 2 Hacks': 'tierPro',
   'Cloud DMA': 'dmaHardware',
   'HWID Spoofer': 'systemUtility',
   Lite: 'tierLite',

@@ -33,9 +33,9 @@ export function buildRssFeed(): string {
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Overwatch Intel | Overwatch Cheat</title>
+    <title>Aion 2 Guides | Aion 2 Hacks</title>
     <link>${SITE_ORIGIN}/blog/</link>
-    <description>Overwatch guides covering heroes, release notes, ESP, aimbot, radar features, and Windows PC setup.</description>
+    <description>Aion 2 guides covering classes, builds, leveling, ESP, radar, plans, and Windows PC setup.</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml" />

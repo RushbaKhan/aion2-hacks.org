@@ -1,21 +1,21 @@
 {
-  "name": "Overwatch Cheat",
-  "short_name": "Overwatch Cheat",
-  "description": "Overwatch cheats for Windows PC with aimbot, player ESP, radar, and configuration options.",
+  "name": "Aion 2 Hacks",
+  "short_name": "Aion 2 Hacks",
+  "description": "Aion 2 Hacks for Windows PC: weekly, monthly, and lifetime plans with documented product information.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#0a0614",
-  "theme_color": "#5b21b6",
+  "background_color": "#0b1018",
+  "theme_color": "#2d6ee2",
   "lang": "en-US",
   "icons": [
     {
-      "src": "/apple-touch-icon.png?v=ow",
+      "src": "/apple-touch-icon.png?v=aion2",
       "sizes": "180x180",
       "type": "image/png"
     },
     {
-      "src": "/favicon-32.png?v=ow",
+      "src": "/favicon-32.png?v=aion2",
       "sizes": "32x32",
       "type": "image/png"
     }

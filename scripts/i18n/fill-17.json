@@ -223,5 +223,10 @@
     "نعم. فعّل أولًا ملف ESP ورادار محافظًا. أضف خيارات القتال فقط بعد تأكيد الحالة.",
     "Có. Bật hồ sơ ESP và radar thận trọng trước. Chỉ thêm tùy chọn chiến đấu sau khi xác nhận trạng thái.",
     "Tak. Najpierw włącz ostrożny profil ESP i radaru. Opcje walki dodaj dopiero po potwierdzeniu statusu."
-  ]
+  ],
+  "Target & NPC ESP": "Target & NPC ESP",
+  "Item & Loot ESP": "Item & Loot ESP",
+  "Map & Quest ESP": "Map & Quest ESP",
+  "Faction Filter": "Faction Filter",
+  "Combat Assist": "Combat Assist"
 }

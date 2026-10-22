@@ -298,5 +298,10 @@
     "الخطط وESP والتوافق والإعداد—قبل الشراء.",
     "Gói, ESP, tương thích và cài đặt—trước khi mua.",
     "Plany, ESP, zgodność i konfiguracja — zanim kupisz."
-  ]
+  ],
+  "Target & NPC ESP": "Target & NPC ESP",
+  "Item & Loot ESP": "Item & Loot ESP",
+  "Map & Quest ESP": "Map & Quest ESP",
+  "Faction Filter": "Faction Filter",
+  "Combat Assist": "Combat Assist"
 }

@@ -10,109 +10,119 @@ export interface PageSeoEntry {
 
 export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
-    title: 'Overwatch 2 Cheats | Aimbot, ESP and Radar on PC',
+    title: 'Aion 2 Hacks | Features, Plans and Product Information',
     description:
-      'Play Overwatch 2 on Windows PC with aimbot, player ESP, and radar. Review heroes, season notes, and plans before you buy.',
+      'Explore Aion 2 hacks for compatible PC configurations. Review available product information, compare weekly, monthly and lifetime plans, and find setup and compatibility guidance.',
   },
   '/features/': {
-    title: 'Overwatch 2 Features | Overwatch Cheats',
+    title: 'Aion 2 Features | Aion 2 Hacks',
     description:
-      'Explore Overwatch Cheats features for Overwatch 2: aimbot, silent aim, triggerbot, player ESP, hero ESP for Overwatch characters, and 2D/3D radar on Windows PC.',
+      'Explore the available Aion 2 Hacks features, product capabilities, configuration options, and compatibility information. Review supported functionality before choosing a plan.',
   },
   '/store/': {
-    title: 'Overwatch Cheats Store | Overwatch 2 Plans',
+    title: 'Aion 2 Store | Weekly, Monthly and Lifetime Plans',
     description:
-      'Buy Overwatch Cheats for Overwatch 2 on Windows PC. Play with listed aimbot, ESP, and radar. Monthly $35, lifetime $150. Cloud DMA $50 and HWID Spoofer $50 / $150 extras run with the cheat.',
+      'Explore the Aion 2 Hacks store. Compare weekly access at $15, monthly access at $35, and lifetime access at $150, with clearly identified product links.',
+  },
+  '/cloud-dma/': {
+    title: 'Cloud DMA | Aion 2 Hacks',
+    description:
+      'Cloud DMA is a related product with weekly access at $15 and lifetime access at $50. Review delivery notes, requirements, and checkout details before you purchase.',
   },
   '/dma/': {
-    title: 'Cloud DMA | Overwatch Cheat',
+    title: 'Cloud DMA | Aion 2 Hacks',
     description:
-      'Cloud DMA is a $50 one-time extra that runs with Overwatch Cheats on Windows PC. Compare delivery notes, requirements, and checkout details before you purchase.',
+      'Cloud DMA is a related product with weekly access at $15 and lifetime access at $50. Review delivery notes, requirements, and checkout details before you purchase.',
+  },
+  '/hwid-spoofer/': {
+    title: 'HWID Spoofer | Aion 2 Hacks',
+    description:
+      'HWID Spoofer is a related product with weekly access at $15 and monthly access at $35. Compare notes and checkout details before purchase.',
   },
   '/hwid/': {
-    title: 'HWID Spoofer | Overwatch Cheat',
+    title: 'HWID Spoofer | Aion 2 Hacks',
     description:
-      'HWID Spoofer is a $50 monthly or $150 lifetime extra that runs with Overwatch Cheats on Windows PC. Compare notes and checkout details before purchase.',
+      'HWID Spoofer is a related product with weekly access at $15 and monthly access at $35. Compare notes and checkout details before purchase.',
   },
   '/status/': {
-    title: 'Overwatch Status | Overwatch Cheat',
+    title: 'Aion 2 Status | Updates and Compatibility',
     description:
-      'Check Overwatch Cheat compatibility and anti-cheat status information. Review reported updates and compatibility notices following Overwatch patches before making a purchase.',
+      'Review Aion 2 product compatibility information, verified game update notices, and relevant anti-cheat information. Check available evidence before making a purchase.',
   },
   '/preview/': {
-    title: 'Overwatch Cheat Preview | Overwatch Cheat',
+    title: 'Aion 2 Preview | Aion 2 Hacks',
     description:
-      'Explore the Overwatch Cheat feature preview, including aiming features, player visuals, and radar. Review available functionality and compatibility information before checkout.',
+      'Explore the Aion 2 Hacks product preview and available functionality. Review documented features, supported configurations, and product information before checkout.',
   },
   '/setup/': {
-    title: 'Overwatch Cheat Setup | Overwatch Cheat',
+    title: 'Aion 2 Setup | Requirements and Configuration',
     description:
-      'Learn about Overwatch Cheat setup requirements, available feature settings, Windows PC compatibility, and important anti-cheat considerations.',
+      'Find Aion 2 product setup information, supported configuration requirements, troubleshooting guidance, and compatibility details for your PC.',
   },
   '/support/': {
-    title: 'Overwatch Cheat Support | Overwatch Cheat',
+    title: 'Aion 2 Support | Aion 2 Hacks',
     description:
-      'Find support information for Overwatch Cheat, including purchase and delivery questions, setup guidance, configuration help, and compatibility updates.',
+      'Find help with Aion 2 Hacks purchases, product delivery, setup, configuration, and compatibility questions.',
   },
   '/faq/': {
-    title: 'Overwatch Cheat FAQ | Overwatch Cheats',
+    title: 'Aion 2 Hacks FAQ | Plans and Support',
     description:
-      'Find answers to common questions about Overwatch cheats, including monthly and lifetime plans, aiming features, player ESP, radar, setup, compatibility, and support.',
+      'Find answers about Aion 2 Hacks, weekly and monthly subscriptions, lifetime access, supported features, setup requirements, compatibility, and support.',
   },
   '/reviews/': {
-    title: 'Overwatch Cheat Reviews | Buyer Feedback',
+    title: 'Aion 2 Hacks Reviews | Buyer Feedback',
     description:
-      'Explore buyer feedback about Overwatch Cheat, including aiming features, player ESP, radar, setup, and compatibility. Review available information before choosing a plan.',
+      'Explore authentic buyer feedback about Aion 2 Hacks, including documented product features, setup experience, and compatibility. Review available evidence before choosing a plan.',
   },
   '/blog/': {
-    title: 'Overwatch Guides | Overwatch 2 Heroes, Ranks and Patch Notes',
+    title: 'Aion 2 Guides and Updates | Aion 2 Hacks',
     description:
-      'Read Overwatch and Overwatch 2 guides: Overwatch characters, patch notes, ranks, Juno, D.Va, skins, battle pass, Steam charts, and how to play with listed cheats.',
+      'Explore the Aion 2 information hub for game guides, classes, skills, quests, updates, PC requirements, compatibility information, and product-related articles.',
   },
   '/intel/': {
-    title: 'Overwatch Feature Guides | Overwatch Cheat',
+    title: 'Aion 2 Feature Guides | Aion 2 Hacks',
     description:
-      'Read Overwatch Cheat articles about aimbot, player ESP, wallhack-style overlays, hero ESP, objective ESP, and 2D/3D radar on Windows PC.',
+      'Read Aion 2 Hacks articles about player information overlays, radar, loot cues, and configuration on Windows PC.',
   },
   '/guides/': {
-    title: 'Overwatch Guides | Overwatch Cheat',
+    title: 'Aion 2 Guides | Aion 2 Hacks',
     description:
-      'Practical Overwatch guides covering Overwatch 2 heroes, ranks, patch notes, and how to review Overwatch cheats before you buy.',
+      'Practical Aion 2 guides covering classes, builds, quests, and how to review Aion 2 Hacks before you buy.',
   },
   '/howto/': {
-    title: 'Overwatch Setup Articles | Overwatch Cheat',
+    title: 'Aion 2 Setup Articles | Aion 2 Hacks',
     description:
-      'Windows PC setup notes for Overwatch Cheat, including Battle.net and Steam client order, configuration, and compatibility checks.',
+      'Windows PC setup notes for Aion 2 Hacks, including client order, configuration, and compatibility checks.',
   },
   '/updates/': {
-    title: 'Overwatch Updates | Overwatch Cheat',
+    title: 'Aion 2 Updates | Aion 2 Hacks',
     description:
-      'Overwatch Cheat updates on Overwatch 2 patches, Defense Matrix notes, and current compatibility reminders for Windows PC.',
+      'Aion 2 Hacks updates on verified patch information and current compatibility reminders for Windows PC.',
   },
   '/forum/': {
-    title: 'Overwatch Cheat Forum | Overlay Q&A',
+    title: 'Aion 2 Hacks Forum | Product Q&A',
     description:
-      'Practical answers on Overwatch ESP, aimbot, radar, Windows PC setup, and Overwatch Cheat plans. Each discussion links back to a source guide.',
+      'Practical answers on Aion 2 overlays, Windows PC setup, and Aion 2 Hacks plans. Each discussion links back to a source guide.',
   },
   '/search/': {
-    title: 'Search Overwatch Cheat',
+    title: 'Search Aion 2 Hacks',
     description:
-      'Search Overwatch Cheat articles, forum discussions, FAQ answers, and pages for Overwatch cheats on Windows PC.',
+      'Search Aion 2 Hacks articles, forum discussions, FAQ answers, and pages for Aion 2 product information on Windows PC.',
   },
   '/terms/': {
-    title: 'Terms & Conditions | Overwatch Cheat',
+    title: 'Terms & Conditions | Aion 2 Hacks',
     description:
-      'Purchase terms, license use, and refund policy for Overwatch Cheat products sold through overwatchcheat.com.',
+      'Purchase terms, license use, and refund policy for Aion 2 Hacks products sold through aion2hacks.org.',
   },
   '/privacy/': {
-    title: 'Privacy Policy | Overwatch Cheat',
+    title: 'Privacy Policy | Aion 2 Hacks',
     description:
-      'How overwatchcheat.com uses analytics, cookies, and contact data when you browse or request support.',
+      'How aion2hacks.org uses analytics, cookies, and contact data when you browse or request support.',
   },
   '/about/': {
-    title: 'About Overwatch Cheat',
+    title: 'About Aion 2 Hacks',
     description:
-      'What Overwatch Cheat publishes: Overwatch features, plans, setup notes, and status information at overwatchcheat.com.',
+      'What Aion 2 Hacks publishes: Aion 2 features, plans, setup notes, and status information at aion2hacks.org.',
   },
 };
 

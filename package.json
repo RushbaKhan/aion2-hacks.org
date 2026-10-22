@@ -1,5 +1,5 @@
 {
-  "name": "overwatchcheat-com",
+  "name": "aion2hacks-org",
   "type": "module",
   "version": "0.0.1",
   "engines": {
@@ -7,7 +7,7 @@
   },
   "scripts": {
     "dev": "astro dev",
-    "build": "node scripts/build-locales.mjs && node scripts/optimize-images.mjs && astro build && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/indexnow.mjs",
+    "build": "node scripts/optimize-images.mjs && astro build && node scripts/prune-dist-images.mjs && node scripts/finalize-sitemap.mjs && node scripts/indexnow.mjs",
     "preview": "node scripts/serve.mjs",
     "start": "node scripts/serve.mjs",
     "astro": "astro",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.3",
+    "@fontsource-variable/outfit": "^5.3.0",
     "@lucide/astro": "^1.48.0",
     "@starwind-ui/astro": "^1.2.1",
     "@tabler/icons": "^3.48.0",

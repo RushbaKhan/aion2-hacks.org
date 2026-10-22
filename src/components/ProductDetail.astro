@@ -14,13 +14,16 @@ import ProductDescriptionSection from './product/ProductDescriptionSection.astro
 import ProductExperienceSection from './product/ProductExperienceSection.astro';
 import ProductRelatedGuidesSection from './product/ProductRelatedGuidesSection.astro';
 import StoreSubProducts from './StoreSubProducts.astro';
+import '../styles/product-cheat-page.css';
 
 interface Props {
   product: ProductPage;
   breadcrumbs?: BreadcrumbItem[];
+  screenshotLimit?: number;
 }
 
-const { product, breadcrumbs } = Astro.props;
+const { product, breadcrumbs, screenshotLimit } = Astro.props;
+const galleryImages = screenshotLimit ? product.images.slice(0, screenshotLimit) : product.images;
 const productFaqs = getProductFaqs(product.slug, product.kind);
 const relatedPosts = getRelatedBlogPostsForProduct(product.relatedBlogSlugs, 8);
 
@@ -43,7 +46,7 @@ const showDescToggle = descriptionBlocks.length > 2;
     </div>
 
     <div class="product-detail-hero__grid mt-10 grid items-start gap-8">
-      <ProductScreenshotGallery images={product.images} id={`gallery-${product.slug}`} />
+      <ProductScreenshotGallery images={galleryImages} id={`gallery-${product.slug}`} />
       <ProductCheckoutPanel product={product} />
     </div>
 

@@ -15,11 +15,12 @@ const product = productPages[0]!;
 const plans = getProductPlans(product.slug);
 const preview = product.images[0];
 const planNotes: Record<string, { blurb: string; highlight?: boolean; duration: string }> = {
-  monthly: { blurb: 'Try listed ESP, radar, and aimbot for 30 days.', duration: '30 days' },
+  weekly: { blurb: 'Short trial window for listed ESP, radar, and optional combat modules.', duration: '7 days' },
+  monthly: { blurb: 'Try listed ESP, radar, and optional combat modules for 30 days.', duration: '30 days' },
   lifetime: { blurb: 'Same listed modules, billed once in USD.', highlight: true, duration: 'One-time' },
 };
 const showcaseFeatures = product.fullFeatures.slice(0, 12);
-const storeFacts = ['Available', 'Overwatch 2', 'Windows PC', 'Aimbot', 'ESP', '2 plans'];
+const storeFacts = ['Available', 'Aion 2', 'Windows PC', 'Player ESP', 'Radar', '3 plans'];
 ---
 
 <section
@@ -48,10 +49,10 @@ const storeFacts = ['Available', 'Overwatch 2', 'Windows PC', 'Aimbot', 'ESP', '
               <ResponsiveImage
                 src={preview.src}
                 alt={preview.alt}
-                width={1024}
-                height={574}
-                widths={[400]}
-                sizes="(min-width: 1024px) 400px, 92vw"
+                width={3840}
+                height={2160}
+                widths={[960, 1920, 3840]}
+                sizes="(min-width: 1024px) 42vw, 92vw"
                 loading="lazy"
                 class="aspect-[16/9] w-full object-cover"
               />
@@ -61,8 +62,8 @@ const storeFacts = ['Available', 'Overwatch 2', 'Windows PC', 'Aimbot', 'ESP', '
         <div class="flex flex-1 flex-col p-6 lg:p-7">
           <div class="flex flex-wrap items-center gap-2">
             <Badge variant="secondary">{product.badge}</Badge>
-            <Badge>Overwatch Cheats</Badge>
-            <Badge variant="outline">Overwatch 2</Badge>
+            <Badge>Aion 2 Hacks</Badge>
+            <Badge variant="outline">Aion 2</Badge>
             <Badge variant="outline">Windows PC</Badge>
           </div>
           <p class="mt-4 text-2xl font-bold normal-case">{product.title}</p>
@@ -91,7 +92,7 @@ const storeFacts = ['Available', 'Overwatch 2', 'Windows PC', 'Aimbot', 'ESP', '
       </article>
 
       <div class="flex flex-col gap-5 lg:col-span-7">
-        <div id="plans" class="grid scroll-mt-28 gap-5 sm:grid-cols-2">
+        <div id="plans" class="grid scroll-mt-28 gap-5 sm:grid-cols-3">
           {
             plans.map((plan) => {
               const note = planNotes[plan.id];
@@ -116,7 +117,7 @@ const storeFacts = ['Available', 'Overwatch 2', 'Windows PC', 'Aimbot', 'ESP', '
                   <ul class="mt-4 space-y-2 text-sm text-muted-foreground">
                     <li class="flex items-start gap-2">
                       <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
-                      Same listed ESP, radar, and aimbot set
+                      Same listed ESP, radar, and optional combat set
                     </li>
                     <li class="flex items-start gap-2">
                       <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
@@ -124,7 +125,7 @@ const storeFacts = ['Available', 'Overwatch 2', 'Windows PC', 'Aimbot', 'ESP', '
                     </li>
                     <li class="flex items-start gap-2">
                       <Icon name="check" size={14} class="mt-0.5 shrink-0 text-primary" />
-                      Windows PC via Battle.net or Steam
+                      Windows PC via official Aion 2 client
                     </li>
                   </ul>
                   <Button
@@ -146,7 +147,7 @@ const storeFacts = ['Available', 'Overwatch 2', 'Windows PC', 'Aimbot', 'ESP', '
           <div class="flex flex-wrap items-end justify-between gap-3">
             <div>
               <p class="text-xs font-semibold uppercase tracking-wider text-primary-accent">Included modules</p>
-              <p class="mt-1 text-lg font-bold">Modules both plans include</p>
+              <p class="mt-1 text-lg font-bold">Modules all plans include</p>
             </div>
             <Button as="a" href={ROUTES.features} variant="outline" size="sm">
               All features

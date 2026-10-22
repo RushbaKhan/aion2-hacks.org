@@ -14,6 +14,7 @@ import {
 import ForumDiscussionCard from '../components/ForumDiscussionCard.astro';
 import ForumSidebar from '../components/ForumSidebar.astro';
 import '../styles/forum.css';
+import '../styles/blog-pages.css';
 import { pageTitle } from '../config/seo';
 import {
   articleSchema,
@@ -115,8 +116,8 @@ const published = post ? parseBlogDate(post.date) : undefined;
         slot="head"
         rel="preload"
         as="image"
-        href={webpSrc(post.image, 640)}
-        imagesrcset={imageSrcSet(post.image, [400, 640, 960])}
+        href={webpSrc(post.image, 1920)}
+        imagesrcset={imageSrcSet(post.image, [960, 1920, 3840])}
         imagesizes="(min-width: 768px) 720px, 100vw"
         type={displayImageType()}
         fetchpriority="high"
@@ -135,9 +136,9 @@ const published = post ? parseBlogDate(post.date) : undefined;
                 <ResponsiveImage
                   src={post.image}
                   alt={screenshotAlt(post.image, post.title)}
-                  width={1024}
-                  height={574}
-                  widths={[400, 640, 960]}
+                  width={3840}
+                  height={2160}
+                  widths={[960, 1920, 3840]}
                   loading="eager"
                   fetchPriority="high"
                   sizes="(min-width: 768px) 720px, 100vw"

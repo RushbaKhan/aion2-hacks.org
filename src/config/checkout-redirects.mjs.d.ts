@@ -1,5 +1,5 @@
 export declare const CHECKOUT_URLS: {
-  readonly overwatch: string;
+  readonly aion2: string;
   readonly dma: string;
   readonly hwid: string;
 };

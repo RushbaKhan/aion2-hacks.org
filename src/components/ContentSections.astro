@@ -41,33 +41,33 @@ const featuredPosts = getFeaturedBlogPosts(3);
   </div>
 </section>
 
-<nav class="border-y border-border bg-muted/10 py-12 md:py-16" aria-label="Explore Overwatch Cheat">
+<nav class="border-y border-border bg-muted/10 py-12 md:py-16" aria-label="Explore Aion 2 Hacks" data-no-i18n>
   <div class="mx-auto max-w-6xl px-5">
     <SectionHeader
       as="h2"
-      eyebrow="Explore"
-      title="Every Overwatch Cheat page stays one click away"
-      desc="Overwatch Cheats pages for Overwatch 2: plans, overlays, setup, status, Overwatch characters, patch notes, and ranks."
+      eyebrow="Aion 2 only"
+      title="Aion 2 Hacks pages, one click away"
+      desc="Plans, overlays, setup, status, and guides for Aion 2 on Windows PC. No other games."
       titleId="explore-title"
     />
     <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {[
-        { href: ROUTES.features, title: 'Overwatch 2 features', desc: 'Aimbot, player ESP, radar, and hero ESP.' },
-        { href: ROUTES.store, title: 'Overwatch Cheats store', desc: 'Monthly $35 and lifetime $150 plans.' },
-        { href: ROUTES.dma, title: 'Cloud DMA', desc: 'Extra that runs with Overwatch Cheats.' },
-        { href: ROUTES.hwid, title: 'HWID Spoofer', desc: 'Extra that runs with Overwatch Cheats.' },
-        { href: '/ow2/', title: 'Overwatch 2', desc: 'Release date, download, Steam charts, player count.' },
-        { href: '/heroes/', title: 'Overwatch characters', desc: 'OW characters and Overwatch 2 heroes.' },
-        { href: '/patch/', title: 'Overwatch patch notes', desc: 'Season timing and Overwatch 2 patch notes.' },
-        { href: '/ranks/', title: 'Overwatch ranks', desc: 'Overwatch 2 ranks and challenger score.' },
-        { href: '/juno/', title: 'Juno Overwatch', desc: 'Support hero notes and hero ESP.' },
-        { href: '/dva/', title: 'D.Va Overwatch', desc: 'D.Va Overwatch vs Overwatch 2 reads.' },
-        { href: '/skins/', title: 'Overwatch 2 skins', desc: 'Battle pass cosmetics, not cheat modules.' },
-        { href: '/tier/', title: 'Overwatch 2 tier list', desc: 'New hero drops vs the store list.' },
-        { href: '/cross/', title: 'Cross platform', desc: 'Is Overwatch 2 cross platform on PC.' },
-        { href: '/blizzard/', title: 'OW / .ow / أوفرواتش', desc: 'Blizzard naming for the same game.' },
-        { href: '/esp/', title: 'Player ESP', desc: 'Box, skeleton, health, and distance.' },
-        { href: '/aim/', title: 'Overwatch aimbot', desc: 'Aim assist, silent aim, triggerbot.' },
+        { href: ROUTES.features, title: 'Aion 2 features', desc: 'Aimbot, player ESP, radar, and target overlays.' },
+        { href: ROUTES.store, title: 'Aion 2 Hacks store', desc: 'Weekly $15, monthly $35, and lifetime $150.' },
+        { href: ROUTES.dma, title: 'Cloud DMA', desc: 'Extra that runs with Aion 2 Hacks.' },
+        { href: ROUTES.hwid, title: 'HWID Spoofer', desc: 'Extra that runs with Aion 2 Hacks.' },
+        { href: '/cheats/', title: 'Hacks overview', desc: 'Listed modules to review before checkout.' },
+        { href: '/esp/', title: 'Player ESP', desc: 'Box, skeleton, health, name, and distance.' },
+        { href: '/radar/', title: 'Radar', desc: '2D and 3D local awareness next to ESP.' },
+        { href: '/aim/', title: 'Aimbot', desc: 'Aim assist, silent aim, and triggerbot.' },
+        { href: '/plans/', title: 'Compare plans', desc: 'Weekly vs monthly vs lifetime access.' },
+        { href: ROUTES.status, title: 'Status', desc: 'Compatibility notes after Aion 2 patches.' },
+        { href: ROUTES.setup, title: 'Windows PC setup', desc: 'First-run order for the official client.' },
+        { href: '/pc/', title: 'PC requirements', desc: 'Windows 10/11 and overlay launch notes.' },
+        { href: '/ac/', title: 'Anti-cheat notes', desc: 'Unverified NCSOFT compatibility context.' },
+        { href: ROUTES.faq, title: 'FAQ', desc: 'Plans, features, setup, and checkout answers.' },
+        { href: ROUTES.blog, title: 'Guides', desc: 'Classes, overlays, and patch-day articles.' },
+        { href: ROUTES.forum, title: 'Community forum', desc: 'Practical answers from the Aion 2 listing.' },
       ].map((item) => (
         <li>
           <a

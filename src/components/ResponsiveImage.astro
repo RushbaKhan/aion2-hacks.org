@@ -1,6 +1,7 @@
 ---
 import {
   DEFAULT_IMAGE_WIDTHS,
+  avifSrcSet,
   defaultWebpSrc,
   imageSrcSet,
 } from '../utils/responsiveImage';
@@ -33,32 +34,35 @@ const {
   mobileOnly = false,
 } = Astro.props;
 
-const isRaster = /\.(png|jpe?g|webp)$/i.test(src);
-const srcSet = imageSrcSet(src, widths);
+const isRaster = /\.(png|jpe?g|webp|avif)$/i.test(src);
+const webpSet = imageSrcSet(src, widths);
+const avifSet = avifSrcSet(src, widths);
 const gated = desktopOnly || mobileOnly;
 const imgSrc = gated
   ? 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
   : defaultWebpSrc(src, widths);
-const pictureSizes = desktopOnly ? '(min-width: 1024px) 400px, 1px' : mobileOnly ? '(max-width: 1023px) 92vw, 1px' : sizes;
 const pictureMedia = desktopOnly ? '(min-width: 1024px)' : mobileOnly ? '(max-width: 1023px)' : undefined;
 ---
 
 {
   isRaster ? (
     <picture>
-      {srcSet ? (
-        <source type="image/webp" srcset={srcSet} sizes={pictureSizes} media={pictureMedia} />
+      {avifSet ? (
+        <source type="image/avif" srcset={avifSet} sizes={sizes} media={pictureMedia} />
+      ) : null}
+      {webpSet ? (
+        <source type="image/webp" srcset={webpSet} sizes={sizes} media={pictureMedia} />
       ) : null}
       <img
         src={imgSrc}
-        srcset={gated ? undefined : srcSet}
+        srcset={gated ? undefined : webpSet}
         alt={alt}
         width={width}
         height={height}
         loading={loading}
-        decoding="async"
+        decoding={fetchPriority === 'high' ? 'sync' : 'async'}
         fetchpriority={fetchPriority}
-        sizes={pictureSizes}
+        sizes={sizes}
         class={className}
       />
     </picture>
@@ -69,7 +73,7 @@ const pictureMedia = desktopOnly ? '(min-width: 1024px)' : mobileOnly ? '(max-wi
       width={width}
       height={height}
       loading={loading}
-      decoding="async"
+      decoding={fetchPriority === 'high' ? 'sync' : 'async'}
       fetchpriority={fetchPriority}
       class={className}
     />

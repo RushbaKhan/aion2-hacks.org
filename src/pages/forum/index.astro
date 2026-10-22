@@ -25,7 +25,7 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
   description={seo.description}
   jsonLd={[
     collectionPageSchema({
-      name: 'Overwatch Community Forum',
+      name: 'Aion 2 Hacks Community Forum',
       description: seo.description,
       url: ROUTES.forum,
     }),
@@ -33,7 +33,7 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
     {
       '@context': 'https://schema.org',
       '@type': 'ItemList',
-      name: 'Overwatch Community Forum discussions',
+      name: 'Aion 2 Hacks Community Forum discussions',
       numberOfItems: forumPosts.length,
       itemListElement: sorted.map((post, index) => ({
         '@type': 'ListItem',
@@ -50,8 +50,8 @@ const sorted = [...forumPosts].sort((a, b) => b.upvotes - a.upvotes);
 
       <div class="forum-hero">
         <div class="forum-hero__copy-wrap">
-          <p class="section-header__eyebrow">Overwatch community forum</p>
-          <h1>Overwatch <span>Community Forum</span></h1>
+          <p class="section-header__eyebrow">Aion 2 community forum</p>
+          <h1>Aion 2 <span>Community Forum</span></h1>
           <p class="forum-hero__copy">
             Practical answers on <a href={ROUTES.features}>ESP</a>, <a href="/radar/">radar</a>,
             <a href={ROUTES.status}>compatibility patches</a>, and <a href={ROUTES.setup}>Windows PC setup</a>.

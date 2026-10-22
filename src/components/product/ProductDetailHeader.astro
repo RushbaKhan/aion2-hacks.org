@@ -12,18 +12,18 @@ const { product } = Astro.props;
 <header class="product-detail-header space-y-4">
   <div class="flex flex-wrap items-center gap-2">
     <Badge variant="secondary">{product.badge}</Badge>
-    {product.kind === 'utility' && <Badge variant="outline">Runs with Overwatch Cheats</Badge>}
-    {product.kind === 'tier' && <Badge>Overwatch Cheats</Badge>}
+    {product.kind === 'utility' && <Badge variant="outline">Related product</Badge>}
+    {product.kind === 'tier' && <Badge>Aion 2 Hacks</Badge>}
     {product.variant === 'popular' && <Badge>Popular</Badge>}
     {product.variant === 'limited' && <Badge variant="warning">Limited</Badge>}
-    <Badge variant="outline">Overwatch 2</Badge>
+    <Badge variant="outline">Aion 2</Badge>
     <Badge variant="outline">Windows PC</Badge>
   </div>
   <h1 class="max-w-3xl text-3xl font-bold normal-case leading-tight md:text-4xl">{product.title}</h1>
   {
     product.kind === 'utility' && (
       <p class="max-w-2xl text-sm font-medium text-muted-foreground">
-        Extra that runs with Overwatch Cheats on Windows PC. Aimbot, ESP, and radar stay on the Overwatch store.
+        Related product for Windows PC. Main Aion 2 Hacks plans and documented features stay on the store page.
       </p>
     )
   }

@@ -3,8 +3,12 @@ import type { ProductSlide } from '../data/products';
 import Icon from './icons/Icon.astro';
 import ResponsiveImage from './ResponsiveImage.astro';
 import {
-  defaultWebpSrc,
+  GALLERY_IMAGE_SIZES,
+  GALLERY_IMAGE_WIDTHS,
   THUMB_IMAGE_WIDTHS,
+  avifSrcSet,
+  defaultWebpSrc,
+  imageSrcSet,
 } from '../utils/responsiveImage';
 
 interface Props {
@@ -34,12 +38,12 @@ const first = images[0];
           <ResponsiveImage
             src={first.src}
             alt={first.alt}
-            width={1024}
-            height={574}
-            widths={[400]}
+            width={3840}
+            height={2160}
+            widths={GALLERY_IMAGE_WIDTHS}
             loading="eager"
             fetchPriority="high"
-            sizes={compact ? '(min-width: 768px) 560px, 92vw' : '(min-width: 1024px) 400px, 92vw'}
+            sizes={compact ? '(min-width: 768px) 42rem, 92vw' : GALLERY_IMAGE_SIZES}
             class="product-gallery__image w-full object-cover"
           />
         )
@@ -80,8 +84,9 @@ const first = images[0];
             aria-label={`Screenshot ${i + 1}`}
             data-product-gallery-thumb
             data-index={i}
-            data-src={defaultWebpSrc(img.src, [400])}
-            data-srcset=""
+            data-src={defaultWebpSrc(img.src, GALLERY_IMAGE_WIDTHS)}
+            data-srcset={imageSrcSet(img.src, GALLERY_IMAGE_WIDTHS) ?? ''}
+            data-avifset={avifSrcSet(img.src, GALLERY_IMAGE_WIDTHS) ?? ''}
             data-alt={img.alt}
           >
             <img
@@ -134,15 +139,19 @@ const first = images[0];
         const alt = thumb.getAttribute('data-alt');
         const fullSrc = thumb.getAttribute('data-src');
         const fullSrcset = thumb.getAttribute('data-srcset');
-        const pictureSource = root.querySelector<HTMLSourceElement>('.product-gallery__main source');
+        const avifset = thumb.getAttribute('data-avifset');
+        const webpSource = root.querySelector<HTMLSourceElement>('.product-gallery__main source[type="image/webp"]');
+        const avifSource = root.querySelector<HTMLSourceElement>('.product-gallery__main source[type="image/avif"]');
         if (fullSrc) main.src = fullSrc;
         if (fullSrcset) {
           main.srcset = fullSrcset;
-          if (pictureSource) pictureSource.srcset = fullSrcset;
+          if (webpSource) webpSource.srcset = fullSrcset;
         } else {
           main.removeAttribute('srcset');
-          pictureSource?.removeAttribute('srcset');
+          webpSource?.removeAttribute('srcset');
         }
+        if (avifset && avifSource) avifSource.srcset = avifset;
+        else avifSource?.removeAttribute('srcset');
         if (alt) main.alt = alt;
         thumbs.forEach((t, i) => {
           const active = i === index;

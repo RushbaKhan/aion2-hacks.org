@@ -1,22 +1,11 @@
 export interface ScreenshotShot {
-  key:
-    | 'ow2'
-    | 'ow7'
-    | 'ow3'
-    | 'ow1'
-    | 'owHanzo'
-    | 'ow8'
-    | 'ow4'
-    | 'ow9'
-    | 'ow6'
-    | 'ow5'
-    | 'ow2gothic';
+  key: 'garden' | 'lab' | 'plaza' | 'outpost' | 'wilds';
   file: string;
   src: string;
   alt: string;
   caption: string;
   captionDesc: string;
-  palette: 'temple-aim' | 'havana-ashe' | 'cassidy-cyan' | 'kiriko-menu' | 'hanzo-green' | 'yellow-esp';
+  palette: 'crimson-garden' | 'void-lab' | 'ember-plaza' | 'dusk-outpost' | 'wilds-hunt';
 }
 
 export interface ExtraShot {
@@ -31,113 +20,58 @@ export interface ExtraShot {
 const gameplay = '/images/gameplay';
 const extras = '/images/extras';
 
-export const SCREENSHOT_WIDTH = 1024;
-export const SCREENSHOT_HEIGHT = 574;
+export const SCREENSHOT_WIDTH = 3840;
+export const SCREENSHOT_HEIGHT = 2160;
 
 /**
- * Display order: priority 1–5 first, then remaining shots interleaved
- * so adjacent slider/thumb items never share a map/hero/palette.
- * Havana Ashe = ow-7/ow-8/ow-6; Cassidy cyan = ow-3/ow-4/ow-5; yellow ESP = ow-9/ow-2.
+ * Display order alternates outdoor crimson, dark interiors, and earth-tone combat
+ * so no two similar colors sit next to each other in sliders or grids.
  */
 export const SCREENSHOT_RANK: ScreenshotShot[] = [
   {
-    key: 'ow2',
-    file: 'ow2.jpg',
-    src: `${gameplay}/ow2.jpg`,
-    palette: 'temple-aim',
-    alt: 'Overwatch 2 aim overlay during overtime in a close indoor fight',
-    caption: 'Close fight',
-    captionDesc: 'Target boxes and combat readouts in a contested indoor fight.',
+    key: 'garden',
+    file: 'aion-garden.jpg',
+    src: `${gameplay}/aion-garden.jpg`,
+    palette: 'crimson-garden',
+    alt: 'Aion 2 wooden walkway through red blooms at Safehaven with nearby players and a training scarecrow',
+    caption: 'Safehaven walkway',
+    captionDesc: 'Open-world path with player nameplates and a training dummy in the red garden.',
   },
   {
-    key: 'ow7',
-    file: 'ow-7.jpg',
-    src: `${gameplay}/ow-7.jpg`,
-    palette: 'havana-ashe',
-    alt: 'Overwatch 2 skeleton ESP and health bars during a Havana night fight',
-    caption: 'Combat overlay',
-    captionDesc: 'Skeleton ESP and health readouts on nearby enemies.',
+    key: 'lab',
+    file: 'aion-lab.jpg',
+    src: `${gameplay}/aion-lab.jpg`,
+    palette: 'void-lab',
+    alt: 'Aion 2 Daeva bio-research base with swarming enemies and cooldown skill readouts',
+    caption: 'Research base combat',
+    captionDesc: 'Indoor swarm fight with skill cooldown and target information on screen.',
   },
   {
-    key: 'ow3',
-    file: 'ow-3.jpg',
-    src: `${gameplay}/ow-3.jpg`,
-    palette: 'cassidy-cyan',
-    alt: 'Overwatch 2 player ESP boxes, health, and outlines on a night payload map',
-    caption: 'Player ESP',
-    captionDesc: 'Nameplates, health, and outlines on nearby players.',
+    key: 'plaza',
+    file: 'aion-plaza.jpg',
+    src: `${gameplay}/aion-plaza.jpg`,
+    palette: 'ember-plaza',
+    alt: 'Aion 2 training scarecrow fight on a wooden plaza surrounded by red flowers',
+    caption: 'Training plaza',
+    captionDesc: 'Close combat on the wooden platform with impact effects and nearby players.',
   },
   {
-    key: 'ow1',
-    file: 'ow1.jpg',
-    src: `${gameplay}/ow1.jpg`,
-    palette: 'kiriko-menu',
-    alt: 'Overwatch 2 ESP menu with skeleton and box overlays in an outdoor fight',
-    caption: 'ESP modules',
-    captionDesc: 'Listed ESP toggles next to in-world skeleton and box overlays.',
+    key: 'outpost',
+    file: 'aion-outpost.jpg',
+    src: `${gameplay}/aion-outpost.jpg`,
+    palette: 'dusk-outpost',
+    alt: 'Aion 2 dark Cohto outpost corridor with security modules and named NPCs',
+    caption: 'Outpost corridor',
+    captionDesc: 'Dim interior with NPC labels, quest markers, and a live objective path.',
   },
   {
-    key: 'owHanzo',
-    file: 'ow-1.jpg',
-    src: `${gameplay}/ow-1.jpg`,
-    palette: 'hanzo-green',
-    alt: 'Overwatch 2 distance ESP, health labels, and objective markers from high ground',
-    caption: 'Distance and direction',
-    captionDesc: 'Distance ESP and objective labels toward a payload fight.',
-  },
-  {
-    key: 'ow8',
-    file: 'ow-8.jpg',
-    src: `${gameplay}/ow-8.jpg`,
-    palette: 'havana-ashe',
-    alt: 'Overwatch 2 skeleton ESP stick figures during a Havana street fight',
-    caption: 'Skeleton ESP',
-    captionDesc: 'Skeleton ESP on enemies across a street fight.',
-  },
-  {
-    key: 'ow4',
-    file: 'ow-4.jpg',
-    src: `${gameplay}/ow-4.jpg`,
-    palette: 'cassidy-cyan',
-    alt: 'Overwatch 2 radar outline with health ESP inside a tight corridor',
-    caption: 'Radar and skeleton',
-    captionDesc: 'Local radar outline plus health ESP on nearby targets.',
-  },
-  {
-    key: 'ow9',
-    file: 'ow-9.jpg',
-    src: `${gameplay}/ow-9.jpg`,
-    palette: 'yellow-esp',
-    alt: 'Overwatch 2 wallhack silhouette ESP through a building on King’s Row',
-    caption: 'Through-wall ESP',
-    captionDesc: 'Silhouette ESP marking an enemy through a wall.',
-  },
-  {
-    key: 'ow6',
-    file: 'ow-6.jpg',
-    src: `${gameplay}/ow-6.jpg`,
-    palette: 'havana-ashe',
-    alt: 'Overwatch 2 ESP outlines and health bars while escorting a payload on Havana',
-    caption: 'Objective markers',
-    captionDesc: 'ESP outlines and health labels around a live payload.',
-  },
-  {
-    key: 'ow5',
-    file: 'ow-5.jpg',
-    src: `${gameplay}/ow-5.jpg`,
-    palette: 'cassidy-cyan',
-    alt: 'Overwatch 2 night ESP list with health and ultimate labels on rooftop targets',
-    caption: 'High-ground view',
-    captionDesc: 'Elevated camera with health and ultimate labels on distant targets.',
-  },
-  {
-    key: 'ow2gothic',
-    file: 'ow-2.jpg',
-    src: `${gameplay}/ow-2.jpg`,
-    palette: 'yellow-esp',
-    alt: 'Overwatch 2 yellow ESP blob and skeleton overlays in a gothic interior',
-    caption: 'Interior overlay',
-    captionDesc: 'ESP fill and skeleton readouts in a tight interior.',
+    key: 'wilds',
+    file: 'aion-wilds.jpg',
+    src: `${gameplay}/aion-wilds.jpg`,
+    palette: 'wilds-hunt',
+    alt: 'Aion 2 open-field hunt against Executioner Nemok with a recovery totem and minimap',
+    caption: 'Open-field hunt',
+    captionDesc: 'Outdoor combat with a named enemy, totem support, and map information.',
   },
 ];
 
@@ -146,17 +80,17 @@ export const EXTRA_SHOTS = {
     src: `${extras}/cloud-dma.jpg`,
     file: 'cloud-dma.jpg',
     palette: 'cloud-dma',
-    alt: 'Cloud DMA extra for Overwatch Cheats on Windows PC',
+    alt: 'Cloud DMA extra for Aion 2 Hacks on Windows PC',
     caption: 'Cloud DMA',
-    captionDesc: 'Cloud DMA extra that runs with Overwatch Cheats.',
+    captionDesc: 'Cloud DMA extra listed alongside Aion 2 Hacks.',
   },
   hwid: {
     src: `${extras}/spoofer.jpg`,
     file: 'spoofer.jpg',
     palette: 'hwid-spoofer',
-    alt: 'HWID Spoofer extra for Overwatch Cheats on Windows PC',
+    alt: 'HWID Spoofer extra for Aion 2 Hacks on Windows PC',
     caption: 'HWID Spoofer',
-    captionDesc: 'HWID Spoofer extra that runs with Overwatch Cheats.',
+    captionDesc: 'HWID Spoofer extra listed alongside Aion 2 Hacks.',
   },
 } as const satisfies Record<'dma' | 'hwid', ExtraShot>;
 
@@ -173,7 +107,7 @@ const PALETTE_BY_SRC = Object.fromEntries([
   ...Object.values(EXTRA_SHOTS).map((shot) => [shot.src, shot.palette]),
 ]);
 
-export function screenshotAlt(src: string, fallback = 'Overwatch overlay screenshot from Overwatch Cheat'): string {
+export function screenshotAlt(src: string, fallback = 'Aion 2 gameplay screenshot from Aion 2 Hacks'): string {
   if (!src) return fallback;
   const file = src.split('/').pop()?.replace(/-\d+\.webp$/i, '') ?? '';
   const withExt = file.includes('.') ? file : `${file}.jpg`;

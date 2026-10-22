@@ -1,10 +1,8 @@
 ---
 import { t } from '../i18n';
 import { Button } from '@/components/starwind/button';
-import LanguageSwitcher from './LanguageSwitcher.astro';
 import Icon from './icons/Icon.astro';
 import SlideRevealButton from './SlideRevealButton.astro';
-import SiteSearch from './SiteSearch.astro';
 
 import type { IconName } from './icons/types';
 import { isExternalHref, navLinkIsActive } from '../utils/path';
@@ -25,9 +23,9 @@ const navIcons: Record<string, IconName> = {
 
 function productPageCheckoutPath(pathname: string): string | null {
   const path = pathname.endsWith('/') ? pathname : `${pathname}/`;
-  if (path === '/store/') return checkoutPath('overwatch');
-  if (path === '/dma/') return checkoutPath('dma');
-  if (path === '/hwid/') return checkoutPath('hwid');
+  if (path === '/store/') return checkoutPath('aion2');
+  if (path === '/dma/' || path === '/cloud-dma/') return checkoutPath('dma');
+  if (path === '/hwid/' || path === '/hwid-spoofer/') return checkoutPath('hwid');
   return null;
 }
 
@@ -39,8 +37,8 @@ const purchaseUrl = productCheckout ?? '/store/';
   <div class="flex w-full max-w-full justify-center px-3 pt-3 sm:px-4 sm:pt-4" data-floating-nav>
     <div class="site-nav-bar pointer-events-auto">
       <a href="/" class="site-nav-bar__brand">
-        <img src="/favicon.svg?v=ow" width="22" height="22" alt="Overwatch Cheats" />
-        <span>Overwatch<span class="text-primary" data-i18n-en="Cheats">Cheats</span></span>
+        <img src="/favicon.svg?v=aion2" width="22" height="22" alt="Aion 2 Hacks" />
+        <span>Aion 2 <span class="text-primary" data-i18n-en="Hacks">Hacks</span></span>
       </a>
 
       <nav class="site-nav-bar__links" aria-label="Primary">
@@ -49,7 +47,6 @@ const purchaseUrl = productCheckout ?? '/store/';
             href={link.href}
             class:list={[
               'nav-link site-nav-bar__link',
-              link.label === 'Support' && 'site-nav-bar__link--support',
               navLinkIsActive(currentPath, link.href) && 'is-active',
             ]}
             data-nav-link
@@ -64,11 +61,9 @@ const purchaseUrl = productCheckout ?? '/store/';
       </nav>
 
       <div class="site-nav-bar__actions">
-        <SiteSearch class="site-nav-bar__search" />
         <SlideRevealButton href={purchaseUrl} class="site-nav-bar__buy">
           {t.ui.browseCheats}
         </SlideRevealButton>
-        <LanguageSwitcher class="site-nav-bar__lang" />
 
         <button
           type="button"
@@ -107,7 +102,6 @@ const purchaseUrl = productCheckout ?? '/store/';
       <Icon name="x" size={20} />
     </button>
   </div>
-  <SiteSearch variant="sheet" class="w-full min-w-0" />
   <nav class="flex flex-col gap-1" aria-label="Mobile">
     {t.nav.map((link) => (
       <a
@@ -129,7 +123,4 @@ const purchaseUrl = productCheckout ?? '/store/';
   <Button as="a" href={purchaseUrl} variant="primary" class="min-h-12 w-full justify-center">
     {t.ui.browseCheatsMobile}
   </Button>
-  <div class="flex justify-center pt-1">
-    <LanguageSwitcher />
-  </div>
 </div>

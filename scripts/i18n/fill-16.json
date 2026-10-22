@@ -358,5 +358,10 @@
     "هل ستعمل إعدادات هذا المقال في التصحيح التالي؟",
     "Cài đặt trong bài này có chạy ở bản vá sau không?",
     "Czy ustawienia z tego artykułu zadziałają w następnym patchu?"
-  ]
+  ],
+  "Target & NPC ESP": "Target & NPC ESP",
+  "Item & Loot ESP": "Item & Loot ESP",
+  "Map & Quest ESP": "Map & Quest ESP",
+  "Faction Filter": "Faction Filter",
+  "Combat Assist": "Combat Assist"
 }

@@ -21,18 +21,25 @@
 
 .product-experience__title {
   margin: 0;
+  max-width: 100%;
   font-family: var(--font-heading, ui-sans-serif, system-ui, sans-serif);
   font-size: clamp(1.625rem, 3vw, 2.125rem);
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  overflow-wrap: break-word;
+  text-wrap: balance;
+  white-space: normal;
   color: var(--foreground);
 }
 
 .product-experience__subtitle {
   margin: 0.75rem 0 0;
-  font-size: 0.875rem;
-  line-height: 1.6;
+  font-size: 0.9375rem;
+  line-height: 1.65;
+  overflow-wrap: break-word;
+  white-space: normal;
+  word-spacing: 0.02em;
   color: var(--muted-foreground);
 }
 
@@ -75,6 +82,8 @@
   font-size: 1.0625rem;
   font-weight: 700;
   line-height: 1.35;
+  overflow-wrap: break-word;
+  white-space: normal;
   color: var(--foreground);
 }
 
@@ -137,7 +146,9 @@
   font-family: var(--font-heading);
   font-size: 1.0625rem;
   font-weight: 700;
-  line-height: 1.3;
+  line-height: 1.35;
+  overflow-wrap: break-word;
+  white-space: normal;
   color: var(--foreground);
 }
 
@@ -148,7 +159,9 @@
 .product-experience__callout-desc {
   margin: 0.5rem 0 0;
   font-size: 0.875rem;
-  line-height: 1.55;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  white-space: normal;
   color: var(--muted-foreground);
 }
 
@@ -253,7 +266,9 @@
   margin: 0.15rem 0 0;
   font-size: 0.9375rem;
   font-weight: 600;
-  line-height: 1.35;
+  line-height: 1.4;
+  overflow-wrap: break-word;
+  white-space: normal;
   color: var(--foreground);
 }
 
@@ -263,7 +278,9 @@
 
 .product-experience__step-desc {
   margin: 0.35rem 0 0;
-  font-size: 0.8125rem;
-  line-height: 1.5;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  overflow-wrap: break-word;
+  white-space: normal;
   color: var(--muted-foreground);
 }

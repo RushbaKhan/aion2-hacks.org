@@ -1,29 +1,44 @@
+@import "./fonts.css";
 @import "tailwindcss";
 @plugin "@tailwindcss/forms";
+@source not "../components/starwind/accordion";
+@source not "../components/starwind/alert";
+@source not "../components/starwind/alert-dialog";
+@source not "../components/starwind/aspect-ratio";
+@source not "../components/starwind/avatar";
+@source not "../components/starwind/calendar";
+@source not "../components/starwind/carousel";
+@source not "../components/starwind/checkbox";
+@source not "../components/starwind/collapsible";
+@source not "../components/starwind/combobox";
+@source not "../components/starwind/command";
+@source not "../components/starwind/dialog";
+@source not "../components/starwind/drawer";
+@source not "../components/starwind/dropdown-menu";
+@source not "../components/starwind/dropzone";
+@source not "../components/starwind/hover-card";
+@source not "../components/starwind/input-otp";
+@source not "../components/starwind/menubar";
+@source not "../components/starwind/pagination";
+@source not "../components/starwind/popover";
+@source not "../components/starwind/progress";
+@source not "../components/starwind/resizable";
+@source not "../components/starwind/scroll-area";
+@source not "../components/starwind/sheet";
+@source not "../components/starwind/sidebar";
+@source not "../components/starwind/skeleton";
+@source not "../components/starwind/slider";
+@source not "../components/starwind/spinner";
+@source not "../components/starwind/switch";
+@source not "../components/starwind/tabs";
+@source not "../components/starwind/textarea";
+@source not "../components/starwind/theme-toggle";
+@source not "../components/starwind/toast";
+@source not "../components/starwind/toggle";
+@source not "../components/starwind/toggle-group";
+@source not "../components/starwind/tooltip";
+@source not "../components/starwind/video";
 @custom-variant dark (&:where(.dark, .dark *));
-
-@theme {
-  --animate-accordion-down: accordion-down 0.2s ease-out;
-  --animate-accordion-up: accordion-up 0.2s ease-out;
-
-  @keyframes accordion-down {
-    from {
-      height: 0;
-    }
-    to {
-      height: var(--starwind-accordion-content-height);
-    }
-  }
-
-  @keyframes accordion-up {
-    from {
-      height: var(--starwind-accordion-content-height);
-    }
-    to {
-      height: 0;
-    }
-  }
-}
 
 @theme inline {
   --color-background: var(--background);
@@ -73,86 +88,88 @@
 }
 
 :root {
-  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-heading: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --background: var(--color-white);
-  --foreground: var(--color-neutral-950);
-  --card: var(--color-white);
-  --card-foreground: var(--color-neutral-950);
-  --popover: var(--color-white);
-  --popover-foreground: var(--color-neutral-950);
-  --primary: #5b21b6;
+  /* Levo-aligned tones: Outfit + electric blue on charcoal surfaces */
+  --font-sans: "Outfit Variable", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-heading: "Outfit Variable", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --background: #f5f7fa;
+  --foreground: #0a0a0a;
+  --card: #ffffff;
+  --card-foreground: #0a0a0a;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --primary: #2d6ee2;
   --primary-foreground: #ffffff;
-  --primary-accent: #8b5cf6;
-  --secondary: var(--color-neutral-200);
-  --secondary-foreground: var(--color-neutral-950);
-  --secondary-accent: var(--color-neutral-950);
-  --muted: var(--color-neutral-100);
-  --muted-foreground: var(--color-neutral-600);
-  --accent: var(--color-neutral-100);
-  --accent-foreground: var(--color-neutral-900);
-  --info: var(--color-sky-300);
-  --info-foreground: var(--color-sky-950);
-  --success: var(--color-green-300);
-  --success-foreground: var(--color-green-950);
-  --warning: var(--color-amber-300);
-  --warning-foreground: var(--color-amber-950);
-  --error: var(--color-red-700);
-  --error-foreground: var(--color-neutral-50);
-  --border: var(--color-neutral-200);
-  --input: var(--color-neutral-200);
-  --outline: var(--color-neutral-400);
+  --primary-accent: #5a8ff0;
+  --secondary: #e8ecf4;
+  --secondary-foreground: #0a0a0a;
+  --secondary-accent: #0a0a0a;
+  --muted: #eef1f6;
+  --muted-foreground: #4a4d5c;
+  --accent: #e8ecf4;
+  --accent-foreground: #0a0a0a;
+  --info: #5a8ff0;
+  --info-foreground: #061428;
+  --success: #3dd68c;
+  --success-foreground: #052e1a;
+  --warning: #5a8ff0;
+  --warning-foreground: #061428;
+  --error: #2d6ee2;
+  --error-foreground: #ffffff;
+  --border: #d8dde8;
+  --input: #d8dde8;
+  --outline: #8b90a0;
   --radius: 0.625rem;
 
   /* sidebar variables */
-  --sidebar-background: var(--color-neutral-50);
-  --sidebar-foreground: var(--color-neutral-950);
-  --sidebar-primary: #5b21b6;
+  --sidebar-background: #f5f7fa;
+  --sidebar-foreground: #0a0a0a;
+  --sidebar-primary: #2d6ee2;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: var(--color-neutral-100);
-  --sidebar-accent-foreground: var(--color-neutral-900);
-  --sidebar-border: var(--color-neutral-200);
-  --sidebar-outline: var(--color-neutral-400);
+  --sidebar-accent: #e8ecf4;
+  --sidebar-accent-foreground: #0a0a0a;
+  --sidebar-border: #d8dde8;
+  --sidebar-outline: #6b6d7b;
 }
 
 .dark {
-  --background: #0b0716;
-  --foreground: var(--color-neutral-50);
-  --card: #14101f;
-  --card-foreground: var(--color-neutral-50);
-  --popover: #161022;
-  --popover-foreground: var(--color-neutral-50);
-  --primary: #6d28d9;
+  --background: #0b1018;
+  --foreground: #ffffff;
+  --card: #121a28;
+  --card-foreground: #ffffff;
+  --popover: #0c1420;
+  --popover-foreground: #ffffff;
+  --primary: #2d6ee2;
   --primary-foreground: #ffffff;
-  --primary-accent: #c4b5fd;
-  --secondary: #1c1730;
-  --secondary-foreground: var(--color-neutral-50);
-  --secondary-accent: var(--color-neutral-50);
-  --muted: #1a1528;
-  --muted-foreground: #d4d4d4;
-  --accent: #221a36;
-  --accent-foreground: var(--color-neutral-50);
-  --info: var(--color-sky-300);
-  --info-foreground: var(--color-sky-950);
-  --success: var(--color-green-300);
-  --success-foreground: var(--color-green-950);
-  --warning: var(--color-amber-300);
-  --warning-foreground: var(--color-amber-950);
-  --error: var(--color-red-800);
-  --error-foreground: var(--color-neutral-50);
-  --border: --alpha(var(--color-neutral-50) / 10%);
-  --input: --alpha(var(--color-neutral-50) / 15%);
-  --outline: var(--color-neutral-500);
+  --primary-accent: #5a8ff0;
+  --secondary: #161a24;
+  --secondary-foreground: #ffffff;
+  --secondary-accent: #ffffff;
+  --muted: #161a24;
+  --muted-foreground: #a8b0c0;
+  --accent: #1a2030;
+  --accent-foreground: #ffffff;
+  --info: #5a8ff0;
+  --info-foreground: #061428;
+  --success: #3dd68c;
+  --success-foreground: #052e1a;
+  /* Keep “warning” on-brand blue (no amber/red cast in badges/boxes) */
+  --warning: #5a8ff0;
+  --warning-foreground: #061428;
+  --error: #3b82f6;
+  --error-foreground: #ffffff;
+  --border: #1e2533;
+  --input: #243044;
+  --outline: #6b7a94;
 
   /* sidebars variables */
-  --sidebar-background: #14101f;
-  --sidebar-foreground: var(--color-neutral-50);
-  --sidebar-primary: #5b21b6;
+  --sidebar-background: #0c1018;
+  --sidebar-foreground: #ffffff;
+  --sidebar-primary: #2d6ee2;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: var(--color-neutral-800);
-  --sidebar-accent-foreground: var(--color-neutral-100);
-  --sidebar-border: var(--color-neutral-800);
-  --sidebar-outline: var(--color-neutral-600);
+  --sidebar-accent: #161a24;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #1e2533;
+  --sidebar-outline: #6b7a94;
 }
 
 @layer base {
@@ -161,13 +178,24 @@
   }
   body {
     @apply bg-background text-foreground scheme-light dark:scheme-dark font-sans antialiased;
+    overflow-wrap: break-word;
+    word-spacing: normal;
+  }
+  input[type='search'],
+  input[type='text'] {
+    background-color: transparent;
+    color: inherit;
   }
   h1,
   h2,
   h3,
   h4 {
     font-family: var(--font-heading);
-    letter-spacing: 0.02em;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-wrap: balance;
   }
   button {
     @apply cursor-pointer;
@@ -175,8 +203,3 @@
 }
 
 @import "./global.css";
-@import "./site-search.css";
-@import "./blog-pages.css";
-@import "./workflow-section.css";
-@import "./product-cheat-page.css";
-@import "../components/starwind/prose/styles.css";

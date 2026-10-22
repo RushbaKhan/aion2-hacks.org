@@ -59,7 +59,7 @@ export interface ProductPage {
 }
 
 export const productRelatedBlogSlugs: Record<string, string[]> = {
-  overwatch: ['cheats', 'esp', 'aim', 'radar', 'hero', 'obj', 'pc', 'ac', 'plans'],
+  aion2: ['cheats', 'esp', 'aim', 'radar', 'pc', 'ac', 'plans', 'aion-2-classes', 'aion-2-requirements'],
   dma: ['pc', 'ac', 'cheats', 'plans'],
   hwid: ['pc', 'ac', 'cheats', 'plans'],
 };
@@ -68,12 +68,12 @@ const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
     title: 'Review current status',
-    desc: 'Open the status page on overwatchcheat.com before you buy—especially after an Overwatch client update.',
+    desc: 'Open the status page on aion2hacks.org before you buy—especially after an Aion 2 client update.',
   },
   {
     num: '02',
-    title: 'Choose monthly or lifetime',
-    desc: 'Pick the $35 monthly plan or the $150 lifetime plan, then compare the listed modules before checkout.',
+    title: 'Choose weekly, monthly, or lifetime',
+    desc: 'Pick the $15 weekly, $35 monthly, or $150 lifetime plan, then compare the listed modules before checkout.',
   },
   {
     num: '03',
@@ -83,7 +83,7 @@ const defaultAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '04',
     title: 'Follow Windows PC setup',
-    desc: 'Use the vendor setup notes for Battle.net or Steam. Turn on a conservative ESP and radar profile before joining a live match.',
+    desc: 'Use the vendor setup notes for the official Aion 2 client. Turn on a conservative ESP and radar profile before joining a live zone.',
   },
 ];
 
@@ -91,12 +91,12 @@ const utilityAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '01',
     title: 'Review current status',
-    desc: 'Open the status page on overwatchcheat.com before you buy—especially after an Overwatch client update.',
+    desc: 'Open the status page on aion2hacks.org before you buy—especially after an Aion 2 client update.',
   },
   {
     num: '02',
     title: 'Read the extra listing',
-    desc: 'This extra runs with Overwatch Cheats on Windows PC. Confirm vendor notes on this page before you continue.',
+    desc: 'This extra runs with Aion 2 Hacks on Windows PC. Confirm vendor notes on this page before you continue.',
   },
   {
     num: '03',
@@ -106,7 +106,7 @@ const utilityAcquisitionSteps: AcquisitionStep[] = [
   {
     num: '04',
     title: 'Follow vendor setup notes',
-    desc: 'Use the instructions provided after checkout. Re-check status after Overwatch patches.',
+    desc: 'Use the instructions provided after checkout. Re-check status after Aion 2 patches.',
   },
 ];
 
@@ -118,19 +118,19 @@ function acquisitionFor(productName: string, kind: 'tier' | 'utility' = 'tier'):
 }
 
 const sharedGoodToKnow =
-  'Overwatch on Windows PC launches through Battle.net or Steam. Confirm current compatibility on the status page before you purchase or launch. Overlay options can change after a game update.';
+  'Aion 2 on Windows PC launches through the official NCSOFT client. Confirm current compatibility on the status page before you purchase or launch. Overlay options can change after a game update.';
 
 const sharedLimitations =
-  'Third-party software in Overwatch can violate the game terms of use and may lead to account action. You use this software at your own risk. Compatibility and availability can change after game or Windows updates without notice. This site is not affiliated with Blizzard Entertainment.';
+  'Third-party software in Aion 2 can violate the game terms of use and may lead to account action. You use this software at your own risk. Compatibility and availability can change after game or Windows updates without notice. This site is not affiliated with NCSOFT.';
 
-const overwatchSystemRequirements: SystemRequirement[] = [
+const aion2SystemRequirements: SystemRequirement[] = [
   { icon: 'reqWindows', text: 'Windows 10 or Windows 11 (64-bit).' },
-  { icon: 'reqSteam', text: 'Overwatch on Windows PC via Battle.net or Steam with current patches applied.' },
+  { icon: 'reqSteam', text: 'Aion 2 on Windows PC via the official client with current patches applied.' },
   { icon: 'reqSettings', text: 'Administrator access for loader installation and updates.' },
   { icon: 'reqWifi', text: 'Stable internet connection for checkout access and updates.' },
   {
     icon: 'reqCpu',
-    text: 'A system that meets Overwatch published hardware requirements. Cloud DMA and HWID Spoofer extras run with Overwatch Cheats on this PC.',
+    text: 'A system that meets Aion 2 published hardware requirements. Cloud DMA and HWID Spoofer extras run with Aion 2 Hacks on this PC.',
   },
 ];
 
@@ -169,11 +169,14 @@ const listedFeatures = [
   'Health ESP',
   'Name ESP',
   'Distance ESP',
-  'Hero ESP',
-  'Team Check',
+  'Target ESP',
+  'NPC ESP',
+  'Faction Filter',
   'Enemy Only ESP',
-  'Ability ESP',
-  'Objective ESP',
+  'Item ESP',
+  'Loot ESP',
+  'Map ESP',
+  'Quest Markers',
   'Radar',
   '2D Radar',
   '3D Radar',
@@ -183,17 +186,17 @@ const productContent: Record<
   string,
   Pick<ProductPage, 'overview' | 'images' | 'fullFeatures' | 'goodToKnow' | 'limitations' | 'systemRequirements'>
 > = {
-  overwatch: {
+  aion2: {
     images: rankedSlides,
     goodToKnow: sharedGoodToKnow,
     limitations: sharedLimitations,
-    systemRequirements: overwatchSystemRequirements,
+    systemRequirements: aion2SystemRequirements,
     fullFeatures: listedFeatures,
     overview: {
-      title: 'Built around Overwatch and Overwatch 2 information workflow',
+      title: 'Built around Aion 2',
       paragraphs: [
-        'Overwatch Cheats lists tools for Overwatch and Overwatch 2, the Blizzard hero shooter you play on Windows PC: [player ESP](/esp/), [hero ESP](/hero/) for Overwatch characters, [objective ESP](/obj/), [radar](/radar/), and optional [aimbot](/aim/). Enable the overlays you can actually read, then save a config before joining a live match.',
-        'The current vendor listing is the Windows PC client for this game. Treat compatibility as something to re-check on the [status page](/status/) after every new season and Overwatch patch notes drop rather than a permanent label. [Setup notes](/setup/) cover the Windows PC order. OW shorthand, Overwatch 2 heroes, and ranks do not change the listed modules.',
+        'Aion 2 Hacks lists tools for Aion 2, the NCSOFT MMORPG on Windows PC: [player ESP](/esp/), [target and NPC ESP](/radar/), [item and loot cues](/features/), [map markers](/features/), [radar](/radar/), and optional [aimbot](/aim/). Enable the overlays you can actually read, then save a config before joining a crowded zone or PvP.',
+        'The current vendor listing is the Windows PC client for this game. Treat compatibility as something to re-check on the [status page](/status/) after every Aion 2 update rather than a permanent label. [Setup notes](/setup/) cover the Windows PC order. Class guides and build articles do not change the listed modules.',
       ],
     },
   },
@@ -207,15 +210,15 @@ const productContent: Record<
       },
     ],
     goodToKnow:
-      'Cloud DMA is a $50 one-time extra that runs with Overwatch Cheats. Confirm vendor notes at checkout. Overwatch Cheats plans stay $35 monthly or $150 lifetime.',
+      'Cloud DMA is a related extra with weekly access at $15 and lifetime at $50 that runs with Aion 2 Hacks. Confirm vendor notes at checkout. Aion 2 Hacks main plans stay $15 weekly, $35 monthly, or $150 lifetime.',
     limitations: sharedLimitations,
-    systemRequirements: overwatchSystemRequirements,
-    fullFeatures: ['$50 one-time extra', 'Windows PC', 'Runs with Overwatch Cheats'],
+    systemRequirements: aion2SystemRequirements,
+    fullFeatures: ['$15 weekly', '$50 lifetime', 'Windows PC', 'Runs with Aion 2 Hacks'],
     overview: {
-      title: 'Cloud DMA extra for Overwatch Cheats',
+      title: 'Cloud DMA extra for Aion 2 Hacks',
       paragraphs: [
-        'Cloud DMA is a $50 one-time extra that runs with [Overwatch Cheats](/store/) on Windows PC. Use this page for DMA delivery notes, then keep [aimbot](/aim/), ESP, and radar on the store listing.',
-        'Pair it with the [HWID Spoofer](/hwid/) extra when you are mapping the three listings. Re-check [status](/status/) after Overwatch patches either way.',
+        'Cloud DMA is a related extra with weekly ($15) and lifetime ($50) access that runs with [Aion 2 Hacks](/store/) on Windows PC. Use this page for DMA delivery notes, then keep ESP and radar on the store listing.',
+        'Pair it with the [HWID Spoofer](/hwid-spoofer/) extra when you are mapping the three listings. Re-check [status](/status/) after Aion 2 patches either way.',
       ],
     },
   },
@@ -229,15 +232,15 @@ const productContent: Record<
       },
     ],
     goodToKnow:
-      'HWID Spoofer is a $50 monthly or $150 lifetime extra that runs with Overwatch Cheats on Windows PC. This page does not promise ban evasion or Defense Matrix bypass.',
+      'HWID Spoofer is a related extra with weekly access at $15 and monthly access at $35 that runs with Aion 2 Hacks on Windows PC. This page does not promise ban evasion or anti-cheat bypass.',
     limitations: sharedLimitations,
-    systemRequirements: overwatchSystemRequirements,
-    fullFeatures: ['Monthly $50', 'Lifetime $150', 'Runs with Overwatch Cheats'],
+    systemRequirements: aion2SystemRequirements,
+    fullFeatures: ['$15 weekly', '$35 monthly', 'Runs with Aion 2 Hacks'],
     overview: {
-      title: 'HWID Spoofer extra for Overwatch Cheats',
+      title: 'HWID Spoofer extra for Aion 2 Hacks',
       paragraphs: [
-        'HWID Spoofer is a $50 monthly or $150 lifetime extra that runs with Overwatch Cheats on Windows PC. This page does not promise ban evasion, hardware masking success, or Defense Matrix bypass.',
-        'Keep [aimbot](/aim/), ESP, and radar on the [store](/store/). Use [setup](/setup/) and [status](/status/) before you launch the extras with the overlay.',
+        'HWID Spoofer is a related extra with weekly ($15) and monthly ($35) access that runs with Aion 2 Hacks on Windows PC. This page does not promise ban evasion, hardware masking success, or anti-cheat bypass.',
+        'Keep ESP and radar on the [store](/store/). Use [setup](/setup/) and [status](/status/) before you launch the extras with the overlay.',
       ],
     },
   },
@@ -245,7 +248,7 @@ const productContent: Record<
 
 function buildTierPages(): ProductPage[] {
   return t.cheats.items.map((cheat) => {
-    const slug = 'overwatch';
+    const slug = 'aion2';
     const content = productContent[slug];
     return {
       slug,
@@ -270,24 +273,24 @@ function buildTierPages(): ProductPage[] {
       about: [
         {
           type: 'p',
-          text: 'Overwatch and Overwatch 2 reward awareness of enemy heroes, abilities, and the live objective. Overwatch Cheats groups those information modules on one [store](/store/) page so you can play this Blizzard game with listed ESP and radar, with a longer breakdown on [features](/features/) and [preview](/preview/).',
+          text: 'Aion 2 rewards awareness of nearby players, mobs, and quest objectives. Aion 2 Hacks groups those information modules on one [store](/store/) page so you can play with listed ESP and radar, with a longer breakdown on [features](/features/) and [preview](/preview/).',
         },
         { type: 'h2', text: 'What is listed' },
         {
           type: 'p',
-          text: 'The current product listing includes [aimbot](/aim/), [player ESP](/esp/), [hero ESP](/hero/), [objective ESP](/obj/), [2D and 3D radar](/radar/), team check, and enemy-only ESP. Full farming bots and movement macros are not listed, so this site does not claim them. See the [FAQ](/faq/) if you are unsure what is included.',
+          text: 'The current product listing includes [aimbot](/aim/), [player ESP](/esp/), target and NPC overlays, item and map cues when listed, [2D and 3D radar](/radar/), faction filter, and enemy-only ESP. Full farming bots and movement macros are not listed, so this site does not claim them. See the [FAQ](/faq/) if you are unsure what is included.',
         },
       ],
       body: [
         { type: 'h2', text: 'Plans' },
         {
           type: 'p',
-          text: 'Monthly access is $35 for 30 days (P30D). Lifetime access is $150 (P99Y). Both plans are priced in USD and use the same listed feature set. Compare them here, then read [monthly vs lifetime](/plans/) if you still need a short trial vs long access.',
+          text: 'Weekly access is $15 for 7 days (P7D). Monthly access is $35 for 30 days (P30D). Lifetime access is $150 (P99Y). All plans are priced in USD and use the same listed feature set. Compare them here, then read [plan comparison](/plans/) if you still need a short trial vs long access.',
         },
         { type: 'h2', text: 'Requirements' },
         {
           type: 'p',
-          text: 'Windows 10 or 11 and a machine that can run Overwatch. [Cloud DMA](/dma/) and [HWID Spoofer](/hwid/) are extras that run with Overwatch Cheats on that PC. Confirm notes on [setup](/setup/) and [status](/status/) before you pay.',
+          text: 'Windows 10 or 11 and a machine that can run Aion 2. [Cloud DMA](/cloud-dma/) and [HWID Spoofer](/hwid-spoofer/) are extras that run with Aion 2 Hacks on that PC. Confirm notes on [setup](/setup/) and [status](/status/) before you pay.',
         },
       ],
       relatedBlogSlugs: productRelatedBlogSlugs[slug] ?? [],
@@ -321,19 +324,19 @@ function buildUtilityPages(): ProductPage[] {
       about: [
         {
           type: 'p',
-          text: `${item.title} is an extra that runs with [Overwatch Cheats](/store/) on Windows PC. Use this page for its checkout path, then keep [aimbot](/aim/), ESP, and radar on [features](/features/).`,
+          text: `${item.title} is an extra that runs with [Aion 2 Hacks](/store/) on Windows PC. Use this page for its checkout path, then keep ESP and radar on [features](/features/).`,
         },
       ],
       body: [
         { type: 'h2', text: 'How it relates' },
         {
           type: 'p',
-          text: 'This extra runs with [Overwatch Cheats](/store/) on Windows PC. Monthly ($35) and lifetime ($150) overlay plans stay on the store. Use this page for the extra’s checkout.',
+          text: 'This extra runs with [Aion 2 Hacks](/store/) on Windows PC. Weekly ($15), monthly ($35), and lifetime ($150) overlay plans stay on the store. Use this page for the extra’s checkout.',
         },
         { type: 'h2', text: 'Compatibility' },
         {
           type: 'p',
-          text: 'Treat Blizzard Defense Matrix notes as unverified context. Re-check [status](/status/) after Overwatch patches. [Windows PC setup](/pc/) covers first-run order for the main overlay.',
+          text: 'Treat NCSOFT anti-cheat notes as unverified context. Re-check [status](/status/) after Aion 2 patches. [Windows PC setup](/pc/) covers first-run order for the main overlay.',
         },
       ],
       relatedBlogSlugs: productRelatedBlogSlugs[slug] ?? [],
@@ -369,8 +372,8 @@ export const productHub = {
   title: t.products.title,
   subtitle: t.products.subtitle,
   description:
-    'Overwatch Cheats plans for Overwatch and Overwatch 2 on Windows PC. Compare monthly and lifetime options, review Overwatch characters overlays, and visit checkout for current pricing.',
-  buyUrl: checkoutPath('overwatch'),
+    'Aion 2 Hacks plans for Aion 2 on Windows PC. Compare weekly, monthly, and lifetime options, review listed overlays, and visit checkout for current pricing.',
+  buyUrl: checkoutPath('aion2'),
 };
 
 export { productPath };

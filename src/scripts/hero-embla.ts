@@ -11,8 +11,9 @@ function hydrateSlide(slide: HTMLElement) {
 
   const src = slide.getAttribute('data-slide-src');
   const srcset = slide.getAttribute('data-slide-srcset');
+  const avifset = slide.getAttribute('data-slide-avifset');
   const alt = slide.getAttribute('data-slide-alt') ?? '';
-  const sizes = slide.getAttribute('data-slide-sizes') ?? '490px';
+  const sizes = slide.getAttribute('data-slide-sizes') ?? '42vw';
   if (!src) return;
 
   const img = document.createElement('img');
@@ -20,8 +21,29 @@ function hydrateSlide(slide: HTMLElement) {
   if (srcset) img.srcset = srcset;
   img.sizes = sizes;
   img.alt = alt;
-  img.width = 1024;
-  img.height = 574;
+  img.width = 3840;
+  img.height = 2160;
+  if (avifset) {
+    const picture = document.createElement('picture');
+    const avif = document.createElement('source');
+    avif.type = 'image/avif';
+    avif.srcset = avifset;
+    avif.sizes = sizes;
+    picture.append(avif);
+    if (srcset) {
+      const webp = document.createElement('source');
+      webp.type = 'image/webp';
+      webp.srcset = srcset;
+      webp.sizes = sizes;
+      picture.append(webp);
+    }
+    img.className = 'h-full w-full object-cover';
+    img.decoding = 'async';
+    img.loading = 'lazy';
+    picture.append(img);
+    slide.appendChild(picture);
+    return;
+  }
   img.decoding = 'async';
   img.loading = 'lazy';
   img.className = 'h-full w-full object-cover';

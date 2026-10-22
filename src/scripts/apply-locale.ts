@@ -64,9 +64,15 @@ function meaningfulChildren(el: Element) {
   });
 }
 
+function looksSmashed(source: string, next: string) {
+  const srcSpaces = (source.match(/ /g) || []).length;
+  const nextSpaces = (next.match(/ /g) || []).length;
+  return srcSpaces >= 2 && nextSpaces < Math.max(1, Math.floor(srcSpaces / 3));
+}
+
 function translateValue(value: string, dict: Record<string, string>) {
   const next = lookup(dict, value);
-  if (!next || next === normalize(value)) return value;
+  if (!next || next === normalize(value) || looksSmashed(value, next)) return value;
   const trimmed = value.trim();
   if (value.includes(trimmed)) return value.replace(trimmed, next);
   return next;
@@ -92,7 +98,7 @@ function translateNode(node: Text, dict: Record<string, string>) {
 
   const source = parent?.getAttribute('data-i18n-en') || trimmed;
   const keyed = lookup(dict, source) || lookup(dict, trimmed);
-  if (keyed && parent && elementChildren.length === 0) {
+  if (keyed && parent && elementChildren.length === 0 && !looksSmashed(source, keyed)) {
     node.nodeValue = raw.includes(source) ? raw.replace(source, keyed) : keyed;
     return;
   }
@@ -149,7 +155,7 @@ function translateMixedElements(dict: Record<string, string>) {
     if (!english) continue;
     stampEnglish(el, english);
     const next = lookup(dict, english);
-    if (!next || next === english) continue;
+    if (!next || next === english || looksSmashed(english, next)) continue;
     rewrapLinks(el, next, dict);
   }
 }
@@ -217,32 +223,31 @@ async function loadDict(locale: LocaleCode): Promise<Record<string, string> | nu
   return { ...main, ...blog };
 }
 
-export async function applyLocale(locale = currentLocale()) {
-  applyDocumentLocale(locale);
-  if (locale === 'en') return;
+function isStaleGameDict(dict: Record<string, string>) {
+  const sample = Object.keys(dict).slice(0, 120).join('\n');
+  return /Overwatch|overwatchcheat|The Isle|Dota 2|Juno Overwatch|D\.Va Overwatch/i.test(sample);
+}
 
+export async function applyLocale(_locale = currentLocale()) {
+  applyDocumentLocale(DEFAULT_LOCALE);
   try {
-    const dict = await loadDict(locale);
-    if (!dict) return;
-
-    stampMixedEnglish();
-    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-    const nodes: Text[] = [];
-    while (walker.nextNode()) nodes.push(walker.currentNode as Text);
-    for (const node of nodes) translateNode(node, dict);
-    translateMixedElements(dict);
-    translateAttributes(dict);
+    localStorage.removeItem(LOCALE_STORAGE_KEY);
+    document.cookie = `${LOCALE_STORAGE_KEY}=;path=/;max-age=0;samesite=lax`;
   } catch {
-    // Keep English SSR if a locale file fails.
+    // ignore
   }
 }
 
-export function setLocale(locale: LocaleCode) {
-  localStorage.setItem(LOCALE_STORAGE_KEY, locale);
-  document.cookie = `${LOCALE_STORAGE_KEY}=${locale};path=/;max-age=31536000;samesite=lax`;
+export function setLocale(_locale: LocaleCode) {
+  applyDocumentLocale(DEFAULT_LOCALE);
+  try {
+    localStorage.removeItem(LOCALE_STORAGE_KEY);
+    document.cookie = `${LOCALE_STORAGE_KEY}=;path=/;max-age=0;samesite=lax`;
+  } catch {
+    // ignore
+  }
   const url = new URL(window.location.href);
-  if (locale === DEFAULT_LOCALE) url.searchParams.delete('hl');
-  else url.searchParams.set('hl', locale);
+  url.searchParams.delete('hl');
   window.location.assign(url.pathname + url.search + url.hash);
 }
 

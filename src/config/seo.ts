@@ -8,7 +8,7 @@ export const DEFAULT_OG_IMAGE = '/opengraph.jpg';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
-/** @example @overwatchcheat */
+/** @example @aion2hacks */
 export const TWITTER_SITE = import.meta.env.PUBLIC_TWITTER_SITE as string | undefined;
 
 export const TWITTER_CREATOR = import.meta.env.PUBLIC_TWITTER_CREATOR as string | undefined;
@@ -69,8 +69,8 @@ export function pageTitle(keyword: string, brand = t.site.name): string {
   return `${trimmed}${suffix}`;
 }
 
-export const DEFAULT_OG_IMAGE_WIDTH = 1024;
-export const DEFAULT_OG_IMAGE_HEIGHT = 574;
+export const DEFAULT_OG_IMAGE_WIDTH = 3840;
+export const DEFAULT_OG_IMAGE_HEIGHT = 2160;
 
 export const RSS_FEED_PATH = '/rss.xml';
 

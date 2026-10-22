@@ -298,5 +298,10 @@
     "حالة الطيران / على الأرض",
     "Trạng thái bay / dưới đất",
     "Stan lotu / na ziemi"
-  ]
+  ],
+  "Target & NPC ESP": "Target & NPC ESP",
+  "Item & Loot ESP": "Item & Loot ESP",
+  "Map & Quest ESP": "Map & Quest ESP",
+  "Faction Filter": "Faction Filter",
+  "Combat Assist": "Combat Assist"
 }

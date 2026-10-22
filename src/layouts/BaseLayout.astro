@@ -1,5 +1,5 @@
 ---
-import "@/styles/starwind.css";
+import starwindCss from '@/styles/starwind.css?url';
 import { t } from '../i18n';
 import {
   RSS_FEED_PATH,
@@ -55,6 +55,14 @@ const robotsContent = noindex
 <html lang="en" class="dark" style="color-scheme: dark" translate="no">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="preload" as="style" href={starwindCss} />
+    <link rel="stylesheet" href={starwindCss} />
+    <style is:inline>
+      html,body{background:#0b1018;color:#fafafa}
+      #hero,#hero h1,#hero p{font-family:ui-sans-serif,system-ui,sans-serif}
+    </style>
+    <slot name="head" />
     <script is:inline>
       (function () {
         try {
@@ -66,59 +74,24 @@ const robotsContent = noindex
           document.documentElement.classList.add('dark');
         }
         try {
-          var params = new URLSearchParams(location.search);
-          var hl = params.get('hl') || localStorage.getItem('site-locale') || 'en';
-          var rtl = hl === 'he' || hl === 'ar';
-          document.documentElement.lang = hl === 'zh' ? 'zh-Hans' : hl === 'zh-TW' ? 'zh-Hant' : hl;
-          document.documentElement.dir = rtl ? 'rtl' : 'ltr';
-          document.documentElement.dataset.locale = hl;
-          if (hl && hl !== 'en') {
-            var preload = document.createElement('link');
-            preload.rel = 'preload';
-            preload.as = 'fetch';
-            preload.href = '/locales/' + encodeURIComponent(hl) + '.json';
-            preload.crossOrigin = 'anonymous';
-            document.head.appendChild(preload);
-          }
+          localStorage.removeItem('site-locale');
+          document.cookie = 'site-locale=en;path=/;max-age=0;samesite=lax';
+          document.documentElement.lang = 'en';
+          document.documentElement.dir = 'ltr';
+          document.documentElement.dataset.locale = 'en';
+          document.documentElement.classList.remove('locale-rtl');
         } catch (e) {}
       })();
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <style is:inline>
-      html,body{background:#0b0716;color:#fafafa}
-    </style>
     <meta name="google" content="notranslate" />
     <title>{title}</title>
     <meta name="description" content={description} />
     <meta name="author" content={t.site.name} />
     <meta name="robots" content={robotsContent} />
     <meta name="googlebot" content={robotsContent} />
-    <meta name="theme-color" content="#5B21B6" />
+    <meta name="theme-color" content="#2d6ee2" />
     <link rel="canonical" href={canonical} />
     <link rel="alternate" hreflang="en" href={canonical} />
-    {
-      [
-        ['de', 'de'],
-        ['fr', 'fr'],
-        ['es', 'es'],
-        ['pt', 'pt'],
-        ['ru', 'ru'],
-        ['ja', 'ja'],
-        ['ko', 'ko'],
-        ['zh-Hans', 'zh'],
-        ['zh-Hant', 'zh-TW'],
-        ['he', 'he'],
-        ['tr', 'tr'],
-        ['ar', 'ar'],
-        ['vi', 'vi'],
-        ['pl', 'pl'],
-        ['it', 'it'],
-        ['th', 'th'],
-        ['id', 'id'],
-      ].map(([hreflang, hl]) => (
-        <link rel="alternate" hreflang={hreflang} href={`${canonical}${canonical.includes('?') ? '&' : '?'}hl=${hl}`} />
-      ))
-    }
     <link rel="alternate" hreflang="x-default" href={canonical} />
     <link
       rel="alternate"
@@ -128,11 +101,11 @@ const robotsContent = noindex
     />
     <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
     <link rel="manifest" href="/site.webmanifest" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=ow" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=ow" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=ow" />
-    <link rel="shortcut icon" href="/favicon.ico?v=ow" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=ow" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=aion2" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png?v=aion2" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png?v=aion2" />
+    <link rel="shortcut icon" href="/favicon-32.png?v=aion2" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png?v=aion2" />
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
@@ -147,20 +120,6 @@ const robotsContent = noindex
     <meta property="og:type" content={ogType} />
     <meta property="og:site_name" content={t.site.name} />
     <meta property="og:locale" content="en_US" />
-    <meta property="og:locale:alternate" content="de_DE" />
-    <meta property="og:locale:alternate" content="fr_FR" />
-    <meta property="og:locale:alternate" content="es_ES" />
-    <meta property="og:locale:alternate" content="pt_BR" />
-    <meta property="og:locale:alternate" content="ru_RU" />
-    <meta property="og:locale:alternate" content="ja_JP" />
-    <meta property="og:locale:alternate" content="ko_KR" />
-    <meta property="og:locale:alternate" content="zh_CN" />
-    <meta property="og:locale:alternate" content="zh_TW" />
-    <meta property="og:locale:alternate" content="he_IL" />
-    <meta property="og:locale:alternate" content="tr_TR" />
-    <meta property="og:locale:alternate" content="ar_SA" />
-    <meta property="og:locale:alternate" content="vi_VN" />
-    <meta property="og:locale:alternate" content="pl_PL" />
 
     {
       ogType === 'article' && articlePublishedTime && (
@@ -183,9 +142,6 @@ const robotsContent = noindex
     {TWITTER_SITE && <meta name="twitter:site" content={TWITTER_SITE} />}
     {TWITTER_CREATOR && <meta name="twitter:creator" content={TWITTER_CREATOR} />}
 
-    {jsonLd && <JsonLd data={jsonLd} />}
-    <slot name="head" />
-
   </head>
   <body class="min-h-screen text-foreground">
     <div class="site-atmosphere" aria-hidden="true"></div>
@@ -195,6 +151,7 @@ const robotsContent = noindex
       <slot />
     </main>
     <Footer />
+    {jsonLd && <JsonLd data={jsonLd} />}
     <script>
       import '../scripts/site.ts';
     </script>

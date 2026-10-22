@@ -1,6 +1,6 @@
 import { checkoutForSlug, checkoutPath } from '../config/checkout';
 
-export type ProductPlanId = 'monthly' | 'lifetime';
+export type ProductPlanId = 'weekly' | 'monthly' | 'lifetime';
 
 export interface ProductPlan {
   id: ProductPlanId;
@@ -10,24 +10,26 @@ export interface ProductPlan {
   duration: string;
 }
 
-const standardPlans: ProductPlan[] = [
+const aion2Plans: ProductPlan[] = [
+  { id: 'weekly', label: 'Weekly', priceUsd: 15, priceNote: 'USD / week', duration: 'P7D' },
   { id: 'monthly', label: 'Monthly', priceUsd: 35, priceNote: 'USD / month', duration: 'P30D' },
   { id: 'lifetime', label: 'Lifetime', priceUsd: 150, priceNote: 'USD · one-time', duration: 'P99Y' },
 ];
 
 const dmaPlans: ProductPlan[] = [
+  { id: 'weekly', label: 'Weekly', priceUsd: 15, priceNote: 'USD / week', duration: 'P7D' },
   { id: 'lifetime', label: 'Lifetime', priceUsd: 50, priceNote: 'USD · one-time', duration: 'P99Y' },
 ];
 
 const hwidPlans: ProductPlan[] = [
-  { id: 'monthly', label: 'Monthly', priceUsd: 50, priceNote: 'USD / month', duration: 'P31D' },
-  { id: 'lifetime', label: 'Lifetime', priceUsd: 150, priceNote: 'USD · one-time', duration: 'P99Y' },
+  { id: 'weekly', label: 'Weekly', priceUsd: 15, priceNote: 'USD / week', duration: 'P7D' },
+  { id: 'monthly', label: 'Monthly', priceUsd: 35, priceNote: 'USD / month', duration: 'P30D' },
 ];
 
 export function getProductPlans(productSlug: string): ProductPlan[] {
   if (productSlug === 'dma') return dmaPlans;
   if (productSlug === 'hwid') return hwidPlans;
-  return standardPlans;
+  return aion2Plans;
 }
 
 export function formatPlanPrice(usd: number): string {

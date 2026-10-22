@@ -29,20 +29,20 @@ const heroMarqueePills = [
 
   <div class="relative mx-auto flex max-w-6xl flex-col justify-center px-5">
     <div class="grid items-center gap-10 lg:grid-cols-2 lg:gap-14">
-      <div class="w-full max-w-xl space-y-6 text-left md:space-y-7 lg:max-w-2xl">
+      <div class="flex min-h-[100svh] w-full max-w-xl flex-col justify-center space-y-6 text-left md:space-y-7 lg:min-h-0 lg:max-w-2xl">
         <Badge variant="secondary" class="uppercase tracking-wider">{h.eyebrow}</Badge>
 
-        <h1 id="hero-title" class="text-4xl font-bold uppercase leading-tight md:text-5xl">
+        <h1 id="hero-title" class="text-5xl font-bold uppercase leading-tight md:text-6xl [font-family:ui-sans-serif,system-ui,sans-serif]">
           <span class="block text-primary-accent">{h.titleLine2}</span>
           <span class="mt-2 block text-lg font-semibold uppercase tracking-[0.14em] text-foreground md:text-xl">
             {h.titleLine3}
           </span>
         </h1>
 
-        <p class="max-w-xl text-sm leading-relaxed text-muted-foreground md:text-base">
+        <p class="max-w-xl text-sm leading-relaxed text-muted-foreground line-clamp-2 md:text-base md:line-clamp-none">
           {h.subtitle}
         </p>
-        <p class="max-w-xl text-sm leading-relaxed text-muted-foreground">
+        <p class="max-w-xl text-sm leading-relaxed text-muted-foreground line-clamp-2 md:line-clamp-none">
           {t.ui.startWithThe} <a href={ROUTES.features} class="font-medium text-primary-accent hover:underline">{t.ui.featuresList}</a>,
           {t.ui.compareWord} <a href={ROUTES.store} class="font-medium text-primary-accent hover:underline">{t.ui.monthlyLifetime}</a>,
           {t.ui.thenCheck} <a href={ROUTES.status} class="font-medium text-primary-accent hover:underline">{t.ui.currentStatus}</a>
@@ -67,24 +67,24 @@ const heroMarqueePills = [
             size="lg"
             class="rounded-xl"
           >
-            <Icon name="messageCircle" size={18} />
+            <Icon name="layers" size={18} />
             {h.ctaDiscord}
           </Button>
         </div>
       </div>
 
-      <div class="mx-auto flex w-full min-w-0 max-w-xl flex-col items-center gap-5 lg:mx-0 lg:max-w-[400px] lg:items-end">
+      <div class="mx-auto flex w-full min-w-0 max-w-xl flex-col items-center gap-5 lg:mx-0 lg:max-w-none lg:items-end" data-defer-paint>
         {heroSlides[0] && (
           <div class="w-full overflow-hidden rounded-xl border border-border bg-card p-2 shadow-sm lg:hidden">
             <ResponsiveImage
               src={heroSlides[0].src}
               alt={heroSlides[0].alt}
-              width={400}
-              height={225}
-              widths={[400]}
+              width={3840}
+              height={2160}
+              widths={[960, 1920, 3840]}
               sizes="92vw"
-              loading="eager"
-              fetchPriority="high"
+              loading="lazy"
+              fetchPriority="low"
               mobileOnly
               class="h-auto w-full rounded-lg object-cover"
             />
@@ -110,11 +110,11 @@ const heroMarqueePills = [
       </div>
     </div>
 
-    <div class="hero-status-marquee relative mt-10 md:mt-12 lg:mt-14" aria-hidden="true">
+    <div class="hero-status-marquee relative mt-10 md:mt-12 lg:mt-14" aria-hidden="true" data-defer-paint>
       <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-12 bg-gradient-to-r from-background to-transparent" />
       <div class="pointer-events-none absolute inset-y-0 right-0 z-10 w-12 bg-gradient-to-l from-background to-transparent" />
       <div class="hero-status-marquee-track flex w-max gap-2">
-        {[...heroMarqueePills, ...heroMarqueePills].map((pill) => (
+        {heroMarqueePills.map((pill) => (
           <Badge variant="outline" class="group/badge shrink-0 gap-1 py-0.5 pl-1.5 pr-2.5 text-xs whitespace-nowrap">
             <Icon name={pill.icon} size={13} />
             {pill.label}

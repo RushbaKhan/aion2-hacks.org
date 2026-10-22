@@ -4,6 +4,7 @@ import Icon from './icons/Icon.astro';
 import {
   HERO_IMAGE_SIZES,
   HERO_IMAGE_WIDTHS,
+  avifSrcSet,
   defaultWebpSrc,
   imageSrcSet,
 } from '../utils/responsiveImage';
@@ -40,6 +41,7 @@ const { images, id, desktopOnly = false } = Astro.props;
           class="hero-slider-slide aspect-[16/10] w-full shrink-0 overflow-hidden rounded-lg bg-muted/30"
           data-slide-src={defaultWebpSrc(img.src, HERO_IMAGE_WIDTHS)}
           data-slide-srcset={imageSrcSet(img.src, HERO_IMAGE_WIDTHS) ?? ''}
+          data-slide-avifset={avifSrcSet(img.src, HERO_IMAGE_WIDTHS) ?? ''}
           data-slide-alt={img.alt}
           data-slide-sizes={HERO_IMAGE_SIZES}
         >
@@ -47,11 +49,11 @@ const { images, id, desktopOnly = false } = Astro.props;
             <ResponsiveImage
               src={img.src}
               alt={img.alt}
-              width={1024}
-              height={574}
+              width={3840}
+              height={2160}
               widths={HERO_IMAGE_WIDTHS}
-              loading="eager"
-              fetchPriority="high"
+              loading={desktopOnly ? 'lazy' : 'eager'}
+              fetchPriority={desktopOnly ? 'low' : 'high'}
               sizes={HERO_IMAGE_SIZES}
               desktopOnly={desktopOnly}
               class="h-full w-full object-cover"
@@ -94,9 +96,3 @@ const { images, id, desktopOnly = false } = Astro.props;
   )}
 </div>
 
-{images.length > 1 && (
-  <script>
-    import { setupHeroSlider } from '../scripts/hero-embla.ts';
-    setupHeroSlider();
-  </script>
-)}

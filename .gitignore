@@ -31,5 +31,7 @@ Desktop.ini
 # local tooling
 .seo-baseline/
 .lighthouse*.json
+.lh.json
+.lh-desk.json
 index.html
 

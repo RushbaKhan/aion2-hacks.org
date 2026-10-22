@@ -313,5 +313,10 @@
     "يجيب ESP عن الهوية. يجيب الرادار عن الموقع القريب.",
     "ESP trả lời danh tính. Radar trả lời vị trí gần.",
     "ESP odpowiada na tożsamość. Radar odpowiada na pobliską pozycję."
-  ]
+  ],
+  "Target & NPC ESP": "Target & NPC ESP",
+  "Item & Loot ESP": "Item & Loot ESP",
+  "Map & Quest ESP": "Map & Quest ESP",
+  "Faction Filter": "Faction Filter",
+  "Combat Assist": "Combat Assist"
 }

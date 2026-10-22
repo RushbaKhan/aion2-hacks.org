@@ -21,7 +21,8 @@ function walk(dir) {
       continue;
     }
     const keepOriginal = /[\\/](?:gameplay|extras)[\\/]/i.test(full);
-    const dropWide = /-(?:512|1280|1920|2560|3840)\.webp$/i.test(entry.name);
+    const dropWide =
+      !keepOriginal && /-(?:512|1280|1920|2560|3840)\.(?:webp|avif)$/i.test(entry.name);
     const dropDota = /dota-2/i.test(entry.name);
     const dropSourceRaster =
       !keepOriginal && /\.(?:png|jpe?g)$/i.test(entry.name) && !/^og\./i.test(entry.name);

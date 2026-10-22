@@ -42,9 +42,9 @@ const heroShot = screenshotByRank(0);
     slot="head"
     rel="preload"
     as="image"
-    href={webpSrc(heroShot.src, 400)}
+    href={webpSrc(heroShot.src, 1920)}
     type={displayImageType()}
     fetchpriority="high"
   />
-  <ProductDetail product={product} breadcrumbs={breadcrumbs} />
+  <ProductDetail product={product} breadcrumbs={breadcrumbs} screenshotLimit={1} />
 </BaseLayout>

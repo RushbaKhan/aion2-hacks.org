@@ -6,7 +6,7 @@ declare global {
   }
 }
 
-const creamEase = (t: number) => 1 - (1 - t) ** 4;
+const creamEase = (t: number) => 1 - (1 - t) ** 3.2;
 
 function navOffset(): number {
   const raw = getComputedStyle(document.documentElement).getPropertyValue('--floating-nav-clearance');
@@ -26,16 +26,16 @@ export function initSmoothScroll() {
   if (typeof window === 'undefined') return null;
   if (window.__lenis) return window.__lenis;
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return null;
-  if (window.matchMedia('(max-width: 1024px), (pointer: coarse)').matches) return null;
 
   void import('lenis').then(({ default: Lenis }) => {
     if (window.__lenis) return;
+    const coarse = window.matchMedia('(pointer: coarse)').matches;
     window.__lenis = new Lenis({
       autoRaf: true,
       autoResize: true,
-      lerp: 0.048,
-      wheelMultiplier: 0.62,
-      touchMultiplier: 1,
+      lerp: coarse ? 0.12 : 0.075,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.1,
       smoothWheel: true,
       syncTouch: false,
       allowNestedScroll: true,
@@ -45,7 +45,7 @@ export function initSmoothScroll() {
       prevent: shouldPrevent,
       anchors: {
         offset: navOffset(),
-        duration: 1.65,
+        duration: 1.05,
         easing: creamEase,
       },
     });
@@ -59,7 +59,7 @@ export function smoothScrollTo(target: HTMLElement | number) {
   if (lenis) {
     lenis.scrollTo(target, {
       offset: typeof target === 'number' ? 0 : navOffset(),
-      duration: 1.65,
+      duration: 1.05,
       easing: creamEase,
     });
     return;

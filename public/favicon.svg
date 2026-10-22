@@ -1,18 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Overwatch Cheats">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" role="img" aria-label="Aion 2 Hacks">
   <defs>
-    <linearGradient id="ow-bg" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#2e1065"/>
-      <stop offset="1" stop-color="#0a0614"/>
+    <linearGradient id="a2-bg" x1="8" y1="4" x2="56" y2="60" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#121a28"/>
+      <stop offset="1" stop-color="#0b1018"/>
     </linearGradient>
-    <linearGradient id="ow-mark" x1="14" y1="10" x2="52" y2="54" gradientUnits="userSpaceOnUse">
-      <stop stop-color="#ffc14a"/>
-      <stop offset="1" stop-color="#f99e1a"/>
+    <linearGradient id="a2-mark" x1="14" y1="12" x2="50" y2="52" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7aa7ff"/>
+      <stop offset="1" stop-color="#2d6ee2"/>
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="16" fill="url(#ow-bg)"/>
-  <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" stroke="#4c1d95" stroke-width="1"/>
-  <circle cx="32" cy="32" r="16.8" stroke="url(#ow-mark)" stroke-width="5.6"/>
-  <g transform="translate(34 32) rotate(-40)" fill="none" stroke="url(#ow-mark)" stroke-width="4.7" stroke-linecap="square" stroke-linejoin="miter">
-    <path d="M-7.4 -11 L8.2 0 L-7.4 11"/>
-  </g>
+  <rect width="64" height="64" rx="16" fill="url(#a2-bg)"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="14.5" stroke="#2d6ee2" stroke-width="1.5"/>
+  <path d="M17 49 L32 13 L47 49" stroke="url(#a2-mark)" stroke-width="5.4" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M24 35 H40" stroke="url(#a2-mark)" stroke-width="5.4" stroke-linecap="round"/>
+  <circle cx="47" cy="17.5" r="8" fill="#2d6ee2"/>
+  <path d="M44.2 21.4 V14.4 H46.1 C47.9 14.4 49 15.3 49 16.8 C49 18 48.3 18.7 47.3 18.9 L49.2 21.4 H47.1 L45.4 18.8 H45.9 V21.4 H44.2 Z M45.9 17.5 H46.2 C47 17.5 47.3 17.1 47.3 16.7 C47.3 16.2 47 15.9 46.2 15.9 H45.9 V17.5 Z" fill="#ffffff"/>
 </svg>

@@ -11,20 +11,70 @@ export interface SearchEntry {
 }
 
 const pages: SearchEntry[] = [
-  { title: 'Home', desc: 'Overwatch Cheats for Overwatch 2: aimbot, player ESP, radar, OW characters, and plans.', href: ROUTES.home, type: 'Page' },
-  { title: 'Features', desc: 'Aimbot, player ESP, hero ESP, objective ESP, radar, and team check for Overwatch 2.', href: ROUTES.features, type: 'Page' },
-  { title: 'Store', desc: 'Overwatch Cheats plans: monthly $35 and lifetime $150 for Overwatch 2 on Windows PC.', href: ROUTES.store, type: 'Page' },
-  { title: 'Cloud DMA', desc: 'Cloud DMA extra that runs with Overwatch Cheats. $50 one-time on Windows PC.', href: ROUTES.dma, type: 'Page' },
-  { title: 'HWID Spoofer', desc: 'HWID Spoofer extra that runs with Overwatch Cheats. $50 monthly or $150 lifetime.', href: ROUTES.hwid, type: 'Page' },
-  { title: 'Status', desc: 'Compatibility notes after Overwatch patches and Defense Matrix context.', href: ROUTES.status, type: 'Page' },
-  { title: 'Preview', desc: 'Overlay screenshots for ESP, radar, and aiming features.', href: ROUTES.preview, type: 'Page' },
-  { title: 'Setup', desc: 'Windows PC setup order for Overwatch on Battle.net or Steam.', href: ROUTES.setup, type: 'Page' },
-  { title: 'Blog', desc: 'Overwatch guides: heroes, release notes, ESP, and patch reminders.', href: ROUTES.blog, type: 'Page' },
-  { title: 'Forum', desc: 'Overwatch community forum: ESP, aimbot, setup, and plan Q&A.', href: ROUTES.forum, type: 'Page' },
-  { title: 'FAQ', desc: 'Answers about plans, ESP, compatibility, and checkout.', href: ROUTES.faq, type: 'Page' },
+  {
+    title: 'Home',
+    desc: 'Aion 2 Hacks for Windows PC: weekly, monthly, and lifetime plans plus setup and compatibility guidance.',
+    href: ROUTES.home,
+    type: 'Page',
+  },
+  {
+    title: 'Features',
+    desc: 'Documented Aion 2 Hacks capabilities, configuration options, and compatibility information.',
+    href: ROUTES.features,
+    type: 'Page',
+  },
+  {
+    title: 'Store',
+    desc: 'Aion 2 Hacks plans: weekly $15, monthly $35, and lifetime $150 on Windows PC.',
+    href: ROUTES.store,
+    type: 'Page',
+  },
+  {
+    title: 'Cloud DMA',
+    desc: 'Cloud DMA related product: weekly $15 and lifetime $50 on Windows PC.',
+    href: ROUTES.dma,
+    type: 'Page',
+  },
+  {
+    title: 'HWID Spoofer',
+    desc: 'HWID Spoofer related product: weekly $15 and monthly $35 on Windows PC.',
+    href: ROUTES.hwid,
+    type: 'Page',
+  },
+  {
+    title: 'Status',
+    desc: 'Aion 2 compatibility notes after game updates and published anti-cheat context.',
+    href: ROUTES.status,
+    type: 'Page',
+  },
+  {
+    title: 'Preview',
+    desc: 'Product preview screenshots and documented overlay functionality.',
+    href: ROUTES.preview,
+    type: 'Page',
+  },
+  {
+    title: 'Setup',
+    desc: 'Windows PC setup order and configuration notes for Aion 2 Hacks.',
+    href: ROUTES.setup,
+    type: 'Page',
+  },
+  {
+    title: 'Blog',
+    desc: 'Aion 2 guides: classes, builds, leveling, updates, and PC requirements.',
+    href: ROUTES.blog,
+    type: 'Page',
+  },
+  {
+    title: 'Forum',
+    desc: 'Aion 2 Hacks community forum: setup, plans, and product Q&A.',
+    href: ROUTES.forum,
+    type: 'Page',
+  },
+  { title: 'FAQ', desc: 'Answers about plans, features, compatibility, and checkout.', href: ROUTES.faq, type: 'Page' },
   { title: 'Reviews', desc: 'Evaluation checkpoints before choosing a plan.', href: ROUTES.reviews, type: 'Page' },
   { title: 'Support', desc: 'Purchase, setup, and compatibility help.', href: ROUTES.support, type: 'Page' },
-  { title: 'About', desc: 'What Overwatch Cheat publishes at overwatchcheat.com.', href: ROUTES.about, type: 'Page' },
+  { title: 'About', desc: 'What Aion 2 Hacks publishes at aion2hacks.org.', href: ROUTES.about, type: 'Page' },
 ];
 
 export function getSearchIndex(): SearchEntry[] {

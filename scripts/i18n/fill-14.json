@@ -163,5 +163,10 @@
     "القائمة مخصصة لـ Windows 10 و11 على Steam أو PURPLE. يذكر المورد أيضًا خيارات Cloud DMA وAWS.",
     "Listing dành cho Windows 10 và 11 trên Steam hoặc PURPLE. Nhà cung cấp cũng ghi tùy chọn Cloud DMA và AWS.",
     "Listing dotyczy Windows 10 i 11 na Steam lub PURPLE. Sprzedawca odnotowuje też opcje Cloud DMA i AWS."
-  ]
+  ],
+  "Target & NPC ESP": "Target & NPC ESP",
+  "Item & Loot ESP": "Item & Loot ESP",
+  "Map & Quest ESP": "Map & Quest ESP",
+  "Faction Filter": "Faction Filter",
+  "Combat Assist": "Combat Assist"
 }

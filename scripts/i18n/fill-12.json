@@ -313,5 +313,10 @@
     "عيّن مفتاح ذعر قبل الانضمام إلى خادم مزدحم.",
     "Đặt phím hoảng trước khi vào server đông.",
     "Ustaw klawisz paniki, zanim wejdziesz na zaludniony serwer."
-  ]
+  ],
+  "Target & NPC ESP": "Target & NPC ESP",
+  "Item & Loot ESP": "Item & Loot ESP",
+  "Map & Quest ESP": "Map & Quest ESP",
+  "Faction Filter": "Faction Filter",
+  "Combat Assist": "Combat Assist"
 }

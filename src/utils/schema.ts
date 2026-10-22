@@ -42,14 +42,14 @@ export function websiteSchema() {
     url: `${SITE_ORIGIN}/`,
     inLanguage: 'en-US',
     description:
-      'Overwatch Cheat covers Overwatch cheats, aimbot, player ESP, radar, plans, and Windows PC setup information.',
+      'Aion 2 Hacks covers Aion 2 hacks, player ESP, radar, weekly and monthly plans, and Windows PC setup information.',
   };
 }
 
 export function organizationSchema() {
   const sameAs = [
     ...getOrganizationSameAs(),
-    'https://store.steampowered.com/app/2357570/Overwatch_2/',
+    'https://aion2.plaync.com/',
   ].filter((url, index, list) => list.indexOf(url) === index);
 
   return {
@@ -66,25 +66,7 @@ export function organizationSchema() {
         contactType: 'customer support',
         ...(SUPPORT_EMAIL ? { email: SUPPORT_EMAIL } : {}),
         url: canonicalUrl('/go/'),
-        availableLanguage: [
-          'English',
-          'German',
-          'French',
-          'Spanish',
-          'Portuguese',
-          'Russian',
-          'Japanese',
-          'Korean',
-          'Chinese',
-          'Hebrew',
-          'Turkish',
-          'Arabic',
-          'Vietnamese',
-          'Polish',
-          'Italian',
-          'Thai',
-          'Indonesian',
-        ],
+        availableLanguage: ['English'],
         areaServed: 'Worldwide',
       },
     ],
@@ -183,7 +165,7 @@ export function productSchema(input: {
   image?: string;
   sku?: string;
 }) {
-  const plans = getProductPlans(input.sku ?? 'overwatch');
+  const plans = getProductPlans(input.sku ?? 'aion2');
   const offerBase = {
     url: offerUrl(input.offerUrl),
     availability: 'https://schema.org/InStock',

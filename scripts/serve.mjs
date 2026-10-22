@@ -5,7 +5,7 @@ import zlib from 'node:zlib';
 import { resolvePathRedirect } from './redirects.mjs';
 import { resolveCheckoutPathRedirect } from '../src/config/checkout-redirects.mjs';
 
-const CANONICAL_HOST = 'overwatchcheat.com';
+const CANONICAL_HOST = 'aion2hacks.org';
 const distDir = path.resolve('dist');
 const port = Number(process.env.PORT) || 3000;
 
@@ -118,6 +118,27 @@ function pickEncoding(acceptEncoding = '') {
   return null;
 }
 
+const fileCache = new Map();
+
+function cachedBody(filePath, encoding) {
+  const stat = fs.statSync(filePath);
+  const key = `${filePath}:${encoding || 'raw'}:${stat.mtimeMs}`;
+  const hit = fileCache.get(key);
+  if (hit) return hit;
+
+  const raw = fs.readFileSync(filePath);
+  let body = raw;
+  if (encoding === 'br') {
+    body = zlib.brotliCompressSync(raw, {
+      params: { [zlib.constants.BROTLI_PARAM_QUALITY]: 4 },
+    });
+  } else if (encoding === 'gzip') {
+    body = zlib.gzipSync(raw, { level: 4 });
+  }
+  fileCache.set(key, body);
+  return body;
+}
+
 function sendFile(req, res, filePath, statusCode = 200) {
   const ext = path.extname(filePath).toLowerCase();
   const basename = path.basename(filePath);
@@ -131,9 +152,8 @@ function sendFile(req, res, filePath, statusCode = 200) {
 
   const isSitemap = basename === 'sitemap.xml' || basename === 'sitemap-index.xml' || basename === 'sitemap-0.xml';
   if (isSitemap) {
-    const body = fs.readFileSync(filePath);
+    const body = cachedBody(filePath, null);
     headers['Cache-Control'] = 'public, max-age=3600, must-revalidate, no-transform';
-    headers['X-Content-Type-Options'] = 'nosniff';
     headers['Content-Length'] = String(body.byteLength);
     delete headers.Vary;
     res.writeHead(statusCode, headers);
@@ -141,33 +161,12 @@ function sendFile(req, res, filePath, statusCode = 200) {
     return;
   }
 
-  const encoding =
-    !isSitemap && COMPRESSIBLE.has(ext) && !res.getHeader?.('Content-Encoding')
-      ? pickEncoding(req.headers['accept-encoding'] ?? '')
-      : null;
-
-  const stream = fs.createReadStream(filePath);
-  stream.on('error', () => {
-    res.writeHead(404, { 'Content-Type': 'text/plain; charset=utf-8' });
-    res.end('Not found');
-  });
-
-  if (encoding === 'br') {
-    headers['Content-Encoding'] = 'br';
-    res.writeHead(statusCode, headers);
-    stream.pipe(zlib.createBrotliCompress()).pipe(res);
-    return;
-  }
-
-  if (encoding === 'gzip') {
-    headers['Content-Encoding'] = 'gzip';
-    res.writeHead(statusCode, headers);
-    stream.pipe(zlib.createGzip()).pipe(res);
-    return;
-  }
-
+  const encoding = COMPRESSIBLE.has(ext) ? pickEncoding(req.headers['accept-encoding'] ?? '') : null;
+  const body = cachedBody(filePath, encoding);
+  if (encoding) headers['Content-Encoding'] = encoding;
+  headers['Content-Length'] = String(body.byteLength);
   res.writeHead(statusCode, headers);
-  stream.pipe(res);
+  res.end(req.method === 'HEAD' ? undefined : body);
 }
 
 const server = http.createServer((req, res) => {
