@@ -33,9 +33,9 @@ export function initSmoothScroll() {
     window.__lenis = new Lenis({
       autoRaf: true,
       autoResize: true,
-      lerp: coarse ? 0.12 : 0.075,
-      wheelMultiplier: 1,
-      touchMultiplier: 1.1,
+      lerp: coarse ? 0.1 : 0.06,
+      wheelMultiplier: coarse ? 1 : 0.85,
+      touchMultiplier: 1.05,
       smoothWheel: true,
       syncTouch: false,
       allowNestedScroll: true,

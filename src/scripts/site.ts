@@ -1,5 +1,7 @@
 function nativeScrollTo(target: HTMLElement) {
-  target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  void import('./smooth-scroll').then(({ smoothScrollTo }) => {
+    smoothScrollTo(target);
+  });
 }
 
 function initFonts() {
@@ -71,17 +73,7 @@ function initMobileNav() {
 
 function initSmoothScrollLazy() {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  let started = false;
-  const start = () => {
-    if (started) return;
-    started = true;
-    window.removeEventListener('pointerdown', start);
-    window.removeEventListener('keydown', start);
-    void import('./smooth-scroll').then(({ initSmoothScroll }) => initSmoothScroll());
-  };
-  window.addEventListener('pointerdown', start, { once: true, passive: true });
-  window.addEventListener('keydown', start, { once: true });
-  window.setTimeout(start, 4000);
+  void import('./smooth-scroll').then(({ initSmoothScroll }) => initSmoothScroll());
 }
 
 function initMarquee() {

@@ -4,7 +4,7 @@ import { getPageSeoEntry } from './pageSeo';
 
 export const SITE_ORIGIN = `https://${t.site.domain}`;
 
-export const DEFAULT_OG_IMAGE = '/opengraph.jpg';
+export const DEFAULT_OG_IMAGE = '/opengraph.jpg?v=aion2';
 
 export const GA_MEASUREMENT_ID = import.meta.env.PUBLIC_GA_MEASUREMENT_ID as string | undefined;
 
@@ -69,8 +69,8 @@ export function pageTitle(keyword: string, brand = t.site.name): string {
   return `${trimmed}${suffix}`;
 }
 
-export const DEFAULT_OG_IMAGE_WIDTH = 3840;
-export const DEFAULT_OG_IMAGE_HEIGHT = 2160;
+export const DEFAULT_OG_IMAGE_WIDTH = 1200;
+export const DEFAULT_OG_IMAGE_HEIGHT = 630;
 
 export const RSS_FEED_PATH = '/rss.xml';
 

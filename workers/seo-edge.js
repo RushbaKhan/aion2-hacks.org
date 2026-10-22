@@ -24,13 +24,7 @@ const FALLBACK_SITEMAP = `<?xml version="1.0" encoding="UTF-8"?>
   </url>
 </urlset>
 `;
-const COVER_PATHS = new Set([
-  '/opengraph.jpg',
-  '/og.jpg',
-  '/images/gameplay/aion-garden.jpg',
-  '/images/gameplay/aion-lab.jpg',
-  '/images/gameplay/aion-plaza.jpg',
-]);
+const COVER_PATHS = new Set(['/opengraph.jpg', '/og.jpg']);
 const COVER_ASSET = '/opengraph.jpg';
 
 function isImmutableAsset(pathname) {
