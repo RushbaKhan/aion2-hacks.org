@@ -32,10 +32,10 @@ const featuredPosts = getFeaturedBlogPosts(3);
         <Icon name="arrowRight" size={17} />
       </Button>
       <Button as="a" href={ROUTES.forum} variant="outline">
-        Open forum
+        Visit community threads
       </Button>
       <Button as="a" href={ROUTES.store} variant="outline">
-        View store
+        See plan prices
       </Button>
     </div>
   </div>
@@ -52,22 +52,22 @@ const featuredPosts = getFeaturedBlogPosts(3);
     />
     <ul class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
       {[
-        { href: ROUTES.features, title: 'Aion 2 features', desc: 'Aimbot, player ESP, radar, and target overlays.' },
-        { href: ROUTES.store, title: 'Aion 2 Hacks store', desc: 'Weekly $15, monthly $35, and lifetime $150.' },
-        { href: ROUTES.dma, title: 'Cloud DMA', desc: 'Extra that runs with Aion 2 Hacks.' },
-        { href: ROUTES.hwid, title: 'HWID Spoofer', desc: 'Extra that runs with Aion 2 Hacks.' },
+        { href: ROUTES.features, title: 'Feature list', desc: 'Aimbot, player ESP, radar, and target overlays.' },
+        { href: ROUTES.store, title: 'Store and USD plans', desc: 'Weekly $15, monthly $35, and lifetime $150.' },
+        { href: ROUTES.dma, title: 'Cloud DMA listing', desc: 'Extra that runs with Aion 2 Hacks.' },
+        { href: ROUTES.hwid, title: 'HWID Spoofer listing', desc: 'Extra that runs with Aion 2 Hacks.' },
         { href: '/cheats/', title: 'Hacks overview', desc: 'Listed modules to review before checkout.' },
-        { href: '/esp/', title: 'Player ESP', desc: 'Box, skeleton, health, name, and distance.' },
-        { href: '/radar/', title: 'Radar', desc: '2D and 3D local awareness next to ESP.' },
-        { href: '/aim/', title: 'Aimbot', desc: 'Aim assist, silent aim, and triggerbot.' },
-        { href: '/plans/', title: 'Compare plans', desc: 'Weekly vs monthly vs lifetime access.' },
-        { href: ROUTES.status, title: 'Status', desc: 'Compatibility notes after Aion 2 patches.' },
-        { href: ROUTES.setup, title: 'Windows PC setup', desc: 'First-run order for the official client.' },
-        { href: '/pc/', title: 'PC requirements', desc: 'Windows 10/11 and overlay launch notes.' },
-        { href: '/ac/', title: 'Anti-cheat notes', desc: 'Unverified NCSOFT compatibility context.' },
-        { href: ROUTES.faq, title: 'FAQ', desc: 'Plans, features, setup, and checkout answers.' },
-        { href: ROUTES.blog, title: 'Guides', desc: 'Classes, overlays, and patch-day articles.' },
-        { href: ROUTES.forum, title: 'Community forum', desc: 'Practical answers from the Aion 2 listing.' },
+        { href: '/esp/', title: 'Player ESP page', desc: 'Box, skeleton, health, name, and distance.' },
+        { href: '/radar/', title: 'Radar page', desc: '2D and 3D local awareness next to ESP.' },
+        { href: '/aim/', title: 'Aimbot page', desc: 'Aim assist, silent aim, and triggerbot.' },
+        { href: '/plans/', title: 'Plan comparison', desc: 'Weekly vs monthly vs lifetime access.' },
+        { href: ROUTES.status, title: 'Patch status', desc: 'Compatibility notes after Aion 2 patches.' },
+        { href: ROUTES.setup, title: 'Setup walkthrough', desc: 'First-run order for the official client.' },
+        { href: '/pc/', title: 'PC spec notes', desc: 'Windows 10/11 and overlay launch notes.' },
+        { href: '/ac/', title: 'Risk notes', desc: 'Unverified NCSOFT compatibility context.' },
+        { href: ROUTES.faq, title: 'Common answers', desc: 'Plans, features, setup, and checkout answers.' },
+        { href: ROUTES.blog, title: 'Guide library', desc: 'Classes, overlays, and patch-day articles.' },
+        { href: ROUTES.forum, title: 'Forum board', desc: 'Practical answers from the Aion 2 listing.' },
       ].map((item) => (
         <li>
           <a

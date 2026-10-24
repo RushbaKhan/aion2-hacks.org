@@ -6,30 +6,30 @@ import { Separator } from '@/components/starwind/separator';
 
 const shareUrl = encodeURIComponent(`${SITE_URL}/`);
 const resourceLinks = [
-  { href: '/blog/', label: 'Aion 2 guides', ariaLabel: 'Aion 2 guides' },
-  { href: '/esp/', label: 'Player information guide', ariaLabel: 'Player information guide' },
-  { href: '/aim/', label: 'Combat features guide', ariaLabel: 'Combat features guide' },
-  { href: '/radar/', label: 'Radar features', ariaLabel: 'Radar features' },
-  { href: '/ac/', label: 'Anti-cheat notes', ariaLabel: 'Anti-cheat notes' },
-  { href: '/aion-2-classes/', label: 'Aion 2 classes', ariaLabel: 'Aion 2 classes' },
-  { href: '/aion-2-requirements/', label: 'System requirements', ariaLabel: 'Aion 2 system requirements' },
-  { href: '/cloud-dma/', label: 'Cloud DMA', ariaLabel: 'Cloud DMA' },
-  { href: '/hwid-spoofer/', label: 'HWID Spoofer', ariaLabel: 'HWID Spoofer' },
-  { href: '/forum/', label: 'Community forum', ariaLabel: 'Community forum' },
+  { href: '/blog/', label: 'Article library', ariaLabel: 'Aion 2 article library' },
+  { href: '/esp/', label: 'Overlay information notes', ariaLabel: 'Overlay information notes' },
+  { href: '/aim/', label: 'Combat module notes', ariaLabel: 'Combat module notes' },
+  { href: '/radar/', label: 'Radar module notes', ariaLabel: 'Radar module notes' },
+  { href: '/ac/', label: 'Anti-cheat context', ariaLabel: 'Anti-cheat context' },
+  { href: '/aion-2-classes/', label: 'Class role notes', ariaLabel: 'Class role notes' },
+  { href: '/aion-2-requirements/', label: 'Hardware requirements', ariaLabel: 'Aion 2 hardware requirements' },
+  { href: '/cloud-dma/', label: 'Cloud DMA extra', ariaLabel: 'Cloud DMA extra' },
+  { href: '/hwid-spoofer/', label: 'HWID Spoofer extra', ariaLabel: 'HWID Spoofer extra' },
+  { href: '/forum/', label: 'Forum threads', ariaLabel: 'Forum threads' },
   { href: DISCORD_INVITE, label: t.footer.support },
 ];
 
 const popularSearches = [
-  { href: '/', label: 'Aion 2 hacks' },
+  { href: '/', label: 'Homepage overview' },
   { href: '/cheats/', label: 'Aion 2 cheats' },
-  { href: '/aion-2-classes/', label: 'Aion 2 classes' },
-  { href: '/aion-2-builds/', label: 'Aion 2 builds' },
-  { href: '/aion-2-leveling/', label: 'Aion 2 leveling' },
-  { href: '/aion-2-updates/', label: 'Aion 2 updates' },
-  { href: '/aion-2-requirements/', label: 'Aion 2 requirements' },
-  { href: '/plans/', label: 'Weekly vs monthly vs lifetime' },
-  { href: '/store/', label: 'Aion 2 store' },
-  { href: '/features/', label: 'Aion 2 features' },
+  { href: '/aion-2-classes/', label: 'Class guide for Aion 2' },
+  { href: '/aion-2-builds/', label: 'Build guide for Aion 2' },
+  { href: '/aion-2-leveling/', label: 'Leveling guide for Aion 2' },
+  { href: '/aion-2-updates/', label: 'Update notes for Aion 2' },
+  { href: '/aion-2-requirements/', label: 'Aion 2 PC specs' },
+  { href: '/plans/', label: 'Duration vs price' },
+  { href: '/store/', label: 'Checkout store' },
+  { href: '/features/', label: 'Listed feature set' },
 ];
 
 const legalLinks = [
@@ -44,7 +44,7 @@ const legalLinks = [
     <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
       <div class="space-y-4">
         <a href="/" class="inline-flex items-center font-[family-name:var(--font-heading)] text-lg font-bold">
-          <span>Aion 2 <span class="text-primary">Hacks</span></span>
+          <span>aion2hacks.org</span>
         </a>
         <p class="text-sm text-muted-foreground">{t.footer.tagline}</p>
       </div>

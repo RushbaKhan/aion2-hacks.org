@@ -31,26 +31,34 @@ function link(text: string, href: string): string {
 }
 
 const store = link('Aion 2 store', ROUTES.store);
+const storePricing = link('Aion 2 pricing table', ROUTES.store);
+const storeCatalog = link('Aion 2 store catalog', ROUTES.store);
 const features = link('features page', ROUTES.features);
+const featuresCatalog = link('full features catalog', ROUTES.features);
 const status = link('status page', ROUTES.status);
+const statusBoard = link('compatibility status board', ROUTES.status);
 const setup = link('setup page', ROUTES.setup);
+const setupInstructions = link('setup instructions', ROUTES.setup);
 const faqPage = link('full FAQ', ROUTES.faq);
-const blog = link('Aion 2 guides', ROUTES.blog);
-const forum = link('community forum', ROUTES.forum);
+const blog = link('Aion 2 article hub', ROUTES.blog);
+const forum = link('Aion 2 Q&A forum', ROUTES.forum);
 const preview = link('preview gallery', ROUTES.preview);
+const overlayGallery = link('overlay screenshot gallery', ROUTES.preview);
 const reviews = link('reviews checklist', ROUTES.reviews);
 const support = link('Discord', ROUTES.support);
-const playerEsp = link('player ESP guide', '/esp/');
+const playerEsp = link('player ESP article', '/esp/');
 const targetGuide = link('target and NPC ESP', '/radar/');
 const lootGuide = link('item and loot cues', '/features/');
 const radarGuide = link('radar features', '/radar/');
 const aimGuide = link('aimbot notes', '/aim/');
 const setupGuide = link('Windows PC setup guide', '/pc/');
+const pcChecklist = link('PC first-run checklist', '/pc/');
 const compatGuide = link('compatibility notes', '/ac/');
+const riskNotes = link('NCSOFT risk notes', '/ac/');
 const plansGuide = link('weekly, monthly, and lifetime', '/plans/');
 const cheatsGuide = link('Aion 2 hacks overview', '/cheats/');
-const dmaPage = link('Cloud DMA', ROUTES.dma);
-const hwidPage = link('HWID Spoofer', ROUTES.hwid);
+const dmaPage = link('Cloud DMA product page', ROUTES.dma);
+const hwidPage = link('HWID Spoofer product page', ROUTES.hwid);
 
 export const siteFaqs: SiteFaqItem[] = [
   {
@@ -65,35 +73,35 @@ export const siteFaqs: SiteFaqItem[] = [
     topic: 'setup',
     icon: 'faqAfterBuy',
     q: 'What happens after I buy?',
-    a: `Checkout provides access and setup instructions. Follow those notes plus the ${setup} for Windows PC before launching Aion 2. The ${setupGuide} covers a conservative first profile.`,
+    a: `Checkout provides access and setup instructions. Follow those notes plus the ${setup} for Windows PC before launching Aion 2. The ${pcChecklist} covers a conservative first profile.`,
   },
   {
     id: 'ban-risk',
     topic: 'safety',
     icon: 'faqBanRisk',
     q: 'Can I get banned using third-party Aion 2 software?',
-    a: `Yes. Any third-party modification can conflict with NCSOFT terms and anti-cheat systems and may lead to account action. You use this software at your own risk. Read the ${compatGuide} and ${status} before you launch.`,
+    a: `Yes. Any third-party modification can conflict with NCSOFT terms and anti-cheat systems and may lead to account action. You use this software at your own risk. Read the ${riskNotes} and ${statusBoard} before you launch.`,
   },
   {
     id: 'platforms',
     topic: 'setup',
     icon: 'faqPlatforms',
     q: 'Which platforms are supported?',
-    a: `Aion 2 on Windows 10/11 PC. macOS, Linux, and consoles are not listed. Confirm the client in the ${setupGuide} and ${setup}.`,
+    a: `Aion 2 on Windows 10/11 PC. macOS, Linux, and consoles are not listed. Confirm the client in the ${setupGuide} and ${setupInstructions}.`,
   },
   {
     id: 'plans',
     topic: 'plans',
     icon: 'faqComparePlans',
     q: 'What plans are available?',
-    a: `${store} lists Weekly access at $15 (P7D), Monthly access at $35 (P30D), and Lifetime access at $150 (P99Y), all in USD. ${plansGuide} compares duration without changing the feature list.`,
+    a: `${storePricing} lists Weekly access at $15 (P7D), Monthly access at $35 (P30D), and Lifetime access at $150 (P99Y), all in USD. ${plansGuide} compares duration without changing the feature list.`,
   },
   {
     id: 'products-page',
     topic: 'plans',
     icon: 'faqProductsPage',
     q: 'Where can I review features and pricing?',
-    a: `${store} lists weekly, monthly, and lifetime plans, available features, and the checkout path. The ${features} collects the same modules in more detail, the ${preview} shows overlay screenshots, and the ${forum} keeps guide discussions.`,
+    a: `${storeCatalog} lists weekly, monthly, and lifetime plans, available features, and the checkout path. The ${featuresCatalog} collects the same modules in more detail, the ${overlayGallery} shows overlay screenshots, and the ${forum} keeps guide discussions.`,
   },
   {
     id: 'what-is-esp',

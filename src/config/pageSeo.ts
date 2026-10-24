@@ -1,6 +1,6 @@
 /**
  * Central titles/descriptions for high-traffic routes.
- * Titles stay concise for SERP display. Descriptions target ~150–160 characters.
+ * Titles stay concise for SERP display. Homepage description stays under ~120 characters / 1000px.
  */
 
 export interface PageSeoEntry {
@@ -12,7 +12,7 @@ export const PAGE_SEO: Record<string, PageSeoEntry> = {
   '/': {
     title: 'Aion 2 Hacks | Features, Plans and Product Information',
     description:
-      'Explore Aion 2 hacks for compatible PC configurations. Review available product information, compare weekly, monthly and lifetime plans, and find setup and compatibility guidance.',
+      'Aion 2 Hacks for Windows PC. Compare weekly, monthly, and lifetime plans, then review setup and compatibility notes.',
   },
   '/features/': {
     title: 'Aion 2 Features | Aion 2 Hacks',

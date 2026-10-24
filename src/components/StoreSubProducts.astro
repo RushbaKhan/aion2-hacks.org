@@ -50,8 +50,8 @@ function priceLine(slug: string) {
                 icon={cheatTierIcons[item.name] ?? 'package'}
                 badge={item.badge}
                 desc={item.desc}
-                buyLabel="Buy now"
-                viewLabel="View details"
+                buyLabel={`Buy ${item.title}`}
+                viewLabel={`Open ${item.title} page`}
               />
             ))}
           </div>
@@ -87,11 +87,11 @@ function priceLine(slug: string) {
                   </ul>
                   <div class="mt-6 flex flex-col gap-2 sm:flex-row">
                     <Button as="a" href={item.buyUrl} variant="primary" class="sm:flex-1">
-                      Buy now
+                      {`Buy ${item.title}`}
                       <Icon name="arrowRight" size={17} />
                     </Button>
                     <Button as="a" href={productPath(item.slug)} variant="outline" class="sm:flex-1">
-                      View details
+                      {`Open ${item.title} page`}
                       <Icon name="arrowRight" size={17} />
                     </Button>
                   </div>
